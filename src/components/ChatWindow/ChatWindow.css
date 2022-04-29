@@ -1,0 +1,13 @@
+.chat-window {
+  background-color: white;
+
+  /* height: 350px; */
+  height: 60%;
+  width: 100%;
+
+
+  display: flex;
+  justify-content: center;
+}
+
+

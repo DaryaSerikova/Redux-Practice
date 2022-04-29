@@ -1,0 +1,19 @@
+.App {
+  background-color: rgb(235, 235, 235);
+  height: 800px;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper-chat-window {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  border: 2px solid rgb(216, 215, 215);
+  background-color: rgb(247, 247, 247);
+  width: 80%;
+  height: 600px;
+
+  /* align-items: center;  */
+}
