@@ -6,21 +6,23 @@ import { Panel } from '../Panel/Panel';
 function App() {
 
   //Reducer
-  const reducer = (state = 0, action) => { // для state === undefined
+  // const reducer = (state = 0, action) => { // для state === undefined
 
-    switch (action.type) {
-      case 'INC':
-        return state + 1;
+  //   switch (action.type) {
+  //     case 'INC':
+  //       return state + 1;
 
-      default:
-        return state;
-    }
-  };
+  //     default:
+  //       return state;
+  //   }
+  // };
 
-  const store = createStore(reducer);
-  console.log(store.getState());
+  // const store = createStore(reducer);
+  // console.log(store.getState());
 
-  store.dispatch({type: 'INC'});
+  // store.dispatch({type: 'INC'});
+
+  
 
   // let state = reducer(undefined, {}); //инициализация
 
