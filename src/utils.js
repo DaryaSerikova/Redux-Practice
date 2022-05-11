@@ -1,7 +1,4 @@
 
-  
-
-
 export const messageInfo = { 
   value: '', 
   to: 'Оксана', 

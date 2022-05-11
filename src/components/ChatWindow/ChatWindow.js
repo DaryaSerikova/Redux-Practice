@@ -23,6 +23,18 @@ const ChatWindow = ({ storeMessage, getCurrentValue, putStoreMessage }) => {
 
 
 
+
+  const newMessage = '';
+
+  const storeMessage = createStore(reducerMessageStore);
+  storeMessage.subscribe(() => {
+    console.log('storeMessage.getState()', storeMessage.getState());
+    newMessage = storeMessage.getState()[storeMessage.length - 1].value;
+    console.log('newMessage', newMessage);
+  })
+
+
+
   return (
     <>
       <div className='chat-window'> окошко</div>

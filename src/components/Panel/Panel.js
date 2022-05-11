@@ -1,7 +1,9 @@
 import './Panel.css';
+
 import { createStore } from 'redux';
 import { reducer, reducerMessageStore } from '../../redux/reducer';
 import { getCurrentValue, putStoreMessage, resetState } from '../../redux/actions';
+
 import { messageInfo } from '../../utils';
 
 
