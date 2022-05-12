@@ -8,37 +8,28 @@ import { connect } from 'react-redux';
 import { getCurrentValue, putStoreMessage } from '../../redux/actions'; //{ getCurrentValue, putStoreMessage } 
 import * as actions from 'redux';
 
-const ChatWindow = ({ storeMessage, getCurrentValue, putStoreMessage }) => {
+const ChatWindow = ({ store: storeMessage, getCurrentValue, putStoreMessage }) => {
 
 
-
-  const newMessageSubmit = '';
+  // const newMessageSubmit = '';
 
   // const storeMessage = createStore(reducerMessageStore);
   // storeMessage.subscribe(() => {
   //   console.log('storeMessage.getState() (in ChatWindow)', storeMessage.getState());
-    newMessageSubmit = storeMessage.getState()[storeMessage.length - 1].value;
+  let arrStoreMessage = storeMessage;
+  if (arrStoreMessage === undefined) arrStoreMessage = [];
+  const newMessageSubmit = arrStoreMessage[arrStoreMessage.length - 1]; //берем последний объект (полную информацию о последнем сообщении)
+
   //   console.log('newMessageSubmit', newMessageSubmit);
   // })
 
 
 
 
-  const newMessage = '';
-
-  const storeMessage = createStore(reducerMessageStore);
-  storeMessage.subscribe(() => {
-    console.log('storeMessage.getState()', storeMessage.getState());
-    newMessage = storeMessage.getState()[storeMessage.length - 1].value;
-    console.log('newMessage', newMessage);
-  })
-
-
-
   return (
     <>
       <div className='chat-window'> окошко</div>
-      <div>{newMessageSubmit}</div>
+      <div>{newMessageSubmit&&newMessageSubmit.value}</div>
     </>
   )
 }
@@ -46,22 +37,25 @@ const ChatWindow = ({ storeMessage, getCurrentValue, putStoreMessage }) => {
 
 const mapStateToProps = (state) => { //берет текущий state из store
   return { //возвращает свойства, которые нужны
-    counter: state //наш counter это весь state
+    storeMessage: state //наш counter это весь state
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
 
-  const { getCurrentValue, putStoreMessage } = actions.bindActionCreators(actions, dispatch);
+  // const { getCurrentValue, putStoreMessage } = actions.bindActionCreators(actions, dispatch);
 
   return {
-    getCurrentValue: () => {
-      const randomValue = 15; // написать нормальную переменную
-      getCurrentValue(randomValue);
-    },
-    putStoreMessage: () => {
-      const variable = 0; //здесь тоже
-      putStoreMessage(variable);
+    // getCurrentValue: () => {
+    //   const randomValue = 15; // написать нормальную переменную
+    //   getCurrentValue(randomValue);
+    // },
+
+    putStoreMessage: (newMessage) => {
+      dispatch({
+        type: 'PUT_IN_MESSAGE_STORE',
+        payload: newMessage
+      })
     },
   }
 };

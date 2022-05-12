@@ -3,15 +3,16 @@ import './Panel.css';
 import { createStore } from 'redux';
 import { reducer, reducerMessageStore } from '../../redux/reducer';
 import { getCurrentValue, putStoreMessage, resetState } from '../../redux/actions';
+import { connect } from 'react-redux';
 
 import { messageInfo } from '../../utils';
 
 
 
-export const Panel = () => {
+const Panel = ({ store: storeMessage }) => {
 
   const storeCurrentValue = createStore(reducer);
-  const storeMessage = createStore(reducerMessageStore);
+  // const storeMessage = createStore(reducerMessageStore);
   
   
   const onChange = (e) => {
@@ -77,3 +78,36 @@ export const Panel = () => {
     </form>
   )
 }
+
+
+
+
+const mapStateToProps = (state) => { //берет текущий state из store
+  return { //возвращает свойства, которые нужны
+    storeMessage: state //наш counter это весь state
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+
+  // const { getCurrentValue, putStoreMessage } = actions.bindActionCreators(actions, dispatch);
+
+  return {
+
+    // getCurrentValue: (newCurrentValue) => {
+    //   dispatch ({
+    //       type: 'GET_CURRENT_VALUE', 
+    //       payload: newCurrentValue
+    //   })
+    // },
+
+    putStoreMessage: (newMessage) => {
+      dispatch({
+        type: 'PUT_IN_MESSAGE_STORE',
+        payload: newMessage
+      })
+    },
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Panel);

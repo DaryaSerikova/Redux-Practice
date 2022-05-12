@@ -1,7 +1,7 @@
 import { createStore } from 'redux';
 import './App.css';
 import ChatWindow from '../ChatWindow/ChatWindow';
-import { Panel } from '../Panel/Panel';
+import Panel from '../Panel/Panel';
 
 function App() {
 

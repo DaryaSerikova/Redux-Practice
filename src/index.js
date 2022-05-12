@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { reducer } from './redux/reducer';
+import { reducer, reducerMessageStore } from './redux/reducer';
 import App from './components/App/App';
 import { createStore } from 'redux';
 // import reportWebVitals from './reportWebVitals';
 
-const storeMessage = createStore(reducer);
+const storeMessage = createStore(reducerMessageStore);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
   {/* В Provider уже реализована подписка на изменения store */}
-    <Provider storeMessage={storeMessage}> 
+    <Provider store={storeMessage}> 
       <App />
     </Provider>
   </React.StrictMode>
