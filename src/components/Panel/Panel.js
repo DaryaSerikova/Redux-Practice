@@ -62,7 +62,7 @@ const Panel = ({ store: storeMessage }) => {
       <textarea 
         className='textarea' 
         placeholder='Напишите сообщение..' 
-        value={storeCurrentValue.getState()}
+        value={mapStateToProps.storeMessage && mapStateToProps.storeMessage.value}
         onChange={onChange}
       ></textarea>
 
