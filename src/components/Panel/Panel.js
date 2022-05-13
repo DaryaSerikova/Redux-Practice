@@ -1,26 +1,33 @@
 import './Panel.css';
 
-import { createStore } from 'redux';
-import { reducer, reducerMessageStore } from '../../redux/reducer';
-import { getCurrentValue, putStoreMessage, resetState } from '../../redux/actions';
+// import { createStore } from 'redux';
+// import { reducer, reducerMessageStore } from '../../redux/reducer';
+// import { getCurrentValue, putStoreMessage, resetState } from '../../redux/actions';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { updateToNewCurrentMessage, addNewMessage } from '../../redux/actions';
 
-import { messageInfo } from '../../utils';
+// import { messageInfo } from '../../utils';
 
 
 
-const Panel = ({ store: storeMessage }) => {
+const Panel = (store) => { //{ store: storeMessage }
 
-  const storeCurrentValue = createStore(reducer);
-  // const storeMessage = createStore(reducerMessageStore);
+  const { storeMessage, updateToNewCurrentMessage, addNewMessage } = store;
+
+  // const storeCurrentValue = createStore(reducer);
   
   
   const onChange = (e) => {
 
-    storeCurrentValue.subscribe(() => {
-      console.log('storeCurrentValue.getState() (в onChange)', storeCurrentValue.getState());
+    store.subscribe(() => { //storeCurrentValue.subscribe(() => {
+      // console.log('storeCurrentValue.getState() (в onChange)', storeCurrentValue.getState());
+      console.log('store.current_message (в onChange)', storeMessage);
+
     });
-    storeCurrentValue.dispatch(getCurrentValue(e.target.value))// это нужно отправить в redux в state
+
+    // storeCurrentValue.dispatch(getCurrentValue(e.target.value))// это нужно отправить в redux в state
+    storeMessage.dispatch(updateToNewCurrentMessage(e.target.value))// это нужно отправить в redux в state
     
   }
 
@@ -32,37 +39,36 @@ const Panel = ({ store: storeMessage }) => {
     // 3. reset текущего state и textarea
     // 4. добавить в историю сообщений (другой state) объект
     //    { value: 'Привет!', to: 'Оксана', from: 'Дарья', date: '21.08.2022 23:45'}
-    messageInfo.value = storeCurrentValue.getState();
-    messageInfo.date = new Date();
+    // messageInfo.value = storeCurrentValue.getState();
+    // messageInfo.date = new Date();
 
-    console.log('storeMessage.getState()', storeMessage.getState())
+    // console.log('storeMessage.getState()', storeMessage.getState())
+    console.log('storeMessage', storeMessage)
 
-    storeMessage.subscribe(() => {
+
+    store.subscribe(() => { //storeMessage.subscribe(() =>
       console.log('storeMessage.getState() (в onSubmit)', storeMessage.getState());
     });
-    storeMessage.dispatch(putStoreMessage(messageInfo));
-    console.log('storeMessage.getState()', storeMessage.getState())
-    console.log('messageInfo.value before reset', messageInfo.value);
-    // messageInfo.value = '';
-    // store.dispatch(currentValue(messageInfo));
+
+    const currentValue = storeMessage;
+
+    // storeMessage.dispatch(putStoreMessage(messageInfo));
+    storeMessage.dispatch(addNewMessage(currentValue));
 
 
-    // store.dispatch(resetState());
-    // storeCurrentValue.dispatch(currentValue(''));
-    // storeCurrentValue.dispatch(resetState());
+
+    // console.log('storeMessage.getState()', storeMessage.getState())
+    console.log('storeMessage', storeMessage)
 
 
-    console.log('messageInfo.value after reset', messageInfo.value);
-
-    // store.dispatch(storeMessage())
   }
 
   return( //Переписать на форму
     <form  className='panel' onSubmit={onSubmit}>
       <textarea 
         className='textarea' 
-        placeholder='Напишите сообщение..' 
-        value={mapStateToProps.storeMessage && mapStateToProps.storeMessage.value}
+        placeholder='Write message..' 
+        value={mapStateToProps.storeMessage && mapStateToProps.storeMessage}
         onChange={onChange}
       ></textarea>
 
@@ -72,7 +78,7 @@ const Panel = ({ store: storeMessage }) => {
           className='btn btn-success custom-btn'
           
           >
-          Отправить
+          Send
           </button>
       </div>
     </form>
@@ -84,7 +90,7 @@ const Panel = ({ store: storeMessage }) => {
 
 const mapStateToProps = (state) => { //берет текущий state из store
   return { //возвращает свойства, которые нужны
-    storeMessage: state //наш counter это весь state
+    storeMessage: state.current_message
   }
 }
 
@@ -92,22 +98,48 @@ const mapDispatchToProps = (dispatch) => {
 
   // const { getCurrentValue, putStoreMessage } = actions.bindActionCreators(actions, dispatch);
 
-  return {
+  // return {
 
-    // getCurrentValue: (newCurrentValue) => {
-    //   dispatch ({
-    //       type: 'GET_CURRENT_VALUE', 
-    //       payload: newCurrentValue
-    //   })
+  //   putStoreMessage: (newMessage) => {
+  //     dispatch({
+  //       type: 'PUT_IN_MESSAGE_STORE',
+  //       payload: newMessage
+  //     })
+  //   },
+  // }
+
+  // return {
+  //   //1 способ
+  //   // updateToNewCurrentMessage: (newCurrentMessage) => {
+  //   //   dispatch ({
+  //   //     type: 'current_message/updateToNewCurrentMessage',
+  //   //     payload: newCurrentMessage
+  //   //   })
+  //   // },
+
+  //   // addNewMessage: (newCurrentMessage) => {
+  //   //   dispatch({
+  //   //     type: 'message_store/addNewMessage',
+  //   //     payload: newCurrentMessage
+  //   //   })
+  //   // },
+    
+    // // 2 способ
+    // updateToNewCurrentMessage: (newCurrentMessage) => {
+    //   dispatch (updateToNewCurrentMessage(newCurrentMessage))
     // },
 
-    putStoreMessage: (newMessage) => {
-      dispatch({
-        type: 'PUT_IN_MESSAGE_STORE',
-        payload: newMessage
-      })
-    },
-  }
+    // addNewMessage: (newCurrentMessage) => {
+    //   dispatch(addNewMessage(newCurrentMessage))
+    // },
+  // }
+
+  return bindActionCreators({
+    updateToNewCurrentMessage, 
+    addNewMessage
+  }, dispatch);
+
 };
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Panel);

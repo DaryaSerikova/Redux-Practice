@@ -1,0 +1,34 @@
+.sidebar {
+  background-color: rgb(241 241 241);
+  border: 2px solid rgb(229 229 229);
+  height: 600px;
+  min-width: 175px;
+
+  /* position: absolute; */
+  left: 0;
+  top: 0;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  background-color: rgba(255, 255, 255, 0);
+  display: none;
+}
+
+/* Убрать полосу прокрутки у элемента */
+/* .element::-webkit-scrollbar {
+  width: 0; */
+  /* background: rgba(0, 0, 0, 0); */
+/* } */
+
+/* ::-webkit-scrollbar — это фон самого скроллбара.
+::-webkit-scrollbar-button — кнопки направления на полосе прокрутки.
+::-webkit-scrollbar-track — пустое пространство под индикатором прокрутки.
+::-webkit-scrollbar-thumb — индикатор прокрутки, перетаскиваемый элемент. */
+
+@media (max-width: 650px) {
+
+  .sidebar {
+    width: 30%;
+  }
+}

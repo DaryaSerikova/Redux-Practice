@@ -28,7 +28,7 @@ const ChatWindow = ({ store: storeMessage, getCurrentValue, putStoreMessage }) =
 
   return (
     <>
-      <div className='chat-window'> окошко</div>
+      <div className='chat-window'></div>
       <div>{newMessageSubmit&&newMessageSubmit.value}</div>
     </>
   )
