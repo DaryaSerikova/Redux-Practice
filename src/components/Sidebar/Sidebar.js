@@ -10,6 +10,7 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar">
+      <input type='text' placeholder='Search...' className='search'></input>
       <Users/>
     </div>
   )
