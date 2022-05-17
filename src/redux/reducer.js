@@ -1,8 +1,13 @@
  // import { getValue } from "@testing-library/user-event/dist/utils";
+ import { arrUsers } from "../components/Users/ArrUsers"
 
 const initialState = {
   current_message: {},
-  message_store: []
+  message_store: [],
+  users: {
+    initial_users: [arrUsers],
+    searched_users: []
+  }
 }
 
 export const reducer = (state = initialState, action) => {

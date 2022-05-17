@@ -7,6 +7,13 @@ import { connect } from 'react-redux';
 
 import { getCurrentValue, putStoreMessage } from '../../redux/actions'; //{ getCurrentValue, putStoreMessage } 
 import * as actions from 'redux';
+import { Message } from '../Message/Message';
+
+// const Message = () => {
+//   return (
+//     <div className='message'>Привет! Как дела?</div>
+//   )
+// }
 
 const ChatWindow = ({ store: storeMessage, getCurrentValue, putStoreMessage }) => {
 
@@ -28,8 +35,11 @@ const ChatWindow = ({ store: storeMessage, getCurrentValue, putStoreMessage }) =
 
   return (
     <>
-      <div className='chat-window'></div>
-      <div>{newMessageSubmit&&newMessageSubmit.value}</div>
+      <div className='chat-window'>
+        <Message />
+      </div>
+      {/* <div>{newMessageSubmit&&newMessageSubmit.value}</div> */}
+      
     </>
   )
 }

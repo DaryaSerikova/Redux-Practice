@@ -14,17 +14,15 @@ import { updateToNewCurrentMessage, addNewMessage } from '../../redux/actions';
 const Panel = (store) => { //{ store: storeMessage }
 
   const { storeMessage, updateToNewCurrentMessage, addNewMessage } = store;
+  console.log('CHECK', storeMessage)
 
   // const storeCurrentValue = createStore(reducer);
   
   
   const onChange = (e) => {
 
-    store.subscribe(() => { //storeCurrentValue.subscribe(() => {
-      // console.log('storeCurrentValue.getState() (в onChange)', storeCurrentValue.getState());
-      console.log('store.current_message (в onChange)', storeMessage);
 
-    });
+    
 
     // storeCurrentValue.dispatch(getCurrentValue(e.target.value))// это нужно отправить в redux в state
     storeMessage.dispatch(updateToNewCurrentMessage(e.target.value))// это нужно отправить в redux в state
@@ -46,9 +44,9 @@ const Panel = (store) => { //{ store: storeMessage }
     console.log('storeMessage', storeMessage)
 
 
-    store.subscribe(() => { //storeMessage.subscribe(() =>
-      console.log('storeMessage.getState() (в onSubmit)', storeMessage.getState());
-    });
+    // store.subscribe(() => { //storeMessage.subscribe(() =>
+    //   console.log('storeMessage.getState() (в onSubmit)', storeMessage.getState());
+    // });
 
     const currentValue = storeMessage;
 
