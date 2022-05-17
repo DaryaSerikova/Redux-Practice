@@ -13,7 +13,15 @@ export const Users = () => {
 
   const users = arrUsers.map((user) => {
     // return <div className='user'>{user.firstName} {user.lastName}</div>
-    return <div className='user'>{ user }</div>
+    return (
+    <div 
+      className='user' 
+      name={user} 
+      // onClick={()}
+    >
+      { user }
+    </div>
+    )
   })
 
   return users;
