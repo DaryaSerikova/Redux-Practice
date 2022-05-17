@@ -1,5 +1,13 @@
- // import { getValue } from "@testing-library/user-event/dist/utils";
- import { arrUsers } from "../components/Users/ArrUsers"
+// import { getValue } from "@testing-library/user-event/dist/utils";
+import { arrUsers } from "../components/Users/ArrUsers"
+
+
+const getPersonId = (lastId) => {
+
+  return lastId + 1;
+}
+
+
 
 const initialState = {
   current_message: {},
@@ -10,6 +18,15 @@ const initialState = {
   }
 }
 
+// const initialState = {
+//   current_message: {},
+//   message_store: [],
+//   users: {
+//     initial_users: [arrUsers],
+//     searched_users: []
+//   }
+// }
+
 export const reducer = (state = initialState, action) => {
 
   switch (action.type) {
@@ -17,10 +34,10 @@ export const reducer = (state = initialState, action) => {
     case 'current_message/updateToNewCurrentMessage': //новое текущее сообщение
       return {
         ...state,
-        current_message: { ...action.payload }
+        current_message: action.payload
       }
     
-    case 'message_store/addNewMessage':
+    case 'message_store/addNewMessageToStore':
       return {
         ...state,
         message_store: [

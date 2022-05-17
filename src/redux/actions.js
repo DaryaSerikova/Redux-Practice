@@ -25,9 +25,9 @@ export const updateToNewCurrentMessage = (newCurrentMessage) => {
   }
 } //message или value??? что лучше
 
-export const addNewMessage = (newCurrentMessage) => {
+export const addNewMessageToStore = (newCurrentMessage) => {
   return {
-    type: 'message_store/addNewMessage',
+    type: 'message_store/addNewMessageToStore',
     payload: newCurrentMessage
   }
 }

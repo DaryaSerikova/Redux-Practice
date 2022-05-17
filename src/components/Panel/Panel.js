@@ -1,33 +1,18 @@
+import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
+import { updateToNewCurrentMessage, addNewMessageToStore } from '../../redux/actions';
+// import { messageInfo } from '../../utils';
 import './Panel.css';
 
-// import { createStore } from 'redux';
-// import { reducer, reducerMessageStore } from '../../redux/reducer';
-// import { getCurrentValue, putStoreMessage, resetState } from '../../redux/actions';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { updateToNewCurrentMessage, addNewMessage } from '../../redux/actions';
 
-// import { messageInfo } from '../../utils';
+const Panel = ({ currentMessage, messageStore, updateToNewCurrentMessage, addNewMessageToStore }) => { //{ store: storeMessage }
 
-
-
-const Panel = (store) => { //{ store: storeMessage }
-
-  const { storeMessage, updateToNewCurrentMessage, addNewMessage } = store;
-  console.log('CHECK', storeMessage)
-
-  // const storeCurrentValue = createStore(reducer);
+  console.log('CHECK! (currentMessage)', currentMessage)
   
-  
-  const onChange = (e) => {
-
-
-    
-
-    // storeCurrentValue.dispatch(getCurrentValue(e.target.value))// это нужно отправить в redux в state
-    storeMessage.dispatch(updateToNewCurrentMessage(e.target.value))// это нужно отправить в redux в state
-    
-  }
+  // const onChange = (e) => {
+  //   // storeCurrentValue.dispatch(getCurrentValue(e.target.value))// это нужно отправить в redux в state
+  //   currentMessage.dispatch(updateToNewCurrentMessage(e.target.value))// это нужно отправить в redux в state 
+  // }
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -40,44 +25,30 @@ const Panel = (store) => { //{ store: storeMessage }
     // messageInfo.value = storeCurrentValue.getState();
     // messageInfo.date = new Date();
 
-    // console.log('storeMessage.getState()', storeMessage.getState())
-    console.log('storeMessage', storeMessage)
-
-
-    // store.subscribe(() => { //storeMessage.subscribe(() =>
-    //   console.log('storeMessage.getState() (в onSubmit)', storeMessage.getState());
-    // });
-
-    const currentValue = storeMessage;
-
+    console.log('currentMessage', currentMessage)
+    // const currentValue = currentMessage;
     // storeMessage.dispatch(putStoreMessage(messageInfo));
-    storeMessage.dispatch(addNewMessage(currentValue));
 
-
-
-    // console.log('storeMessage.getState()', storeMessage.getState())
-    console.log('storeMessage', storeMessage)
-
-
+    addNewMessageToStore(currentMessage);
+    console.log('messageStore', messageStore)
   }
 
-  return( //Переписать на форму
+  return(
     <form  className='panel' onSubmit={onSubmit}>
       <textarea 
         className='textarea' 
         placeholder='Write message..' 
-        value={mapStateToProps.storeMessage && mapStateToProps.storeMessage}
-        onChange={onChange}
+        value={mapStateToProps.currentMessage && mapStateToProps.currentMessage}
+        onChange={(e) => updateToNewCurrentMessage(e.target.value)}
       ></textarea>
 
       <div className='wrapper-btn'>
         <button 
           type="submit" 
           className='btn btn-success custom-btn'
-          
-          >
+        >
           Send
-          </button>
+        </button>
       </div>
     </form>
   )
@@ -88,56 +59,67 @@ const Panel = (store) => { //{ store: storeMessage }
 
 const mapStateToProps = (state) => { //берет текущий state из store
   return { //возвращает свойства, которые нужны
-    storeMessage: state.current_message
+    currentMessage: state.current_message,
+    messageStore: state.message_store
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = {
+  // onIncrease: bookAddedToCart,
 
-  // const { getCurrentValue, putStoreMessage } = actions.bindActionCreators(actions, dispatch);
+  // onDecrease: bookRemovedFromCart,
+  // onDelete: allBooksRemovedFromCart,
 
-  // return {
+  updateToNewCurrentMessage, 
+  addNewMessageToStore
+}
 
-  //   putStoreMessage: (newMessage) => {
-  //     dispatch({
-  //       type: 'PUT_IN_MESSAGE_STORE',
-  //       payload: newMessage
-  //     })
-  //   },
-  // }
+// const mapDispatchToProps = (dispatch) => {
 
-  // return {
-  //   //1 способ
-  //   // updateToNewCurrentMessage: (newCurrentMessage) => {
-  //   //   dispatch ({
-  //   //     type: 'current_message/updateToNewCurrentMessage',
-  //   //     payload: newCurrentMessage
-  //   //   })
-  //   // },
+//   // const { getCurrentValue, putStoreMessage } = actions.bindActionCreators(actions, dispatch);
 
-  //   // addNewMessage: (newCurrentMessage) => {
-  //   //   dispatch({
-  //   //     type: 'message_store/addNewMessage',
-  //   //     payload: newCurrentMessage
-  //   //   })
-  //   // },
+//   // return {
+
+//   //   putStoreMessage: (newMessage) => {
+//   //     dispatch({
+//   //       type: 'PUT_IN_MESSAGE_STORE',
+//   //       payload: newMessage
+//   //     })
+//   //   },
+//   // }
+
+//   // return {
+//   //   //1 способ
+//   //   // updateToNewCurrentMessage: (newCurrentMessage) => {
+//   //   //   dispatch ({
+//   //   //     type: 'current_message/updateToNewCurrentMessage',
+//   //   //     payload: newCurrentMessage
+//   //   //   })
+//   //   // },
+
+//   //   // addNewMessage: (newCurrentMessage) => {
+//   //   //   dispatch({
+//   //   //     type: 'message_store/addNewMessage',
+//   //   //     payload: newCurrentMessage
+//   //   //   })
+//   //   // },
     
-    // // 2 способ
-    // updateToNewCurrentMessage: (newCurrentMessage) => {
-    //   dispatch (updateToNewCurrentMessage(newCurrentMessage))
-    // },
+//     // // 2 способ
+//     // updateToNewCurrentMessage: (newCurrentMessage) => {
+//     //   dispatch (updateToNewCurrentMessage(newCurrentMessage))
+//     // },
 
-    // addNewMessage: (newCurrentMessage) => {
-    //   dispatch(addNewMessage(newCurrentMessage))
-    // },
-  // }
+//     // addNewMessage: (newCurrentMessage) => {
+//     //   dispatch(addNewMessage(newCurrentMessage))
+//     // },
+//   // }
 
-  return bindActionCreators({
-    updateToNewCurrentMessage, 
-    addNewMessage
-  }, dispatch);
+//   return bindActionCreators({
+//     updateToNewCurrentMessage, 
+//     addNewMessageToStore
+//   }, dispatch);
 
-};
+// };
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Panel);

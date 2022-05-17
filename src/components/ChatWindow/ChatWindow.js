@@ -1,53 +1,41 @@
-import React, {useState} from 'react';
+import React  from 'react';
 import './ChatWindow.css';
-import { reducerMessageStore } from '../../redux/reducer';
-import {createStore} from 'redux';
 import { connect } from 'react-redux';
 //connect - это HOC
 
-import { getCurrentValue, putStoreMessage } from '../../redux/actions'; //{ getCurrentValue, putStoreMessage } 
+import { addNewMessageToStore, updateToNewCurrentMessage } from '../../redux/actions'; //{ getCurrentValue, putStoreMessage } 
 import * as actions from 'redux';
 import { Message } from '../Message/Message';
-
-// const Message = () => {
-//   return (
-//     <div className='message'>Привет! Как дела?</div>
-//   )
-// }
-
-const ChatWindow = ({ store: storeMessage, getCurrentValue, putStoreMessage }) => {
+import '../Message/Message.css'
 
 
-  // const newMessageSubmit = '';
+const ChatWindow = ({ storeMessage, addNewMessageToStore, updateToNewCurrentMessage }) => {
 
-  // const storeMessage = createStore(reducerMessageStore);
-  // storeMessage.subscribe(() => {
-  //   console.log('storeMessage.getState() (in ChatWindow)', storeMessage.getState());
+
   let arrStoreMessage = storeMessage;
   if (arrStoreMessage === undefined) arrStoreMessage = [];
-  const newMessageSubmit = arrStoreMessage[arrStoreMessage.length - 1]; //берем последний объект (полную информацию о последнем сообщении)
-
-  //   console.log('newMessageSubmit', newMessageSubmit);
-  // })
+  // const newMessageSubmit = arrStoreMessage[arrStoreMessage.length - 1]; //берем последний объект (полную информацию о последнем сообщении)
 
 
+  const Messages = arrStoreMessage.map((message) => {
+
+    return <div className='message'>{message.value}</div>
+  })
 
 
   return (
-    <>
+    <div className='scroll-window '>
       <div className='chat-window'>
-        <Message />
+        {Messages}
       </div>
-      {/* <div>{newMessageSubmit&&newMessageSubmit.value}</div> */}
-      
-    </>
+    </div>
   )
 }
 
 
 const mapStateToProps = (state) => { //берет текущий state из store
   return { //возвращает свойства, которые нужны
-    storeMessage: state //наш counter это весь state
+    storeMessage: state.message_store
   }
 }
 
@@ -61,7 +49,7 @@ const mapDispatchToProps = (dispatch) => {
     //   getCurrentValue(randomValue);
     // },
 
-    putStoreMessage: (newMessage) => {
+    addNewMessageToStore: (newMessage) => {
       dispatch({
         type: 'PUT_IN_MESSAGE_STORE',
         payload: newMessage

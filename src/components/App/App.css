@@ -9,18 +9,15 @@
 }
 
 .wrapper-chat-window {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: center;
+  align-items: center; */
   border: 2px solid rgb(216, 215, 215);
-  /* background-color: rgb(247, 247, 247); */
   background-color: rgb(249 249 249);
-  /* width: 70%; */
-  height: 600px;
-  min-width: 500px;
 
-  /* align-items: center;  */
+  height: 600px;
+  /* min-width: 500px; */
 }
 
 @media (max-width: 650px) {

@@ -8,4 +8,6 @@
     border-radius: 7px;
     height: fit-content;
     width: fit-content;
+    /* flex-wrap: wrap; */
+
 }
