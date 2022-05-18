@@ -9,17 +9,39 @@ import { Message } from '../Message/Message';
 import '../Message/Message.css'
 
 
-const ChatWindow = ({ storeMessage, addNewMessageToStore, updateToNewCurrentMessage }) => {
 
+
+// const toggleHide = (elem) => {
+//   console.log('elem', elem);
+//   // elem.classList.toggle('hide');
+//   // if (elem.classList.contains('hide') )
+// }
+
+const ChatWindow = ({ storeMessage, addNewMessageToStore, updateToNewCurrentMessage }) => {
+  // const elem = document.getElementById('settings');
 
   let arrStoreMessage = storeMessage;
   if (arrStoreMessage === undefined) arrStoreMessage = [];
   // const newMessageSubmit = arrStoreMessage[arrStoreMessage.length - 1]; //берем последний объект (полную информацию о последнем сообщении)
 
+  const onClick = (e) => {
+    console.log('(ChatWindow) onClick!');
+    // toggleHide(elem);
+  }
+
+  let messageId = -1;
 
   const Messages = arrStoreMessage.map((message) => {
-
-    return <div className='message'>{message.value}</div>
+    messageId++;
+    return (
+      <>
+        <div key={messageId} className='message' onClick={onClick}>{message.value}</div>
+        <div id='settings' className='setting-buttons'>
+          <div className='setting-btn'>Редактировать</div>
+          <div className='setting-btn'>Удалить</div>
+        </div>
+      </>
+    )
   })
 
 

@@ -18,14 +18,6 @@ const initialState = {
   }
 }
 
-// const initialState = {
-//   current_message: {},
-//   message_store: [],
-//   users: {
-//     initial_users: [arrUsers],
-//     searched_users: []
-//   }
-// }
 
 export const reducer = (state = initialState, action) => {
 
@@ -50,6 +42,14 @@ export const reducer = (state = initialState, action) => {
           }
         ]
       }
+
+    // case 'message_store/editMessageInStore':
+    //   return {
+    //     ...state,
+    //     message_store: [
+
+    //     ]
+    //   }
 
     default:
       return state
