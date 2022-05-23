@@ -1,10 +1,8 @@
 import './Users.css';
-import { arrUsers } from './ArrUsers'
+import { arrUsers } from './ArrUsers';
 
 
-export const Users = () => {
-
-
+export const Users = ({ currentUser, updateCurrentUser }) => {
 
   // const cutName = (name) => {
   //   const firstWord = name.split('')[0] + '.';
@@ -15,14 +13,18 @@ export const Users = () => {
 
   const users = arrUsers.map((user) => {
     userId++;
-    // console.log('userId =', userId);
+
     return (
       <>
       <div 
         key={userId}
         className='user' 
-        name={user} 
-        // onClick={()}
+        value={user} 
+        onClick={(e) => {
+          console.log('user name:', user);
+          console.log('currentUser', currentUser);
+          return updateCurrentUser(user);
+          }}
       >{ user }</div>
       </>
     )

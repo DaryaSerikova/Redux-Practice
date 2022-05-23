@@ -1,21 +1,13 @@
 import { useRef } from 'react';
-import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
 import { updateToNewCurrentMessage, addNewMessageToStore } from '../../redux/actions';
 // import { messageInfo } from '../../utils';
 import './Panel.css';
 
 
-const Panel = ({ currentMessage, messageStore, updateToNewCurrentMessage, addNewMessageToStore }) => { //{ store: storeMessage }
+const Panel = ({ currentMessage, messageStore, currentUser, updateToNewCurrentMessage, addNewMessageToStore }) => { //{ store: storeMessage }
 
   const formEl = useRef(null);
-
-  console.log('currentMessage:', currentMessage)
-  
-  // const onChange = (e) => {
-  //   // storeCurrentValue.dispatch(getCurrentValue(e.target.value))// это нужно отправить в redux в state
-  //   currentMessage.dispatch(updateToNewCurrentMessage(e.target.value))// это нужно отправить в redux в state 
-  // }
+  console.log('currentMessage:', currentMessage);
 
   const submitMessage = () => {
     addNewMessageToStore(currentMessage);
@@ -24,13 +16,12 @@ const Panel = ({ currentMessage, messageStore, updateToNewCurrentMessage, addNew
   }
 
   const onKeyPressEnter = (e) => {
-
     if (e.key === 'Enter') { //(e.keyCode == 13 && e.shiftKey == false)
-
       if (currentMessage !== '') {
         e.preventDefault();
         console.log('Вы нажали Enter');
         submitMessage();
+        console.log('messageStore', messageStore)
       }
     }
   }
@@ -47,12 +38,8 @@ const Panel = ({ currentMessage, messageStore, updateToNewCurrentMessage, addNew
     // messageInfo.value = storeCurrentValue.getState();
     // messageInfo.date = new Date();
 
-    console.log('currentMessage', currentMessage)
-    // const currentValue = currentMessage;
-    // storeMessage.dispatch(putStoreMessage(messageInfo));
-
+    console.log('currentMessage', currentMessage);
     // const form = e.target;
-
     if (currentMessage !== '')  submitMessage();
     console.log('messageStore', messageStore);
   }
@@ -65,7 +52,9 @@ const Panel = ({ currentMessage, messageStore, updateToNewCurrentMessage, addNew
         
         className='textarea' 
         placeholder='Write message..' 
-        value={mapStateToProps.currentMessage && mapStateToProps.currentMessage}
+        // value={mapStateToProps.currentMessage && mapStateToProps.currentMessage}
+        value={currentMessage}
+
         onChange={(e) => updateToNewCurrentMessage(e.target.value)}
         onKeyPress={onKeyPressEnter}
       ></textarea>
@@ -82,22 +71,9 @@ const Panel = ({ currentMessage, messageStore, updateToNewCurrentMessage, addNew
 }
 
 
-
-const mapStateToProps = (state) => { //берет текущий state из store
-  return { //возвращает свойства, которые нужны
-    currentMessage: state.current_message,
-    messageStore: state.message_store
-  }
-}
-
-const mapDispatchToProps = {
-
-  updateToNewCurrentMessage, 
-  addNewMessageToStore
-}
+export default Panel;
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Panel);
 
 // const mapDispatchToProps = (dispatch) => {
 

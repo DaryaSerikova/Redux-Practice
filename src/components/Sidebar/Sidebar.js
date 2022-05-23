@@ -1,5 +1,6 @@
 import './Sidebar.css';
-import { Users } from '../Users/Users';
+// import { Users } from '../Users/Users';
+import UsersWithStore from '../../containers/UsersWithStore';
 import { arrUsers } from '../Users/ArrUsers';
 
 
@@ -26,7 +27,8 @@ const Sidebar = () => {
         className='search' 
         onChange={onChange}
       />
-      <Users/>
+      {/* <Users/> */}
+      <UsersWithStore/>
     </div>
   )
 }
