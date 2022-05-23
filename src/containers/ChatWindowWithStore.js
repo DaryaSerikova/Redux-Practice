@@ -7,7 +7,7 @@ import ChatWindow from '../components/ChatWindow/ChatWindow'
 
 const mapStateToProps = (state) => { //берет текущий state из store
   return { //возвращает свойства, которые нужны
-    messageStore: state.messageStore,
+    allStore: state.allStore,
     currentUser: state.currentUser
   }
 }
@@ -29,10 +29,11 @@ const mapDispatchToProps = (dispatch) => {
     //   })
     // },
 
-    addNewMessageToStore: (newMessage) => {
+    addNewMessageToStore: (value, name) => {
       dispatch({
         type: ADD_NEW_MESSAGE_TO_STORE,
-        payload: newMessage
+        value,
+        name,
       })
     },
   }

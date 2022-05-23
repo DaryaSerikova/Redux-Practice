@@ -1,11 +1,15 @@
 import { Users } from "../components/Users/Users";
 import { connect } from "react-redux";
-import { updateToNewCurrentUser } from "../redux/actions";
+import { updateToNewCurrentMessage, 
+  updateToNewCurrentUser, 
+  addNewMessageToStore, 
+  addNewUserToStore } from "../redux/actions";
 
 
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    allStore: state.allStore
   }
 }
 
@@ -17,7 +21,14 @@ const mapDispatchToProps = (dispatch) => {
   return {
     updateCurrentUser: (name) => {
       dispatch(updateToNewCurrentUser(name))
-    } 
+    },
+    addNewMessageToStore: (value, name) => {
+      dispatch(addNewMessageToStore(value,name))
+    },
+    addNewUserToStore: (name) => {
+      dispatch(addNewUserToStore(name))
+    }
+
   }
 }
 

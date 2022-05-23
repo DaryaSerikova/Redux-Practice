@@ -4,13 +4,13 @@ import { updateToNewCurrentMessage, addNewMessageToStore } from '../../redux/act
 import './Panel.css';
 
 
-const Panel = ({ currentMessage, messageStore, currentUser, updateToNewCurrentMessage, addNewMessageToStore }) => { //{ store: storeMessage }
+const Panel = ({ currentMessage, allStore, currentUser, updateToNewCurrentMessage, addNewMessageToStore }) => { //{ store: storeMessage }
 
   const formEl = useRef(null);
   console.log('currentMessage:', currentMessage);
 
   const submitMessage = () => {
-    addNewMessageToStore(currentMessage);
+    addNewMessageToStore(currentMessage, currentUser);
     formEl.current.reset();
     updateToNewCurrentMessage('');
   }
@@ -21,7 +21,9 @@ const Panel = ({ currentMessage, messageStore, currentUser, updateToNewCurrentMe
         e.preventDefault();
         console.log('Вы нажали Enter');
         submitMessage();
-        console.log('messageStore', messageStore)
+        console.log('currentUser', currentUser);
+        console.log('allStore', allStore);        
+        console.log('messageStore', allStore[`${currentUser}`])
       }
     }
   }
@@ -41,7 +43,9 @@ const Panel = ({ currentMessage, messageStore, currentUser, updateToNewCurrentMe
     console.log('currentMessage', currentMessage);
     // const form = e.target;
     if (currentMessage !== '')  submitMessage();
-    console.log('messageStore', messageStore);
+    console.log('currentUser', currentUser);
+    console.log('allStore', allStore);   
+    console.log('messageStore', allStore[currentUser]);
   }
 
 

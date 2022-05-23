@@ -1,4 +1,5 @@
 export const arrUsers = [
+    'Daniel Hardman',
     'Jessica Pearson',
     'Harvey Specter',
     'Mike Ross',
@@ -11,7 +12,6 @@ export const arrUsers = [
     'Travis Tanner',
     'Sheila Sazs',
     'Jeff Malone',
-    'Daniel Hardman',
     'Sean Cahill',
     'Gretchen Bodinski',
 

@@ -5,6 +5,7 @@ export const ADD_NEW_MESSAGE_TO_STORE = 'ADD_NEW_MESSAGE_TO_STORE';
 export const EDIT_MESSAGE_IN_STORE = 'EDIT_MESSAGE_IN_STORE';
 export const REMOVE_MESSAGE_FROM_STORE = 'REMOVE_MESSAGE_FROM_STORE';
 export const UPDATE_TO_NEW_CURRENT_USER = 'UPDATE_TO_NEW_CURRENT_USER';
+export const ADD_NEW_USER_TO_STORE = 'ADD_NEW_USER_TO_STORE';
 
 
 
@@ -15,13 +16,19 @@ export const updateToNewCurrentMessage = (newCurrentMessage) => ({
   payload: newCurrentMessage
 }); //message или value??? что лучше
 
-export const addNewMessageToStore = (newCurrentMessage) => ({
+export const addNewMessageToStore = (value, name) => ({
   type: ADD_NEW_MESSAGE_TO_STORE, //'message_store/addNewMessageToStore'
-  payload: newCurrentMessage
+  value: value,
+  name: name,
 });
 
 export const updateToNewCurrentUser = (name) => ({
   type: UPDATE_TO_NEW_CURRENT_USER,
+  name
+});
+
+export const addNewUserToStore = (name) => ({
+  type: ADD_NEW_USER_TO_STORE,
   name
 })
 

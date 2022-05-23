@@ -5,7 +5,7 @@ import { updateToNewCurrentMessage, addNewMessageToStore } from '../redux/action
 const mapStateToProps = (state) => { //берет текущий state из store
   return { //возвращает свойства, которые нужны
     currentMessage: state.currentMessage,
-    messageStore: state.messageStore,
+    allStore: state.allStore,
     currentUser: state.currentUser
   }
 }

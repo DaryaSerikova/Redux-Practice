@@ -2,7 +2,7 @@ import './Users.css';
 import { arrUsers } from './ArrUsers';
 
 
-export const Users = ({ currentUser, updateCurrentUser }) => {
+export const Users = ({ currentUser, updateCurrentUser, addNewUserToStore, allStore }) => {
 
   // const cutName = (name) => {
   //   const firstWord = name.split('')[0] + '.';
@@ -23,6 +23,8 @@ export const Users = ({ currentUser, updateCurrentUser }) => {
         onClick={(e) => {
           console.log('user name:', user);
           console.log('currentUser', currentUser);
+          console.log('allStore', allStore);
+          addNewUserToStore(user); //хз работает ли.. проверь
           return updateCurrentUser(user);
           }}
       >{ user }</div>
