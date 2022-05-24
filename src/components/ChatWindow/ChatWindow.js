@@ -6,7 +6,17 @@ import '../Message/Message.css'
 
 
 
-const ChatWindow = ({ allStore, currentUser, addNewMessageToStore, updateToNewCurrentMessage }) => {
+const ChatWindow = ({ 
+  allStore, 
+  currentUser, 
+  currentMessage,
+  messageState,
+  currentMessageId,
+  updateToNewCurrentMessageId,  
+  messageStateIsCreate, 
+  messageStateIsEdit,
+  addNewMessageToStore, 
+  updateToNewCurrentMessage }) => {
 
   // const newAllStore = allStore[currentUser] === 'undefined' ? {...allStore, [currentUser] : []} : allStore;
 
@@ -15,28 +25,58 @@ const ChatWindow = ({ allStore, currentUser, addNewMessageToStore, updateToNewCu
   if (arrStoreMessage === undefined) arrStoreMessage = [];
   // const newMessageSubmit = arrStoreMessage[arrStoreMessage.length - 1]; //берем последний объект (полную информацию о последнем сообщении)
 
-  const onClick = (e) => {
+  const onClick = (message) => {
+    return (e) => {
     console.log('(ChatWindow) onClick!');
+    console.log('e.target', e.target);
+    console.log(message)
 
+    console.log('e.target.value', e.target.value);
+    }
   }
 
-  // let messageId = -1;
+  const edit = (message) => {
+    return (e) => {
+      console.log('Edit!');
+      console.log('message.id:', message.id)
+      updateToNewCurrentMessageId(message.id);
+      updateToNewCurrentMessage(message.value);////тому что надо отредактировать сообщению
+      messageStateIsEdit();
+      console.log('currentMessage', currentMessage)
+      //нужно передать id в Panel
+      // console.log('currentMessage', currentMessage)
+    }
+  }
+
+  const remove = (message) => {
+    return (e) => {
+    console.log('Remove!');
+  }}
+
 
   const Messages = arrStoreMessage.map((message) => {
-    // messageId++;
+
     return (
       <>
-        <div 
+        <Message
+          key={message.id}
+          value={message.value} 
+          onClick={onClick(message)}
+          time={message.time}
+        />
+        {/* <div 
           key={message.id} 
-          className='message' 
+          className='message'
+          value={message.value} 
           onClick={onClick}
           >
           {message.value}
-        </div>
+          <div className='message-time'>{message.time}</div>
+        </div> */}
 
         <div key={`buttons_${message.id}`} id='settings' className='setting-buttons'>
-          <div className='setting-btn'>Редактировать</div>
-          <div className='setting-btn'>Удалить</div>
+          <div className='setting-btn' onClick={edit(message)}>Редактировать</div>
+          <div className='setting-btn' onClick={remove(message)}>Удалить</div>
         </div>
       </>
     )

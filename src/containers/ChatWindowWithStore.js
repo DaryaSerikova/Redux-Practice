@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 //connect - это HOC
-import { ADD_NEW_MESSAGE_TO_STORE } from "../redux/actions";
+import { ADD_NEW_MESSAGE_TO_STORE, MESSAGE_STATE_IS_CREATE, MESSAGE_STATE_IS_EDIT, UPDATE_TO_NEW_CURRENT_MESSAGE, UPDATE_TO_NEW_CURRENT_MESSAGE_ID } from "../redux/actions";
 import { updateToNewCurrentMessage, addNewMessageToStore } from '../redux/actions';
 import ChatWindow from '../components/ChatWindow/ChatWindow'
 
@@ -8,27 +8,16 @@ import ChatWindow from '../components/ChatWindow/ChatWindow'
 const mapStateToProps = (state) => { //берет текущий state из store
   return { //возвращает свойства, которые нужны
     allStore: state.allStore,
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    currentMessage: state.currentMessage,
+    messageState: state.messageState,
+    currentMessageId: state.currentMessageId
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
 
-  // const { getCurrentValue, putStoreMessage } = actions.bindActionCreators(actions, dispatch);
-
   return {
-    // getCurrentValue: () => {
-    //   const randomValue = 15; // написать нормальную переменную
-    //   getCurrentValue(randomValue);
-    // },
-
-    // addNewMessageToStore: (newMessage) => {
-    //   dispatch({
-    //     type: 'PUT_IN_MESSAGE_STORE',
-    //     payload: newMessage
-    //   })
-    // },
-
     addNewMessageToStore: (value, name) => {
       dispatch({
         type: ADD_NEW_MESSAGE_TO_STORE,
@@ -36,6 +25,28 @@ const mapDispatchToProps = (dispatch) => {
         name,
       })
     },
+    updateToNewCurrentMessage: (value) => {
+      dispatch({
+        type: UPDATE_TO_NEW_CURRENT_MESSAGE,
+        value
+      })
+    },
+    messageStateIsCreate: () => {
+      dispatch({
+        type: MESSAGE_STATE_IS_CREATE
+      })
+    }, 
+    messageStateIsEdit: () => {
+      dispatch({
+        type: MESSAGE_STATE_IS_EDIT
+      })
+    },
+    updateToNewCurrentMessageId: (id) => {
+      dispatch({
+        type: UPDATE_TO_NEW_CURRENT_MESSAGE_ID,
+        id
+      })
+    }
   }
 };
 

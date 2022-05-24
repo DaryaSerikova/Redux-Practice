@@ -1,11 +1,15 @@
 import './Message.css'
 
-export const Message = () => {
+export const Message = ({id, value, onClick, time}) => {
     return (
-        <>
-            <div className='message'>Привет!</div>
-            <div className='message'>Как дела?</div>
-            <div className='message'>Не хочешь встретиться?</div>
-        </>
+        <div 
+            key={id} 
+            className='message'
+            value={value} 
+            onClick={onClick}
+            >
+            {value}
+            <div className='message-time'>{time}</div>
+        </div>
     )
 }

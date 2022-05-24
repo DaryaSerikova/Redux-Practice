@@ -1,18 +1,38 @@
 import { useRef } from 'react';
-import { updateToNewCurrentMessage, addNewMessageToStore } from '../../redux/actions';
+import { updateToNewCurrentMessage, addNewMessageToStore, editMessageInStore } from '../../redux/actions';
 // import { messageInfo } from '../../utils';
 import './Panel.css';
 
 
-const Panel = ({ currentMessage, allStore, currentUser, updateToNewCurrentMessage, addNewMessageToStore }) => { //{ store: storeMessage }
+const Panel = ({ 
+  currentMessage, 
+  allStore, 
+  currentUser, 
+  messageState,
+  currentMessageId,
+  updateToNewCurrentMessageId,   
+  updateToNewCurrentMessage, 
+  addNewMessageToStore,
+  messageStateIsCreate, 
+  messageStateIsEdit,
+  editMessageInStore }) => { //{ store: storeMessage }
 
   const formEl = useRef(null);
   console.log('currentMessage:', currentMessage);
 
   const submitMessage = () => {
-    addNewMessageToStore(currentMessage, currentUser);
+
+    if (messageState === 'create') {
+      addNewMessageToStore(currentMessage, currentUser);
+    }
+    if (messageState === 'edit') {
+      console.log('id', currentMessageId)
+      editMessageInStore(currentMessageId, currentMessage, currentUser);
+    }
+    console.log('formEl.current', formEl.current)
     formEl.current.reset();
     updateToNewCurrentMessage('');
+    messageStateIsCreate();
   }
 
   const onKeyPressEnter = (e) => {
@@ -32,13 +52,6 @@ const Panel = ({ currentMessage, allStore, currentUser, updateToNewCurrentMessag
   const onSubmit = (e) => {
     e.preventDefault();
     console.log('ONSUBMIT!')
-    // 1. post на сервер сообщения
-    // 2. показ сообщения
-    // 3. reset текущего state и textarea
-    // 4. добавить в историю сообщений (другой state) объект
-    //    { id: 1, value: 'Привет!', to: 'Оксана', from: 'Дарья', date: '21.08.2022 23:45'}
-    // messageInfo.value = storeCurrentValue.getState();
-    // messageInfo.date = new Date();
 
     console.log('currentMessage', currentMessage);
     // const form = e.target;
@@ -53,14 +66,13 @@ const Panel = ({ currentMessage, allStore, currentUser, updateToNewCurrentMessag
     <form ref={formEl} className='panel' onSubmit={onSubmit}  >
     
       <textarea 
-        
         className='textarea' 
         placeholder='Write message..' 
         // value={mapStateToProps.currentMessage && mapStateToProps.currentMessage}
         value={currentMessage}
-
         onChange={(e) => updateToNewCurrentMessage(e.target.value)}
         onKeyPress={onKeyPressEnter}
+        autoFocus
       ></textarea>
 
       <div className='wrapper-btn'>

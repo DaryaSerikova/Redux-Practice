@@ -1,18 +1,28 @@
 import { connect } from 'react-redux';
 import Panel from '../components/Panel/Panel';
-import { updateToNewCurrentMessage, addNewMessageToStore } from '../redux/actions';
+import { 
+  editMessageInStore,
+  updateToNewCurrentMessage, 
+  addNewMessageToStore, 
+  messageStateIsCreate, 
+  messageStateIsEdit } from '../redux/actions';
 
 const mapStateToProps = (state) => { //берет текущий state из store
   return { //возвращает свойства, которые нужны
     currentMessage: state.currentMessage,
     allStore: state.allStore,
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    messageState: state.messageState,
+    currentMessageId: state.currentMessageId
   }
 }
 
 const mapDispatchToProps = {
   updateToNewCurrentMessage, 
-  addNewMessageToStore
+  addNewMessageToStore,
+  messageStateIsCreate, 
+  messageStateIsEdit,
+  editMessageInStore
 }
 
 const PanelWithStore = connect(mapStateToProps, mapDispatchToProps)(Panel);

@@ -9,5 +9,11 @@
     height: fit-content;
     width: fit-content;
     /* flex-wrap: wrap; */
+}
 
+.message-time {
+    font-size: 9pt;
+    color: #b9b9b9;
+    display: flex;
+    justify-content: flex-end;
 }
