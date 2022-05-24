@@ -137,6 +137,19 @@ export const allStore = (state = {}, action) => {
           ]
         }
       }
+    case REMOVE_MESSAGE_FROM_STORE:
+      if (state[action.name]) {
+        let array = [...state[action.name]];
+        const index = getIndex(action.id, array);
+        console.log(index)
+        return {
+          ...state,
+          [action.name]: [
+            ...state[action.name].slice(0, index),
+            ...state[action.name].slice(index + 1),
+          ]
+        }
+      }
 
 
     default:

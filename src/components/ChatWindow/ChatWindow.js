@@ -12,26 +12,32 @@ const ChatWindow = ({
   currentMessage,
   messageState,
   currentMessageId,
+  toggleSettings,
   updateToNewCurrentMessageId,  
   messageStateIsCreate, 
   messageStateIsEdit,
   addNewMessageToStore, 
-  updateToNewCurrentMessage }) => {
+  updateToNewCurrentMessage, 
+  removeMessageFromStore,
+  hideSettings, 
+  showSettings }) => {
 
-  // const newAllStore = allStore[currentUser] === 'undefined' ? {...allStore, [currentUser] : []} : allStore;
 
   let arrStoreMessage = allStore[`${currentUser}`];
-  
   if (arrStoreMessage === undefined) arrStoreMessage = [];
-  // const newMessageSubmit = arrStoreMessage[arrStoreMessage.length - 1]; //берем последний объект (полную информацию о последнем сообщении)
 
   const onClick = (message) => {
     return (e) => {
-    console.log('(ChatWindow) onClick!');
-    console.log('e.target', e.target);
-    console.log(message)
+      console.log('(ChatWindow) onClick!');
+      console.log('e.target', e.target);
+      console.log(message)
 
-    console.log('e.target.value', e.target.value);
+      updateToNewCurrentMessageId(message.id);
+      if (toggleSettings === 'hide') {
+        showSettings();
+      } else {
+        hideSettings();
+      }
     }
   }
 
@@ -40,17 +46,18 @@ const ChatWindow = ({
       console.log('Edit!');
       console.log('message.id:', message.id)
       updateToNewCurrentMessageId(message.id);
-      updateToNewCurrentMessage(message.value);////тому что надо отредактировать сообщению
+      updateToNewCurrentMessage(message.value);
       messageStateIsEdit();
+      hideSettings();
       console.log('currentMessage', currentMessage)
-      //нужно передать id в Panel
-      // console.log('currentMessage', currentMessage)
     }
   }
 
   const remove = (message) => {
     return (e) => {
     console.log('Remove!');
+    updateToNewCurrentMessageId(message.id);
+    removeMessageFromStore(message.id, message.name);
   }}
 
 
@@ -64,20 +71,12 @@ const ChatWindow = ({
           onClick={onClick(message)}
           time={message.time}
         />
-        {/* <div 
-          key={message.id} 
-          className='message'
-          value={message.value} 
-          onClick={onClick}
-          >
-          {message.value}
-          <div className='message-time'>{message.time}</div>
-        </div> */}
 
-        <div key={`buttons_${message.id}`} id='settings' className='setting-buttons'>
+        {(message.id === currentMessageId) && 
+        <div key={`buttons_${message.id}`} id='settings' className={`setting-buttons ${toggleSettings}`}>
           <div className='setting-btn' onClick={edit(message)}>Редактировать</div>
           <div className='setting-btn' onClick={remove(message)}>Удалить</div>
-        </div>
+        </div>}
       </>
     )
   })

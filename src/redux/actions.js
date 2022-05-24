@@ -14,6 +14,11 @@ export const MESSAGE_STATE_IS_EDIT = 'MESSAGE_STATE_IS_EDIT';
 
 export const UPDATE_TO_NEW_CURRENT_MESSAGE_ID = 'UPDATE_TO_NEW_CURRENT_MESSAGE_ID';
 
+export const HIDE_SETTINGS = 'HIDE_SETTINGS';
+export const SHOW_SETTINGS = 'SHOW_SETTINGS';
+
+
+
 
 let withZero = (num) => num < 10 ? '0' : '';
 
@@ -75,6 +80,12 @@ export const editMessageInStore = (id, value, name) => ({
   name
 });
 
+export const removeMessageFromStore = (id, name) => ({
+  type: REMOVE_MESSAGE_FROM_STORE,
+  id,
+  name
+})
+
 
 //for stateMessage
 export const messageStateIsCreate = () => ({
@@ -90,6 +101,13 @@ export const updateToNewCurrentMessageId = (id) => ({
   id
 });
 
+export const hideSettings = () => ({
+  type: HIDE_SETTINGS
+});
+
+export const showSettings = () => ({
+  type: SHOW_SETTINGS
+})
 
 
 

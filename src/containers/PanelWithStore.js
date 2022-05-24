@@ -8,7 +8,7 @@ import {
   messageStateIsEdit } from '../redux/actions';
 
 const mapStateToProps = (state) => { //берет текущий state из store
-  return { //возвращает свойства, которые нужны
+  return {
     currentMessage: state.currentMessage,
     allStore: state.allStore,
     currentUser: state.currentUser,

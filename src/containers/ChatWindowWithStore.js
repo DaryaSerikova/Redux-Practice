@@ -1,17 +1,26 @@
 import { connect } from 'react-redux';
 //connect - это HOC
-import { ADD_NEW_MESSAGE_TO_STORE, MESSAGE_STATE_IS_CREATE, MESSAGE_STATE_IS_EDIT, UPDATE_TO_NEW_CURRENT_MESSAGE, UPDATE_TO_NEW_CURRENT_MESSAGE_ID } from "../redux/actions";
+import { 
+  ADD_NEW_MESSAGE_TO_STORE, 
+  MESSAGE_STATE_IS_CREATE, 
+  MESSAGE_STATE_IS_EDIT, 
+  REMOVE_MESSAGE_FROM_STORE, 
+  UPDATE_TO_NEW_CURRENT_MESSAGE, 
+  UPDATE_TO_NEW_CURRENT_MESSAGE_ID, 
+  HIDE_SETTINGS,
+  SHOW_SETTINGS} from "../redux/actions";
 import { updateToNewCurrentMessage, addNewMessageToStore } from '../redux/actions';
 import ChatWindow from '../components/ChatWindow/ChatWindow'
 
 
 const mapStateToProps = (state) => { //берет текущий state из store
-  return { //возвращает свойства, которые нужны
+  return { 
     allStore: state.allStore,
     currentUser: state.currentUser,
     currentMessage: state.currentMessage,
     messageState: state.messageState,
-    currentMessageId: state.currentMessageId
+    currentMessageId: state.currentMessageId,
+    toggleSettings: state.toggleSettings
   }
 }
 
@@ -23,6 +32,13 @@ const mapDispatchToProps = (dispatch) => {
         type: ADD_NEW_MESSAGE_TO_STORE,
         value,
         name,
+      })
+    },
+    removeMessageFromStore: (id, name) => {
+      dispatch({
+        type: REMOVE_MESSAGE_FROM_STORE,
+        id,
+        name
       })
     },
     updateToNewCurrentMessage: (value) => {
@@ -45,6 +61,16 @@ const mapDispatchToProps = (dispatch) => {
       dispatch({
         type: UPDATE_TO_NEW_CURRENT_MESSAGE_ID,
         id
+      })
+    },
+    hideSettings: () => {
+      dispatch({
+        type: HIDE_SETTINGS
+      })
+    },
+    showSettings: () => {
+      dispatch({
+        type: SHOW_SETTINGS
       })
     }
   }
