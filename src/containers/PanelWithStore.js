@@ -5,7 +5,8 @@ import {
   updateToNewCurrentMessage, 
   addNewMessageToStore, 
   messageStateIsCreate, 
-  messageStateIsEdit } from '../redux/actions';
+  messageStateIsEdit,
+  messageIsEdited } from '../redux/actions';
 
 const mapStateToProps = (state) => { //берет текущий state из store
   return {
@@ -22,7 +23,8 @@ const mapDispatchToProps = {
   addNewMessageToStore,
   messageStateIsCreate, 
   messageStateIsEdit,
-  editMessageInStore
+  editMessageInStore,
+  messageIsEdited
 }
 
 const PanelWithStore = connect(mapStateToProps, mapDispatchToProps)(Panel);

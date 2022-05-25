@@ -1,6 +1,6 @@
 import './Message.css'
 
-export const Message = ({id, value, onClick, time}) => {
+export const Message = ({id, value, onClick, time, edited, currentMessageId}) => {
     return (
         <div 
             key={id} 
@@ -9,7 +9,7 @@ export const Message = ({id, value, onClick, time}) => {
             onClick={onClick}
             >
             {value}
-            <div className='message-time'>{time}</div>
+            <div className='message-time'>{time}{edited&&'(edited)'}</div>
         </div>
     )
 }

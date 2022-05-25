@@ -15,7 +15,8 @@ const Panel = ({
   addNewMessageToStore,
   messageStateIsCreate, 
   messageStateIsEdit,
-  editMessageInStore }) => { //{ store: storeMessage }
+  editMessageInStore,
+  messageIsEdited }) => { //{ store: storeMessage }
 
   const formEl = useRef(null);
   console.log('currentMessage:', currentMessage);
@@ -36,7 +37,8 @@ const Panel = ({
     }
     console.log('formEl.current', formEl.current)
     formEl.current.reset();
-    cancelEdit()
+    messageIsEdited();
+    cancelEdit();
   }
 
   const onKeyPressEnter = (e) => {

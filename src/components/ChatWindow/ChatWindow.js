@@ -3,6 +3,7 @@ import './ChatWindow.css';
 
 import { Message } from '../Message/Message';
 import '../Message/Message.css'
+import MessageWithStore from '../../containers/MessageWithStore';
 
 
 
@@ -14,6 +15,7 @@ const ChatWindow = ({
   currentMessageId,
   toggleSettings,
   clickCoordinates, updateCoordinates,
+  messageIsEdited,
   updateToNewCurrentMessageId,  
   messageStateIsCreate, 
   messageStateIsEdit,
@@ -77,7 +79,7 @@ const ChatWindow = ({
 
     return (
       <>
-        <Message
+        <MessageWithStore
           key={message.id}
           value={message.value} 
           onClick={onClick(message)}

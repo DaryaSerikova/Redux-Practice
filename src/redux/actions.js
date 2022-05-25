@@ -19,6 +19,8 @@ export const SHOW_SETTINGS = 'SHOW_SETTINGS';
 
 export const UPDATE_COORDINATES = 'UPDATE_COORDINATES';
 
+export const MESSAGE_IS_EDITED = 'MESSAGE_IS_EDITED';
+
 
 
 let withZero = (num) => num < 10 ? '0' : '';
@@ -114,6 +116,10 @@ export const updateCoordinates = (x, y) => ({
   type: UPDATE_COORDINATES,
   x,
   y
+});
+
+export const messageIsEdited = () => ({
+  type: MESSAGE_IS_EDITED
 });
 
 
