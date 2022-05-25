@@ -8,7 +8,8 @@ import {
   UPDATE_TO_NEW_CURRENT_MESSAGE, 
   UPDATE_TO_NEW_CURRENT_MESSAGE_ID, 
   HIDE_SETTINGS,
-  SHOW_SETTINGS} from "../redux/actions";
+  SHOW_SETTINGS,
+  UPDATE_COORDINATES} from "../redux/actions";
 import { updateToNewCurrentMessage, addNewMessageToStore } from '../redux/actions';
 import ChatWindow from '../components/ChatWindow/ChatWindow'
 
@@ -20,7 +21,8 @@ const mapStateToProps = (state) => { //берет текущий state из stor
     currentMessage: state.currentMessage,
     messageState: state.messageState,
     currentMessageId: state.currentMessageId,
-    toggleSettings: state.toggleSettings
+    toggleSettings: state.toggleSettings,
+    clickCoordinates: state.clickCoordinates
   }
 }
 
@@ -63,6 +65,7 @@ const mapDispatchToProps = (dispatch) => {
         id
       })
     },
+
     hideSettings: () => {
       dispatch({
         type: HIDE_SETTINGS
@@ -71,6 +74,14 @@ const mapDispatchToProps = (dispatch) => {
     showSettings: () => {
       dispatch({
         type: SHOW_SETTINGS
+      })
+    },
+
+    updateCoordinates: (x, y) => {
+      dispatch({
+        type: UPDATE_COORDINATES,
+        x,
+        y
       })
     }
   }

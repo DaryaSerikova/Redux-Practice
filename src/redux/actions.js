@@ -17,6 +17,7 @@ export const UPDATE_TO_NEW_CURRENT_MESSAGE_ID = 'UPDATE_TO_NEW_CURRENT_MESSAGE_I
 export const HIDE_SETTINGS = 'HIDE_SETTINGS';
 export const SHOW_SETTINGS = 'SHOW_SETTINGS';
 
+export const UPDATE_COORDINATES = 'UPDATE_COORDINATES';
 
 
 
@@ -107,7 +108,13 @@ export const hideSettings = () => ({
 
 export const showSettings = () => ({
   type: SHOW_SETTINGS
-})
+});
+
+export const updateCoordinates = (x, y) => ({
+  type: UPDATE_COORDINATES,
+  x,
+  y
+});
 
 
 

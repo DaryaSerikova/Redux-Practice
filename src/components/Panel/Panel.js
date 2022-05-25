@@ -20,6 +20,11 @@ const Panel = ({
   const formEl = useRef(null);
   console.log('currentMessage:', currentMessage);
 
+  const cancelEdit = () => {
+    updateToNewCurrentMessage('');
+    messageStateIsCreate();
+  }
+
   const submitMessage = () => {
 
     if (messageState === 'create') {
@@ -31,8 +36,7 @@ const Panel = ({
     }
     console.log('formEl.current', formEl.current)
     formEl.current.reset();
-    updateToNewCurrentMessage('');
-    messageStateIsCreate();
+    cancelEdit()
   }
 
   const onKeyPressEnter = (e) => {
@@ -65,8 +69,10 @@ const Panel = ({
   return (
     <>
       <form ref={formEl} className='panel' onSubmit={onSubmit}  >
-        {<span className={`editing-message ${(messageState !== 'edit')&&'hideOpacity'}`}>Editing a message</span>}
-        
+        {<div className='edit-group'>
+          <span className={`editing-message ${(messageState !== 'edit')&&'hideOpacity'}`}>Editing a message</span>
+          <div className={`${(messageState !== 'edit')&&'hide'} cross`} onClick={cancelEdit}>&#9587;</div>
+        </div>}
         <textarea 
           className={`textarea ${(messageState === 'edit')&&'border-editing'}`}
           placeholder='Write message..' 

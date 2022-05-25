@@ -6,6 +6,7 @@ import { currentUser } from "./currentUser";
 import { messageState } from "./stateMessage";
 import { currentMessageId } from "./currentMessageId";
 import { toggleSettings } from "./toggleSettings";
+import { clickCoordinates } from "./clickCoordinates";
 
 
 export default combineReducers({
@@ -14,5 +15,6 @@ export default combineReducers({
   allStore,
   messageState,
   currentMessageId,
-  toggleSettings
+  toggleSettings,
+  clickCoordinates
 });

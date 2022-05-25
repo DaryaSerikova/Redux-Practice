@@ -13,6 +13,7 @@ const ChatWindow = ({
   messageState,
   currentMessageId,
   toggleSettings,
+  clickCoordinates, updateCoordinates,
   updateToNewCurrentMessageId,  
   messageStateIsCreate, 
   messageStateIsEdit,
@@ -30,8 +31,13 @@ const ChatWindow = ({
     return (e) => {
       console.log('(ChatWindow) onClick!');
       console.log('e.target', e.target);
-      console.log(message)
+      console.log('e', e);
+      console.log('e.clientX:', e.clientX,', e.clientY:', e.clientY);
+      // updateCoordinates(e.clientX, e.clientY);
+      updateCoordinates(`${e.clientX-130}px`, `${e.clientY+10}px`);
 
+      console.log(message);
+      console.log('clickCoordinates', clickCoordinates);
       updateToNewCurrentMessageId(message.id);
       if (toggleSettings === 'hide') {
         showSettings();
@@ -53,11 +59,17 @@ const ChatWindow = ({
     }
   }
 
+  const cancelEdit = () => {
+    updateToNewCurrentMessage('');
+    messageStateIsCreate();
+  }
+
   const remove = (message) => {
     return (e) => {
     console.log('Remove!');
     updateToNewCurrentMessageId(message.id);
     removeMessageFromStore(message.id, message.name);
+    cancelEdit();
   }}
 
 
@@ -73,9 +85,14 @@ const ChatWindow = ({
         />
 
         {(message.id === currentMessageId) && 
-        <div key={`buttons_${message.id}`} id='settings' className={`setting-buttons ${toggleSettings}`}>
-          <div className='setting-btn' onClick={edit(message)}>Редактировать</div>
-          <div className='setting-btn' onClick={remove(message)}>Удалить</div>
+        <div 
+          key={`buttons_${message.id}`} 
+          id='settings' 
+          style={{left: clickCoordinates.x, top:clickCoordinates.y}} 
+          className={`setting-buttons ${toggleSettings}`}
+        >
+          <div className='setting-btn btn-edit' onClick={edit(message)}>Редактировать</div>
+          <div className='setting-btn btn-remove' onClick={remove(message)}>Удалить</div>
         </div>}
       </>
     )
