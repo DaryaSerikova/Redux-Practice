@@ -1,5 +1,6 @@
-// Actions
+import { getTime } from "../utils/getTime";
 
+//Actions
 export const UPDATE_TO_NEW_CURRENT_MESSAGE = 'UPDATE_TO_NEW_CURRENT_MESSAGE';
 
 export const UPDATE_TO_NEW_CURRENT_USER = 'UPDATE_TO_NEW_CURRENT_USER';
@@ -21,45 +22,18 @@ export const UPDATE_COORDINATES = 'UPDATE_COORDINATES';
 
 export const MESSAGE_IS_EDITED = 'MESSAGE_IS_EDITED';
 
+export const SEARCHED_USERS = 'SEARCHED_USERS';
 
-
-let withZero = (num) => num < 10 ? '0' : '';
-
-const zero = (smth) => {
-  return `${withZero(smth)}${smth}`;
-}
 
 //Action Creators
-const getTime = () => {
-  
-  const date = new Date();
-
-  let hours = date.getHours();
-  let minutes = date.getMinutes();
-  let seconds = date.getSeconds();
-
-  let newTime = `${hours}:${zero(minutes)}:${zero(seconds)}`;
-
-
-  let day = date.getDate();
-  let month = date.getMonth() + 1;
-  let year = date.getFullYear();
-  
-  const newDate = `${zero(day)}.${zero(month)}.${year}`;
-
-  return {
-    time: newTime,
-    date: newDate
-  };
-}
 
 export const updateToNewCurrentMessage = (value) => ({
-  type: UPDATE_TO_NEW_CURRENT_MESSAGE, //'current_message/updateToNewCurrentMessage'
+  type: UPDATE_TO_NEW_CURRENT_MESSAGE, 
   value
-}); //message или value??? что лучше
+});
 
 export const addNewMessageToStore = (value, name) => ({
-  type: ADD_NEW_MESSAGE_TO_STORE, //'message_store/addNewMessageToStore'
+  type: ADD_NEW_MESSAGE_TO_STORE, 
   value: value,
   name: name,
   date: getTime().date,
@@ -99,10 +73,12 @@ export const messageStateIsEdit = () => ({
   type: MESSAGE_STATE_IS_EDIT
 });
 
+
 export const updateToNewCurrentMessageId = (id) => ({
   type: UPDATE_TO_NEW_CURRENT_MESSAGE_ID,
   id
 });
+
 
 export const hideSettings = () => ({
   type: HIDE_SETTINGS
@@ -121,6 +97,11 @@ export const updateCoordinates = (x, y) => ({
 export const messageIsEdited = () => ({
   type: MESSAGE_IS_EDITED
 });
+
+export const updateSearchedUsers = (users) => ({
+  type: SEARCHED_USERS,
+  users
+})
 
 
 

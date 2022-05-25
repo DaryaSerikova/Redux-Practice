@@ -8,6 +8,8 @@ import {
   messageStateIsEdit,
   messageIsEdited } from '../redux/actions';
 
+
+  
 const mapStateToProps = (state) => { //берет текущий state из store
   return {
     currentMessage: state.currentMessage,

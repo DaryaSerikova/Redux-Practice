@@ -9,7 +9,8 @@ import { updateToNewCurrentMessage,
 const mapStateToProps = (state) => {
   return {
     currentUser: state.currentUser,
-    allStore: state.allStore
+    allStore: state.allStore,
+    users: state.users
   }
 }
 

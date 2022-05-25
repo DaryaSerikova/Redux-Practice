@@ -1,11 +1,10 @@
-import './Sidebar.css';
-// import { Users } from '../Users/Users';
 import UsersWithStore from '../../containers/UsersWithStore';
 import { arrUsers } from '../Users/ArrUsers';
+import './Sidebar.css';
 
 
 
-const Sidebar = () => {
+const Sidebar = ({ updateSearchedUsers }) => {
 
   const onChange = (e) => {
 
@@ -13,9 +12,9 @@ const Sidebar = () => {
       const searchedUsers = arrUsers.filter((user) => 
         user.toLowerCase().includes(e.target.value.toLowerCase())
       )
-      // setSearched(searched)
+      updateSearchedUsers(searchedUsers);
     } else {
-        // setSearched([...users])
+      updateSearchedUsers(arrUsers);
     }
   }
 
@@ -27,8 +26,9 @@ const Sidebar = () => {
         className='search' 
         onChange={onChange}
       />
-      {/* <Users/> */}
-      <UsersWithStore/>
+      <div className='users'>
+        <UsersWithStore/>
+      </div>
     </div>
   )
 }

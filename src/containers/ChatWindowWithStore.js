@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 //connect - это HOC
+import ChatWindow from '../components/ChatWindow/ChatWindow'
 import { 
   ADD_NEW_MESSAGE_TO_STORE, 
   MESSAGE_STATE_IS_CREATE, 
@@ -11,8 +12,6 @@ import {
   SHOW_SETTINGS,
   UPDATE_COORDINATES,
   MESSAGE_IS_EDITED} from "../redux/actions";
-import { updateToNewCurrentMessage, addNewMessageToStore } from '../redux/actions';
-import ChatWindow from '../components/ChatWindow/ChatWindow'
 
 
 const mapStateToProps = (state) => { //берет текущий state из store

@@ -16,10 +16,10 @@ const Panel = ({
   messageStateIsCreate, 
   messageStateIsEdit,
   editMessageInStore,
-  messageIsEdited }) => { //{ store: storeMessage }
+  messageIsEdited }) => { 
 
   const formEl = useRef(null);
-  console.log('currentMessage:', currentMessage);
+  // console.log('currentMessage:', currentMessage);
 
   const cancelEdit = () => {
     updateToNewCurrentMessage('');
@@ -32,24 +32,24 @@ const Panel = ({
       addNewMessageToStore(currentMessage, currentUser);
     }
     if (messageState === 'edit') {
-      console.log('id', currentMessageId)
+      // console.log('id', currentMessageId)
       editMessageInStore(currentMessageId, currentMessage, currentUser);
     }
-    console.log('formEl.current', formEl.current)
+    // console.log('formEl.current', formEl.current)
     formEl.current.reset();
     messageIsEdited();
     cancelEdit();
   }
 
   const onKeyPressEnter = (e) => {
-    if (e.key === 'Enter') { //(e.keyCode == 13 && e.shiftKey == false)
+    if (e.key === 'Enter'&&e.shiftKey === false) {
       if (currentMessage !== '') {
         e.preventDefault();
-        console.log('Вы нажали Enter');
+        // console.log('Вы нажали Enter');
         submitMessage();
-        console.log('currentUser', currentUser);
-        console.log('allStore', allStore);        
-        console.log('messageStore', allStore[`${currentUser}`])
+        // console.log('currentUser', currentUser);
+        // console.log('allStore', allStore);        
+        // console.log('messageStore', allStore[`${currentUser}`])
       }
     }
   }
@@ -57,44 +57,44 @@ const Panel = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log('ONSUBMIT!')
+    // console.log('ONSUBMIT!')
 
-    console.log('currentMessage', currentMessage);
+    // console.log('currentMessage', currentMessage);
     // const form = e.target;
     if (currentMessage !== '')  submitMessage();
-    console.log('currentUser', currentUser);
-    console.log('allStore', allStore);   
-    console.log('messageStore', allStore[currentUser]);
+    // console.log('currentUser', currentUser);
+    // console.log('allStore', allStore);   
+    // console.log('messageStore', allStore[currentUser]);
   }
 
 
   return (
-    <>
-      <form ref={formEl} className='panel' onSubmit={onSubmit}  >
-        {<div className='edit-group'>
-          <span className={`editing-message ${(messageState !== 'edit')&&'hideOpacity'}`}>Editing a message</span>
-          <div className={`${(messageState !== 'edit')&&'hide'} cross`} onClick={cancelEdit}>&#9587;</div>
-        </div>}
-        <textarea 
-          className={`textarea ${(messageState === 'edit')&&'border-editing'}`}
-          placeholder='Write message..' 
-          // value={mapStateToProps.currentMessage && mapStateToProps.currentMessage}
-          value={currentMessage}
-          onChange={(e) => updateToNewCurrentMessage(e.target.value)}
-          onKeyPress={onKeyPressEnter}
-          autoFocus
-        ></textarea>
+    <form ref={formEl} className='panel' onSubmit={onSubmit}>
 
-        <div className='wrapper-btn'>
-          <button 
-            type="submit" 
-            className='btn btn-success custom-btn'
-          > Send </button>
-        </div>
+      {<div className='edit-group'>
+        <span className={`editing-message ${(messageState !== 'edit')&&'hideOpacity'}`}>Editing a message</span>
+        <div className={`${(messageState !== 'edit')&&'hide'} cross`} onClick={cancelEdit}>&#9587;</div>
+      </div>}
 
-      </form>
-    </>
+      {(currentUser !== '') &&
+      <textarea 
+        className={`textarea ${(messageState === 'edit')&&'border-editing'}`}
+        placeholder='Write message..' 
+        // value={mapStateToProps.currentMessage && mapStateToProps.currentMessage}
+        value={currentMessage}
+        onChange={(e) => updateToNewCurrentMessage(e.target.value)}
+        onKeyPress={onKeyPressEnter}
+        autoFocus
+      />}
 
+      {(currentUser !== '') && <div className='wrapper-btn'>
+        <button 
+          type="submit" 
+          className='btn btn-success custom-btn'
+        > Send </button>
+      </div>}
+
+    </form>
   )
 }
 

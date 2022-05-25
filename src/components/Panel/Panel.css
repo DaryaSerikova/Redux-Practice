@@ -1,15 +1,11 @@
 .panel {
-  background-color: rgb(247, 247, 247);
-
-  /* height: 220px; */
-  height: 40%;
-  width: 100%;
-
-  border-top:  1px solid rgb(236, 236, 236);
-
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  background-color: rgb(247, 247, 247);
+  border-top:  1px solid rgb(236, 236, 236);
+  height: 40%;
+  width: 100%;
+  
 }
 
 .wrapper-btn {
@@ -28,6 +24,7 @@
 
 .textarea {
   /* appearance: none; */
+  /* white-space: pre-line; */
   margin: 0.5rem 1.8rem 1.8rem 1.8rem;
   height: 120px;
   padding: 0.7rem;

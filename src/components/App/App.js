@@ -1,22 +1,15 @@
-import { createStore } from 'redux';
-import './App.css';
-// import ChatWindow from '../ChatWindow/ChatWindow';
-// import Panel from '../Panel/Panel';
 import PanelWithStore from '../../containers/PanelWithStore';
-
-import Sidebar from '../Sidebar/Sidebar';
 import ChatWindowWithStore from '../../containers/ChatWindowWithStore';
+import SidebarWithStore from '../../containers/SidebarWithStore';
+import './App.css';
+
+
 
 function App() {
-
-
-
   return (
     <div className="App">
-      <Sidebar/>
+      <SidebarWithStore/>
       <div className='wrapper-chat-window'>
-        {/* <ChatWindow/> */}
-        {/* <Panel/> */}
         <ChatWindowWithStore/>
         <PanelWithStore/>
       </div>

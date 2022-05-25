@@ -31,15 +31,15 @@ const ChatWindow = ({
 
   const onClick = (message) => {
     return (e) => {
-      console.log('(ChatWindow) onClick!');
-      console.log('e.target', e.target);
-      console.log('e', e);
-      console.log('e.clientX:', e.clientX,', e.clientY:', e.clientY);
-      // updateCoordinates(e.clientX, e.clientY);
+      // console.log('(ChatWindow) onClick!');
+      // console.log('e.target', e.target);
+      // console.log('e', e);
+      // console.log('e.clientX:', e.clientX,', e.clientY:', e.clientY);
+
       updateCoordinates(`${e.clientX-130}px`, `${e.clientY+10}px`);
 
-      console.log(message);
-      console.log('clickCoordinates', clickCoordinates);
+      // console.log(message);
+      // console.log('clickCoordinates', clickCoordinates);
       updateToNewCurrentMessageId(message.id);
       if (toggleSettings === 'hide') {
         showSettings();
@@ -51,13 +51,13 @@ const ChatWindow = ({
 
   const edit = (message) => {
     return (e) => {
-      console.log('Edit!');
-      console.log('message.id:', message.id)
+      // console.log('Edit!');
+      // console.log('message.id:', message.id)
       updateToNewCurrentMessageId(message.id);
       updateToNewCurrentMessage(message.value);
       messageStateIsEdit();
       hideSettings();
-      console.log('currentMessage', currentMessage)
+      // console.log('currentMessage', currentMessage)
     }
   }
 
@@ -106,8 +106,8 @@ const ChatWindow = ({
       <div className='current-user'>{currentUser}</div>
       <div className='scroll-window '>
         <div className='not-exist'> 
-          <div className='chat-window'>
-            {Messages}
+          <div className={`chat-window`}>
+            {currentUser !== '' ? Messages : <div className='no-user'>Select a user to start chatting</div>}
           </div>
         </div>
       </div>

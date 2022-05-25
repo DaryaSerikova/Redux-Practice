@@ -1,7 +1,5 @@
 .user {
   width: 100%;
-  /* background-color: #fcfcfc; */
-  /* background-color:  #f1f1f1; */
   background-color: #f9f9f9;
   border-bottom: 1px solid #ededed;
   display: flex;
@@ -9,10 +7,13 @@
   align-items: center;
   padding: 12px;
   color: #494949;
-
 }
 
 .user:hover {
+  background-color: white;
+}
+
+.active-user {
   background-color: white;
 }
 

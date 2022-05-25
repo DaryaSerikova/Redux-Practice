@@ -9,7 +9,8 @@ export const Message = ({id, value, onClick, time, edited, currentMessageId}) =>
             onClick={onClick}
             >
             {value}
-            <div className='message-time'>{time}{edited&&'(edited)'}</div>
+            {/* {edited&&'(edited)'} */}
+            <div className='message-time'>{time}</div>
         </div>
     )
 }
