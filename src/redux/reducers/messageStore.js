@@ -45,7 +45,7 @@ const addNewMessage = (state, action) => {
 }
 
 
-const updateMessageStore = (state = [], action) => { //Переименовать updatePersonalMessageStore
+const updateMessageStore = (state = [], action) => { //Переименовать updateMessageInStore
   switch(action.type) {
     case ADD_NEW_MESSAGE_TO_STORE: //'message_store/addNewMessageToStore'
       return { 
