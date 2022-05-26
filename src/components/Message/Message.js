@@ -1,9 +1,6 @@
 import './Message.css'
 
-const Message = ({id, value, onClick, time, edit, currentMessageId}) => {
-    // console.log('id === currentMessageId', (id === currentMessageId), ',id:', id,',currentMessageId', currentMessageId,);
-    // console.log('edited', edit)
-    // console.log('(id === currentMessageId) && edited', (id === currentMessageId) && edit)
+const Message = ({id, value, onClick, time, edit }) => {
 
     const messEdited = edit ? '(edited)' : '';
 

@@ -1,6 +1,5 @@
 import React  from 'react';
 
-// import MessageWithStore from '../../containers/MessageWithStore';
 import Message from '../Message/Message'; 
 import './ChatWindow.css';
 import '../Message/Message.css';
@@ -9,11 +8,10 @@ import '../Message/Message.css';
 const ChatWindow = ({ 
   allStore, 
   currentUser, 
-  // messageState,
   currentMessageId,
   toggleSettings,
-  clickCoordinates, updateCoordinates,
-  // messageIsEdited,
+  clickCoordinates, 
+  updateCoordinates,
   updateToNewCurrentMessageId,  
   messageStateIsCreate, 
   messageStateIsEdit,

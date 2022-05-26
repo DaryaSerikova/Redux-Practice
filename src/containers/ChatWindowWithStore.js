@@ -11,8 +11,6 @@ import {
   HIDE_SETTINGS,
   SHOW_SETTINGS,
   UPDATE_COORDINATES,
-  MESSAGE_IS_EDITED,
-  MESSAGE_IS_NOT_EDITED,
   } from "../redux/actions";
 
 
@@ -25,7 +23,6 @@ const mapStateToProps = (state) => {
     currentMessageId: state.currentMessageId,
     toggleSettings: state.toggleSettings,
     clickCoordinates: state.clickCoordinates,
-    edited: state.edited
   }
 }
 
@@ -88,17 +85,6 @@ const mapDispatchToProps = (dispatch) => {
         y
       })
     },
-
-    // messageIsEdited: () => {
-    //   dispatch({
-    //     type: MESSAGE_IS_EDITED
-    //   })
-    // },
-    // messageIsNotEdited: () => {
-    //   dispatch({
-    //     type: MESSAGE_IS_NOT_EDITED
-    //   })
-    // }
   }
 };
 

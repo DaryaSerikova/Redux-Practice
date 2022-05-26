@@ -3,20 +3,14 @@ import './Panel.css';
 
 
 const Panel = ({ 
-  // edited,
   currentMessage, 
-  // allStore, 
   currentUser, 
   messageState,
-  currentMessageId,
-  // updateToNewCurrentMessageId,   
+  currentMessageId,  
   updateToNewCurrentMessage, 
   addNewMessageToStore,
   messageStateIsCreate, 
-  // messageStateIsEdit,
   editMessageInStore,
-  // messageIsEdited,
-  // messageIsNotEdited 
 }) => { 
 
   const formEl = useRef(null);
@@ -27,15 +21,12 @@ const Panel = ({
   }
 
   const submitMessage = () => {
-    // messageIsNotEdited();
+
     if (messageState === 'create') {
-      // messageIsNotEdited();
       addNewMessageToStore(currentMessage, currentUser, false);
     }
     if (messageState === 'edit') {
-      // messageIsEdited();
       editMessageInStore(currentMessageId, currentMessage, currentUser, true);
-      
     }
 
     formEl.current.reset();
