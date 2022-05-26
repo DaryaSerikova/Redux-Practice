@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-//connect - это HOC
 import ChatWindow from '../components/ChatWindow/ChatWindow'
 import { 
   ADD_NEW_MESSAGE_TO_STORE, 

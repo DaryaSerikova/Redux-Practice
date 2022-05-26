@@ -10,7 +10,7 @@ import {
 
 
   
-const mapStateToProps = (state) => { //берет текущий state из store
+const mapStateToProps = (state) => {
   return {
     currentMessage: state.currentMessage,
     allStore: state.allStore,
