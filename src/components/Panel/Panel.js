@@ -1,11 +1,11 @@
 import { useRef } from 'react';
-// import { updateToNewCurrentMessage, addNewMessageToStore, editMessageInStore } from '../../redux/actions';
 import './Panel.css';
 
 
 const Panel = ({ 
+  // edited,
   currentMessage, 
-  allStore, 
+  // allStore, 
   currentUser, 
   messageState,
   currentMessageId,
@@ -13,9 +13,11 @@ const Panel = ({
   updateToNewCurrentMessage, 
   addNewMessageToStore,
   messageStateIsCreate, 
-  messageStateIsEdit,
+  // messageStateIsEdit,
   editMessageInStore,
-  messageIsEdited }) => { 
+  // messageIsEdited,
+  // messageIsNotEdited 
+}) => { 
 
   const formEl = useRef(null);
 
@@ -25,16 +27,18 @@ const Panel = ({
   }
 
   const submitMessage = () => {
-
+    // messageIsNotEdited();
     if (messageState === 'create') {
-      addNewMessageToStore(currentMessage, currentUser);
+      // messageIsNotEdited();
+      addNewMessageToStore(currentMessage, currentUser, false);
     }
     if (messageState === 'edit') {
-      editMessageInStore(currentMessageId, currentMessage, currentUser);
+      // messageIsEdited();
+      editMessageInStore(currentMessageId, currentMessage, currentUser, true);
+      
     }
 
     formEl.current.reset();
-    messageIsEdited();
     cancelEdit();
   }
 

@@ -20,7 +20,8 @@ export const SHOW_SETTINGS = 'SHOW_SETTINGS';
 
 export const UPDATE_COORDINATES = 'UPDATE_COORDINATES';
 
-export const MESSAGE_IS_EDITED = 'MESSAGE_IS_EDITED';
+// export const MESSAGE_IS_EDITED = 'MESSAGE_IS_EDITED';
+// export const MESSAGE_IS_NOT_EDITED = 'MESSAGE_IS_NOT_EDITED';
 
 export const SEARCHED_USERS = 'SEARCHED_USERS';
 
@@ -32,12 +33,13 @@ export const updateToNewCurrentMessage = (value) => ({
   value
 });
 
-export const addNewMessageToStore = (value, name) => ({
+export const addNewMessageToStore = (value, name, edit) => ({
   type: ADD_NEW_MESSAGE_TO_STORE, 
   value: value,
   name: name,
   date: getTime().date,
-  time: getTime().time
+  time: getTime().time,
+  edit: edit
 });
 
 export const updateToNewCurrentUser = (name) => ({
@@ -50,11 +52,12 @@ export const addNewUserToStore = (name) => ({
   name
 });
 
-export const editMessageInStore = (id, value, name) => ({
+export const editMessageInStore = (id, value, name, edit) => ({
   type: EDIT_MESSAGE_IN_STORE,
   id,
   value,
-  name
+  name,
+  edit
 });
 
 export const removeMessageFromStore = (id, name) => ({
@@ -94,9 +97,13 @@ export const updateCoordinates = (x, y) => ({
   y
 });
 
-export const messageIsEdited = () => ({
-  type: MESSAGE_IS_EDITED
-});
+// export const messageIsEdited = () => ({
+//   type: MESSAGE_IS_EDITED
+// });
+
+// export const messageIsNotEdited = () => ({
+//   type: MESSAGE_IS_NOT_EDITED
+// });
 
 export const updateSearchedUsers = (users) => ({
   type: SEARCHED_USERS,

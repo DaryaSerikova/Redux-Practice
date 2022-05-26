@@ -1,16 +1,23 @@
 import './Message.css'
 
-export const Message = ({id, value, onClick, time, edited, currentMessageId}) => {
+const Message = ({id, value, onClick, time, edit, currentMessageId}) => {
+    // console.log('id === currentMessageId', (id === currentMessageId), ',id:', id,',currentMessageId', currentMessageId,);
+    // console.log('edited', edit)
+    // console.log('(id === currentMessageId) && edited', (id === currentMessageId) && edit)
+
+    const messEdited = edit ? '(edited)' : '';
+
     return (
         <div 
-            key={id} 
+            id={id} 
             className='message'
             value={value} 
             onClick={onClick}
             >
             {value}
-            {/* {edited&&'(edited)'} */}
-            <div className='message-time'>{time}</div>
+            <div className='message-time'>{time}{messEdited}</div>
         </div>
     )
 }
+
+export default Message;

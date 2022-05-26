@@ -20,7 +20,8 @@ const updateMessageStore = (state = [], action) => { // Измение одно�
           value: action.value, 
           date: action.date,
           time: action.time,
-          name: action.name
+          name: action.name,
+          edit: action.edit///////
         }
     
     case EDIT_MESSAGE_IN_STORE:
@@ -29,6 +30,7 @@ const updateMessageStore = (state = [], action) => { // Измение одно�
       return {
         ...newMessage,
         value: action.value,
+        edit: action.edit
       }
     
     default:

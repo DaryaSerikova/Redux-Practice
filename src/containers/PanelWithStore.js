@@ -6,7 +6,8 @@ import {
   addNewMessageToStore, 
   messageStateIsCreate, 
   messageStateIsEdit,
-  messageIsEdited } from '../redux/actions';
+  messageIsEdited,
+  messageIsNotEdited } from '../redux/actions';
 
 
   
@@ -16,7 +17,8 @@ const mapStateToProps = (state) => { //берет текущий state из stor
     allStore: state.allStore,
     currentUser: state.currentUser,
     messageState: state.messageState,
-    currentMessageId: state.currentMessageId
+    currentMessageId: state.currentMessageId,
+    // edited: state.edited
   }
 }
 
@@ -26,7 +28,8 @@ const mapDispatchToProps = {
   messageStateIsCreate, 
   messageStateIsEdit,
   editMessageInStore,
-  messageIsEdited
+  // messageIsEdited,
+  // messageIsNotEdited
 }
 
 const PanelWithStore = connect(mapStateToProps, mapDispatchToProps)(Panel);

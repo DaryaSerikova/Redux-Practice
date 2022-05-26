@@ -1,6 +1,7 @@
 import React  from 'react';
 
-import MessageWithStore from '../../containers/MessageWithStore';
+// import MessageWithStore from '../../containers/MessageWithStore';
+import Message from '../Message/Message'; 
 import './ChatWindow.css';
 import '../Message/Message.css';
 
@@ -66,11 +67,12 @@ const ChatWindow = ({
 
     return (
       <>
-        <MessageWithStore
-          key={message.id}
+        <Message
+          id={message.id}
           value={message.value} 
           onClick={onClick(message)}
           time={message.time}
+          edit={message.edit}
         />
 
         {(message.id === currentMessageId) && 

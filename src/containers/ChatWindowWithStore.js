@@ -11,7 +11,9 @@ import {
   HIDE_SETTINGS,
   SHOW_SETTINGS,
   UPDATE_COORDINATES,
-  MESSAGE_IS_EDITED} from "../redux/actions";
+  MESSAGE_IS_EDITED,
+  MESSAGE_IS_NOT_EDITED,
+  } from "../redux/actions";
 
 
 const mapStateToProps = (state) => {
@@ -30,11 +32,12 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 
   return {
-    addNewMessageToStore: (value, name) => {
+    addNewMessageToStore: (value, name, edit) => {
       dispatch({
         type: ADD_NEW_MESSAGE_TO_STORE,
         value,
         name,
+        edit
       })
     },
     removeMessageFromStore: (id, name) => {
@@ -86,11 +89,16 @@ const mapDispatchToProps = (dispatch) => {
       })
     },
 
-    messageIsEdited: () => {
-      dispatch({
-        type: MESSAGE_IS_EDITED
-      })
-    }
+    // messageIsEdited: () => {
+    //   dispatch({
+    //     type: MESSAGE_IS_EDITED
+    //   })
+    // },
+    // messageIsNotEdited: () => {
+    //   dispatch({
+    //     type: MESSAGE_IS_NOT_EDITED
+    //   })
+    // }
   }
 };
 
