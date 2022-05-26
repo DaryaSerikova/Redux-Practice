@@ -65,3 +65,7 @@
   margin: 9rem 1rem 1rem 1rem;
   color: #7e7e7e;
 }
+
+.not-exist {
+  min-height: 313px;
+}

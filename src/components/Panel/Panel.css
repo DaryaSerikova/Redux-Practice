@@ -24,7 +24,7 @@
 
 .textarea {
   /* appearance: none; */
-  /* white-space: pre-line; */
+  white-space: pre-line !important;
   margin: 0.5rem 1.8rem 1.8rem 1.8rem;
   height: 120px;
   padding: 0.7rem;

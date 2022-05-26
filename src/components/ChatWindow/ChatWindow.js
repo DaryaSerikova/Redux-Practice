@@ -93,9 +93,11 @@ const ChatWindow = ({
       <div className='current-user'>{currentUser}</div>
       <div className='scroll-window '>
         <div className='not-exist'> 
+
           <div className={`chat-window`}>
             {currentUser !== '' ? Messages : <div className='no-user'>Select a user to start chatting</div>}
           </div>
+
         </div>
       </div>
     </>
