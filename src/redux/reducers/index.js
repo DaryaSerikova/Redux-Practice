@@ -7,7 +7,7 @@ import { messageState } from "./stateMessage";
 import { currentMessageId } from "./currentMessageId";
 import { toggleSettings } from "./toggleSettings";
 import { clickCoordinates } from "./clickCoordinates";
-// import { edited } from "./edited";
+import { edited } from "./edited";
 import { users } from "./users";
 
 
@@ -19,6 +19,6 @@ export default combineReducers({
   currentMessageId,
   toggleSettings,
   clickCoordinates,
-  // edited,
+  edited,
   users
 });

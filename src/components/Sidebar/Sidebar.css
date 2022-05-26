@@ -4,6 +4,7 @@
   height: 600px;
   min-width: 175px;
 
+  /* position: absolute; */
   left: 0;
   top: 0;
   overflow-y: scroll;
@@ -14,6 +15,16 @@
   display: none;
 }
 
+/* Убрать полосу прокрутки у элемента */
+/* .element::-webkit-scrollbar {
+  width: 0; */
+  /* background: rgba(0, 0, 0, 0); */
+/* } */
+
+/* ::-webkit-scrollbar — это фон самого скроллбара.
+::-webkit-scrollbar-button — кнопки направления на полосе прокрутки.
+::-webkit-scrollbar-track — пустое пространство под индикатором прокрутки.
+::-webkit-scrollbar-thumb — индикатор прокрутки, перетаскиваемый элемент. */
 
 .search {
   display: block;
@@ -21,6 +32,7 @@
   border: none;
   border-bottom: 1px solid #c2c2c2;
   padding: 0.7rem 1rem 0.7rem 1rem;
+  /* width: 20%; */
   font-size: 11.2pt;
   max-width: 171px;
 }
@@ -39,20 +51,3 @@
     width: 30%;
   }
 }
-
-
-
-
-
-
-
-/* Убрать полосу прокрутки у элемента */
-/* .element::-webkit-scrollbar {
-  width: 0; */
-  /* background: rgba(0, 0, 0, 0); */
-/* } */
-
-/* ::-webkit-scrollbar — это фон самого скроллбара.
-::-webkit-scrollbar-button — кнопки направления на полосе прокрутки.
-::-webkit-scrollbar-track — пустое пространство под индикатором прокрутки.
-::-webkit-scrollbar-thumb — индикатор прокрутки, перетаскиваемый элемент. */

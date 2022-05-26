@@ -20,7 +20,7 @@ export const SHOW_SETTINGS = 'SHOW_SETTINGS';
 
 export const UPDATE_COORDINATES = 'UPDATE_COORDINATES';
 
-// export const MESSAGE_IS_EDITED = 'MESSAGE_IS_EDITED';
+export const MESSAGE_IS_EDITED = 'MESSAGE_IS_EDITED';
 
 export const SEARCHED_USERS = 'SEARCHED_USERS';
 
@@ -94,9 +94,9 @@ export const updateCoordinates = (x, y) => ({
   y
 });
 
-// export const messageIsEdited = () => ({
-//   type: MESSAGE_IS_EDITED
-// });
+export const messageIsEdited = () => ({
+  type: MESSAGE_IS_EDITED
+});
 
 export const updateSearchedUsers = (users) => ({
   type: SEARCHED_USERS,

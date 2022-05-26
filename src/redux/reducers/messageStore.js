@@ -85,7 +85,6 @@ export const allStore = (state = {}, action) => { //Полное хранили�
           ]
         }
       }
-      
     case REMOVE_MESSAGE_FROM_STORE:
       if (state[action.name]) {
         let array = [...state[action.name]];
