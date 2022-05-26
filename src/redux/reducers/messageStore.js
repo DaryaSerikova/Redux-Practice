@@ -11,11 +11,45 @@ import {
 
 let messageId = 0;
 
+const addNewUser = (state, action) => {
+  if(!state[action.name]) {
+    return {
+      ...state,
+      [action.name]: []
+    }
+  } else {
+    return {
+      ...state,
+      [action.name]: [
+        ...state[action.name]
+      ]
+    }
+  }
+}
 
-const updateMessageInStore = (state = [], action) => { //Локальное изменение одного сообщения
+const addNewMessage = (state, action) => {
+  if(!state[action.name]){
+    return {
+      ...state,
+      [action.name]: updateMessageStore([], action)
+    }
+  } else {
+    return {
+      ...state,
+      [action.name]: [
+        ...state[action.name],
+        updateMessageStore(state[action.name], action)
+      ]
+    }
+  }
+}
+
+
+const updateMessageStore = (state = [], action) => { //Переименовать updateMessageInStore
   switch(action.type) {
-    case ADD_NEW_MESSAGE_TO_STORE:
+    case ADD_NEW_MESSAGE_TO_STORE: //'message_store/addNewMessageToStore'
       return { 
+          // мб лучше state.current_message???// но тогда важна очередность
           id: messageId++, 
           value: action.value, 
           date: action.date,
@@ -36,8 +70,7 @@ const updateMessageInStore = (state = [], action) => { //Локальное из
   }
 }
 
-
-export const allStore = (state = {}, action) => { //Полное хранилище сообщений
+export const allStore = (state = {}, action) => {
   switch(action.type) {
     case ADD_NEW_USER_TO_STORE:
       if(!state[action.name]) {
@@ -55,18 +88,18 @@ export const allStore = (state = {}, action) => { //Полное хранили�
       }
 
 
-    case ADD_NEW_MESSAGE_TO_STORE:
+    case ADD_NEW_MESSAGE_TO_STORE: //Переименовать в UPDATE_NEW_MESSAGE_STORE
       if (!state[action.name]) {
         return {
           ...state,
-          [action.name]: updateMessageInStore([], action)
+          [action.name]: updateMessageStore([], action)
         }
       } else {
         return {
           ...state,
           [action.name]: [
             ...state[action.name],
-            updateMessageInStore(state[action.name], action)
+            updateMessageStore(state[action.name], action)
           ]
         }
       }
@@ -75,12 +108,12 @@ export const allStore = (state = {}, action) => { //Полное хранили�
       if (state[action.name]) {
         let array = [...state[action.name]];
         const index = getIndex(action.id, array);
-
+        // console.log(index);
         return {
           ...state,
           [action.name]: [
             ...state[action.name].slice(0, index),
-            updateMessageInStore(state[action.name], action),
+            updateMessageStore(state[action.name], action),
             ...state[action.name].slice(index + 1),
           ]
         }
@@ -89,7 +122,7 @@ export const allStore = (state = {}, action) => { //Полное хранили�
       if (state[action.name]) {
         let array = [...state[action.name]];
         const index = getIndex(action.id, array);
-
+        console.log(index)
         return {
           ...state,
           [action.name]: [
