@@ -10,7 +10,8 @@ import {
   HIDE_SETTINGS,
   SHOW_SETTINGS,
   UPDATE_COORDINATES,
-  MESSAGE_IS_EDITED} from "../redux/actions";
+  // MESSAGE_IS_EDITED
+} from "../redux/actions";
 
 
 const mapStateToProps = (state) => { //берет текущий state из store
@@ -85,11 +86,11 @@ const mapDispatchToProps = (dispatch) => {
       })
     },
 
-    messageIsEdited: () => {
-      dispatch({
-        type: MESSAGE_IS_EDITED
-      })
-    }
+    // messageIsEdited: () => {
+    //   dispatch({
+    //     type: MESSAGE_IS_EDITED
+    //   })
+    // }
   }
 };
 

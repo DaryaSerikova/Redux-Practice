@@ -6,7 +6,8 @@ import {
   addNewMessageToStore, 
   messageStateIsCreate, 
   messageStateIsEdit,
-  messageIsEdited } from '../redux/actions';
+  // messageIsEdited 
+} from '../redux/actions';
 
 
   
@@ -26,7 +27,7 @@ const mapDispatchToProps = {
   messageStateIsCreate, 
   messageStateIsEdit,
   editMessageInStore,
-  messageIsEdited
+  // messageIsEdited
 }
 
 const PanelWithStore = connect(mapStateToProps, mapDispatchToProps)(Panel);

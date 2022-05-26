@@ -1,25 +1,20 @@
 import React  from 'react';
-import './ChatWindow.css';
-
-import { Message } from '../Message/Message';
-import '../Message/Message.css'
 import MessageWithStore from '../../containers/MessageWithStore';
+
+import './ChatWindow.css';
+import '../Message/Message.css'
 
 
 
 const ChatWindow = ({ 
   allStore, 
   currentUser, 
-  currentMessage,
-  messageState,
   currentMessageId,
   toggleSettings,
   clickCoordinates, updateCoordinates,
-  messageIsEdited,
   updateToNewCurrentMessageId,  
   messageStateIsCreate, 
   messageStateIsEdit,
-  addNewMessageToStore, 
   updateToNewCurrentMessage, 
   removeMessageFromStore,
   hideSettings, 
@@ -31,15 +26,9 @@ const ChatWindow = ({
 
   const onClick = (message) => {
     return (e) => {
-      // console.log('(ChatWindow) onClick!');
-      // console.log('e.target', e.target);
-      // console.log('e', e);
-      // console.log('e.clientX:', e.clientX,', e.clientY:', e.clientY);
 
       updateCoordinates(`${e.clientX-130}px`, `${e.clientY+10}px`);
 
-      // console.log(message);
-      // console.log('clickCoordinates', clickCoordinates);
       updateToNewCurrentMessageId(message.id);
       if (toggleSettings === 'hide') {
         showSettings();
@@ -51,13 +40,10 @@ const ChatWindow = ({
 
   const edit = (message) => {
     return (e) => {
-      // console.log('Edit!');
-      // console.log('message.id:', message.id)
       updateToNewCurrentMessageId(message.id);
       updateToNewCurrentMessage(message.value);
       messageStateIsEdit();
       hideSettings();
-      // console.log('currentMessage', currentMessage)
     }
   }
 
@@ -112,7 +98,6 @@ const ChatWindow = ({
         </div>
       </div>
     </>
-
   )
 }
 
