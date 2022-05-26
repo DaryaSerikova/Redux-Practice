@@ -1,16 +1,13 @@
 import React  from 'react';
-import './ChatWindow.css';
 
-// import { Message } from '../Message/Message';
-import '../Message/Message.css'
 import MessageWithStore from '../../containers/MessageWithStore';
-
+import './ChatWindow.css';
+import '../Message/Message.css';
 
 
 const ChatWindow = ({ 
   allStore, 
   currentUser, 
-  // currentMessage,
   // messageState,
   currentMessageId,
   toggleSettings,
@@ -19,7 +16,6 @@ const ChatWindow = ({
   updateToNewCurrentMessageId,  
   messageStateIsCreate, 
   messageStateIsEdit,
-  // addNewMessageToStore, 
   updateToNewCurrentMessage, 
   removeMessageFromStore,
   hideSettings, 

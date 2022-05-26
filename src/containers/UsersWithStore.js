@@ -1,7 +1,6 @@
 import { Users } from "../components/Users/Users";
 import { connect } from "react-redux";
 import { 
-  // updateToNewCurrentMessage, 
   updateToNewCurrentUser, 
   addNewMessageToStore, 
   addNewUserToStore } from "../redux/actions";
@@ -14,10 +13,6 @@ const mapStateToProps = (state) => {
     users: state.users
   }
 }
-
-// const mapDispatchToProps = { //Это коммент, но РАБОЧИЙ КОД
-//   updateCurrentUser: (name) => updateToNewCurrentUser(name)
-// }
 
 const mapDispatchToProps = (dispatch) => {
   return {
