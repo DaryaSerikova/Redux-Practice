@@ -1,6 +1,7 @@
 import { Users } from "../components/Users/Users";
 import { connect } from "react-redux";
-import { updateToNewCurrentMessage, 
+import { 
+  // updateToNewCurrentMessage, 
   updateToNewCurrentUser, 
   addNewMessageToStore, 
   addNewUserToStore } from "../redux/actions";

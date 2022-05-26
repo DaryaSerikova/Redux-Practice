@@ -14,7 +14,7 @@ import {
   MESSAGE_IS_EDITED} from "../redux/actions";
 
 
-const mapStateToProps = (state) => { //берет текущий state из store
+const mapStateToProps = (state) => {
   return { 
     allStore: state.allStore,
     currentUser: state.currentUser,
