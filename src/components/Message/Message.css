@@ -5,6 +5,7 @@
     border-radius: 7px;
     height: fit-content;
     width: fit-content;
+    white-space: pre-line;
 }
 
 .message-time {
