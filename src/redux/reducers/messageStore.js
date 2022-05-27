@@ -12,7 +12,7 @@ import {
 let messageId = 0;
 
 
-const updateMessageStore = (state = [], action) => { // Измение одного конкретного сообщения  //Переименовать updateMessageInStore
+const updateMessageStore = (state = [], action) => { // Изменение одного конкретного сообщения  //Переименовать updateMessageInStore
   switch(action.type) {
     case ADD_NEW_MESSAGE_TO_STORE:
       return { 
@@ -86,6 +86,7 @@ export const allStore = (state = {}, action) => { // Полное хранили
           ]
         }
       }
+
     case REMOVE_MESSAGE_FROM_STORE:
       if (state[action.name]) {
         let array = [...state[action.name]];

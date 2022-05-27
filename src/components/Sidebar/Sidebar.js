@@ -22,7 +22,7 @@ const Sidebar = ({ updateSearchedUsers }) => {
     <div className="sidebar">
       <input 
         type='text' 
-        placeholder='Search...' 
+        placeholder='Search user...' 
         className='search' 
         onChange={onChange}
       />

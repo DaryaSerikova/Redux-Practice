@@ -90,7 +90,15 @@ const ChatWindow = ({
 
   return (
     <>
-      <div className='current-user'>{currentUser}</div>
+      <div className='current-user'>
+        {currentUser}
+        {/* <input 
+          type='text' 
+          placeholder='Search user...' 
+          className='search' 
+          onChange={onChange}
+        /> */}
+      </div>
       <div className='scroll-window '>
         <div className='not-exist'> 
 
