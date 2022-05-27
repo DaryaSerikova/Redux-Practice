@@ -5,9 +5,16 @@ import './App.css';
 
 
 
-function App() {
+const App = ({ toggleSettings, hideSettings }) => {
+  
+  const onClick = (e) => {
+    if (toggleSettings !== 'hide') {
+      hideSettings();
+    }
+  }
+
   return (
-    <div className="App">
+    <div className="App" onClick={onClick}>
       <SidebarWithStore/>
       <div className='wrapper-chat-window'>
         <ChatWindowWithStore/>

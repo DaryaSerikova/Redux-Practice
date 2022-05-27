@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import rootReducer from './redux/reducers';
-import App from './components/App/App';
+// import App from './components/App/App';
+import AppWithStore from './containers/AppWithStore';
 import { createStore } from 'redux';
 // import reportWebVitals from './reportWebVitals';
 
@@ -13,7 +14,7 @@ root.render(
   <React.StrictMode>
   {/* В Provider уже реализована подписка на изменения store */}
     <Provider store={store}> 
-      <App />
+      <AppWithStore />
     </Provider>
   </React.StrictMode>
 );
