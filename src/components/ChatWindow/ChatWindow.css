@@ -51,6 +51,17 @@
 .current-user {
   display: flex;
   justify-content: center;
+  align-items: center;
+  /* padding: 0.65rem; */
+  font-size: 13pt;
+  /* min-height: 47.4px;
+  background-color: rgb(249 249 249); */
+  width: 100%;
+}
+
+.window-header {
+  display: flex;
+  justify-content: space-between;
   padding: 0.65rem;
   font-size: 13pt;
   min-height: 47.4px;
@@ -68,4 +79,25 @@
 
 .not-exist {
   min-height: 313px;
+}
+
+.search-icon {
+  padding: 0 0.5rem 0 0.5rem;
+  width: 46px;
+  height: 32px;
+  
+}
+
+.search-message {
+  /* display: block;
+  position: absolute; */
+  border: none;
+  border: 1px solid #f0f0f0;
+  padding: 0rem 1rem 0rem 1rem;
+  font-size: 11.2pt;
+  max-width: 171px;
+}
+
+.search-message:focus-visible {
+  outline: none;
 }

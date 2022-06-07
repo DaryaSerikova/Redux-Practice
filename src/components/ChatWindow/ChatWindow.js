@@ -3,6 +3,7 @@ import React  from 'react';
 import Message from '../Message/Message'; 
 import './ChatWindow.css';
 import '../Message/Message.css';
+import searchIcon from '../../assets/icon32.png';
 
 
 const ChatWindow = ({ 
@@ -90,15 +91,23 @@ const ChatWindow = ({
 
   return (
     <>
-      <div className='current-user'>
+      <div className='window-header'>
+        <div className='current-user'>
         {currentUser}
-        {/* <input 
+        </div>
+        <input 
           type='text' 
-          placeholder='Search user...' 
-          className='search' 
-          onChange={onChange}
-        /> */}
+          placeholder='Search messsage...' 
+          className='search-message' 
+          // onChange={onChange}
+        />
+        <img
+          className="search-icon"
+          alt="search-icon"
+          src={searchIcon}
+        />
       </div>
+      
       <div className='scroll-window '>
         <div className='not-exist'> 
 
