@@ -1,92 +1,34 @@
 import React  from 'react';
 
-import Message from '../Message/Message'; 
-import './ChatWindow.css';
-import '../Message/Message.css';
+import MessagesWithStore from '../../containers/MessagesWithStore';
 import searchIcon from '../../assets/icon32.png';
+import './ChatWindow.css';
 
 
-const ChatWindow = ({ 
-  allStore, 
-  currentUser, 
-  currentMessageId,
-  toggleSettings,
-  clickCoordinates, 
-  updateCoordinates,
-  updateToNewCurrentMessageId,  
-  messageStateIsCreate, 
-  messageStateIsEdit,
-  updateToNewCurrentMessage, 
-  removeMessageFromStore,
-  hideSettings, 
-  showSettings }) => {
 
+const ChatWindow = ({ allStore, currentUser, searchedMessages, updateSearchedMessages }) => {
 
   let arrStoreMessage = allStore[`${currentUser}`];
   if (arrStoreMessage === undefined) arrStoreMessage = [];
+  // updateSearchedMessages(allStore[`${currentUser}`]);
+  // let arrSearchedMessages = searchedMessages === [] ? arrStoreMessage : searchedMessages;
+  // let arrSearchedMessages = searchedMessages;
 
-  const onClick = (message) => {
-    return (e) => {
 
-      updateCoordinates(`${e.clientX-130}px`, `${e.clientY+10}px`);
-      updateToNewCurrentMessageId(message.id);
+  const onChangeSearchMessage = (e) => {
 
-      if (toggleSettings === 'hide') {
-        showSettings();
-      } else {
-        hideSettings();
-      }
+    if (e.target.value.trim()) {
+      const searchedMess = arrStoreMessage.filter((message) => 
+
+        message.value.toLowerCase().includes(e.target.value.toLowerCase())
+      )
+      console.log('searchedMess', searchedMess)
+      updateSearchedMessages(searchedMess);
+    } else {
+
+      updateSearchedMessages(arrStoreMessage);
     }
   }
-
-  const edit = (message) => {
-    return (e) => {
-      updateToNewCurrentMessageId(message.id);
-      updateToNewCurrentMessage(message.value);
-      messageStateIsEdit();
-      hideSettings();
-    }
-  }
-
-  const cancelEdit = () => {
-    updateToNewCurrentMessage('');
-    messageStateIsCreate();
-  }
-
-  const remove = (message) => {
-    return (e) => {
-    console.log('Remove!');
-    updateToNewCurrentMessageId(message.id);
-    removeMessageFromStore(message.id, message.name);
-    cancelEdit();
-  }}
-
-
-  const Messages = arrStoreMessage.map((message) => {
-
-    return (
-      <>
-        <Message
-          id={message.id}
-          value={message.value} 
-          onClick={onClick(message)}
-          time={message.time}
-          edit={message.edit}
-        />
-
-        {(message.id === currentMessageId) && 
-        <div 
-          key={`buttons_${message.id}`} 
-          id='settings' 
-          style={{left: clickCoordinates.x, top:clickCoordinates.y}} 
-          className={`setting-buttons ${toggleSettings}`}
-        >
-          <div className='setting-btn btn-edit' onClick={edit(message)}>Редактировать</div>
-          <div className='setting-btn btn-remove' onClick={remove(message)}>Удалить</div>
-        </div>}
-      </>
-    )
-  })
 
 
   return (
@@ -99,7 +41,7 @@ const ChatWindow = ({
           type='text' 
           placeholder='Search messsage...' 
           className='search-message' 
-          // onChange={onChange}
+          onChange={onChangeSearchMessage}
         />
         <img
           className="search-icon"
@@ -112,7 +54,9 @@ const ChatWindow = ({
         <div className='not-exist'> 
 
           <div className={`chat-window`}>
-            {currentUser !== '' ? Messages : <div className='no-user'>Select a user to start chatting</div>}
+            {currentUser !== '' 
+            ? <MessagesWithStore arrStoreMessage={searchedMessages}/> 
+            : <div className='no-user'>Select a user to start chatting</div>}
           </div>
 
         </div>

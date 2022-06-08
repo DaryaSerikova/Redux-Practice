@@ -1,7 +1,7 @@
 import './Users.css';
 
 
-export const Users = ({ currentUser, updateCurrentUser, addNewUserToStore, users: currentUsers }) => {
+export const Users = ({ allStore, currentUser, updateCurrentUser, addNewUserToStore, users: currentUsers, updateSearchedMessages }) => {
 
   let userId = -1;
 
@@ -14,7 +14,13 @@ export const Users = ({ currentUser, updateCurrentUser, addNewUserToStore, users
         className={`user ${currentUser === user ? 'active-user' : ''}`} 
         value={user} 
         onClick={(e) => {
-          addNewUserToStore(user); 
+          addNewUserToStore(user);
+          console.log(allStore[`${user}`])
+          if (allStore[`${user}`] === undefined) {
+            updateSearchedMessages([])
+          } else {
+            updateSearchedMessages(allStore[`${user}`]);
+          } 
           return updateCurrentUser(user);
           }}
       >{ user }</div>

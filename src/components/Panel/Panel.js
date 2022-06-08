@@ -3,6 +3,7 @@ import './Panel.css';
 
 
 const Panel = ({ 
+  allStore,
   currentMessage, 
   currentUser, 
   messageState,
@@ -11,6 +12,7 @@ const Panel = ({
   addNewMessageToStore,
   messageStateIsCreate, 
   editMessageInStore,
+  updateSearchedMessages
 }) => { 
 
   const formEl = useRef(null);
@@ -28,9 +30,9 @@ const Panel = ({
     if (messageState === 'edit') {
       editMessageInStore(currentMessageId, currentMessage, currentUser, true);
     }
-
     formEl.current.reset();
     cancelEdit();
+    setTimeout(() =>{ updateSearchedMessages(allStore[`${currentUser}`])}, 1000)
   }
 
   const onKeyPressEnter = (e) => {

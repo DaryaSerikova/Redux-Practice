@@ -22,6 +22,8 @@ export const UPDATE_COORDINATES = 'UPDATE_COORDINATES';
 
 export const SEARCHED_USERS = 'SEARCHED_USERS';
 
+export const SEARCHED_MESSAGES = 'SEARCHED_MESSAGES';
+
 
 //Action Creators
 
@@ -100,5 +102,10 @@ export const updateCoordinates = (x, y) => ({
 export const updateSearchedUsers = (users) => ({
   type: SEARCHED_USERS,
   users
-})
+});
+
+export const updateSearchedMessages = (messages) => ({
+  type: SEARCHED_MESSAGES,
+  messages
+});
 
