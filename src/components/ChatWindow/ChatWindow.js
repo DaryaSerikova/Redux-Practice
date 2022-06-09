@@ -19,8 +19,6 @@ const ChatWindow = ({
   let arrStoreMessage = allStore[`${currentUser}`];
   if (arrStoreMessage === undefined) arrStoreMessage = [];
   // updateSearchedMessages(allStore[`${currentUser}`]);
-  // let arrSearchedMessages = searchedMessages === [] ? arrStoreMessage : searchedMessages;
-  // let arrSearchedMessages = searchedMessages;
 
 
   const onChangeSearchMessage = (e) => {
@@ -42,6 +40,9 @@ const ChatWindow = ({
     if (toggleMessageSearching === 'hide') {
       if (currentUser !== '') showMessageSearching();
     } else {
+      //reset input
+      //update search to message store
+      updateSearchedMessages(arrStoreMessage);
       hideMessageSearching();
     }
   }
@@ -50,26 +51,29 @@ const ChatWindow = ({
   return (
     <>
       <div className='window-header'>
+
         <div className='current-user'>
         {currentUser}
         </div>
+
         <input 
           type='text' 
           placeholder='Search messsage...' 
           className={`search-message ${toggleMessageSearching}`} 
           onChange={onChangeSearchMessage}
         />
-        <div 
-          onClick={toggleSearching}
-        >
+
+        <div onClick={toggleSearching}>
           <img
-            className={`search-icon ${currentUser === ''&&toggleMessageSearching}`}
+            className={`search-icon ${currentUser === '' && toggleMessageSearching}`}
             alt="search-icon"
             src={searchIcon}
           />
         </div>
+
       </div>
       
+
       <div className='scroll-window '>
         <div className='not-exist'> 
 
@@ -82,7 +86,6 @@ const ChatWindow = ({
         </div>
       </div>
     </>
-
   )
 }
 

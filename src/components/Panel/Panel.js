@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import './Panel.css';
 
 
@@ -17,6 +17,11 @@ const Panel = ({
 
   const formEl = useRef(null);
 
+  useEffect(() => {
+    if (currentUser !== '') updateSearchedMessages(allStore[`${currentUser}`]);
+  }, [allStore, currentUser, updateSearchedMessages]);
+
+
   const cancelEdit = () => {
     updateToNewCurrentMessage('');
     messageStateIsCreate();
@@ -29,6 +34,7 @@ const Panel = ({
     if (messageState === 'edit') {
       editMessageInStore(currentMessageId, currentMessage, currentUser, true);
     }
+    // setStateMessStore()
   }
 
 
