@@ -20,18 +20,23 @@ const ChatWindow = ({
   if (arrStoreMessage === undefined) arrStoreMessage = [];
   // updateSearchedMessages(allStore[`${currentUser}`]);
 
+    const handleValue = () => {
+      //update
+    }
+
 
   const onChangeSearchMessage = (e) => {
 
     if (e.target.value.trim()) {
-      const searchedMess = arrStoreMessage.filter((message) => 
 
+      const searchedMess = arrStoreMessage.filter((message) => 
         message.value.toLowerCase().includes(e.target.value.toLowerCase())
       )
+
       console.log('searchedMess', searchedMess)
       updateSearchedMessages(searchedMess);
-    } else {
 
+    } else {
       updateSearchedMessages(arrStoreMessage);
     }
   }
@@ -61,6 +66,7 @@ const ChatWindow = ({
           placeholder='Search messsage...' 
           className={`search-message ${toggleMessageSearching}`} 
           onChange={onChangeSearchMessage}
+          // value
         />
 
         <div onClick={toggleSearching}>

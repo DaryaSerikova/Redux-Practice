@@ -9,6 +9,7 @@ import { //надо почистить
   HIDE_SETTINGS,
   SHOW_SETTINGS,
   UPDATE_COORDINATES,
+  ADD_TO_FORWARD_MESSAGES
   } from "../redux/actions";
 import { Messages } from '../components/Messages/Messages';
 
@@ -21,6 +22,7 @@ const mapStateToProps = (state) => {
     currentMessageId: state.currentMessageId,
     toggleSettings: state.toggleSettings,
     clickCoordinates: state.clickCoordinates,
+    currentForwardMessages: state.currentForwardMessages,
   }
 }
 
@@ -83,6 +85,13 @@ const mapDispatchToProps = (dispatch) => { //надо почистить
         y
       })
     },
+
+    addToForwardMessages: (message) => {
+      dispatch({
+        type: ADD_TO_FORWARD_MESSAGES,
+        message
+      })
+    }
   }
 };
 

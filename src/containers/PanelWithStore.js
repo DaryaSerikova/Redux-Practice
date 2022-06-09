@@ -6,7 +6,8 @@ import {
   addNewMessageToStore, 
   messageStateIsCreate, 
   messageStateIsEdit,
-  updateSearchedMessages } from '../redux/actions';
+  updateSearchedMessages,
+  hideMessageSearching } from '../redux/actions';
 
 
   
@@ -26,7 +27,8 @@ const mapDispatchToProps = {
   messageStateIsCreate, 
   messageStateIsEdit,
   editMessageInStore,
-  updateSearchedMessages
+  updateSearchedMessages,
+  hideMessageSearching,
 }
 
 const PanelWithStore = connect(mapStateToProps, mapDispatchToProps)(Panel);

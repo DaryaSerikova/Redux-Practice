@@ -13,7 +13,9 @@ export const Messages = ({
   removeMessageFromStore,
   hideSettings, 
   showSettings,
-  arrStoreMessage }) => {
+  arrStoreMessage, //props
+  addToForwardMessages,
+  currentForwardMessages }) => {
 
   const onClick = (message) => {
     return (e) => {
@@ -45,6 +47,13 @@ export const Messages = ({
     removeMessageFromStore(message.id, message.name);
     cancelEdit();
   }}
+
+  const forward = (message) => {
+    return (e) => {
+      console.log('Forward! Message:', message.value);
+      addToForwardMessages(message);
+    }
+  }
   
   const cancelEdit = () => {
     updateToNewCurrentMessage('');
@@ -72,8 +81,10 @@ export const Messages = ({
           className={`setting-buttons ${toggleSettings}`}
         >
           <div className='setting-btn btn-edit' onClick={edit(message)}>Редактировать</div>
+          <div className='setting-btn' onClick={forward(message)}>Переслать</div>
           <div className='setting-btn btn-remove' onClick={remove(message)}>Удалить</div>
         </div>}
+        {console.log('currentForwardMessages:', currentForwardMessages)}
       </>
     )
   })

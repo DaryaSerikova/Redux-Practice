@@ -1,4 +1,5 @@
 import { getTime } from "../utils/getTime";
+import { messages } from "./reducers/messages";
 
 //Actions
 export const UPDATE_TO_NEW_CURRENT_MESSAGE = 'UPDATE_TO_NEW_CURRENT_MESSAGE';
@@ -12,6 +13,7 @@ export const ADD_NEW_USER_TO_STORE = 'ADD_NEW_USER_TO_STORE';
 
 export const MESSAGE_STATE_IS_CREATE = 'MESSAGE_STATE_IS_CREATE';
 export const MESSAGE_STATE_IS_EDIT = 'MESSAGE_STATE_IS_EDIT';
+export const MESSAGE_STATE_IS_FORWARD = 'MESSAGE_STATE_IS_FORWARD'; ///////////////////////////
 
 export const UPDATE_TO_NEW_CURRENT_MESSAGE_ID = 'UPDATE_TO_NEW_CURRENT_MESSAGE_ID';
 
@@ -26,6 +28,8 @@ export const SEARCHED_MESSAGES = 'SEARCHED_MESSAGES';
 
 export const HIDE_MESSAGE_SEARCHING = 'HIDE_MESSAGE_SEARCHING';
 export const SHOW_MESSAGE_SEARCHING = 'SHOW_MESSAGE_SEARCHING';
+
+export const ADD_TO_FORWARD_MESSAGES = 'ADD_TO_FORWARD_MESSAGES';
 
 
 
@@ -81,6 +85,10 @@ export const messageStateIsEdit = () => ({
   type: MESSAGE_STATE_IS_EDIT
 });
 
+export const messageStateIsForward = () => ({
+  type: MESSAGE_STATE_IS_FORWARD
+});
+
 
 export const updateToNewCurrentMessageId = (id) => ({
   type: UPDATE_TO_NEW_CURRENT_MESSAGE_ID,
@@ -113,6 +121,7 @@ export const updateSearchedMessages = (messages) => ({
   messages
 });
 
+
 export const hideMessageSearching = () => ({
   type: HIDE_MESSAGE_SEARCHING
 });
@@ -120,3 +129,7 @@ export const hideMessageSearching = () => ({
 export const showMessageSearching = () => ({
   type: SHOW_MESSAGE_SEARCHING
 });
+
+export const addToForwardMessages = (message) => ({
+  type: ADD_TO_FORWARD_MESSAGES
+})

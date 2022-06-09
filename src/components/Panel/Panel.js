@@ -12,7 +12,8 @@ const Panel = ({
   addNewMessageToStore,
   messageStateIsCreate, 
   editMessageInStore,
-  updateSearchedMessages
+  updateSearchedMessages,
+  hideMessageSearching
 }) => { 
 
   const formEl = useRef(null);
@@ -34,7 +35,6 @@ const Panel = ({
     if (messageState === 'edit') {
       editMessageInStore(currentMessageId, currentMessage, currentUser, true);
     }
-    // setStateMessStore()
   }
 
 
@@ -77,6 +77,7 @@ const Panel = ({
         placeholder='Write message..' 
         value={currentMessage}
         onChange={(e) => updateToNewCurrentMessage(e.target.value)}
+        onClick={(e) => hideMessageSearching()} //прописать reset у message search input
         onKeyPress={onKeyPressEnter}
         autoFocus
       />}

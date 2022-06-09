@@ -1,7 +1,7 @@
 import './Users.css';
 
 
-export const Users = ({ allStore, currentUser, updateCurrentUser, addNewUserToStore, users: currentUsers, updateSearchedMessages }) => {
+export const Users = ({ allStore, currentUser, updateCurrentUser, addNewUserToStore, users: currentUsers, updateSearchedMessages, hideMessageSearching }) => {
 
   let userId = -1;
 
@@ -15,6 +15,7 @@ export const Users = ({ allStore, currentUser, updateCurrentUser, addNewUserToSt
         value={user} 
         onClick={(e) => {
           addNewUserToStore(user);
+          hideMessageSearching(); //прописать reset у message searching
           console.log(allStore[`${user}`])
           if (allStore[`${user}`] === undefined) {
             updateSearchedMessages([])

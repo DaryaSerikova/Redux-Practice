@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { 
   updateToNewCurrentUser, 
   addNewUserToStore,
-  updateSearchedMessages } from "../redux/actions";
+  updateSearchedMessages,
+  hideMessageSearching } from "../redux/actions";
 
 
 const mapStateToProps = (state) => {
@@ -24,7 +25,10 @@ const mapDispatchToProps = (dispatch) => {
     },
     updateSearchedMessages: (messages) => {
       dispatch(updateSearchedMessages(messages))
-    }
+    },
+    hideMessageSearching: () => {
+      dispatch(hideMessageSearching())
+    },
 
   }
 }

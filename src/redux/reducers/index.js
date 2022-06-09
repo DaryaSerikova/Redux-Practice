@@ -10,6 +10,7 @@ import { clickCoordinates } from "./clickCoordinates";
 import { users } from "./users";
 import { messages } from "./messages";
 import { toggleMessageSearching } from "./toggleMessageSearching";
+import { currentForwardMessages } from "./currentForwardMessages";
 
 
 export default combineReducers({
@@ -22,5 +23,6 @@ export default combineReducers({
   clickCoordinates,
   users,
   messages,
-  toggleMessageSearching
+  toggleMessageSearching,
+  currentForwardMessages,
 });
