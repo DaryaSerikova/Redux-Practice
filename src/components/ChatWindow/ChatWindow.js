@@ -63,7 +63,7 @@ const ChatWindow = ({
           onClick={toggleSearching}
         >
           <img
-            className="search-icon"
+            className={`search-icon ${currentUser === ''&&toggleMessageSearching}`}
             alt="search-icon"
             src={searchIcon}
           />
