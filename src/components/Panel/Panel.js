@@ -22,17 +22,23 @@ const Panel = ({
     messageStateIsCreate();
   }
 
-  const submitMessage = () => {
-
+  const changeMessageStore = () => {
     if (messageState === 'create') {
       addNewMessageToStore(currentMessage, currentUser, false);
     }
     if (messageState === 'edit') {
       editMessageInStore(currentMessageId, currentMessage, currentUser, true);
     }
+  }
+
+
+  const submitMessage = () => {
+
+    changeMessageStore();
+    updateSearchedMessages(allStore[`${currentUser}`])
+
     formEl.current.reset();
     cancelEdit();
-    setTimeout(() =>{ updateSearchedMessages(allStore[`${currentUser}`])}, 1000)
   }
 
   const onKeyPressEnter = (e) => {
