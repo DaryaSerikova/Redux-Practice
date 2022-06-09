@@ -24,6 +24,10 @@ export const SEARCHED_USERS = 'SEARCHED_USERS';
 
 export const SEARCHED_MESSAGES = 'SEARCHED_MESSAGES';
 
+export const HIDE_MESSAGE_SEARCHING = 'HIDE_MESSAGE_SEARCHING';
+export const SHOW_MESSAGE_SEARCHING = 'SHOW_MESSAGE_SEARCHING';
+
+
 
 //Action Creators
 
@@ -109,3 +113,10 @@ export const updateSearchedMessages = (messages) => ({
   messages
 });
 
+export const hideMessageSearching = () => ({
+  type: HIDE_MESSAGE_SEARCHING
+});
+
+export const showMessageSearching = () => ({
+  type: SHOW_MESSAGE_SEARCHING
+});

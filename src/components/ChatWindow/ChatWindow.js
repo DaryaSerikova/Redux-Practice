@@ -6,7 +6,15 @@ import './ChatWindow.css';
 
 
 
-const ChatWindow = ({ allStore, currentUser, searchedMessages, updateSearchedMessages }) => {
+const ChatWindow = ({ 
+  allStore, 
+  currentUser, 
+  searchedMessages, 
+  updateSearchedMessages,
+  toggleMessageSearching,
+  hideMessageSearching, 
+  showMessageSearching
+  }) => {
 
   let arrStoreMessage = allStore[`${currentUser}`];
   if (arrStoreMessage === undefined) arrStoreMessage = [];
@@ -30,6 +38,14 @@ const ChatWindow = ({ allStore, currentUser, searchedMessages, updateSearchedMes
     }
   }
 
+  const toggleSearching = () => {
+    if (toggleMessageSearching === 'hide') {
+      if (currentUser !== '') showMessageSearching();
+    } else {
+      hideMessageSearching();
+    }
+  }
+
 
   return (
     <>
@@ -40,14 +56,18 @@ const ChatWindow = ({ allStore, currentUser, searchedMessages, updateSearchedMes
         <input 
           type='text' 
           placeholder='Search messsage...' 
-          className='search-message' 
+          className={`search-message ${toggleMessageSearching}`} 
           onChange={onChangeSearchMessage}
         />
-        <img
-          className="search-icon"
-          alt="search-icon"
-          src={searchIcon}
-        />
+        <div 
+          onClick={toggleSearching}
+        >
+          <img
+            className="search-icon"
+            alt="search-icon"
+            src={searchIcon}
+          />
+        </div>
       </div>
       
       <div className='scroll-window '>

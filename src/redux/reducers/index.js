@@ -9,6 +9,7 @@ import { toggleSettings } from "./toggleSettings";
 import { clickCoordinates } from "./clickCoordinates";
 import { users } from "./users";
 import { messages } from "./messages";
+import { toggleMessageSearching } from "./toggleMessageSearching";
 
 
 export default combineReducers({
@@ -20,5 +21,6 @@ export default combineReducers({
   toggleSettings,
   clickCoordinates,
   users,
-  messages
+  messages,
+  toggleMessageSearching
 });
