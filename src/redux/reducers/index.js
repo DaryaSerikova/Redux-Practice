@@ -11,6 +11,7 @@ import { users } from "./users";
 import { messages } from "./messages";
 import { toggleMessageSearching } from "./toggleMessageSearching";
 import { currentForwardMessages } from "./currentForwardMessages";
+import { toggleSelectedMessage } from "./toggleSelectedMessage";
 
 
 export default combineReducers({
@@ -25,4 +26,5 @@ export default combineReducers({
   messages,
   toggleMessageSearching,
   currentForwardMessages,
+  toggleSelectedMessage
 });

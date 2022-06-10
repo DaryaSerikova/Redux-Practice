@@ -8,6 +8,7 @@ export const UPDATE_TO_NEW_CURRENT_USER = 'UPDATE_TO_NEW_CURRENT_USER';
 
 export const ADD_NEW_MESSAGE_TO_STORE = 'ADD_NEW_MESSAGE_TO_STORE';
 export const EDIT_MESSAGE_IN_STORE = 'EDIT_MESSAGE_IN_STORE';
+export const CHOOSE_MESSAGE_IN_STORE = 'CHOOSE_MESSAGE_IN_STORE'///////////////////////////
 export const REMOVE_MESSAGE_FROM_STORE = 'REMOVE_MESSAGE_FROM_STORE';
 export const ADD_NEW_USER_TO_STORE = 'ADD_NEW_USER_TO_STORE';
 
@@ -31,6 +32,9 @@ export const SHOW_MESSAGE_SEARCHING = 'SHOW_MESSAGE_SEARCHING';
 
 export const ADD_TO_FORWARD_MESSAGES = 'ADD_TO_FORWARD_MESSAGES';
 
+export const HIDE_SELECTED_MESSAGE = 'HIDE_SELECTED_MESSAGE';
+export const SHOW_SELECTED_MESSAGE = 'SHOW_SELECTED_MESSAGE';
+
 
 
 //Action Creators
@@ -41,13 +45,14 @@ export const updateToNewCurrentMessage = (value) => ({
 });
 
 
-export const addNewMessageToStore = (value, name, edit) => ({
+export const addNewMessageToStore = (value, name, edit, selected) => ({
   type: ADD_NEW_MESSAGE_TO_STORE, 
   value: value,
   name: name,
   date: getTime().date,
   time: getTime().time,
-  edit: edit
+  edit: edit,
+  selected: selected
 });
 
 export const editMessageInStore = (id, value, name, edit) => ({
@@ -55,7 +60,19 @@ export const editMessageInStore = (id, value, name, edit) => ({
   id,
   value,
   name,
-  edit
+  edit,
+  // selected
+});
+
+export const chooseMessageInStore = (id, 
+  // value, name, edit, 
+  selected) => ({
+  type: CHOOSE_MESSAGE_IN_STORE,
+  id,
+  // value,
+  // name,
+  // edit,
+  selected
 });
 
 export const removeMessageFromStore = (id, name) => ({
@@ -133,3 +150,12 @@ export const showMessageSearching = () => ({
 export const addToForwardMessages = (message) => ({
   type: ADD_TO_FORWARD_MESSAGES
 })
+
+
+export const hideSelectedMessage = () => ({
+  type: HIDE_SELECTED_MESSAGE
+});
+
+export const showSelectedMessage = () => ({
+  type: SHOW_SELECTED_MESSAGE
+});

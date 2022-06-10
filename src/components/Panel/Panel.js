@@ -20,7 +20,7 @@ const Panel = ({
 
   useEffect(() => {
     if (currentUser !== '') updateSearchedMessages(allStore[`${currentUser}`]);
-  }, [allStore, currentUser, updateSearchedMessages]);
+  }, [allStore, currentUser, updateSearchedMessages]); //allStore, currentUser, 
 
 
   const cancelEdit = () => {
@@ -30,10 +30,10 @@ const Panel = ({
 
   const changeMessageStore = () => {
     if (messageState === 'create') {
-      addNewMessageToStore(currentMessage, currentUser, false);
+      addNewMessageToStore(currentMessage, currentUser, false, false); //edit, choised
     }
     if (messageState === 'edit') {
-      editMessageInStore(currentMessageId, currentMessage, currentUser, true);
+      editMessageInStore(currentMessageId, currentMessage, currentUser, true); //edit
     }
   }
 

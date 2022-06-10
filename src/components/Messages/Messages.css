@@ -1,0 +1,65 @@
+.wrapper-message {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1rem;
+  width: 100%;
+}
+
+.show-choised-message {
+  background-color: #9caaff17;
+  /* background: linear-gradient(to right, #3cc3fc38, 10%, #ed8afa45); */
+  /* background: linear-gradient(to right, #3cc3fc38, 55%, #ed8afa45); */
+  /* background: linear-gradient(to right, #3cc3fc21, 75%, #ed8afa45); */
+  background: linear-gradient(to right, #3cc3fc1c, 75%, #ed8afa2b);
+}
+
+.checkmark-icon {
+  opacity: 0.81;
+  width: 24px;
+  height: 24px;
+}
+
+.hide-checkmark-icon {
+  display: none;
+}
+
+.false-checkmark-icon {
+  display: none;
+}
+
+.hide-choised-message {
+  justify-content: flex-end !important;
+}
+
+.false-choised-message {
+  justify-content: flex-end !important;
+}
+
+
+/* from Message.css*/
+.message {
+  background-color: whitesmoke;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 7px;
+  height: fit-content;
+  width: fit-content;
+  white-space: pre-line;
+  word-break: break-all;
+}
+
+/* background-color: #a0c9fe; */
+
+.message-time {
+  font-size: 9pt;
+  color: #b9b9b9;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.show-message {
+  background-color: white !important;
+}
+

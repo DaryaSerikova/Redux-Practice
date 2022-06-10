@@ -1,13 +1,15 @@
-import './Message.css'
+import './Message.css';
 
-const Message = ({id, value, onClick, time, edit }) => {
+
+const Message = ({id, value, onClick, time, edit, toggleSelectedMessage}) => { //мб нужен selected?
 
     const messEdited = edit ? '(edited)' : '';
 
     return (
         <div 
             id={id} 
-            className='message'
+            className={`message`}
+            // className={`message ${toggleSelectedMessage}-message`}
             value={value} 
             onClick={onClick}
             >

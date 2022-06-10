@@ -1,21 +1,65 @@
+import React, {useState, useEffect, useRef} from "react";
 import Message from "../Message/Message";
+import checkmark from '../../assets/checkmark32.png';
+import './Messages.css';
+import SettingsWithStore from "../../containers/SettingsWithStore";
 
 
 export const Messages = ({ 
+  allStore,
+  currentUser,
   currentMessageId,
   toggleSettings,
-  clickCoordinates, 
   updateCoordinates,
-  updateToNewCurrentMessageId,  
-  messageStateIsCreate, 
-  messageStateIsEdit,
-  updateToNewCurrentMessage, 
-  removeMessageFromStore,
+  updateToNewCurrentMessageId, 
+  // clickCoordinates,  
+  // messageStateIsCreate, 
+  // messageStateIsEdit,
+  // updateToNewCurrentMessage, 
+  // removeMessageFromStore,
+  // addToForwardMessages,
   hideSettings, 
   showSettings,
   arrStoreMessage, //props
-  addToForwardMessages,
-  currentForwardMessages }) => {
+  currentForwardMessages,
+  chooseMessageInStore,
+  updateSearchedMessages, 
+  hideSelectedMessage, 
+  showSelectedMessage,
+  toggleSelectedMessage
+ }) => {
+
+  // // const [stateMessage, setStateMessage] = useState({});
+  // const [stateWithoutCheckmark, setStateWithoutCheckmark] = useState('');
+  // const [stateToggleSelectedMessage, setStateToggleSelectedMessage] = useState('');
+
+  const hideCheckmarkIcon = `hide-checkmark-icon`;
+
+
+  // useEffect(() => {
+
+  //   if (stateMessage !== {}) {
+  //     const message = stateMessage;
+  //     if (currentUser !== '') updateSearchedMessages(allStore[`${currentUser}`]);
+  //     let toggleCheckmark = !message.selected ? `without-checkmark`: ''
+  //     let toggleSelectedMessage = !message.selected ? `hide-checkmark-icon`: ''
+  //   }
+  // }, [
+  //   // chooseMessageInStore
+  // ]);
+
+
+  const onChoose = (message) => {
+    return (e) => {
+      if (toggleSelectedMessage === 'show') {
+        hideSelectedMessage();
+      } else {
+        showSelectedMessage();
+      }
+      chooseMessageInStore(message.id, true) //id, selected
+    }
+  }
+
 
   const onClick = (message) => {
     return (e) => {
@@ -31,59 +75,68 @@ export const Messages = ({
     }
   }
   
-  const edit = (message) => {
-    return (e) => {
-      updateToNewCurrentMessageId(message.id);
-      updateToNewCurrentMessage(message.value);
-      messageStateIsEdit();
-      hideSettings();
-    }
-  }
-  
-  const remove = (message) => {
-    return (e) => {
-    console.log('Remove!');
-    updateToNewCurrentMessageId(message.id);
-    removeMessageFromStore(message.id, message.name);
-    cancelEdit();
-  }}
-
-  const forward = (message) => {
-    return (e) => {
-      console.log('Forward! Message:', message.value);
-      addToForwardMessages(message);
-    }
-  }
-  
-  const cancelEdit = () => {
-    updateToNewCurrentMessage('');
-    messageStateIsCreate();
-  }
-  
   
   const Mess = arrStoreMessage.map((message) => {
-  
+  // Идея с className работает, но один раз, потому что не отслеживает изменения store
+  // Нужен Redux или Hooks
+
+    // // let newMess = message;
+    // // setStateMessage(newMess);
+    // let toggleCheckmark = !message.selected ? `without-checkmark`: '';
+    // setStateWithoutCheckmark(toggleCheckmark);
+    // let toggleSelectedMessage = !message.selected ? `hide-checkmark-icon`: '';
+    // setStateToggleSelectedMessage(toggleSelectedMessage);
+
+    // // <div className={`wrapper-message ${!message.selected ? `without-checkmark`: ''}`}>
+    // // className={`checkmark-icon ${!message.selected ? `hide-checkmark-icon`: ''}`}
+    // let toggleMark = stateWithoutCheckmark;
+    // let toggleSelect = stateToggleSelectedMessage;
+
+    // <div className={`wrapper-message ${toggleMark}`}>
+    // className={`checkmark-icon ${toggleSelect}`}
+
+
+
+
+    // <div className={`wrapper-message ${!message.selected ? `hide-checkmark`: ''}`}>
+    // className={`checkmark-icon ${!message.selected ? `hide-checkmark-icon`: ''}`}
+
+    // const messEdited = message.edit ? '(edited)' : '';
+
+
     return (
       <>
-        <Message
-          id={message.id}
-          value={message.value} 
-          onClick={onClick(message)}
-          time={message.time}
-          edit={message.edit}
-        />
+        <div className={`wrapper-message ${(message.id === currentMessageId) && toggleSelectedMessage}-choised-message`} onClick={onChoose(message)}>
+        {console.log('id:', message.id, ' selected:', message.selected)}
+          <img
+          className={`checkmark-icon ${(message.id === currentMessageId) && toggleSelectedMessage}-checkmark-icon`}
+          alt="checkmark-icon"
+          src={checkmark}
+          />
+          <Message
+            id={message.id}
+            value={message.value} 
+            onClick={onClick(message)}
+            time={message.time}
+            edit={message.edit}
+            selected={message.selected}
+            toggleSelectedMessage={toggleSelectedMessage}
+          />
+          {/* <div 
+            id={message.id} 
+            className={`message`}
+            value={message.value} 
+            onClick={onClick}
+            time={message.time}
+            edit={message.edit}
+            selected={message.selected}
+            >
+            {message.value}
+            <div className='message-time'>{message.time}{messEdited}</div>
+          </div> */}
+        </div>
   
-        {(message.id === currentMessageId) && 
-        <div 
-          key={`buttons_${message.id}`} 
-          id='settings' 
-          style={{left: clickCoordinates.x, top:clickCoordinates.y}} 
-          className={`setting-buttons ${toggleSettings}`}
-        >
-          <div className='setting-btn btn-edit' onClick={edit(message)}>Редактировать</div>
-          <div className='setting-btn' onClick={forward(message)}>Переслать</div>
-          <div className='setting-btn btn-remove' onClick={remove(message)}>Удалить</div>
-        </div>}
+        {(message.id === currentMessageId) && <SettingsWithStore message={message}/>}
         {console.log('currentForwardMessages:', currentForwardMessages)}
       </>
     )

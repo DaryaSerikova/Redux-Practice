@@ -65,7 +65,9 @@
   padding: 0.65rem;
   font-size: 13pt;
   min-height: 47.4px;
-  background-color: rgb(249 249 249);
+  /* background-color: rgb(249 249 249); */
+  background-color: rgb(255 255 255); 
+  border-bottom: 1px solid #ebebeb;
 }
 
 .no-user {

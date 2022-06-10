@@ -9,9 +9,15 @@
     word-break: break-all;
 }
 
+/* background-color: #a0c9fe; */
+
 .message-time {
     font-size: 9pt;
     color: #b9b9b9;
     display: flex;
     justify-content: flex-end;
+}
+
+.show-message {
+    background-color: white !important;
 }

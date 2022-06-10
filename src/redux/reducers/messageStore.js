@@ -4,7 +4,8 @@ import {
   ADD_NEW_MESSAGE_TO_STORE,
   EDIT_MESSAGE_IN_STORE, 
   REMOVE_MESSAGE_FROM_STORE,
-  ADD_NEW_USER_TO_STORE
+  ADD_NEW_USER_TO_STORE,
+  CHOOSE_MESSAGE_IN_STORE
 } from "../actions";
 
 
@@ -21,7 +22,8 @@ const updateMessageStore = (state = [], action) => { // Изменение од�
           date: action.date,
           time: action.time,
           name: action.name,
-          edit: action.edit///////
+          edit: action.edit,
+          selected: action.selected ///////
         }
     
     case EDIT_MESSAGE_IN_STORE:
@@ -30,7 +32,16 @@ const updateMessageStore = (state = [], action) => { // Изменение од�
       return {
         ...newMessage,
         value: action.value,
-        edit: action.edit
+        edit: action.edit,
+        // selected: selected
+      }
+
+    case CHOOSE_MESSAGE_IN_STORE:
+      let arr = [...state];
+      const newMess = getCurrentMessageInfo(action.id, arr);
+      return {
+        ...newMess,
+        selected: action.selected
       }
     
     default:

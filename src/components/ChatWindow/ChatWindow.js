@@ -2,6 +2,8 @@ import React  from 'react';
 
 import MessagesWithStore from '../../containers/MessagesWithStore';
 import searchIcon from '../../assets/icon32.png';
+import right from '../../assets/right32.png';
+import left from '../../assets/left32.png';
 import './ChatWindow.css';
 
 
@@ -68,6 +70,17 @@ const ChatWindow = ({
           onChange={onChangeSearchMessage}
           // value
         />
+
+        {/* <img
+          className={`search-icon`}
+          alt="left-icon"
+          src={left}
+        />
+        <img
+          className={`search-icon`}
+          alt="right-icon"
+          src={right}
+        /> */}
 
         <div onClick={toggleSearching}>
           <img
