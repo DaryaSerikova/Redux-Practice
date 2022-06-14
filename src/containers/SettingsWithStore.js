@@ -9,7 +9,10 @@ import {
   HIDE_SETTINGS,
   CHOOSE_MESSAGE_IN_STORE,
   HIDE_SELECTED_MESSAGE,
-  SHOW_SELECTED_MESSAGE
+  SHOW_SELECTED_MESSAGE,
+  MESSAGE_STATE_IS_FORWARD,
+  RESET_FORWARD_MESSAGE,
+  REMOVE_MESSAGE_FROM_FORWARD_MESSAGE,
   } from "../redux/actions";
 import { Settings } from '../components/Settings/Settings';
 
@@ -106,6 +109,25 @@ const mapDispatchToProps = (dispatch) => {
     showSelectedMessage: () => {
       dispatch({
         type: SHOW_SELECTED_MESSAGE
+      })
+    },
+
+    messageStateIsForward: () => {
+      dispatch({
+        type: MESSAGE_STATE_IS_FORWARD
+      })
+    },
+
+    resetForwardMessage: () => {
+      dispatch({
+        type: RESET_FORWARD_MESSAGE
+      })
+    },
+
+    removeFromForwardMessage: (id) => {
+      dispatch({
+        type: REMOVE_MESSAGE_FROM_FORWARD_MESSAGE,
+        id
       })
     },
 

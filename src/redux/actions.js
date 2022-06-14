@@ -15,6 +15,7 @@ export const ADD_NEW_USER_TO_STORE = 'ADD_NEW_USER_TO_STORE';
 export const MESSAGE_STATE_IS_CREATE = 'MESSAGE_STATE_IS_CREATE';
 export const MESSAGE_STATE_IS_EDIT = 'MESSAGE_STATE_IS_EDIT';
 export const MESSAGE_STATE_IS_FORWARD = 'MESSAGE_STATE_IS_FORWARD'; ///////////////////////////
+export const MESSAGE_STATE_IS_EMPTY = 'MESSAGE_STATE_IS_EMPTY';
 
 export const UPDATE_TO_NEW_CURRENT_MESSAGE_ID = 'UPDATE_TO_NEW_CURRENT_MESSAGE_ID';
 
@@ -34,6 +35,9 @@ export const ADD_TO_FORWARD_MESSAGES = 'ADD_TO_FORWARD_MESSAGES';
 
 export const HIDE_SELECTED_MESSAGE = 'HIDE_SELECTED_MESSAGE';
 export const SHOW_SELECTED_MESSAGE = 'SHOW_SELECTED_MESSAGE';
+
+export const RESET_FORWARD_MESSAGE = 'RESET_FORWARD_MESSAGE';
+export const REMOVE_MESSAGE_FROM_FORWARD_MESSAGE = 'REMOVE_MESSAGE_FROM_FORWARD_MESSAGE'
 
 
 
@@ -106,6 +110,10 @@ export const messageStateIsForward = () => ({
   type: MESSAGE_STATE_IS_FORWARD
 });
 
+export const messageStateIsEmpty = () => ({
+  type: MESSAGE_STATE_IS_EMPTY
+});
+
 
 export const updateToNewCurrentMessageId = (id) => ({
   type: UPDATE_TO_NEW_CURRENT_MESSAGE_ID,
@@ -159,3 +167,13 @@ export const hideSelectedMessage = () => ({
 export const showSelectedMessage = () => ({
   type: SHOW_SELECTED_MESSAGE
 });
+
+export const resetForwardMessage = () => ({
+  type: RESET_FORWARD_MESSAGE
+});
+
+export const removeFromForwardMessage = (id) => ({
+  type: REMOVE_MESSAGE_FROM_FORWARD_MESSAGE,
+  id
+});
+

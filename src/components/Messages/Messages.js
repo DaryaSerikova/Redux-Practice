@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from "react";
+import React, {useEffect} from "react";
 import Message from "../Message/Message";
 import checkmark from '../../assets/checkmark32.png';
 import './Messages.css';
@@ -8,6 +8,7 @@ import SettingsWithStore from "../../containers/SettingsWithStore";
 export const Messages = ({ 
   allStore,
   currentUser,
+  messageState,
   currentMessageId,
   toggleSettings,
   updateCoordinates,
@@ -17,7 +18,7 @@ export const Messages = ({
   // messageStateIsEdit,
   // updateToNewCurrentMessage, 
   // removeMessageFromStore,
-  // addToForwardMessages,
+  addToForwardMessages,
   hideSettings, 
   showSettings,
   arrStoreMessage, //props
@@ -26,37 +27,52 @@ export const Messages = ({
   updateSearchedMessages, 
   hideSelectedMessage, 
   showSelectedMessage,
-  toggleSelectedMessage
+  toggleSelectedMessage,
+  messageStateIsForward,
+  removeFromForwardMessage,
+  messageStateIsEmpty,
  }) => {
-
-  // // const [stateMessage, setStateMessage] = useState({});
-  // const [stateWithoutCheckmark, setStateWithoutCheckmark] = useState('');
-  // const [stateToggleSelectedMessage, setStateToggleSelectedMessage] = useState('');
 
   const hideCheckmarkIcon = `hide-checkmark-icon`;
 
-
-  // useEffect(() => {
-
-  //   if (stateMessage !== {}) {
-  //     const message = stateMessage;
-  //     if (currentUser !== '') updateSearchedMessages(allStore[`${currentUser}`]);
-  //     let toggleCheckmark = !message.selected ? `without-checkmark`: ''
-  //     let toggleSelectedMessage = !message.selected ? `hide-checkmark-icon`: ''
-  //   }
-  // }, [
-  //   // chooseMessageInStore
-  // ]);
+  useEffect(() => {
+    // if (currentUser !== '') updateSearchedMessages(allStore[`${currentUser}`]);
+    // if (currentMessageId === message.id) {}
+    console.log('currentForwardMessages ИЗМЕНИЛСЯ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+  }, [currentForwardMessages]); //allStore, currentUser, updateSearchedMessages 
 
 
   const onChoose = (message) => {
     return (e) => {
-      if (toggleSelectedMessage === 'show') {
-        hideSelectedMessage();
-      } else {
-        showSelectedMessage();
+      if(messageState === 'forward') {
+
+        updateToNewCurrentMessageId(message.id);
+
+
+        if (toggleSelectedMessage === 'show') { 
+          console.log('Й', 'currentMessageId:', currentMessageId, 
+          ', message.id:', message.id, ', currentMessageId === message.id', currentMessageId === message.id)
+
+          if (currentMessageId === message.id) { // to do HIDE
+            console.log('Й HIDING');
+            hideSelectedMessage();
+            chooseMessageInStore(message.id, false) //id, selected
+            // if (currentForwardMessages.length === 1) messageStateIsEmpty();
+            removeFromForwardMessage(message.id);
+
+          } else { // to do SHOW
+            console.log('Й SHOWING');
+            showSelectedMessage();
+            chooseMessageInStore(message.id, true) //id, selected
+            addToForwardMessages(message);
+          }
+
+        } else { // to do SHOW
+          showSelectedMessage();
+          chooseMessageInStore(message.id, true) //id, selected
+          addToForwardMessages(message);
+        }
       }
-      chooseMessageInStore(message.id, true) //id, selected
     }
   }
 
@@ -77,26 +93,27 @@ export const Messages = ({
   
   
   const Mess = arrStoreMessage.map((message) => {
+
+
+    let arrId = currentForwardMessages.map((forwardMess) => {
+      return forwardMess.id
+    })
+
+    let selectedId = arrId.find(id => id === message.id);
+    // if (selectedId)
+    if (selectedId === undefined) selectedId = false;
+    let isSelect = (selectedId !== false) ? true : false;
+    
+    // console.log('arrId:', arrId);
+    console.log('message.id', message.id,'isSelect:', isSelect, '|', 'arrId:', arrId);
+
+
+    // var s = new Set(['foo', window]);
+    // Array.from(s);
+
+
   // Идея с className работает, но один раз, потому что не отслеживает изменения store
   // Нужен Redux или Hooks
-
-    // // let newMess = message;
-    // // setStateMessage(newMess);
-    // let toggleCheckmark = !message.selected ? `without-checkmark`: '';
-    // setStateWithoutCheckmark(toggleCheckmark);
-    // let toggleSelectedMessage = !message.selected ? `hide-checkmark-icon`: '';
-    // setStateToggleSelectedMessage(toggleSelectedMessage);
-
-    // // <div className={`wrapper-message ${!message.selected ? `without-checkmark`: ''}`}>
-    // // className={`checkmark-icon ${!message.selected ? `hide-checkmark-icon`: ''}`}
-    // let toggleMark = stateWithoutCheckmark;
-    // let toggleSelect = stateToggleSelectedMessage;
-
-    // <div className={`wrapper-message ${toggleMark}`}>
-    // className={`checkmark-icon ${toggleSelect}`}
-
-
-
 
     // <div className={`wrapper-message ${!message.selected ? `hide-checkmark`: ''}`}>
     // className={`checkmark-icon ${!message.selected ? `hide-checkmark-icon`: ''}`}
@@ -104,12 +121,18 @@ export const Messages = ({
     // const messEdited = message.edit ? '(edited)' : '';
 
 
+
+    // <div className={`wrapper-message ${(message.id === currentMessageId || message.selected ) && toggleSelectedMessage}-choised-message`} onClick={onChoose(message)}>
+    // className={`checkmark-icon ${(message.id === currentMessageId) && toggleSelectedMessage}-checkmark-icon`}
+    // console.log('message.id', message.id, 'message.selected:', message.selected);
+
     return (
       <>
-        <div className={`wrapper-message ${(message.id === currentMessageId) && toggleSelectedMessage}-choised-message`} onClick={onChoose(message)}>
-        {console.log('id:', message.id, ' selected:', message.selected)}
+        {/* {console.log('isSelect:', isSelect, ', toggleSelectedMessage:', toggleSelectedMessage, ', isSelect && toggleSelectedMessage ', isSelect && toggleSelectedMessage)} */}
+        <div className={`wrapper-message ${(isSelect) ? toggleSelectedMessage : 'hide'}-choised-message`} onClick={onChoose(message)}>
+        {/* {console.log('message.id:', message.id, ' message.selected:', message.selected)} */}
           <img
-          className={`checkmark-icon ${(message.id === currentMessageId) && toggleSelectedMessage}-checkmark-icon`}
+          className={`checkmark-icon ${(isSelect) ? toggleSelectedMessage : 'hide'}-checkmark-icon`}
           alt="checkmark-icon"
           src={checkmark}
           />
@@ -121,19 +144,8 @@ export const Messages = ({
             edit={message.edit}
             selected={message.selected}
             toggleSelectedMessage={toggleSelectedMessage}
+            isSelect={isSelect}
           />
-          {/* <div 
-            id={message.id} 
-            className={`message`}
-            value={message.value} 
-            onClick={onClick}
-            time={message.time}
-            edit={message.edit}
-            selected={message.selected}
-            >
-            {message.value}
-            <div className='message-time'>{message.time}{messEdited}</div>
-          </div> */}
         </div>
   
         {(message.id === currentMessageId) && <SettingsWithStore message={message}/>}

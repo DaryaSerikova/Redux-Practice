@@ -25,9 +25,9 @@
   display: none;
 }
 
-.false-checkmark-icon {
+/* .false-checkmark-icon {
   display: none;
-}
+} */
 
 .hide-choised-message {
   justify-content: flex-end !important;

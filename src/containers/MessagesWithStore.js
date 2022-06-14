@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import { //надо почистить
   ADD_NEW_MESSAGE_TO_STORE, 
   // MESSAGE_STATE_IS_CREATE, 
-  // MESSAGE_STATE_IS_EDIT, 
+  // MESSAGE_STATE_IS_EDIT,
+  MESSAGE_STATE_IS_EMPTY, 
   CHOOSE_MESSAGE_IN_STORE,//////
   // REMOVE_MESSAGE_FROM_STORE, 
   // UPDATE_TO_NEW_CURRENT_MESSAGE, 
@@ -10,10 +11,12 @@ import { //надо почистить
   HIDE_SETTINGS,
   SHOW_SETTINGS,
   UPDATE_COORDINATES,
-  // ADD_TO_FORWARD_MESSAGES,
+  ADD_TO_FORWARD_MESSAGES,
   SEARCHED_MESSAGES,
   HIDE_SELECTED_MESSAGE,
   SHOW_SELECTED_MESSAGE,
+  MESSAGE_STATE_IS_FORWARD,
+  REMOVE_MESSAGE_FROM_FORWARD_MESSAGE,
   } from "../redux/actions";
 import { Messages } from '../components/Messages/Messages';
 
@@ -86,12 +89,13 @@ const mapDispatchToProps = (dispatch) => { //надо почистить
     //     type: MESSAGE_STATE_IS_EDIT
     //   })
     // },
-        // addToForwardMessages: (message) => {
-    //   dispatch({
-    //     type: ADD_TO_FORWARD_MESSAGES,
-    //     message
-    //   })
-    // }
+    addToForwardMessages: (message) => {
+      dispatch({
+        type: ADD_TO_FORWARD_MESSAGES,
+        message
+      })
+    },
+
     updateToNewCurrentMessageId: (id) => {
       dispatch({
         type: UPDATE_TO_NEW_CURRENT_MESSAGE_ID,
@@ -135,6 +139,25 @@ const mapDispatchToProps = (dispatch) => { //надо почистить
     showSelectedMessage: () => {
       dispatch({
         type: SHOW_SELECTED_MESSAGE
+      })
+    },
+
+    messageStateIsForward: () => {
+      dispatch({
+        type: MESSAGE_STATE_IS_FORWARD
+      })
+    },
+
+    removeFromForwardMessage: (id) => {
+      dispatch({
+        type: REMOVE_MESSAGE_FROM_FORWARD_MESSAGE,
+        id
+      })
+    },
+
+    messageStateIsEmpty: () => {
+      dispatch({
+        type: MESSAGE_STATE_IS_EMPTY
       })
     },
 

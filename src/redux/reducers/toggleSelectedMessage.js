@@ -4,13 +4,13 @@ import {
 } from "../actions";
 
 
-export const toggleSelectedMessage = (state = 'hide', action) => {
+export const toggleSelectedMessage = (state = `hide`, action) => {
   switch (action.type) {
     case HIDE_SELECTED_MESSAGE: 
-      return 'hide'; 
+      return `hide`; 
     
     case SHOW_SELECTED_MESSAGE:
-      return 'show'; //'show'
+      return `show`; //'show'
 
     default:
       return state;
