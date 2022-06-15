@@ -7,6 +7,7 @@ import { SEARCHED_MESSAGES,
   REMOVE_MESSAGE_FROM_STORE,
   RESET_FORWARD_MESSAGE,
   MESSAGE_STATE_IS_EMPTY,
+  REMOVE_GROUP_OF_MESSAGES_FROM_STORE,
  } from '../redux/actions';
 
 
@@ -61,6 +62,13 @@ const mapDispatchToProps = (dispatch) => {
       })
     },
 
+    removeGroupOfMessagesFromStore: (arrayForwardIds, name) => {
+      dispatch({
+        type: REMOVE_GROUP_OF_MESSAGES_FROM_STORE,
+        arrayForwardIds,
+        name
+      })
+    },
   }
 }
 

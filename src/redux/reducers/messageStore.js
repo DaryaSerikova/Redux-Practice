@@ -5,7 +5,8 @@ import {
   EDIT_MESSAGE_IN_STORE, 
   REMOVE_MESSAGE_FROM_STORE,
   ADD_NEW_USER_TO_STORE,
-  CHOOSE_MESSAGE_IN_STORE
+  CHOOSE_MESSAGE_IN_STORE,
+  REMOVE_GROUP_OF_MESSAGES_FROM_STORE,
 } from "../actions";
 
 
@@ -112,7 +113,29 @@ export const allStore = (state = {}, action) => { // Полное хранили
         }
       }
 
-    // case REMOVE_GROUP_OF_MESSAGES_FROM_STORE:
+    case REMOVE_GROUP_OF_MESSAGES_FROM_STORE:
+      let arrayForwardIds = action.arrayForwardIds;
+      let arrayPersonalStore = [...state[action.name]];
+
+      // arrayPersonalStore.filter((message) => arrayForwardIds.map((id) => message.id ))
+      let selectedMessages = arrayForwardIds.map((id) => 
+        arrayPersonalStore.filter((message) => message.id === id)[0] 
+      )
+      // const index = getIndex(action.id, array);
+      const indices = selectedMessages.map((message) => getIndex(message.id, arrayPersonalStore));
+      const resRemoveGroup = indices.map((indx) => {
+        return {
+          ...state,
+          [action.name]: [
+            ...state[action.name].slice(0, indx),
+            ...state[action.name].slice(indx + 1),
+          ]
+        }
+      })
+      return resRemoveGroup;
+
+
+
     // case FORWARD_GROUP_OF_MESSAGES_FROM_STORE:
     // case REPLY_ON_MESSAGE_FROM_STORE:
 

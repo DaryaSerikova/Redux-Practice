@@ -21,6 +21,7 @@ const ChatWindow = ({
   removeMessageFromStore,
   resetForwardMessage,
   messageStateIsEmpty,
+  removeGroupOfMessagesFromStore,
   }) => {
 
   let arrStoreMessage = allStore[`${currentUser}`];
@@ -82,6 +83,9 @@ const ChatWindow = ({
       console.log('currentForwardMessages[0].id', currentForwardMessages[0].id);
       console.log('currentUser', name)
       removeMessageFromStore(forwMessageId, name) //id, name
+    } else {
+      let arrForwardIds = currentForwardMessages.map((forwMessage) => forwMessage.id)
+      removeGroupOfMessagesFromStore(arrForwardIds, name);
     }
 
     resetForwardMessage();

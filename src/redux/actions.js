@@ -37,7 +37,9 @@ export const HIDE_SELECTED_MESSAGE = 'HIDE_SELECTED_MESSAGE';
 export const SHOW_SELECTED_MESSAGE = 'SHOW_SELECTED_MESSAGE';
 
 export const RESET_FORWARD_MESSAGE = 'RESET_FORWARD_MESSAGE';
-export const REMOVE_MESSAGE_FROM_FORWARD_MESSAGE = 'REMOVE_MESSAGE_FROM_FORWARD_MESSAGE'
+export const REMOVE_MESSAGE_FROM_FORWARD_MESSAGE = 'REMOVE_MESSAGE_FROM_FORWARD_MESSAGE';
+
+export const REMOVE_GROUP_OF_MESSAGES_FROM_STORE = 'REMOVE_GROUP_OF_MESSAGES_FROM_STORE';
 
 
 
@@ -179,3 +181,9 @@ export const removeFromForwardMessage = (id) => ({
   id
 });
 
+
+export const removeGroupOfMessagesFromStore = (arrayForwardIds, name) => ({
+  type: REMOVE_GROUP_OF_MESSAGES_FROM_STORE,
+  arrayForwardIds,
+  name
+});

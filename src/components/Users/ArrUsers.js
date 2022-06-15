@@ -3,7 +3,7 @@ export const arrUsers = [
   'Jessica Pearson',
   'Harvey Specter',
   'Mike Ross',
-  'Richel Zane',
+  'Rachel Zane',
   'Donna Paulsen',
   'Louis Litt',
   'Katrina Bennett',
