@@ -16,7 +16,8 @@ const ChatWindow = ({
   updateSearchedMessages,
   toggleMessageSearching,
   hideMessageSearching, 
-  showMessageSearching
+  showMessageSearching,
+  currentForwardMessages,
   }) => {
 
   let arrStoreMessage = allStore[`${currentUser}`];
@@ -92,7 +93,7 @@ const ChatWindow = ({
 
           <div onClick={replyMessages}>
             <img
-                className={`search-icon ${currentUser === '' && toggleMessageSearching}`}
+                className={`search-icon ${currentUser === '' && toggleMessageSearching} ${currentForwardMessages.length !== 1 && 'hide'}`}
                 alt="left-icon"
                 src={left}
               />
@@ -100,7 +101,7 @@ const ChatWindow = ({
 
           <div onClick={removeMessages}>
             <img
-                className={`search-icon ${currentUser === '' && toggleMessageSearching}`}
+                className={`search-icon ${currentUser === '' && toggleMessageSearching} ${currentForwardMessages.length === 0 && 'hide'}`}
                 alt="bin"
                 src={bin}
               />
@@ -108,7 +109,7 @@ const ChatWindow = ({
 
           <div onClick={forwardMessages}>
             <img
-              className={`search-icon ${currentUser === '' && toggleMessageSearching}`}
+              className={`search-icon ${currentUser === '' && toggleMessageSearching} ${currentForwardMessages.length === 0 && 'hide'}`}
               alt="right-icon"
               src={right}
             />

@@ -50,8 +50,9 @@
 
 .current-user {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  margin-left: 1rem;
   /* padding: 0.65rem; */
   font-size: 13pt;
   /* min-height: 47.4px;
