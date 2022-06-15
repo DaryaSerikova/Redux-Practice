@@ -112,6 +112,11 @@ export const allStore = (state = {}, action) => { // Полное хранили
         }
       }
 
+    // case REMOVE_GROUP_OF_MESSAGES_FROM_STORE:
+    // case FORWARD_GROUP_OF_MESSAGES_FROM_STORE:
+    // case REPLY_ON_MESSAGE_FROM_STORE:
+
+
     default:
       return state;
   }

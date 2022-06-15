@@ -4,6 +4,7 @@ import MessagesWithStore from '../../containers/MessagesWithStore';
 import searchIcon from '../../assets/icon32.png';
 import right from '../../assets/right32.png';
 import left from '../../assets/left32.png';
+import bin from '../../assets/bin32.png';
 import './ChatWindow.css';
 
 
@@ -54,14 +55,29 @@ const ChatWindow = ({
     }
   }
 
+  const forwardMessages = () => {
+    console.log('Forward messages to ..')
+  }
+
+  const replyMessages = () => {
+    console.log('Reply on messages ..')
+  }
+
+  const removeMessages = () => {
+    console.log('Remove messages ..')
+  }
+
 
   return (
     <>
       <div className='window-header'>
 
-        <div className='current-user'>
+        {Boolean(toggleMessageSearching) && <div className='current-user'>
+        {console.log('toggle', Boolean(toggleMessageSearching), toggleMessageSearching)}
+        {/* { toggleMessageSearching && currentUser} */}
         {currentUser}
-        </div>
+        
+        </div>}
 
         <input 
           type='text' 
@@ -71,25 +87,42 @@ const ChatWindow = ({
           // value
         />
 
-        {/* <img
-          className={`search-icon`}
-          alt="left-icon"
-          src={left}
-        />
-        <img
-          className={`search-icon`}
-          alt="right-icon"
-          src={right}
-        /> */}
 
-        <div onClick={toggleSearching}>
-          <img
-            className={`search-icon ${currentUser === '' && toggleMessageSearching}`}
-            alt="search-icon"
-            src={searchIcon}
-          />
+        <div className={`group-buttons`}>
+
+          <div onClick={replyMessages}>
+            <img
+                className={`search-icon ${currentUser === '' && toggleMessageSearching}`}
+                alt="left-icon"
+                src={left}
+              />
+          </div>
+
+          <div onClick={removeMessages}>
+            <img
+                className={`search-icon ${currentUser === '' && toggleMessageSearching}`}
+                alt="bin"
+                src={bin}
+              />
+          </div>
+
+          <div onClick={forwardMessages}>
+            <img
+              className={`search-icon ${currentUser === '' && toggleMessageSearching}`}
+              alt="right-icon"
+              src={right}
+            />
+          </div>
+
+          <div onClick={toggleSearching}>
+            <img
+              className={`search-icon ${currentUser === '' && toggleMessageSearching}`}
+              alt="search-icon"
+              src={searchIcon}
+            />
+          </div>
+
         </div>
-
       </div>
       
 

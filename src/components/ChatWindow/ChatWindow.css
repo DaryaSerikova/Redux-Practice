@@ -64,7 +64,8 @@
   justify-content: space-between;
   padding: 0.65rem;
   font-size: 13pt;
-  min-height: 47.4px;
+  /* min-height: 47.4px; */
+  min-height: 52.7px;
   /* background-color: rgb(249 249 249); */
   background-color: rgb(255 255 255); 
   border-bottom: 1px solid #ebebeb;
@@ -95,10 +96,15 @@
   border: none;
   border: 1px solid #f0f0f0;
   padding: 0rem 1rem 0rem 1rem;
+  margin-left: 0.5rem;
   font-size: 11.2pt;
   max-width: 171px;
 }
 
 .search-message:focus-visible {
   outline: none;
+}
+
+.group-buttons {
+  display: flex;
 }
