@@ -18,6 +18,9 @@ const ChatWindow = ({
   hideMessageSearching, 
   showMessageSearching,
   currentForwardMessages,
+  removeMessageFromStore,
+  resetForwardMessage,
+  messageStateIsEmpty,
   }) => {
 
   let arrStoreMessage = allStore[`${currentUser}`];
@@ -57,15 +60,32 @@ const ChatWindow = ({
   }
 
   const forwardMessages = () => {
-    console.log('Forward messages to ..')
+    console.log('Forward messages to ..');
+
+    resetForwardMessage();
+    messageStateIsEmpty();
   }
 
   const replyMessages = () => {
     console.log('Reply on messages ..')
+
+    resetForwardMessage();
+    messageStateIsEmpty();
   }
 
-  const removeMessages = () => {
-    console.log('Remove messages ..')
+  const removeMessages = (forwMessageId, name) => {
+    name = currentUser;
+    console.log('Remove messages ..');
+    // console.log('currentForwardMessages', currentForwardMessages, 'currentForwardMessages.length', currentForwardMessages.length, 'currentForwardMessages.length === 1', currentForwardMessages.length === 1)
+    if (currentForwardMessages.length === 1) {
+      forwMessageId = currentForwardMessages[0].id
+      console.log('currentForwardMessages[0].id', currentForwardMessages[0].id);
+      console.log('currentUser', name)
+      removeMessageFromStore(forwMessageId, name) //id, name
+    }
+
+    resetForwardMessage();
+    messageStateIsEmpty();
   }
 
 
@@ -73,11 +93,9 @@ const ChatWindow = ({
     <>
       <div className='window-header'>
 
-        {Boolean(toggleMessageSearching) && <div className='current-user'>
-        {console.log('toggle', Boolean(toggleMessageSearching), toggleMessageSearching)}
-        {/* { toggleMessageSearching && currentUser} */}
-        {currentUser}
-        
+        {Boolean(toggleMessageSearching) && 
+        <div className='current-user'>
+          {currentUser}
         </div>}
 
         <input 

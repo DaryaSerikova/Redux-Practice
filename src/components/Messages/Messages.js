@@ -47,7 +47,7 @@ export const Messages = ({
 
   const onChoose = (message) => {
     return (e) => {
-      if(messageState === 'forward') {
+      if (messageState === 'forward') {
 
         updateToNewCurrentMessageId(message.id);
         let res = toggleSelectedMessage.filter((selectMess) => selectMess.id === message.id)[0]; //message.id или currentMessageId?
@@ -98,14 +98,18 @@ export const Messages = ({
   const onClick = (message) => {
     return (e) => {
   
-      updateCoordinates(`${e.clientX-130}px`, `${e.clientY+10}px`);
+      // updateCoordinates(`${e.clientX-130}px`, `${e.clientY+10}px`);
+      updateCoordinates(`${e.clientX-88}px`, `${e.clientY+10}px`);
       updateToNewCurrentMessageId(message.id);
-  
-      if (toggleSettings === 'hide') {
-        showSettings();
-      } else {
-        hideSettings();
+
+      if (messageState !== 'forward' && currentForwardMessages.length === 0) {
+        if (toggleSettings === 'hide') {
+          showSettings();
+        } else {
+          hideSettings();
+        }
       }
+
     }
   }
   

@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 import ChatWindow from '../components/ChatWindow/ChatWindow'
 import { SEARCHED_MESSAGES, 
   HIDE_MESSAGE_SEARCHING, 
-  SHOW_MESSAGE_SEARCHING } from '../redux/actions';
+  SHOW_MESSAGE_SEARCHING, 
+  REMOVE_MESSAGE_FROM_STORE,
+  RESET_FORWARD_MESSAGE,
+  MESSAGE_STATE_IS_EMPTY,
+ } from '../redux/actions';
 
 
 const mapStateToProps = (state) => {
@@ -35,7 +39,27 @@ const mapDispatchToProps = (dispatch) => {
       dispatch({
         type: SHOW_MESSAGE_SEARCHING
       })
-    }
+    },
+
+    removeMessageFromStore: (id, name) => {
+      dispatch({
+        type: REMOVE_MESSAGE_FROM_STORE,
+        id,
+        name
+      })
+    },
+
+    resetForwardMessage: () => {
+      dispatch({
+        type: RESET_FORWARD_MESSAGE
+      })
+    },
+
+    messageStateIsEmpty: () => {
+      dispatch({
+        type: MESSAGE_STATE_IS_EMPTY
+      })
+    },
 
   }
 }
