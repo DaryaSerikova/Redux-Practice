@@ -130,15 +130,17 @@ const mapDispatchToProps = (dispatch) => { //надо почистить
       })
     },
 
-    hideSelectedMessage: () => {
+    hideSelectedMessage: (id) => {
       dispatch({
-        type: HIDE_SELECTED_MESSAGE
+        type: HIDE_SELECTED_MESSAGE,
+        id
       })
     },
     
-    showSelectedMessage: () => {
+    showSelectedMessage: (id) => {
       dispatch({
-        type: SHOW_SELECTED_MESSAGE
+        type: SHOW_SELECTED_MESSAGE,
+        id
       })
     },
 

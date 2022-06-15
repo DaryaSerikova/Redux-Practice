@@ -160,12 +160,14 @@ export const addToForwardMessages = (message) => ({
 })
 
 
-export const hideSelectedMessage = () => ({
-  type: HIDE_SELECTED_MESSAGE
+export const hideSelectedMessage = (id) => ({
+  type: HIDE_SELECTED_MESSAGE,
+  id
 });
 
-export const showSelectedMessage = () => ({
-  type: SHOW_SELECTED_MESSAGE
+export const showSelectedMessage = (id) => ({
+  type: SHOW_SELECTED_MESSAGE,
+  id
 });
 
 export const resetForwardMessage = () => ({

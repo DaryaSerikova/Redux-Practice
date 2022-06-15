@@ -40,8 +40,9 @@ export const Settings = ({
   const forward = (message) => {
     return (e) => {
       console.log('Forward! Message:', message.value);
-      showSelectedMessage();
+      showSelectedMessage(message.id);
       chooseMessageInStore(message.id, true);
+      updateToNewCurrentMessageId(message.id);
       messageStateIsForward();
       addToForwardMessages(message);
     }

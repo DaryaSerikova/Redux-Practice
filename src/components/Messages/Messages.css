@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-left: 1rem;
+  padding-left: 1.5rem;
   width: 100%;
 }
 
@@ -12,13 +12,20 @@
   /* background: linear-gradient(to right, #3cc3fc38, 10%, #ed8afa45); */
   /* background: linear-gradient(to right, #3cc3fc38, 55%, #ed8afa45); */
   /* background: linear-gradient(to right, #3cc3fc21, 75%, #ed8afa45); */
-  background: linear-gradient(to right, #3cc3fc1c, 75%, #ed8afa2b);
+  /* background: linear-gradient(to right, #3cc3fc1c, 75%, #ed8afa2b); */
+  background: linear-gradient(to right, #44d8ff1a, 70%, #ed8afa2b);
 }
 
 .checkmark-icon {
-  opacity: 0.81;
+  /* opacity: 0.81;
   width: 24px;
-  height: 24px;
+  height: 24px; */
+
+  opacity: 0.7;
+  width: 22px;
+  height: 22px;
+  /* border: 2px solid #29beff;
+  border-radius: 20px; */
 }
 
 .hide-checkmark-icon {

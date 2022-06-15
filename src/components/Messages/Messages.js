@@ -1,6 +1,9 @@
 import React, {useEffect} from "react";
 import Message from "../Message/Message";
-import checkmark from '../../assets/checkmark32.png';
+// import checkmark from '../../assets/checkmark32.png';
+// import checkmark from '../../assets/checkmark_blue32.png';
+import checkmark from '../../assets/checkmark_blue64.png';
+
 import './Messages.css';
 import SettingsWithStore from "../../containers/SettingsWithStore";
 
@@ -47,28 +50,43 @@ export const Messages = ({
       if(messageState === 'forward') {
 
         updateToNewCurrentMessageId(message.id);
+        let res = toggleSelectedMessage.filter((selectMess) => selectMess.id === message.id)[0]; //message.id или currentMessageId?
+        let toggleSelectedState = res !== undefined ? res.toggleState : 'hide';
 
-
-        if (toggleSelectedMessage === 'show') { 
-          console.log('Й', 'currentMessageId:', currentMessageId, 
+        if (toggleSelectedState === 'show') { 
+        // if (toggleSelectedMessage === 'show') { 
+        
+          console.log('Первый if. (Initial: SHOW)', 'Й', 'currentMessageId:', currentMessageId, 
           ', message.id:', message.id, ', currentMessageId === message.id', currentMessageId === message.id)
 
           if (currentMessageId === message.id) { // to do HIDE
-            console.log('Й HIDING');
-            hideSelectedMessage();
-            chooseMessageInStore(message.id, false) //id, selected
+            console.log('Второй if. (Initial: SHOW) to do HIDE, curMessId === mess.id', 'Й HIDING');
+
+            // Это 'hide' для className один статус на всех
+            hideSelectedMessage(message.id);// возможно именно эта фигня отвечает за скрытие всех сообщений разом
+
+            // chooseMessageInStore(message.id, false) //id, selected
+            chooseMessageInStore(currentMessageId, false) //id, selected
+
             // if (currentForwardMessages.length === 1) messageStateIsEmpty();
             removeFromForwardMessage(message.id);
 
           } else { // to do SHOW
-            console.log('Й SHOWING');
-            showSelectedMessage();
-            chooseMessageInStore(message.id, true) //id, selected
+            console.log('Второй else. (Initial: SHOW) to do SHOW , curMessId !== mess.id', 'Й SHOWING');
+
+            // Это 'show' для className один статус на всех
+            showSelectedMessage(message.id); // возможно именно эта фигня отвечает за показ всех сообщений разом
+
+            // chooseMessageInStore(message.id, true) //id, selected
+            chooseMessageInStore(currentMessageId, true) //id, selected
             addToForwardMessages(message);
           }
 
+
         } else { // to do SHOW
-          showSelectedMessage();
+          console.log('Первый else. (Initial: HIDE) | to do SHOW', 'currentMessageId:', currentMessageId, 
+          ', message.id:', message.id, ', currentMessageId === message.id', currentMessageId === message.id)
+          showSelectedMessage(message.id);
           chooseMessageInStore(message.id, true) //id, selected
           addToForwardMessages(message);
         }
@@ -108,12 +126,16 @@ export const Messages = ({
     console.log('message.id', message.id,'isSelect:', isSelect, '|', 'arrId:', arrId);
 
 
+    let res = toggleSelectedMessage.filter((selectMess) => selectMess.id === message.id)[0];
+    let toggleSelectedState = res !== undefined ? res.toggleState : 'hide';
+    console.log('res:', res, 'toggleSelectedState', toggleSelectedState) 
+
     // var s = new Set(['foo', window]);
     // Array.from(s);
 
 
-  // Идея с className работает, но один раз, потому что не отслеживает изменения store
-  // Нужен Redux или Hooks
+    // Идея с className работает, но один раз, потому что не отслеживает изменения store
+    // Нужен Redux или Hooks
 
     // <div className={`wrapper-message ${!message.selected ? `hide-checkmark`: ''}`}>
     // className={`checkmark-icon ${!message.selected ? `hide-checkmark-icon`: ''}`}
@@ -126,13 +148,19 @@ export const Messages = ({
     // className={`checkmark-icon ${(message.id === currentMessageId) && toggleSelectedMessage}-checkmark-icon`}
     // console.log('message.id', message.id, 'message.selected:', message.selected);
 
+
+    // <div className={`wrapper-message ${(isSelect) ? toggleSelectedMessage : 'hide'}-choised-message`} onClick={onChoose(message)}>
+    // className={`checkmark-icon ${(isSelect) ? toggleSelectedMessage : 'hide'}-checkmark-icon`}
+
+
+
     return (
       <>
         {/* {console.log('isSelect:', isSelect, ', toggleSelectedMessage:', toggleSelectedMessage, ', isSelect && toggleSelectedMessage ', isSelect && toggleSelectedMessage)} */}
-        <div className={`wrapper-message ${(isSelect) ? toggleSelectedMessage : 'hide'}-choised-message`} onClick={onChoose(message)}>
+        <div className={`wrapper-message ${(isSelect) ? toggleSelectedState : 'hide'}-choised-message`} onClick={onChoose(message)}>
         {/* {console.log('message.id:', message.id, ' message.selected:', message.selected)} */}
           <img
-          className={`checkmark-icon ${(isSelect) ? toggleSelectedMessage : 'hide'}-checkmark-icon`}
+          className={`checkmark-icon ${(isSelect) ? toggleSelectedState : 'hide'}-checkmark-icon`}
           alt="checkmark-icon"
           src={checkmark}
           />
@@ -143,7 +171,8 @@ export const Messages = ({
             time={message.time}
             edit={message.edit}
             selected={message.selected}
-            toggleSelectedMessage={toggleSelectedMessage}
+            // toggleSelectedMessage={toggleSelectedMessage}
+            toggleSelectedState={toggleSelectedState}
             isSelect={isSelect}
           />
         </div>
