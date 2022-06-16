@@ -47,45 +47,27 @@ export const Messages = ({
 
   const onChoose = (message) => {
     return (e) => {
-      if (messageState === 'forward') {
+      if (messageState === 'forward') { //Здесь рассматривать currentMessageId как предыдущее значение, message.id - текущее значение.
 
         updateToNewCurrentMessageId(message.id);
         let res = toggleSelectedMessage.filter((selectMess) => selectMess.id === message.id)[0]; //message.id или currentMessageId?
         let toggleSelectedState = res !== undefined ? res.toggleState : 'hide';
 
-        if (toggleSelectedState === 'show') { 
-        // if (toggleSelectedMessage === 'show') { 
+
+        if (toggleSelectedState === 'show') { // to do HIDE
         
-          console.log('Первый if. (Initial: SHOW)', 'Й', 'currentMessageId:', currentMessageId, 
+          console.log('(Initial: SHOW)', 'Й', 'currentMessageId:', currentMessageId, 
           ', message.id:', message.id, ', currentMessageId === message.id', currentMessageId === message.id)
 
-          if (currentMessageId === message.id) { // to do HIDE
-            console.log('Второй if. (Initial: SHOW) to do HIDE, curMessId === mess.id', 'Й HIDING');
-
-            // Это 'hide' для className один статус на всех
-            hideSelectedMessage(message.id);// возможно именно эта фигня отвечает за скрытие всех сообщений разом
-
-            // chooseMessageInStore(message.id, false) //id, selected
-            chooseMessageInStore(currentMessageId, false) //id, selected
-
-            // if (currentForwardMessages.length === 1) messageStateIsEmpty();
-            removeFromForwardMessage(message.id);
-
-          } else { // to do SHOW
-            console.log('Второй else. (Initial: SHOW) to do SHOW , curMessId !== mess.id', 'Й SHOWING');
-
-            // Это 'show' для className один статус на всех
-            showSelectedMessage(message.id); // возможно именно эта фигня отвечает за показ всех сообщений разом
-
-            // chooseMessageInStore(message.id, true) //id, selected
-            chooseMessageInStore(currentMessageId, true) //id, selected
-            addToForwardMessages(message);
-          }
-
+          if (currentForwardMessages.length === 1) messageStateIsEmpty();
+          hideSelectedMessage(message.id);
+          chooseMessageInStore(message.id, false) //id, selected
+          removeFromForwardMessage(message.id);
 
         } else { // to do SHOW
-          console.log('Первый else. (Initial: HIDE) | to do SHOW', 'currentMessageId:', currentMessageId, 
+          console.log('(Initial: HIDE) | to do SHOW', 'currentMessageId:', currentMessageId, 
           ', message.id:', message.id, ', currentMessageId === message.id', currentMessageId === message.id)
+
           showSelectedMessage(message.id);
           chooseMessageInStore(message.id, true) //id, selected
           addToForwardMessages(message);
@@ -109,7 +91,7 @@ export const Messages = ({
           hideSettings();
         }
       }
-//hello
+
     }
   }
   
@@ -132,10 +114,7 @@ export const Messages = ({
 
     let res = toggleSelectedMessage.filter((selectMess) => selectMess.id === message.id)[0];
     let toggleSelectedState = res !== undefined ? res.toggleState : 'hide';
-    console.log('res:', res, 'toggleSelectedState', toggleSelectedState) 
-
-    // var s = new Set(['foo', window]);
-    // Array.from(s);
+    // console.log('res:', res, 'toggleSelectedState', toggleSelectedState) 
 
 
     // Идея с className работает, но один раз, потому что не отслеживает изменения store
@@ -182,7 +161,7 @@ export const Messages = ({
         </div>
   
         {(message.id === currentMessageId) && <SettingsWithStore message={message}/>}
-        {console.log('currentForwardMessages:', currentForwardMessages)}
+        {/* {console.log('currentForwardMessages:', currentForwardMessages)} */}
       </>
     )
   })

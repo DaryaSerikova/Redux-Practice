@@ -19,7 +19,27 @@ const Panel = ({
   const formEl = useRef(null);
 
   useEffect(() => {
-    if (currentUser !== '') updateSearchedMessages(allStore[`${currentUser}`]);
+
+    if (currentUser !== '') { // ВАЖНОЕ УСЛОВИЕ
+      // console.log('!!!!!!!!!!!! allStore', allStore);
+      // console.log('(allStore === {})', (allStore === {}))
+  
+      // console.log('!!!!!!!!!!!! allStore[`${currentUser}`] ', allStore[`${currentUser}`])
+      // console.log('(allStore[`${currentUser}`] === undefined)', (allStore[`${currentUser}`] === undefined))
+      // console.log('!!!!!!!!!!! currentUser', currentUser)
+      // console.log('!!!!!!!!!!! currentUser === "" ', currentUser === '')
+
+
+
+      updateSearchedMessages(allStore[`${currentUser}`]); /// ВАЖНАЯ СТРОЧКА
+    }
+
+
+
+    // if (allStore[`${currentUser}`] !== undefined) {
+    //   if (currentUser !== '') updateSearchedMessages(allStore[`${currentUser}`]); /// СТАРЫЙ КОД
+    // }
+
   }, [allStore, currentUser, updateSearchedMessages]); //allStore, currentUser, 
 
 
@@ -67,7 +87,7 @@ const Panel = ({
     <form ref={formEl} className='panel' onSubmit={onSubmit}>
 
       {<div className='edit-group'>
-        <span className={`editing-message ${(messageState !== 'edit')&&'hideOpacity'}`}>Editing a message</span>
+        <span className={`editing-message ${ (messageState !== 'edit') && 'hideOpacity' }`}>Editing a message</span>
         <div className={`${(messageState !== 'edit')&&'hide'} cross`} onClick={cancelEdit}>&#9587;</div>
       </div>}
 

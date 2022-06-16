@@ -114,25 +114,35 @@ export const allStore = (state = {}, action) => { // Полное хранили
       }
 
     case REMOVE_GROUP_OF_MESSAGES_FROM_STORE:
-      let arrayForwardIds = action.arrayForwardIds;
-      let arrayPersonalStore = [...state[action.name]];
+      if (state[action.name]) {
+        let arrayForwardIds = action.arrayForwardIds;
+        console.log('(arrayForwardIds) Выбранные сообщения имеют id:', arrayForwardIds)
+        // let arrayPersonalStore = [...state[action.name]];
+        // console.log('(arrayPersonalStore) До удаления персональное хранилище сообщений:', arrayPersonalStore)
+  
+        // // arrayPersonalStore.filter((message) => arrayForwardIds.map((id) => message.id ))
+        // let selectedMessages = arrayForwardIds.map((id) => 
+        //   arrayPersonalStore.filter((message) => message.id === id)[0] 
+        // )
+  
+        // console.log('(selectedMessages) Выбранные сообщения это:', selectedMessages)
+        // // const index = getIndex(action.id, array);
+        // console.log('Теперь пройдемся по этому хранилищу циклом и выберем только idшники выбранных сообщений')
+        // const indices = selectedMessages.map((message) => getIndex(message.id, arrayPersonalStore));
+        // console.log('(indices) Индексы выбранных из хранилища сообщений', indices)
+        const resRemoveGroup = arrayForwardIds.map((indx) => { //indices
+          return {
+            ...state,
+            [action.name]: [
+              ...state[action.name].slice(0, indx),
+              ...state[action.name].slice(indx + 1),
+            ]
+          }
+        })
+        
+        return resRemoveGroup;
+      }
 
-      // arrayPersonalStore.filter((message) => arrayForwardIds.map((id) => message.id ))
-      let selectedMessages = arrayForwardIds.map((id) => 
-        arrayPersonalStore.filter((message) => message.id === id)[0] 
-      )
-      // const index = getIndex(action.id, array);
-      const indices = selectedMessages.map((message) => getIndex(message.id, arrayPersonalStore));
-      const resRemoveGroup = indices.map((indx) => {
-        return {
-          ...state,
-          [action.name]: [
-            ...state[action.name].slice(0, indx),
-            ...state[action.name].slice(indx + 1),
-          ]
-        }
-      })
-      return resRemoveGroup;
 
 
 

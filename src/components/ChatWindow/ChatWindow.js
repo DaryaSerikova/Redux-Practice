@@ -1,10 +1,11 @@
-import React  from 'react';
+import React, {useEffect}  from 'react';
 
 import MessagesWithStore from '../../containers/MessagesWithStore';
-import searchIcon from '../../assets/icon32.png';
+import search from '../../assets/icon32.png';
 import right from '../../assets/right32.png';
 import left from '../../assets/left32.png';
 import bin from '../../assets/bin32.png';
+import IconButtonWithStore from '../../containers/IconButtonWithStore';
 import './ChatWindow.css';
 
 
@@ -27,10 +28,11 @@ const ChatWindow = ({
   let arrStoreMessage = allStore[`${currentUser}`];
   if (arrStoreMessage === undefined) arrStoreMessage = [];
   // updateSearchedMessages(allStore[`${currentUser}`]);
-
-    const handleValue = () => {
-      //update
-    }
+  // updateSearchedMessages([]); ///////////////////////////////////////////////////////
+  
+  useEffect(() => {
+    updateSearchedMessages(null); ///////////////////////////////////////////////////////
+  }, []);
 
 
   const onChangeSearchMessage = (e) => {
@@ -40,11 +42,13 @@ const ChatWindow = ({
       const searchedMess = arrStoreMessage.filter((message) => 
         message.value.toLowerCase().includes(e.target.value.toLowerCase())
       )
+      console.log('!!!!!!!!!!!!!!!!!!! searchedMess', searchedMess)
 
       console.log('searchedMess', searchedMess)
       updateSearchedMessages(searchedMess);
 
     } else {
+      console.log('!!!!!!!!!!!!!!!!!!! arrStoreMessage (onChange)', arrStoreMessage)
       updateSearchedMessages(arrStoreMessage);
     }
   }
@@ -55,6 +59,7 @@ const ChatWindow = ({
     } else {
       //reset input
       //update search to message store
+      console.log('!!!!!!!!!!!!!!!!!!! arrStoreMessage (toggleSearching)', arrStoreMessage)
       updateSearchedMessages(arrStoreMessage);
       hideMessageSearching();
     }
@@ -75,18 +80,20 @@ const ChatWindow = ({
   }
 
   const removeMessages = (forwMessageId, name) => {
-    name = currentUser;
+    // name = currentUser;
     console.log('Remove messages ..');
     // console.log('currentForwardMessages', currentForwardMessages, 'currentForwardMessages.length', currentForwardMessages.length, 'currentForwardMessages.length === 1', currentForwardMessages.length === 1)
-    if (currentForwardMessages.length === 1) {
-      forwMessageId = currentForwardMessages[0].id
-      console.log('currentForwardMessages[0].id', currentForwardMessages[0].id);
-      console.log('currentUser', name)
-      removeMessageFromStore(forwMessageId, name) //id, name
-    } else {
-      let arrForwardIds = currentForwardMessages.map((forwMessage) => forwMessage.id)
-      removeGroupOfMessagesFromStore(arrForwardIds, name);
-    }
+    // if (currentForwardMessages.length === 1) {
+    //   forwMessageId = currentForwardMessages[0].id
+    //   console.log('currentForwardMessages[0].id', currentForwardMessages[0].id);
+    //   console.log('currentUser', name)
+    //   removeMessageFromStore(forwMessageId, name) //id, name
+    // } else {
+
+    //   let arrForwardIds = currentForwardMessages.map((forwMessage) => forwMessage.id)
+    //   console.log('arrForwardIds', arrForwardIds)
+    //   removeGroupOfMessagesFromStore(arrForwardIds, name);
+    // }
 
     resetForwardMessage();
     messageStateIsEmpty();
@@ -110,45 +117,14 @@ const ChatWindow = ({
           // value
         />
 
-
         <div className={`group-buttons`}>
-
-          <div onClick={replyMessages}>
-            <img
-                className={`search-icon ${currentUser === '' && toggleMessageSearching} ${currentForwardMessages.length !== 1 && 'hide'}`}
-                alt="left-icon"
-                src={left}
-              />
-          </div>
-
-          <div onClick={removeMessages}>
-            <img
-                className={`search-icon ${currentUser === '' && toggleMessageSearching} ${currentForwardMessages.length === 0 && 'hide'}`}
-                alt="bin"
-                src={bin}
-              />
-          </div>
-
-          <div onClick={forwardMessages}>
-            <img
-              className={`search-icon ${currentUser === '' && toggleMessageSearching} ${currentForwardMessages.length === 0 && 'hide'}`}
-              alt="right-icon"
-              src={right}
-            />
-          </div>
-
-          <div onClick={toggleSearching}>
-            <img
-              className={`search-icon ${currentUser === '' && toggleMessageSearching}`}
-              alt="search-icon"
-              src={searchIcon}
-            />
-          </div>
-
+          <IconButtonWithStore src={left} name='left' onClick={replyMessages}/>
+          <IconButtonWithStore src={bin} name='bin' onClick={removeMessages}/>
+          <IconButtonWithStore src={right} name='right' onClick={forwardMessages}/>
+          <IconButtonWithStore src={search} name='search' onClick={toggleSearching}/>
         </div>
       </div>
       
-
       <div className='scroll-window '>
         <div className='not-exist'> 
 
