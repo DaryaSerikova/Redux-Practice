@@ -98,7 +98,7 @@ export const Messages = ({
   
   const Mess = arrStoreMessage.map((message) => {
 
-
+//// Здесь должно быть разделение на message это обычный или message в message.value = messageReply
     let arrId = currentForwardMessages.map((forwardMess) => {
       return forwardMess.id
     })
@@ -120,50 +120,42 @@ export const Messages = ({
     // Идея с className работает, но один раз, потому что не отслеживает изменения store
     // Нужен Redux или Hooks
 
-    // <div className={`wrapper-message ${!message.selected ? `hide-checkmark`: ''}`}>
-    // className={`checkmark-icon ${!message.selected ? `hide-checkmark-icon`: ''}`}
+    // console.log('typeof(message.value)', typeof(message.value))
+    // console.log('typeof(message.value) === "string"', typeof(message.value) === "string")
 
-    // const messEdited = message.edit ? '(edited)' : '';
+    if (typeof(message.value) === "string") {
+      return (
+        <>
+          {/* {console.log('isSelect:', isSelect, ', toggleSelectedMessage:', toggleSelectedMessage, ', isSelect && toggleSelectedMessage ', isSelect && toggleSelectedMessage)} */}
+          <div className={`wrapper-message ${(isSelect) ? toggleSelectedState : 'hide'}-choised-message`} onClick={onChoose(message)}>
+          {/* {console.log('message.id:', message.id, ' message.selected:', message.selected)} */}
+            <img
+            className={`checkmark-icon ${(isSelect) ? toggleSelectedState : 'hide'}-checkmark-icon`}
+            alt="checkmark-icon"
+            src={checkmark}
+            />
+            <Message
+              id={message.id}
+              value={message.value} 
+              onClick={onClick(message)}
+              time={message.time}
+              edit={message.edit}
+              selected={message.selected}
+              // toggleSelectedMessage={toggleSelectedMessage}
+              toggleSelectedState={toggleSelectedState}
+              isSelect={isSelect}
+            />
+          </div>
+    
+          {(message.id === currentMessageId) && <SettingsWithStore message={message}/>}
+          {/* {console.log('currentForwardMessages:', currentForwardMessages)} */}
+        </>
+      )
+    } else {
+      console.log('UI:REPLY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    }
 
 
-
-    // <div className={`wrapper-message ${(message.id === currentMessageId || message.selected ) && toggleSelectedMessage}-choised-message`} onClick={onChoose(message)}>
-    // className={`checkmark-icon ${(message.id === currentMessageId) && toggleSelectedMessage}-checkmark-icon`}
-    // console.log('message.id', message.id, 'message.selected:', message.selected);
-
-
-    // <div className={`wrapper-message ${(isSelect) ? toggleSelectedMessage : 'hide'}-choised-message`} onClick={onChoose(message)}>
-    // className={`checkmark-icon ${(isSelect) ? toggleSelectedMessage : 'hide'}-checkmark-icon`}
-
-
-
-    return (
-      <>
-        {/* {console.log('isSelect:', isSelect, ', toggleSelectedMessage:', toggleSelectedMessage, ', isSelect && toggleSelectedMessage ', isSelect && toggleSelectedMessage)} */}
-        <div className={`wrapper-message ${(isSelect) ? toggleSelectedState : 'hide'}-choised-message`} onClick={onChoose(message)}>
-        {/* {console.log('message.id:', message.id, ' message.selected:', message.selected)} */}
-          <img
-          className={`checkmark-icon ${(isSelect) ? toggleSelectedState : 'hide'}-checkmark-icon`}
-          alt="checkmark-icon"
-          src={checkmark}
-          />
-          <Message
-            id={message.id}
-            value={message.value} 
-            onClick={onClick(message)}
-            time={message.time}
-            edit={message.edit}
-            selected={message.selected}
-            // toggleSelectedMessage={toggleSelectedMessage}
-            toggleSelectedState={toggleSelectedState}
-            isSelect={isSelect}
-          />
-        </div>
-  
-        {(message.id === currentMessageId) && <SettingsWithStore message={message}/>}
-        {/* {console.log('currentForwardMessages:', currentForwardMessages)} */}
-      </>
-    )
   })
 
   return Mess;

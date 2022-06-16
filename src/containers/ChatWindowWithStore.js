@@ -8,6 +8,7 @@ import { SEARCHED_MESSAGES,
   RESET_FORWARD_MESSAGE,
   MESSAGE_STATE_IS_EMPTY,
   REMOVE_GROUP_OF_MESSAGES_FROM_STORE,
+  REPLY_ON_MESSAGE_FROM_STORE,
  } from '../redux/actions';
 
 
@@ -69,6 +70,17 @@ const mapDispatchToProps = (dispatch) => {
         name
       })
     },
+
+    replyOnMessageFromStore: (value, name, edit, selected) => {
+      dispatch({
+        type: REPLY_ON_MESSAGE_FROM_STORE, 
+        value,
+        name,
+        edit,
+        selected
+      })
+    },
+
   }
 }
 

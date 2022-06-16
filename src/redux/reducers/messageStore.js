@@ -7,6 +7,7 @@ import {
   ADD_NEW_USER_TO_STORE,
   CHOOSE_MESSAGE_IN_STORE,
   REMOVE_GROUP_OF_MESSAGES_FROM_STORE,
+  REPLY_ON_MESSAGE_FROM_STORE,
 } from "../actions";
 
 
@@ -43,6 +44,18 @@ const updateMessageStore = (state = [], action) => { // Изменение од�
       return {
         ...newMess,
         selected: action.selected
+      }
+
+
+    case REPLY_ON_MESSAGE_FROM_STORE:
+      return { 
+        id: messageId++, 
+        value: action.value, 
+        date: action.date,
+        time: action.time,
+        name: action.name,
+        edit: action.edit,
+        selected: action.selected ///////
       }
     
     default:
@@ -139,11 +152,26 @@ export const allStore = (state = {}, action) => { // Полное хранили
             ]
           }
         })
-        
+
         return resRemoveGroup;
       }
+    
 
-
+    case REPLY_ON_MESSAGE_FROM_STORE: 
+    if (!state[action.name]) {
+      return {
+        ...state,
+        [action.name]: updateMessageStore([], action)
+      }
+    } else {
+      return {
+        ...state,
+        [action.name]: [
+          ...state[action.name],
+          updateMessageStore(state[action.name], action)
+        ]
+      }
+    }
 
 
     // case FORWARD_GROUP_OF_MESSAGES_FROM_STORE:

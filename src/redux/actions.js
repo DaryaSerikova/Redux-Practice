@@ -31,15 +31,15 @@ export const SEARCHED_MESSAGES = 'SEARCHED_MESSAGES';
 export const HIDE_MESSAGE_SEARCHING = 'HIDE_MESSAGE_SEARCHING';
 export const SHOW_MESSAGE_SEARCHING = 'SHOW_MESSAGE_SEARCHING';
 
-export const ADD_TO_FORWARD_MESSAGES = 'ADD_TO_FORWARD_MESSAGES';
+export const ADD_TO_FORWARD_MESSAGES = 'ADD_TO_FORWARD_MESSAGES'; // SELECT_MESSAGE
+export const RESET_FORWARD_MESSAGE = 'RESET_FORWARD_MESSAGE'; // SELECT_MESSAGE
+export const REMOVE_MESSAGE_FROM_FORWARD_MESSAGE = 'REMOVE_MESSAGE_FROM_FORWARD_MESSAGE'; // SELECT_MESSAGE
 
 export const HIDE_SELECTED_MESSAGE = 'HIDE_SELECTED_MESSAGE';
 export const SHOW_SELECTED_MESSAGE = 'SHOW_SELECTED_MESSAGE';
 
-export const RESET_FORWARD_MESSAGE = 'RESET_FORWARD_MESSAGE';
-export const REMOVE_MESSAGE_FROM_FORWARD_MESSAGE = 'REMOVE_MESSAGE_FROM_FORWARD_MESSAGE';
-
 export const REMOVE_GROUP_OF_MESSAGES_FROM_STORE = 'REMOVE_GROUP_OF_MESSAGES_FROM_STORE';
+export const REPLY_ON_MESSAGE_FROM_STORE = 'REPLY_ON_MESSAGE_FROM_STORE';
 
 
 
@@ -186,4 +186,15 @@ export const removeGroupOfMessagesFromStore = (arrayForwardIds, name) => ({
   type: REMOVE_GROUP_OF_MESSAGES_FROM_STORE,
   arrayForwardIds,
   name
+});
+
+
+export const replyOnMessageFromStore = (value, name, edit, selected) => ({
+  type: REPLY_ON_MESSAGE_FROM_STORE, 
+  value: value,
+  name: name,
+  date: getTime().date,
+  time: getTime().time,
+  edit: edit,
+  selected: selected
 });

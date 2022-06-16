@@ -24,6 +24,7 @@ const ChatWindow = ({
   resetForwardMessage,
   messageStateIsEmpty,
   removeGroupOfMessagesFromStore,
+  replyOnMessageFromStore,
   }) => {
 
   let arrStoreMessage = allStore[`${currentUser}`];
@@ -74,7 +75,14 @@ const ChatWindow = ({
   }
 
   const replyMessages = () => {
+
     console.log('Reply on messages ..')
+
+    console.log('currentForwardMessages', currentForwardMessages)
+    let replyMessage = currentForwardMessages[0];
+    console.log(replyMessage)
+
+    replyOnMessageFromStore(replyMessage, currentUser, false, false); //'Darya Serikova'
 
     resetForwardMessage();
     messageStateIsEmpty();
