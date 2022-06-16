@@ -5,6 +5,7 @@ import search from '../../assets/icon32.png';
 import right from '../../assets/right32.png';
 import left from '../../assets/left32.png';
 import bin from '../../assets/bin32.png';
+import cross from '../../assets/cross32.png';
 import IconButtonWithStore from '../../containers/IconButtonWithStore';
 import './ChatWindow.css';
 
@@ -79,6 +80,15 @@ const ChatWindow = ({
     messageStateIsEmpty();
   }
 
+  const cancelSelectedMessages = () => {
+    console.log('Cancel selected messages ..')
+
+    resetForwardMessage();
+    messageStateIsEmpty();
+  }
+
+
+
   const removeMessages = (forwMessageId, name) => {
     // name = currentUser;
     console.log('Remove messages ..');
@@ -103,9 +113,13 @@ const ChatWindow = ({
   return (
     <>
       <div className='window-header'>
-
+        <div className={`${currentForwardMessages.length === 0 ? 'hide' : 'cancel-group'}`}>
+          <div className='selected-messages-amount'>{currentForwardMessages.length}</div>
+          {<IconButtonWithStore src={cross} name='cross' onClick={cancelSelectedMessages}/>}
+        </div>
+        
         {Boolean(toggleMessageSearching) && 
-        <div className='current-user'>
+        <div className={`current-user ${!(currentForwardMessages.length === 0) && 'hide'}`}>
           {currentUser}
         </div>}
 

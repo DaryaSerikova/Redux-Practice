@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import Message from "../Message/Message";
 // import checkmark from '../../assets/checkmark32.png';
 // import checkmark from '../../assets/checkmark_blue32.png';
-import checkmark from '../../assets/checkmark_blue64.png';
+import checkmark from '../../assets/checkmark_blue32.png';
 
 import './Messages.css';
 import SettingsWithStore from "../../containers/SettingsWithStore";

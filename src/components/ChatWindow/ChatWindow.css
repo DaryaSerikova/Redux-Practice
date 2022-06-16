@@ -45,7 +45,7 @@
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 .current-user {
@@ -65,8 +65,7 @@
   justify-content: space-between;
   padding: 0.65rem;
   font-size: 13pt;
-  /* min-height: 47.4px; */
-  min-height: 52.7px;
+  min-height: 55px;
   /* background-color: rgb(249 249 249); */
   background-color: rgb(255 255 255); 
   border-bottom: 1px solid #ebebeb;
@@ -108,4 +107,21 @@
 
 .group-buttons {
   display: flex;
+}
+
+.cancel-group {
+  display: flex;
+}
+
+.selected-messages-amount {
+  display: flex;
+  align-items: center;
+  font-size: 17pt;
+  color: #3cafe4;
+  padding: 0rem 0.3rem 0 0.3rem;
+}
+
+.wrapper-cross-icon {
+  display: flex;
+  align-items: center;
 }

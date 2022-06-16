@@ -6,16 +6,33 @@ const IconButton = ({ src, name, onClick, currentForwardMessages, currentUser, t
 
   
   const getHide = (name) => {
-
     switch(name) {
       case `left`:
         return `${currentForwardMessages.length !== 1 && 'hide'}`;
       case `bin`:
-        return `${currentForwardMessages.length === 0 && 'hide'}`;
       case `right`:
-        return `${currentForwardMessages.length === 0 && 'hide'}`;
-      case `search`: 
-        return ''; 
+      case `cross`: 
+        return `${currentForwardMessages.length === 0 && 'hide'}`; 
+      
+      default:
+        return '';
+    }
+  }
+
+  const getIconEniqueClassNames = (name) => {
+    switch(name) {
+      case `cross`: 
+        return `cross-icon`; 
+      
+      default:
+        return '';
+    }
+  }
+
+  const getWrapperEniqueClassNames = (name) => {
+    switch(name) {
+      case `cross`: 
+        return `wrapper-cross-icon`; 
       
       default:
         return '';
@@ -23,12 +40,14 @@ const IconButton = ({ src, name, onClick, currentForwardMessages, currentUser, t
   }
 
   let hide = getHide(name);
+  let iconEnique = getIconEniqueClassNames(name);
+  let wrapperEnique = getWrapperEniqueClassNames(name);
 
 
   return (
-    <div onClick={onClick}>
+    <div className={`${wrapperEnique}`} onClick={onClick}>
       <img 
-        className={`search-icon ${currentUser === '' && toggleMessageSearching} ${hide}`}
+        className={`any-icon ${currentUser === '' && toggleMessageSearching} ${iconEnique} ${hide}`}
         alt={`${name}-icon`}
         src={src}
       />

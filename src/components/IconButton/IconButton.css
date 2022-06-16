@@ -1,9 +1,16 @@
-.search-icon {
-  padding: 0 0.2rem 0 0.8rem;
-  width: 46px;
-  height: 31px;
+.any-icon {
+  padding: 0 0.4rem 0 0.4rem;
+  /* width: 46px;
+  height: 31px; */
+  width: 42px;
+  height: 29px;
 }
 
 .hide {
   display: none;
+}
+
+.cross-icon {
+  width: 28px !important;
+  height: 16px !important;
 }

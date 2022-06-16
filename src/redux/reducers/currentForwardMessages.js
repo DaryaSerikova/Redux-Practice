@@ -40,7 +40,6 @@ export const currentForwardMessages = (state = [], action) => {
       return []
 
     // UPDATE_TO_NEW_CURRENT_FORWARD_MESSAGES ??
-    // REMOVE_FROM_FORWARD_MESSAGES
     // CANCEL_FORWARDING
 
     default:
