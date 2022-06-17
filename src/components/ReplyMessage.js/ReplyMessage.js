@@ -1,7 +1,7 @@
+import { getDateConverting } from '../../utils/getDateConverting';
+
 import './ReplyMessage.css';
 import '../Message/Message.css';
-// import Message from '../Message/Message';
-import { getDateConverting } from '../../utils/getDateConverting';
 
 
 
@@ -26,14 +26,18 @@ const ReplyMessage = ({ id, value, onClick, time, edit, toggleSelectedState, isS
       <div className='message-with-vertical-line'>
         <div className='vertical-line'></div>
         <div className='reply-message'>
+
           <div className='message-info'>
             <div className='message-sender'>Darya Serikova</div>
             <div className='date-and-time'>{convertedDate} at {replyMessage.time}</div>
           </div>
-          {/* {value} */} {replyMessage.value}
+
+          {replyMessage.value}
+
         </div>
       </div>
-
+      {console.log('TIME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', time)}
+      {console.log('EDIT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', messEdited)}
       <div className='message-time'>{time}{messEdited}</div>
     </div>
   )

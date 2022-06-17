@@ -1,12 +1,11 @@
 import React, {useEffect} from "react";
-import Message from "../Message/Message";
-// import checkmark from '../../assets/checkmark32.png';
-// import checkmark from '../../assets/checkmark_blue32.png';
-import checkmark from '../../assets/checkmark_blue32.png';
-
-import './Messages.css';
 import SettingsWithStore from "../../containers/SettingsWithStore";
 import ReplyMessage from "../ReplyMessage.js/ReplyMessage";
+import Message from "../Message/Message";
+
+import checkmark from '../../assets/checkmark_blue32.png';
+import './Messages.css';
+
 
 
 export const Messages = ({ 
@@ -81,7 +80,7 @@ export const Messages = ({
   const onClick = (message) => {
     return (e) => {
   
-      // updateCoordinates(`${e.clientX-130}px`, `${e.clientY+10}px`);
+      // updateCoordinates(`${e.clientX-130}px`, `${e.clientY+10}px`); // for rus
       updateCoordinates(`${e.clientX-88}px`, `${e.clientY+10}px`);
       updateToNewCurrentMessageId(message.id);
 
@@ -115,15 +114,12 @@ export const Messages = ({
 
     let res = toggleSelectedMessage.filter((selectMess) => selectMess.id === message.id)[0];
     let toggleSelectedState = res !== undefined ? res.toggleState : 'hide';
-    // console.log('res:', res, 'toggleSelectedState', toggleSelectedState) 
 
 
     // Идея с className работает, но один раз, потому что не отслеживает изменения store
     // Нужен Redux или Hooks
 
-    // console.log('typeof(message.value)', typeof(message.value))
-    // console.log('typeof(message.value) === "string"', typeof(message.value) === "string")
-    console.log('message.message === undefined', message.message === undefined);
+    // console.log('message.message === undefined', message.message === undefined);
 
     const messageGeneralProps = {
       id: message.id,
@@ -137,21 +133,11 @@ export const Messages = ({
       onClick: onClick(message)
     }
 
-    // id={message.id}
-    // value={message.value} 
-    // onClick={onClick(message)}
-    // time={message.time}
-    // edit={message.edit}
-    // selected={message.selected}
-
-    // toggleSelectedState={toggleSelectedState}
-    // isSelect={isSelect}
 
     return (
       <>
-        {/* {console.log('isSelect:', isSelect, ', toggleSelectedMessage:', toggleSelectedMessage, ', isSelect && toggleSelectedMessage ', isSelect && toggleSelectedMessage)} */}
         <div className={`wrapper-message ${(isSelect) ? toggleSelectedState : 'hide'}-choised-message`} onClick={onChoose(message)}>
-        {/* {console.log('message.id:', message.id, ' message.selected:', message.selected)} */}
+
           <img
           className={`checkmark-icon ${(isSelect) ? toggleSelectedState : 'hide'}-checkmark-icon`}
           alt="checkmark-icon"
