@@ -6,6 +6,7 @@ import checkmark from '../../assets/checkmark_blue32.png';
 
 import './Messages.css';
 import SettingsWithStore from "../../containers/SettingsWithStore";
+import ReplyMessage from "../ReplyMessage.js/ReplyMessage";
 
 
 export const Messages = ({ 
@@ -122,39 +123,51 @@ export const Messages = ({
 
     // console.log('typeof(message.value)', typeof(message.value))
     // console.log('typeof(message.value) === "string"', typeof(message.value) === "string")
+    console.log('message.message === undefined', message.message === undefined);
 
-    if (typeof(message.value) === "string") {
-      return (
-        <>
-          {/* {console.log('isSelect:', isSelect, ', toggleSelectedMessage:', toggleSelectedMessage, ', isSelect && toggleSelectedMessage ', isSelect && toggleSelectedMessage)} */}
-          <div className={`wrapper-message ${(isSelect) ? toggleSelectedState : 'hide'}-choised-message`} onClick={onChoose(message)}>
-          {/* {console.log('message.id:', message.id, ' message.selected:', message.selected)} */}
-            <img
-            className={`checkmark-icon ${(isSelect) ? toggleSelectedState : 'hide'}-checkmark-icon`}
-            alt="checkmark-icon"
-            src={checkmark}
-            />
-            <Message
-              id={message.id}
-              value={message.value} 
-              onClick={onClick(message)}
-              time={message.time}
-              edit={message.edit}
-              selected={message.selected}
-              // toggleSelectedMessage={toggleSelectedMessage}
-              toggleSelectedState={toggleSelectedState}
-              isSelect={isSelect}
-            />
-          </div>
-    
-          {(message.id === currentMessageId) && <SettingsWithStore message={message}/>}
-          {/* {console.log('currentForwardMessages:', currentForwardMessages)} */}
-        </>
-      )
-    } else {
-      console.log('UI:REPLY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    const messageGeneralProps = {
+      id: message.id,
+      value: message.value,
+      time: message.time,
+      edit: message.edit,
+      selected: message.selected,
+
+      toggleSelectedState: toggleSelectedState,
+      isSelect: isSelect,
+      onClick: onClick(message)
     }
 
+    // id={message.id}
+    // value={message.value} 
+    // onClick={onClick(message)}
+    // time={message.time}
+    // edit={message.edit}
+    // selected={message.selected}
+
+    // toggleSelectedState={toggleSelectedState}
+    // isSelect={isSelect}
+
+    return (
+      <>
+        {/* {console.log('isSelect:', isSelect, ', toggleSelectedMessage:', toggleSelectedMessage, ', isSelect && toggleSelectedMessage ', isSelect && toggleSelectedMessage)} */}
+        <div className={`wrapper-message ${(isSelect) ? toggleSelectedState : 'hide'}-choised-message`} onClick={onChoose(message)}>
+        {/* {console.log('message.id:', message.id, ' message.selected:', message.selected)} */}
+          <img
+          className={`checkmark-icon ${(isSelect) ? toggleSelectedState : 'hide'}-checkmark-icon`}
+          alt="checkmark-icon"
+          src={checkmark}
+          />
+
+          { (message.message === undefined) ?
+            <Message {...messageGeneralProps} />
+            : <ReplyMessage {...messageGeneralProps} />}
+
+        </div>
+  
+        {(message.id === currentMessageId) && <SettingsWithStore message={message}/>}
+        {/* {console.log('currentForwardMessages:', currentForwardMessages)} */}
+      </>
+    )
 
   })
 

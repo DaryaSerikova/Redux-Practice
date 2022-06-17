@@ -189,12 +189,13 @@ export const removeGroupOfMessagesFromStore = (arrayForwardIds, name) => ({
 });
 
 
-export const replyOnMessageFromStore = (value, name, edit, selected) => ({
+export const replyOnMessageFromStore = (value, name, edit, selected, message) => ({
   type: REPLY_ON_MESSAGE_FROM_STORE, 
   value: value,
   name: name,
   date: getTime().date,
   time: getTime().time,
   edit: edit,
-  selected: selected
+  selected: selected,
+  message: message
 });

@@ -71,13 +71,14 @@ const mapDispatchToProps = (dispatch) => {
       })
     },
 
-    replyOnMessageFromStore: (value, name, edit, selected) => {
+    replyOnMessageFromStore: (value, name, edit, selected, message) => {
       dispatch({
         type: REPLY_ON_MESSAGE_FROM_STORE, 
         value,
         name,
         edit,
-        selected
+        selected,
+        message
       })
     },
 

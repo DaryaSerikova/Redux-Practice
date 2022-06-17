@@ -55,7 +55,8 @@ const updateMessageStore = (state = [], action) => { // Изменение од�
         time: action.time,
         name: action.name,
         edit: action.edit,
-        selected: action.selected ///////
+        selected: action.selected, ///////
+        message: action.message
       }
     
     default:

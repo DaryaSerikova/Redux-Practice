@@ -82,7 +82,10 @@ const ChatWindow = ({
     let replyMessage = currentForwardMessages[0];
     console.log(replyMessage)
 
-    replyOnMessageFromStore(replyMessage, currentUser, false, false); //'Darya Serikova'
+    //прописать откуда берется value
+    //посмотреть как он передается при добавлении сообщения
+    // currentUser или бутафория? Сейчас все вместе! Будут ошибки от путаницы!
+    replyOnMessageFromStore('Бутафорный комментарий к reply message', currentUser, false, false, replyMessage); //'Darya Serikova'
 
     resetForwardMessage();
     messageStateIsEmpty();
