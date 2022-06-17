@@ -21,3 +21,35 @@
 .show-message {
     background-color: white !important;
 }
+
+
+/* reply */
+
+/* .message-with-vertical-line {
+    display: flex;
+    flex-direction: row;
+}
+.vertical-line {
+    border-right: 2px solid #d1d1d1;
+    margin-right: 0.4rem;
+}
+
+.reply-message {
+    font-size: 11pt;
+}
+
+.message-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.date-and-time {
+    font-size: 10pt;
+    color: #cacaca;
+}
+
+.message-sender {
+    font-size: 10pt;
+    color: #36a6dc;
+} */
+
