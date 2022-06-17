@@ -1,12 +1,16 @@
 import './ReplyMessage.css';
 import '../Message/Message.css';
 // import Message from '../Message/Message';
+import { getDateConverting } from '../../utils/getDateConverting';
 
 
 
-const ReplyMessage = ({ id, value, onClick, time, edit, toggleSelectedState, isSelect }) => {
+const ReplyMessage = ({ id, value, onClick, time, edit, toggleSelectedState, isSelect, replyMessage }) => {
 
   const messEdited = edit ? '(edited)' : '';
+  console.log("replyMessage", replyMessage)
+
+  let convertedDate = getDateConverting(replyMessage.date);
 
   return (
     <div 
@@ -16,17 +20,17 @@ const ReplyMessage = ({ id, value, onClick, time, edit, toggleSelectedState, isS
       value={value} 
       onClick={onClick}
       >
-      {/* Начало. Это для быстрого тестирования. Это от ReplyMessage */}
 
       {value}
+
       <div className='message-with-vertical-line'>
         <div className='vertical-line'></div>
         <div className='reply-message'>
           <div className='message-info'>
             <div className='message-sender'>Darya Serikova</div>
-            <div className='date-and-time'>17 июня в 11:45</div>
+            <div className='date-and-time'>{convertedDate} at {replyMessage.time}</div>
           </div>
-          {/* {value} */} Здесь должно быть сообщение
+          {/* {value} */} {replyMessage.value}
         </div>
       </div>
 

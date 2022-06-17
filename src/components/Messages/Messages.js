@@ -160,7 +160,7 @@ export const Messages = ({
 
           { (message.message === undefined) ?
             <Message {...messageGeneralProps} />
-            : <ReplyMessage {...messageGeneralProps} />}
+            : <ReplyMessage {...messageGeneralProps} replyMessage={message.message} />}
 
         </div>
   
