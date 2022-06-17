@@ -122,8 +122,8 @@ const ChatWindow = ({
     <>
       <div className='window-header'>
         <div className={`${currentForwardMessages.length === 0 ? 'hide' : 'cancel-group'}`}>
-          <div className='selected-messages-amount'>{currentForwardMessages.length}</div>
           {<IconButtonWithStore src={cross} name='cross' onClick={cancelSelectedMessages}/>}
+          <div className='selected-messages-amount'>{currentForwardMessages.length}</div>
         </div>
         
         {Boolean(toggleMessageSearching) && 
