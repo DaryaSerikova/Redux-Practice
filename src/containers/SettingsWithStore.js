@@ -13,6 +13,7 @@ import {
   MESSAGE_STATE_IS_FORWARD,
   RESET_FORWARD_MESSAGE,
   REMOVE_MESSAGE_FROM_FORWARD_MESSAGE,
+  MESSAGE_STATE_IS_SELECT,
   } from "../redux/actions";
 import { Settings } from '../components/Settings/Settings';
 
@@ -68,7 +69,7 @@ const mapDispatchToProps = (dispatch) => {
         type: MESSAGE_STATE_IS_EDIT
       })
     },
-        addToForwardMessages: (message) => {
+    addToForwardMessages: (message) => {
       dispatch({
         type: ADD_TO_FORWARD_MESSAGES,
         message
@@ -117,6 +118,12 @@ const mapDispatchToProps = (dispatch) => {
     messageStateIsForward: () => {
       dispatch({
         type: MESSAGE_STATE_IS_FORWARD
+      })
+    },
+
+    messageStateIsSelect: () => {
+      dispatch({
+        type: MESSAGE_STATE_IS_SELECT
       })
     },
 

@@ -99,6 +99,7 @@ export const Messages = ({
   const Mess = arrStoreMessage.map((message) => {
 
 //// Здесь должно быть разделение на message это обычный или message в message.value = messageReply
+
     let arrId = currentForwardMessages.map((forwardMess) => {
       return forwardMess.id
     })
@@ -136,13 +137,17 @@ export const Messages = ({
 
     return (
       <>
-        <div className={`wrapper-message ${(isSelect) ? toggleSelectedState : 'hide'}-choised-message`} onClick={onChoose(message)}>
-
+        <div className={`wrapper-message ${(messageState === 'forward') ? 'space-between' : ''} ${(isSelect) ? toggleSelectedState : 'hide'}-choised-message`} onClick={onChoose(message)}>
+          {/* {'console.log(messageState) === "forward"', console.log(messageState === 'forward')} */}
           <img
           className={`checkmark-icon ${(isSelect) ? toggleSelectedState : 'hide'}-checkmark-icon`}
           alt="checkmark-icon"
           src={checkmark}
           />
+          {/* {console.log('(!isSelect && (messageState === "forward")', (!isSelect && (messageState === 'forward')) )} */}
+          <div className={`${(messageState === 'forward') && 'space-between'} ${(!isSelect && (messageState === 'forward'))? '' : 'hide'}`}>
+            <div className="circle-instead-checkmark"></div>
+          </div>
 
           { (message.message === undefined) ?
             <Message {...messageGeneralProps} />

@@ -14,7 +14,9 @@ export const ADD_NEW_USER_TO_STORE = 'ADD_NEW_USER_TO_STORE';
 
 export const MESSAGE_STATE_IS_CREATE = 'MESSAGE_STATE_IS_CREATE';
 export const MESSAGE_STATE_IS_EDIT = 'MESSAGE_STATE_IS_EDIT';
+export const MESSAGE_STATE_IS_REPLY = 'MESSAGE_STATE_IS_REPLY';
 export const MESSAGE_STATE_IS_FORWARD = 'MESSAGE_STATE_IS_FORWARD'; ///////////////////////////
+export const MESSAGE_STATE_IS_SELECT = 'MESSAGE_STATE_IS_SELECT';
 export const MESSAGE_STATE_IS_EMPTY = 'MESSAGE_STATE_IS_EMPTY';
 
 export const UPDATE_TO_NEW_CURRENT_MESSAGE_ID = 'UPDATE_TO_NEW_CURRENT_MESSAGE_ID';
@@ -61,6 +63,17 @@ export const addNewMessageToStore = (value, name, edit, selected) => ({
   selected: selected
 });
 
+export const replyOnMessageFromStore = (value, name, edit, selected, message) => ({
+  type: REPLY_ON_MESSAGE_FROM_STORE, 
+  value: value,
+  name: name,
+  date: getTime().date,
+  time: getTime().time,
+  edit: edit,
+  selected: selected,
+  message: message
+});
+
 export const editMessageInStore = (id, value, name, edit) => ({
   type: EDIT_MESSAGE_IN_STORE,
   id,
@@ -70,8 +83,7 @@ export const editMessageInStore = (id, value, name, edit) => ({
   // selected
 });
 
-export const chooseMessageInStore = (id, 
-  // value, name, edit, 
+export const chooseMessageInStore = (id, // value, name, edit, 
   selected) => ({
   type: CHOOSE_MESSAGE_IN_STORE,
   id,
@@ -108,8 +120,16 @@ export const messageStateIsEdit = () => ({
   type: MESSAGE_STATE_IS_EDIT
 });
 
+export const messageStateIsReply = () => ({
+  type: MESSAGE_STATE_IS_REPLY
+});
+
 export const messageStateIsForward = () => ({
   type: MESSAGE_STATE_IS_FORWARD
+});
+
+export const messageStateIsSelect = () => ({
+  type: MESSAGE_STATE_IS_SELECT
 });
 
 export const messageStateIsEmpty = () => ({
@@ -189,13 +209,13 @@ export const removeGroupOfMessagesFromStore = (arrayForwardIds, name) => ({
 });
 
 
-export const replyOnMessageFromStore = (value, name, edit, selected, message) => ({
-  type: REPLY_ON_MESSAGE_FROM_STORE, 
-  value: value,
-  name: name,
-  date: getTime().date,
-  time: getTime().time,
-  edit: edit,
-  selected: selected,
-  message: message
-});
+// export const replyOnMessageFromStore = (value, name, edit, selected, message) => ({
+//   type: REPLY_ON_MESSAGE_FROM_STORE, 
+//   value: value,
+//   name: name,
+//   date: getTime().date,
+//   time: getTime().time,
+//   edit: edit,
+//   selected: selected,
+//   message: message
+// });

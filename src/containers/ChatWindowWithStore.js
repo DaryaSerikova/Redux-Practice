@@ -19,6 +19,7 @@ const mapStateToProps = (state) => {
     searchedMessages: state.messages,
     toggleMessageSearching: state.toggleMessageSearching,
     currentForwardMessages: state.currentForwardMessages,
+    messageState: state.messageState,
   }
 }
 
@@ -81,6 +82,7 @@ const mapDispatchToProps = (dispatch) => {
         message
       })
     },
+    
 
   }
 }

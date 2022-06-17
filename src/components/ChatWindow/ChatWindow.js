@@ -13,7 +13,8 @@ import './ChatWindow.css';
 
 const ChatWindow = ({ 
   allStore, 
-  currentUser, 
+  currentUser,
+  messageState, 
   searchedMessages, 
   updateSearchedMessages,
   toggleMessageSearching,
@@ -85,6 +86,7 @@ const ChatWindow = ({
     //прописать откуда берется value
     //посмотреть как он передается при добавлении сообщения
     // currentUser или бутафория? Сейчас все вместе! Будут ошибки от путаницы!
+    console.log('messageState', messageState)
     replyOnMessageFromStore('Бутафорный комментарий к reply message', currentUser, false, false, replyMessage); //'Darya Serikova'
 
     resetForwardMessage();
@@ -120,7 +122,7 @@ const ChatWindow = ({
     messageStateIsEmpty();
   }
 
-
+  console.log('allStore[`${currentUser}`]', allStore[`${currentUser}`]);
   return (
     <>
       <div className='window-header'>

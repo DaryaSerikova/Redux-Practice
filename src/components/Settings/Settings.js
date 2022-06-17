@@ -6,6 +6,7 @@ export const Settings = ({
   toggleSettings,  
   messageStateIsCreate, 
   messageStateIsEdit,
+  messageStateIsSelect,
   updateToNewCurrentMessage, 
   removeMessageFromStore,
   addToForwardMessages,
@@ -37,13 +38,14 @@ export const Settings = ({
     cancelEdit();
   }}
 
-  const forward = (message) => {
+  const select = (message) => {
     return (e) => {
-      console.log('Forward! Message:', message.value);
+      console.log('Select! Message:', message.value);
       showSelectedMessage(message.id);
       chooseMessageInStore(message.id, true);
       updateToNewCurrentMessageId(message.id);
-      messageStateIsForward();
+      // messageStateIsForward(); // Надо полностью переименовать все forward в select. Все проверки на равенство forward и reducer
+      messageStateIsSelect();
       addToForwardMessages(message);
     }
   }
@@ -62,7 +64,7 @@ export const Settings = ({
       className={`setting-buttons ${toggleSettings}`}
     >
       <div className='setting-btn btn-edit' onClick={edit(message)}>Edit</div>
-      <div className='setting-btn' onClick={forward(message)}>Select</div>
+      <div className='setting-btn' onClick={select(message)}>Select</div>
       <div className='setting-btn btn-remove' onClick={remove(message)}>Remove</div>
     </div>
   )

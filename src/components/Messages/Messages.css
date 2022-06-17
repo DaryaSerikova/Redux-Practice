@@ -1,10 +1,12 @@
 .wrapper-message {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  justify-content: flex-end;
   align-items: center;
-  padding-left: 1.5rem;
+  padding-left: 1.1rem;
   width: 100%;
+
 }
 
 .show-choised-message {
@@ -14,34 +16,46 @@
   /* background: linear-gradient(to right, #3cc3fc21, 75%, #ed8afa45); */
   /* background: linear-gradient(to right, #3cc3fc1c, 75%, #ed8afa2b); */
   background: linear-gradient(to right, #44d8ff1a, 70%, #ed8afa2b);
+  /* transition: background 7500ms linear 0ms; */
+  /* transition: .4s; */
 }
 
-.checkmark-icon {
-  /* opacity: 0.81;
-  width: 24px;
-  height: 24px; */
 
+
+
+
+.checkmark-icon {
   opacity: 0.7;
   width: 22px;
   height: 22px;
-  /* border: 2px solid #29beff;
-  border-radius: 20px; */
+  margin: 0 0.7rem 0 0rem;
+  transition-property: margin;
+
 }
 
 .hide-checkmark-icon {
   display: none;
+  transition-property: display;
+
 }
 
 /* .false-checkmark-icon {
   display: none;
 } */
 
-.hide-choised-message {
-  justify-content: flex-end !important;
-}
+/* .hide-choised-message { */
+  
+  /* justify-content: space-between !important; */
+  /* justify-content: space-between;
+
+} */
 
 .false-choised-message {
   justify-content: flex-end !important;
+}
+
+.space-between {
+  justify-content: space-between !important;
 }
 
 
@@ -68,5 +82,22 @@
 
 .show-message {
   background-color: white !important;
+}
+
+.circle-instead-checkmark {
+  height: 23px;
+  width: 23px;
+  border: 2px solid #49c7ff78;
+  border-radius: 17px;
+  margin: 0 0.7rem 0 0rem;
+
+  transition: transform 3s;
+  /* transform: margin; */
+  transition-property: margin;
+
+    
+
+  /* -webkit-transition: width 2s, height 2s; */
+  /* transition: border 2ms; */
 }
 
