@@ -2,7 +2,7 @@ import { getIndex } from "../../utils/getIndex";
 import { 
   // UPDATE_TO_NEW_CURRENT_FORWARD_MESSAGES,
 
-  
+
   // ADD_TO_FORWARD_MESSAGES,
   ADD_TO_SELECTED_MESSAGES,
 
@@ -20,7 +20,7 @@ const getUniqueArray = (arr) => {
 }
 
 
-export const currentlySelectedMessages = (state = [], action) => {
+export const currentlySelectedMessages = (state = [], action) => { //currentForwardMessages
   switch (action.type) {
     // case UPDATE_TO_NEW_CURRENT_FORWARD_MESSAGES: 
     //   return action.message;

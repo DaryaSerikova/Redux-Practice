@@ -119,10 +119,15 @@ const ChatWindow = ({
 
 
 
-  const removeMessages = (forwMessageId, name) => {
-    // name = currentUser;
+  const removeMessages = () => { //forwMessageId, name
+    let name = currentUser;
     console.log('Remove messages ..');
 
+    console.log('||||||||||currentlySelectedMessages:', currentlySelectedMessages);
+    let arrForwardIds = currentlySelectedMessages.map((selectedMessage) => selectedMessage.id);
+    console.log('||||||||||arrForwardIds:', arrForwardIds)
+    removeGroupOfMessagesFromStore(arrForwardIds, name);
+    
 
     //  Если вдруг раскомментируешь удаление, имей ввиду, что здесь имена не исправлены
     // Менять нужно currentForwardMessages на currentlySelectedMessages
@@ -146,7 +151,7 @@ const ChatWindow = ({
     messageStateIsEmpty();
   }
 
-  console.log('allStore[`${currentUser}`]', allStore[`${currentUser}`]);
+  // console.log('allStore[`${currentUser}`]', allStore[`${currentUser}`]);
 
   const textIfStoreIsEmpty = <div className='wrapper-personal-store-is-empty'>
     <div className='personal-store-is-empty'> Message history is empty. </div>
@@ -191,7 +196,10 @@ const ChatWindow = ({
         <div className='not-exist'> 
 
           <div className={`chat-window`}>
-            {currentUser !== '' 
+            {console.log('allStore[`${currentUser}`]:', allStore[`${currentUser}`])}
+            {console.log('currentUser:', currentUser)}
+
+            {(currentUser !== '' || allStore[`${currentUser}`] !== undefined)
             ? (allStore[`${currentUser}`].length === 0) ? textIfStoreIsEmpty : <MessagesWithStore arrStoreMessage={searchedMessages}/> 
             : <div className='no-user'>Select a user to start chatting</div>}
           </div>

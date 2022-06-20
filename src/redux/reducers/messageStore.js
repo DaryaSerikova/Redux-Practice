@@ -113,7 +113,7 @@ export const allStore = (state = {}, action) => { // Полное хранили
         }
       }
 
-    case REMOVE_MESSAGE_FROM_STORE:
+    case REMOVE_MESSAGE_FROM_STORE: //name, id
       if (state[action.name]) {
         let array = [...state[action.name]];
         const index = getIndex(action.id, array);
@@ -129,32 +129,34 @@ export const allStore = (state = {}, action) => { // Полное хранили
 
     case REMOVE_GROUP_OF_MESSAGES_FROM_STORE:
       if (state[action.name]) {
+
+        let arrayPersonalStore = [...state[action.name]];
+        // console.log('(вне цикла) arrayPersonalStore', arrayPersonalStore)
+
         let arrayForwardIds = action.arrayForwardIds;
-        console.log('(arrayForwardIds) Выбранные сообщения имеют id:', arrayForwardIds)
-        // let arrayPersonalStore = [...state[action.name]];
-        // console.log('(arrayPersonalStore) До удаления персональное хранилище сообщений:', arrayPersonalStore)
-  
-        // // arrayPersonalStore.filter((message) => arrayForwardIds.map((id) => message.id ))
-        // let selectedMessages = arrayForwardIds.map((id) => 
-        //   arrayPersonalStore.filter((message) => message.id === id)[0] 
-        // )
-  
-        // console.log('(selectedMessages) Выбранные сообщения это:', selectedMessages)
-        // // const index = getIndex(action.id, array);
-        // console.log('Теперь пройдемся по этому хранилищу циклом и выберем только idшники выбранных сообщений')
-        // const indices = selectedMessages.map((message) => getIndex(message.id, arrayPersonalStore));
-        // console.log('(indices) Индексы выбранных из хранилища сообщений', indices)
-        const resRemoveGroup = arrayForwardIds.map((indx) => { //indices
-          return {
-            ...state,
-            [action.name]: [
-              ...state[action.name].slice(0, indx),
-              ...state[action.name].slice(indx + 1),
-            ]
-          }
+
+        arrayForwardIds.forEach((forwId) => {
+
+          const indx = getIndex(forwId, arrayPersonalStore); //action.id, array
+
+          // console.log('forwId:', forwId, ', indx:', indx)
+          // console.log('(до удаления) arrayPersonalStore:', arrayPersonalStore )
+
+          let newArrayPersonalStore = [
+            ...arrayPersonalStore.slice(0, indx),
+            ...arrayPersonalStore.slice(indx + 1),
+          ]
+
+          arrayPersonalStore = [
+            ...newArrayPersonalStore
+          ]
+          // console.log('(после удаления) arrayPersonalStore:', arrayPersonalStore )
         })
 
-        return resRemoveGroup;
+        return {
+          ...state,
+          [action.name]: arrayPersonalStore
+        }
       }
     
 
