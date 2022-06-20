@@ -166,7 +166,7 @@ export const Messages = ({
           <div className={`${(messageState === 'select') && 'space-between'} ${(!isSelect && (messageState === 'select'))? '' : 'hide'}`}>
             <div className="circle-instead-checkmark"></div>
           </div>
-
+          
           { (message.message === undefined) ?
             <Message {...messageGeneralProps} />
             : <ReplyMessage {...messageGeneralProps} replyMessage={message.message} />}

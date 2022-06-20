@@ -136,6 +136,12 @@ const ChatWindow = ({
   }
 
   console.log('allStore[`${currentUser}`]', allStore[`${currentUser}`]);
+
+  const textIfStoreIsEmpty = <div className='wrapper-personal-store-is-empty'>
+    <div className='personal-store-is-empty'> Message history is empty. </div>
+    <div className='personal-store-is-empty'> Write something to start a conversation... </div>
+  </div>  ;
+
   return (
     <>
       <div className='window-header'>
@@ -175,7 +181,7 @@ const ChatWindow = ({
 
           <div className={`chat-window`}>
             {currentUser !== '' 
-            ? <MessagesWithStore arrStoreMessage={searchedMessages}/> 
+            ? (allStore[`${currentUser}`].length === 0) ? textIfStoreIsEmpty : <MessagesWithStore arrStoreMessage={searchedMessages}/> 
             : <div className='no-user'>Select a user to start chatting</div>}
           </div>
 
