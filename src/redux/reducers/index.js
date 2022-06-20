@@ -10,7 +10,10 @@ import { clickCoordinates } from "./clickCoordinates";
 import { users } from "./users";
 import { messages } from "./messages";
 import { toggleMessageSearching } from "./toggleMessageSearching";
-import { currentForwardMessages } from "./currentForwardMessages";
+
+// import { currentForwardMessages } from "./currentForwardMessages";
+import { currentlySelectedMessages } from "./currentForwardMessages";
+
 import { toggleSelectedMessage } from "./toggleSelectedMessage";
 
 
@@ -25,6 +28,9 @@ export default combineReducers({
   users,
   messages,
   toggleMessageSearching,
-  currentForwardMessages,
+
+  // currentForwardMessages,
+  currentlySelectedMessages,
+
   toggleSelectedMessage
 });

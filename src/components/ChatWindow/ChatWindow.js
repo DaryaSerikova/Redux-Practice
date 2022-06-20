@@ -20,7 +20,10 @@ const ChatWindow = ({
   toggleMessageSearching,
   hideMessageSearching, 
   showMessageSearching,
-  currentForwardMessages,
+
+  // currentForwardMessages,
+  currentlySelectedMessages,
+
   removeMessageFromStore,
   resetForwardMessage,
   messageStateIsEmpty,
@@ -79,8 +82,13 @@ const ChatWindow = ({
 
     console.log('Reply on messages ..')
 
-    console.log('currentForwardMessages', currentForwardMessages)
-    let replyMessage = currentForwardMessages[0];
+    // console.log('currentForwardMessages', currentForwardMessages)
+    console.log('currentlySelectedMessages', currentlySelectedMessages)
+
+    
+    let replyMessage = currentlySelectedMessages[0];
+    // let replyMessage = currentForwardMessages[0];
+
     console.log(replyMessage)
 
     //прописать откуда берется value
@@ -105,6 +113,11 @@ const ChatWindow = ({
   const removeMessages = (forwMessageId, name) => {
     // name = currentUser;
     console.log('Remove messages ..');
+
+
+    //  Если вдруг раскомментируешь удаление, имей ввиду, что здесь имена не исправлены
+    // Менять нужно currentForwardMessages на currentlySelectedMessages
+
     // console.log('currentForwardMessages', currentForwardMessages, 'currentForwardMessages.length', currentForwardMessages.length, 'currentForwardMessages.length === 1', currentForwardMessages.length === 1)
     // if (currentForwardMessages.length === 1) {
     //   forwMessageId = currentForwardMessages[0].id
@@ -126,13 +139,18 @@ const ChatWindow = ({
   return (
     <>
       <div className='window-header'>
-        <div className={`${currentForwardMessages.length === 0 ? 'hide' : 'cancel-group'}`}>
+      
+        {/* <div className={`${currentForwardMessages.length === 0 ? 'hide' : 'cancel-group'}`}> */}
+        <div className={`${currentlySelectedMessages.length === 0 ? 'hide' : 'cancel-group'}`}>
           {<IconButtonWithStore src={cross} name='cross' onClick={cancelSelectedMessages}/>}
-          <div className='selected-messages-amount'>{currentForwardMessages.length}</div>
+          {/* <div className='selected-messages-amount'>{currentForwardMessages.length}</div> */}
+          <div className='selected-messages-amount'>{currentlySelectedMessages.length}</div>
         </div>
         
         {Boolean(toggleMessageSearching) && 
-        <div className={`current-user ${!(currentForwardMessages.length === 0) && 'hide'}`}>
+        <div className={`current-user ${!(currentlySelectedMessages.length === 0) && 'hide'}`}>
+        {/* <div className={`current-user ${!(currentForwardMessages.length === 0) && 'hide'}`}> */}
+
           {currentUser}
         </div>}
 

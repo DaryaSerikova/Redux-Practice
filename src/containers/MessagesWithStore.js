@@ -36,7 +36,10 @@ const mapStateToProps = (state) => {
     currentMessageId: state.currentMessageId,
     toggleSettings: state.toggleSettings,
     // clickCoordinates: state.clickCoordinates, //
-    currentForwardMessages: state.currentForwardMessages,
+
+    // currentForwardMessages: state.currentForwardMessages,
+    currentlySelectedMessages: state.currentlySelectedMessages,
+
     toggleSelectedMessage: state.toggleSelectedMessage,
   }
 }

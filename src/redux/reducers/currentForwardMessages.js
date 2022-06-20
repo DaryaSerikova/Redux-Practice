@@ -13,7 +13,7 @@ const getUniqueArray = (arr) => {
 }
 
 
-export const currentForwardMessages = (state = [], action) => {
+export const currentlySelectedMessages = (state = [], action) => {
   switch (action.type) {
     // case UPDATE_TO_NEW_CURRENT_FORWARD_MESSAGES: 
     //   return action.message;

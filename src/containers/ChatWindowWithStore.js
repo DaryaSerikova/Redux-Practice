@@ -18,7 +18,10 @@ const mapStateToProps = (state) => {
     currentUser: state.currentUser,
     searchedMessages: state.messages,
     toggleMessageSearching: state.toggleMessageSearching,
-    currentForwardMessages: state.currentForwardMessages,
+
+    // currentForwardMessages: state.currentForwardMessages,
+    currentlySelectedMessages: state.currentlySelectedMessages,
+
     messageState: state.messageState,
   }
 }

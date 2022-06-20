@@ -25,7 +25,10 @@ export const Messages = ({
   hideSettings, 
   showSettings,
   arrStoreMessage, //props
-  currentForwardMessages,
+
+  // currentForwardMessages,
+  currentlySelectedMessages,
+
   chooseMessageInStore,
   updateSearchedMessages, 
   hideSelectedMessage, 
@@ -41,9 +44,12 @@ export const Messages = ({
   useEffect(() => {
     // if (currentUser !== '') updateSearchedMessages(allStore[`${currentUser}`]);
     // if (currentMessageId === message.id) {}
-    console.log('currentForwardMessages ИЗМЕНИЛСЯ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-  }, [currentForwardMessages]); //allStore, currentUser, updateSearchedMessages 
 
+    // console.log('currentForwardMessages ИЗМЕНИЛСЯ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    console.log('currentlySelectedMessages ИЗМЕНИЛСЯ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+  }, [currentlySelectedMessages]); // [currentForwardMessages]  //allStore, currentUser, updateSearchedMessages 
+  
 
   const onChoose = (message) => {
     return (e) => {
@@ -60,7 +66,10 @@ export const Messages = ({
           console.log('(Initial: SHOW)', 'Й', 'currentMessageId:', currentMessageId, 
           ', message.id:', message.id, ', currentMessageId === message.id', currentMessageId === message.id)
 
-          if (currentForwardMessages.length === 1) messageStateIsEmpty();
+          // if (currentForwardMessages.length === 1) messageStateIsEmpty();
+          if (currentlySelectedMessages.length === 1) messageStateIsEmpty();
+
+
           hideSelectedMessage(message.id);
           chooseMessageInStore(message.id, false) //id, selected
           removeFromForwardMessage(message.id);
@@ -86,7 +95,9 @@ export const Messages = ({
       updateToNewCurrentMessageId(message.id);
 
       // if (messageState !== 'forward' && currentForwardMessages.length === 0) {
-      if (messageState !== 'select' && currentForwardMessages.length === 0) {
+      // if (messageState !== 'select' && currentForwardMessages.length === 0) {
+
+      if (messageState !== 'select' && currentlySelectedMessages.length === 0) {
         if (toggleSettings === 'hide') {
           showSettings();
         } else {
@@ -102,7 +113,8 @@ export const Messages = ({
 
 //// Здесь должно быть разделение на message это обычный или message в message.value = messageReply
 
-    let arrId = currentForwardMessages.map((forwardMess) => {
+    // let arrId = currentForwardMessages.map((forwardMess) => {
+    let arrId = currentlySelectedMessages.map((forwardMess) => {
       return forwardMess.id
     })
 

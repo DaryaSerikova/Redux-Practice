@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
   return { 
     currentUser: state.currentUser,
     toggleMessageSearching: state.toggleMessageSearching,
-    currentForwardMessages: state.currentForwardMessages,
+    // currentForwardMessages: state.currentForwardMessages,
+    currentlySelectedMessages: state.currentlySelectedMessages,
   }
 }
 

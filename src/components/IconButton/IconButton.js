@@ -2,17 +2,24 @@ import './IconButton.css';
 
 
 
-const IconButton = ({ src, name, onClick, currentForwardMessages, currentUser, toggleMessageSearching }) => {
+const IconButton = ({ src, name, onClick, 
+  // currentForwardMessages, 
+  currentlySelectedMessages,
+  currentUser, toggleMessageSearching }) => {
 
   
   const getHide = (name) => {
     switch(name) {
       case `left`:
-        return `${currentForwardMessages.length !== 1 && 'hide'}`;
+        return `${currentlySelectedMessages.length !== 1 && 'hide'}`;
+        // return `${currentForwardMessages.length !== 1 && 'hide'}`;
+
       case `bin`:
       case `right`:
       case `cross`: 
-        return `${currentForwardMessages.length === 0 && 'hide'}`; 
+        return `${currentlySelectedMessages.length === 0 && 'hide'}`; 
+        // return `${currentForwardMessages.length === 0 && 'hide'}`; 
+
       
       default:
         return '';
