@@ -163,7 +163,7 @@ const ChatWindow = ({
         <input 
           type='text' 
           placeholder='Search messsage...' 
-          className={`search-message ${toggleMessageSearching}`} 
+          className={`search-message ${toggleMessageSearching} `} 
           onChange={onChangeSearchMessage}
           // value
         />

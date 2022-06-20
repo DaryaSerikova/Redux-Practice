@@ -10,7 +10,10 @@ export const Settings = ({
   messageStateIsSelect,
   updateToNewCurrentMessage, 
   removeMessageFromStore,
-  addToForwardMessages,
+
+  // addToForwardMessages,
+  addToSelectedMessages,
+
   updateToNewCurrentMessageId,
   hideSettings,
   chooseMessageInStore,
@@ -49,7 +52,8 @@ export const Settings = ({
       updateToNewCurrentMessageId(message.id);
       // messageStateIsForward(); // Надо полностью переименовать все forward в select. Все проверки на равенство forward и reducer
       messageStateIsSelect();
-      addToForwardMessages(message);
+      // addToForwardMessages(message);
+      addToSelectedMessages(message);
     }
   }
   

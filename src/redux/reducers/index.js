@@ -12,7 +12,7 @@ import { messages } from "./messages";
 import { toggleMessageSearching } from "./toggleMessageSearching";
 
 // import { currentForwardMessages } from "./currentForwardMessages";
-import { currentlySelectedMessages } from "./currentForwardMessages";
+import { currentlySelectedMessages } from "./currentlySelectedMessages";
 
 import { toggleSelectedMessage } from "./toggleSelectedMessage";
 

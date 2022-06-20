@@ -21,7 +21,10 @@ export const Messages = ({
   // messageStateIsEdit,
   // updateToNewCurrentMessage, 
   // removeMessageFromStore,
-  addToForwardMessages,
+
+  // addToForwardMessages,
+  addToSelectedMessages,
+  
   hideSettings, 
   showSettings,
   arrStoreMessage, //props
@@ -80,7 +83,8 @@ export const Messages = ({
 
           showSelectedMessage(message.id);
           chooseMessageInStore(message.id, true) //id, selected
-          addToForwardMessages(message);
+          // addToForwardMessages(message);
+          addToSelectedMessages(message);
         }
       }
     }

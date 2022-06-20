@@ -11,7 +11,10 @@ import { //надо почистить
   HIDE_SETTINGS,
   SHOW_SETTINGS,
   UPDATE_COORDINATES,
-  ADD_TO_FORWARD_MESSAGES,
+
+  // ADD_TO_FORWARD_MESSAGES,
+  ADD_TO_SELECTED_MESSAGES,
+
   SEARCHED_MESSAGES,
   HIDE_SELECTED_MESSAGE,
   SHOW_SELECTED_MESSAGE,
@@ -92,9 +95,9 @@ const mapDispatchToProps = (dispatch) => { //надо почистить
     //     type: MESSAGE_STATE_IS_EDIT
     //   })
     // },
-    addToForwardMessages: (message) => {
+    addToSelectedMessages: (message) => { //addToForwardMessages
       dispatch({
-        type: ADD_TO_FORWARD_MESSAGES,
+        type: ADD_TO_SELECTED_MESSAGES, //ADD_TO_FORWARD_MESSAGES,
         message
       })
     },

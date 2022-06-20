@@ -4,7 +4,10 @@ import {
   MESSAGE_STATE_IS_EDIT, 
   REMOVE_MESSAGE_FROM_STORE, 
   UPDATE_TO_NEW_CURRENT_MESSAGE, 
-  ADD_TO_FORWARD_MESSAGES,
+
+  // ADD_TO_FORWARD_MESSAGES,
+  ADD_TO_SELECTED_MESSAGES,
+
   UPDATE_TO_NEW_CURRENT_MESSAGE_ID,
   HIDE_SETTINGS,
   CHOOSE_MESSAGE_IN_STORE,
@@ -69,9 +72,9 @@ const mapDispatchToProps = (dispatch) => {
         type: MESSAGE_STATE_IS_EDIT
       })
     },
-    addToForwardMessages: (message) => {
+    addToSelectedMessages: (message) => { //addToForwardMessages
       dispatch({
-        type: ADD_TO_FORWARD_MESSAGES,
+        type: ADD_TO_SELECTED_MESSAGES, //ADD_TO_FORWARD_MESSAGES, 
         message
       })
     },
