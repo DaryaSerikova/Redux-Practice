@@ -21,20 +21,9 @@ const Panel = ({
   useEffect(() => {
 
     if (currentUser !== '') { // ВАЖНОЕ УСЛОВИЕ
-      // console.log('!!!!!!!!!!!! allStore', allStore);
-      // console.log('(allStore === {})', (allStore === {}))
-  
-      // console.log('!!!!!!!!!!!! allStore[`${currentUser}`] ', allStore[`${currentUser}`])
-      // console.log('(allStore[`${currentUser}`] === undefined)', (allStore[`${currentUser}`] === undefined))
-      // console.log('!!!!!!!!!!! currentUser', currentUser)
-      // console.log('!!!!!!!!!!! currentUser === "" ', currentUser === '')
-
-
 
       updateSearchedMessages(allStore[`${currentUser}`]); /// ВАЖНАЯ СТРОЧКА
     }
-
-
 
     // if (allStore[`${currentUser}`] !== undefined) {
     //   if (currentUser !== '') updateSearchedMessages(allStore[`${currentUser}`]); /// СТАРЫЙ КОД
@@ -82,6 +71,13 @@ const Panel = ({
     if (currentMessage !== '')  submitMessage();
   }
 
+  const onChange =  (e) => {
+    if (messageState === '') {
+      messageStateIsCreate();
+    }
+    updateToNewCurrentMessage(e.target.value);
+  }
+
 
   return (
     <form ref={formEl} className='panel' onSubmit={onSubmit}>
@@ -96,7 +92,7 @@ const Panel = ({
         className={`textarea ${(messageState === 'edit')&&'border-editing'}`}
         placeholder='Write message..' 
         value={currentMessage}
-        onChange={(e) => updateToNewCurrentMessage(e.target.value)}
+        onChange={onChange}
         onClick={(e) => hideMessageSearching()} //прописать reset у message search input
         onKeyPress={onKeyPressEnter}
         autoFocus

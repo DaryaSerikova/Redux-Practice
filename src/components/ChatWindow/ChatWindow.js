@@ -123,27 +123,10 @@ const ChatWindow = ({
     let name = currentUser;
     console.log('Remove messages ..');
 
-    console.log('||||||||||currentlySelectedMessages:', currentlySelectedMessages);
+    // console.log('||||||||||currentlySelectedMessages:', currentlySelectedMessages);
     let arrForwardIds = currentlySelectedMessages.map((selectedMessage) => selectedMessage.id);
-    console.log('||||||||||arrForwardIds:', arrForwardIds)
+    // console.log('||||||||||arrForwardIds:', arrForwardIds)
     removeGroupOfMessagesFromStore(arrForwardIds, name);
-    
-
-    //  Если вдруг раскомментируешь удаление, имей ввиду, что здесь имена не исправлены
-    // Менять нужно currentForwardMessages на currentlySelectedMessages
-
-    // console.log('currentForwardMessages', currentForwardMessages, 'currentForwardMessages.length', currentForwardMessages.length, 'currentForwardMessages.length === 1', currentForwardMessages.length === 1)
-    // if (currentForwardMessages.length === 1) {
-    //   forwMessageId = currentForwardMessages[0].id
-    //   console.log('currentForwardMessages[0].id', currentForwardMessages[0].id);
-    //   console.log('currentUser', name)
-    //   removeMessageFromStore(forwMessageId, name) //id, name
-    // } else {
-
-    //   let arrForwardIds = currentForwardMessages.map((forwMessage) => forwMessage.id)
-    //   console.log('arrForwardIds', arrForwardIds)
-    //   removeGroupOfMessagesFromStore(arrForwardIds, name);
-    // }
 
     // resetForwardMessage();
     resetSelectedMessages();
