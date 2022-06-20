@@ -10,24 +10,18 @@ export const Settings = ({
   messageStateIsSelect,
   updateToNewCurrentMessage, 
   removeMessageFromStore,
-
-  // addToForwardMessages,
   addToSelectedMessages,
-
   updateToNewCurrentMessageId,
   hideSettings,
   chooseMessageInStore,
   hideSelectedMessage, 
   showSelectedMessage,
   messageStateIsForward,
-
-  // resetForwardMessage,
   resetSelectedMessages,
   message }) => {
 
   const edit = (message) => {
     return (e) => {
-      // resetForwardMessage();
       resetSelectedMessages();
 
       updateToNewCurrentMessageId(message.id);
@@ -43,9 +37,7 @@ export const Settings = ({
     return (e) => {
     console.log('Remove!');
 
-    // resetForwardMessage();
     resetSelectedMessages();
-
     updateToNewCurrentMessageId(message.id);
     removeMessageFromStore(message.id, message.name);
     cancelEdit();
@@ -57,9 +49,8 @@ export const Settings = ({
       showSelectedMessage(message.id);
       chooseMessageInStore(message.id, true);
       updateToNewCurrentMessageId(message.id);
-      // messageStateIsForward(); // Надо полностью переименовать все forward в select. Все проверки на равенство forward и reducer
+      // Надо полностью переименовать все forward в select. Все проверки на равенство forward и reducer
       messageStateIsSelect();
-      // addToForwardMessages(message);
       addToSelectedMessages(message);
     }
   }

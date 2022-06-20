@@ -21,14 +21,12 @@ const Panel = ({
   useEffect(() => {
 
     if (currentUser !== '') { // ВАЖНОЕ УСЛОВИЕ
-
       updateSearchedMessages(allStore[`${currentUser}`]); /// ВАЖНАЯ СТРОЧКА
     }
 
     // if (allStore[`${currentUser}`] !== undefined) {
     //   if (currentUser !== '') updateSearchedMessages(allStore[`${currentUser}`]); /// СТАРЫЙ КОД
     // }
-
   }, [allStore, currentUser, updateSearchedMessages]); //allStore, currentUser, 
 
 

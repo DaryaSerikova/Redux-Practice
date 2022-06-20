@@ -20,15 +20,9 @@ const ChatWindow = ({
   toggleMessageSearching,
   hideMessageSearching, 
   showMessageSearching,
-
-  // currentForwardMessages,
   currentlySelectedMessages,
-
   removeMessageFromStore,
-
-  // resetForwardMessage,
   resetSelectedMessages,
-
   messageStateIsEmpty,
   removeGroupOfMessagesFromStore,
   replyOnMessageFromStore,
@@ -36,8 +30,6 @@ const ChatWindow = ({
 
   let arrStoreMessage = allStore[`${currentUser}`];
   if (arrStoreMessage === undefined) arrStoreMessage = [];
-  // updateSearchedMessages(allStore[`${currentUser}`]);
-  // updateSearchedMessages([]); ///////////////////////////////////////////////////////
   
   useEffect(() => {
     updateSearchedMessages(null); ///////////////////////////////////////////////////////
@@ -47,17 +39,12 @@ const ChatWindow = ({
   const onChangeSearchMessage = (e) => {
 
     if (e.target.value.trim()) {
-
       const searchedMess = arrStoreMessage.filter((message) => 
         message.value.toLowerCase().includes(e.target.value.toLowerCase())
       )
-      console.log('!!!!!!!!!!!!!!!!!!! searchedMess', searchedMess)
-
-      console.log('searchedMess', searchedMess)
       updateSearchedMessages(searchedMess);
 
     } else {
-      console.log('!!!!!!!!!!!!!!!!!!! arrStoreMessage (onChange)', arrStoreMessage)
       updateSearchedMessages(arrStoreMessage);
     }
   }
@@ -77,24 +64,16 @@ const ChatWindow = ({
   const forwardMessages = () => {
     console.log('Forward messages to ..');
 
-    // resetForwardMessage();
     resetSelectedMessages();
-
     messageStateIsEmpty();
   }
 
+
   const replyMessages = () => {
-
-    console.log('Reply on messages ..')
-
-    // console.log('currentForwardMessages', currentForwardMessages)
-    console.log('currentlySelectedMessages', currentlySelectedMessages)
-
     
     let replyMessage = currentlySelectedMessages[0];
-    // let replyMessage = currentForwardMessages[0];
+    console.log('Reply on messages ..')
 
-    console.log(replyMessage)
 
     //прописать откуда берется value
     //посмотреть как он передается при добавлении сообщения
@@ -102,60 +81,48 @@ const ChatWindow = ({
     console.log('messageState', messageState)
     replyOnMessageFromStore('Бутафорный комментарий к reply message', currentUser, false, false, replyMessage); //'Darya Serikova'
 
-    // resetForwardMessage();
     resetSelectedMessages();
-
     messageStateIsEmpty();
   }
+
 
   const cancelSelectedMessages = () => {
     console.log('Cancel selected messages ..')
 
-    // resetForwardMessage();
     resetSelectedMessages();
-
     messageStateIsEmpty();
   }
-
 
 
   const removeMessages = () => { //forwMessageId, name
-    let name = currentUser;
+    
     console.log('Remove messages ..');
-
-    // console.log('||||||||||currentlySelectedMessages:', currentlySelectedMessages);
+    
+    let name = currentUser;
     let arrForwardIds = currentlySelectedMessages.map((selectedMessage) => selectedMessage.id);
-    // console.log('||||||||||arrForwardIds:', arrForwardIds)
+
     removeGroupOfMessagesFromStore(arrForwardIds, name);
-
-    // resetForwardMessage();
     resetSelectedMessages();
-
     messageStateIsEmpty();
   }
 
-  // console.log('allStore[`${currentUser}`]', allStore[`${currentUser}`]);
 
   const textIfStoreIsEmpty = <div className='wrapper-personal-store-is-empty'>
     <div className='personal-store-is-empty'> Message history is empty. </div>
     <div className='personal-store-is-empty'> Write something to start a conversation... </div>
-  </div>  ;
+  </div>;
 
   return (
     <>
       <div className='window-header'>
       
-        {/* <div className={`${currentForwardMessages.length === 0 ? 'hide' : 'cancel-group'}`}> */}
         <div className={`${currentlySelectedMessages.length === 0 ? 'hide' : 'cancel-group'}`}>
           {<IconButtonWithStore src={cross} name='cross' onClick={cancelSelectedMessages}/>}
-          {/* <div className='selected-messages-amount'>{currentForwardMessages.length}</div> */}
           <div className='selected-messages-amount'>{currentlySelectedMessages.length}</div>
         </div>
         
         {Boolean(toggleMessageSearching) && 
         <div className={`current-user ${!(currentlySelectedMessages.length === 0) && 'hide'}`}>
-        {/* <div className={`current-user ${!(currentForwardMessages.length === 0) && 'hide'}`}> */}
-
           {currentUser}
         </div>}
 
