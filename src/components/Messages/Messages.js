@@ -47,7 +47,8 @@ export const Messages = ({
 
   const onChoose = (message) => {
     return (e) => {
-      if (messageState === 'forward') { //Здесь рассматривать currentMessageId как предыдущее значение, message.id - текущее значение.
+      // if (messageState === 'forward')
+      if (messageState === 'select') { //Здесь рассматривать currentMessageId как предыдущее значение, message.id - текущее значение.
 
         updateToNewCurrentMessageId(message.id);
         let res = toggleSelectedMessage.filter((selectMess) => selectMess.id === message.id)[0]; //message.id или currentMessageId?
@@ -84,7 +85,8 @@ export const Messages = ({
       updateCoordinates(`${e.clientX-88}px`, `${e.clientY+10}px`);
       updateToNewCurrentMessageId(message.id);
 
-      if (messageState !== 'forward' && currentForwardMessages.length === 0) {
+      // if (messageState !== 'forward' && currentForwardMessages.length === 0) {
+      if (messageState !== 'select' && currentForwardMessages.length === 0) {
         if (toggleSettings === 'hide') {
           showSettings();
         } else {
@@ -137,7 +139,9 @@ export const Messages = ({
 
     return (
       <>
-        <div className={`wrapper-message ${(messageState === 'forward') ? 'space-between' : ''} ${(isSelect) ? toggleSelectedState : 'hide'}-choised-message`} onClick={onChoose(message)}>
+        {/* <div className={`wrapper-message ${(messageState === 'forward') ? 'space-between' : ''} ${(isSelect) ? toggleSelectedState : 'hide'}-choised-message`} onClick={onChoose(message)}> */}
+
+        <div className={`wrapper-message ${(messageState === 'select') ? 'space-between' : ''} ${(isSelect) ? toggleSelectedState : 'hide'}-choised-message`} onClick={onChoose(message)}>
           {/* {'console.log(messageState) === "forward"', console.log(messageState === 'forward')} */}
           <img
           className={`checkmark-icon ${(isSelect) ? toggleSelectedState : 'hide'}-checkmark-icon`}
@@ -145,7 +149,9 @@ export const Messages = ({
           src={checkmark}
           />
           {/* {console.log('(!isSelect && (messageState === "forward")', (!isSelect && (messageState === 'forward')) )} */}
-          <div className={`${(messageState === 'forward') && 'space-between'} ${(!isSelect && (messageState === 'forward'))? '' : 'hide'}`}>
+          {/* <div className={`${(messageState === 'forward') && 'space-between'} ${(!isSelect && (messageState === 'forward'))? '' : 'hide'}`}> */}
+
+          <div className={`${(messageState === 'select') && 'space-between'} ${(!isSelect && (messageState === 'select'))? '' : 'hide'}`}>
             <div className="circle-instead-checkmark"></div>
           </div>
 

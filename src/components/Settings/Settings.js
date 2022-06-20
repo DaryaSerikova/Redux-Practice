@@ -1,3 +1,4 @@
+import { messageStateIsEmpty } from "../../redux/actions";
 
 
 
@@ -26,6 +27,8 @@ export const Settings = ({
       updateToNewCurrentMessage(message.value);
       messageStateIsEdit();
       hideSettings();
+
+      /// нужно ли сменить статус на EMPTY ?? 
     }
   }
   
@@ -52,7 +55,8 @@ export const Settings = ({
   
   const cancelEdit = () => {
     updateToNewCurrentMessage('');
-    messageStateIsCreate();
+    // messageStateIsCreate(); ////////////   почему create то?????
+    messageStateIsEmpty();
   }
 
 
