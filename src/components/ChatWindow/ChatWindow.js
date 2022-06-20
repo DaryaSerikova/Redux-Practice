@@ -50,15 +50,20 @@ const ChatWindow = ({
   }
 
   const toggleSearching = () => {
-    if (toggleMessageSearching === 'hide') {
-      if (currentUser !== '') showMessageSearching();
-    } else {
-      //reset input
-      //update search to message store
-      console.log('!!!!!!!!!!!!!!!!!!! arrStoreMessage (toggleSearching)', arrStoreMessage)
-      updateSearchedMessages(arrStoreMessage);
-      hideMessageSearching();
+    
+    if (allStore[`${currentUser}`].length !== 0) {
+
+      if (toggleMessageSearching === 'hide') {
+        if (currentUser !== '') showMessageSearching();
+      } else {
+        //reset input
+        //update search to message store
+        console.log('!!!!!!!!!!!!!!!!!!! arrStoreMessage (toggleSearching)', arrStoreMessage)
+        updateSearchedMessages(arrStoreMessage);
+        hideMessageSearching();
+      }
     }
+
   }
 
   const forwardMessages = () => {
