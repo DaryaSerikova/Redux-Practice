@@ -24,7 +24,7 @@ export const Messages = ({
 
   // addToForwardMessages,
   addToSelectedMessages,
-  
+
   hideSettings, 
   showSettings,
   arrStoreMessage, //props
@@ -38,7 +38,10 @@ export const Messages = ({
   showSelectedMessage,
   toggleSelectedMessage,
   messageStateIsForward,
-  removeFromForwardMessage,
+
+  // removeFromForwardMessage,
+  removeFromSelectedMessages,
+
   messageStateIsEmpty,
  }) => {
 
@@ -75,7 +78,10 @@ export const Messages = ({
 
           hideSelectedMessage(message.id);
           chooseMessageInStore(message.id, false) //id, selected
-          removeFromForwardMessage(message.id);
+          
+          // removeFromForwardMessage(message.id);
+          removeFromSelectedMessages(message.id);
+
 
         } else { // to do SHOW
           console.log('(Initial: HIDE) | to do SHOW', 'currentMessageId:', currentMessageId, 

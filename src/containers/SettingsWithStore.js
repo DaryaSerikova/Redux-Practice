@@ -15,7 +15,10 @@ import {
   SHOW_SELECTED_MESSAGE,
   MESSAGE_STATE_IS_FORWARD,
   RESET_FORWARD_MESSAGE,
-  REMOVE_MESSAGE_FROM_FORWARD_MESSAGE,
+
+  // REMOVE_MESSAGE_FROM_FORWARD_MESSAGE,
+  REMOVE_MESSAGE_FROM_SELECTED_MESSAGES,
+  
   MESSAGE_STATE_IS_SELECT,
   } from "../redux/actions";
 import { Settings } from '../components/Settings/Settings';
@@ -136,9 +139,9 @@ const mapDispatchToProps = (dispatch) => {
       })
     },
 
-    removeFromForwardMessage: (id) => {
+    removeFromSelectedMessages: (id) => { //removeFromForwardMessage
       dispatch({
-        type: REMOVE_MESSAGE_FROM_FORWARD_MESSAGE,
+        type: REMOVE_MESSAGE_FROM_SELECTED_MESSAGES, // REMOVE_MESSAGE_FROM_FORWARD_MESSAGE,
         id
       })
     },
