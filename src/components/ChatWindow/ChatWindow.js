@@ -25,7 +25,10 @@ const ChatWindow = ({
   currentlySelectedMessages,
 
   removeMessageFromStore,
-  resetForwardMessage,
+
+  // resetForwardMessage,
+  resetSelectedMessages,
+
   messageStateIsEmpty,
   removeGroupOfMessagesFromStore,
   replyOnMessageFromStore,
@@ -74,7 +77,9 @@ const ChatWindow = ({
   const forwardMessages = () => {
     console.log('Forward messages to ..');
 
-    resetForwardMessage();
+    // resetForwardMessage();
+    resetSelectedMessages();
+
     messageStateIsEmpty();
   }
 
@@ -97,14 +102,18 @@ const ChatWindow = ({
     console.log('messageState', messageState)
     replyOnMessageFromStore('Бутафорный комментарий к reply message', currentUser, false, false, replyMessage); //'Darya Serikova'
 
-    resetForwardMessage();
+    // resetForwardMessage();
+    resetSelectedMessages();
+
     messageStateIsEmpty();
   }
 
   const cancelSelectedMessages = () => {
     console.log('Cancel selected messages ..')
 
-    resetForwardMessage();
+    // resetForwardMessage();
+    resetSelectedMessages();
+
     messageStateIsEmpty();
   }
 
@@ -131,7 +140,9 @@ const ChatWindow = ({
     //   removeGroupOfMessagesFromStore(arrForwardIds, name);
     // }
 
-    resetForwardMessage();
+    // resetForwardMessage();
+    resetSelectedMessages();
+
     messageStateIsEmpty();
   }
 

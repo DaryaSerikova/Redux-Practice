@@ -14,7 +14,9 @@ import {
   HIDE_SELECTED_MESSAGE,
   SHOW_SELECTED_MESSAGE,
   MESSAGE_STATE_IS_FORWARD,
-  RESET_FORWARD_MESSAGE,
+
+  // RESET_FORWARD_MESSAGE,
+  RESET_SELECTED_MESSAGES,
 
   // REMOVE_MESSAGE_FROM_FORWARD_MESSAGE,
   REMOVE_MESSAGE_FROM_SELECTED_MESSAGES,
@@ -133,9 +135,9 @@ const mapDispatchToProps = (dispatch) => {
       })
     },
 
-    resetForwardMessage: () => {
+    resetSelectedMessages: () => { //resetForwardMessage
       dispatch({
-        type: RESET_FORWARD_MESSAGE
+        type: RESET_SELECTED_MESSAGES, //RESET_FORWARD_MESSAGE
       })
     },
 

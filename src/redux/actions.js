@@ -38,12 +38,11 @@ export const SHOW_MESSAGE_SEARCHING = 'SHOW_MESSAGE_SEARCHING';
 // export const ADD_TO_FORWARD_MESSAGES = 'ADD_TO_FORWARD_MESSAGES'; // SELECT_MESSAGE
 export const ADD_TO_SELECTED_MESSAGES = 'ADD_TO_SELECTED_MESSAGES'; // SELECT_MESSAGE
  
-export const RESET_FORWARD_MESSAGE = 'RESET_FORWARD_MESSAGE'; // SELECT_MESSAGE
+// export const RESET_FORWARD_MESSAGE = 'RESET_FORWARD_MESSAGE'; // SELECT_MESSAGE
+export const RESET_SELECTED_MESSAGES = 'RESET_SELECTED_MESSAGES'; // SELECT_MESSAGE
 
 // export const REMOVE_MESSAGE_FROM_FORWARD_MESSAGE = 'REMOVE_MESSAGE_FROM_FORWARD_MESSAGE'; // SELECT_MESSAGE
 export const REMOVE_MESSAGE_FROM_SELECTED_MESSAGES = 'REMOVE_MESSAGE_FROM_SELECTED_MESSAGES'; // SELECT_MESSAGE
-
-
 
 
 
@@ -202,8 +201,8 @@ export const showSelectedMessage = (id) => ({
   id
 });
 
-export const resetForwardMessage = () => ({
-  type: RESET_FORWARD_MESSAGE
+export const resetSelectedMessages = () => ({ //resetForwardMessage
+  type: RESET_SELECTED_MESSAGES, //RESET_FORWARD_MESSAGE
 });
 
 export const removeFromSelectedMessages = (id) => ({ //removeFromForwardMessage

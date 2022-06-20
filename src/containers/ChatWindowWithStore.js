@@ -5,7 +5,10 @@ import { SEARCHED_MESSAGES,
   HIDE_MESSAGE_SEARCHING, 
   SHOW_MESSAGE_SEARCHING, 
   REMOVE_MESSAGE_FROM_STORE,
-  RESET_FORWARD_MESSAGE,
+
+  // RESET_FORWARD_MESSAGE,
+  RESET_SELECTED_MESSAGES,
+
   MESSAGE_STATE_IS_EMPTY,
   REMOVE_GROUP_OF_MESSAGES_FROM_STORE,
   REPLY_ON_MESSAGE_FROM_STORE,
@@ -55,9 +58,9 @@ const mapDispatchToProps = (dispatch) => {
       })
     },
 
-    resetForwardMessage: () => {
+    resetSelectedMessages: () => { //resetForwardMessage
       dispatch({
-        type: RESET_FORWARD_MESSAGE
+        type: RESET_SELECTED_MESSAGES,//RESET_FORWARD_MESSAGE
       })
     },
 

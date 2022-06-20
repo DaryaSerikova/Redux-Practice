@@ -20,12 +20,16 @@ export const Settings = ({
   hideSelectedMessage, 
   showSelectedMessage,
   messageStateIsForward,
-  resetForwardMessage,
+
+  // resetForwardMessage,
+  resetSelectedMessages,
   message }) => {
 
   const edit = (message) => {
     return (e) => {
-      resetForwardMessage();
+      // resetForwardMessage();
+      resetSelectedMessages();
+
       updateToNewCurrentMessageId(message.id);
       updateToNewCurrentMessage(message.value);
       messageStateIsEdit();
@@ -38,7 +42,10 @@ export const Settings = ({
   const remove = (message) => {
     return (e) => {
     console.log('Remove!');
-    resetForwardMessage();
+
+    // resetForwardMessage();
+    resetSelectedMessages();
+
     updateToNewCurrentMessageId(message.id);
     removeMessageFromStore(message.id, message.name);
     cancelEdit();

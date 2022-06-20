@@ -2,9 +2,12 @@ import { getIndex } from "../../utils/getIndex";
 import { 
   // UPDATE_TO_NEW_CURRENT_FORWARD_MESSAGES,
 
+  
   // ADD_TO_FORWARD_MESSAGES,
   ADD_TO_SELECTED_MESSAGES,
-  RESET_FORWARD_MESSAGE,
+
+  RESET_SELECTED_MESSAGES,
+  // RESET_FORWARD_MESSAGE,
 
   REMOVE_MESSAGE_FROM_SELECTED_MESSAGES,
   // REMOVE_MESSAGE_FROM_FORWARD_MESSAGE,
@@ -37,7 +40,7 @@ export const currentlySelectedMessages = (state = [], action) => {
         ...state.slice(index + 1)
       ]
 
-    case RESET_FORWARD_MESSAGE:
+    case RESET_SELECTED_MESSAGES: //RESET_FORWARD_MESSAGE: //RESET_SELECTED_MESSAGES
       return []
 
     // UPDATE_TO_NEW_CURRENT_FORWARD_MESSAGES ??
