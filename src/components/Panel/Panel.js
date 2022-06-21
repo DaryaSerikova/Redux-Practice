@@ -44,36 +44,37 @@ const Panel = ({
 
   const changeMessageStore = () => {
 
-    // switch (messageState) {
-    //   case 'create':
-    //     addNewMessageToStore(currentMessage, currentUser, false, false); //edit, choised
-    //     //break
-    //   case 'edit':
-    //     editMessageInStore(currentMessageId, currentMessage, currentUser, true); //edit
-    //     //break
-    //   case 'reply':
-    //     let replyMessage = currentlySelectedMessages[0];
-    //     replyOnMessageFromStore('Бутафорный комментарий к reply message', currentUser, false, false, replyMessage); //'Darya Serikova'
-  
-    //     resetSelectedMessages();
-    //     messageStateIsEmpty();
-    //     //break
+    switch (messageState) {
+      case 'create':
+        addNewMessageToStore(currentMessage, currentUser, false, false); //edit, choised
+        break;
+      case 'edit':
+        editMessageInStore(currentMessageId, currentMessage, currentUser, true); //edit
+        break;
+      case 'reply':
+        let replyMessage = currentlySelectedMessages[0];
+        replyOnMessageFromStore(currentMessage, currentUser, false, false, replyMessage); //'Бутафорный комментарий к reply message','Darya Serikova'
+
+        resetSelectedMessages();
+        messageStateIsEmpty();
+        break;
+    }
+
+    // if (messageState === 'create') {
+    //   addNewMessageToStore(currentMessage, currentUser, false, false); //edit, choised
+    //   // addLastSentMessage()
     // }
-    if (messageState === 'create') {
-      addNewMessageToStore(currentMessage, currentUser, false, false); //edit, choised
-      // addLastSentMessage()
-    }
-    if (messageState === 'edit') {
-      editMessageInStore(currentMessageId, currentMessage, currentUser, true); //edit
-    }
+    // if (messageState === 'edit') {
+    //   editMessageInStore(currentMessageId, currentMessage, currentUser, true); //edit
+    // }
 
-    if (messageState === 'reply') {
-      let replyMessage = currentlySelectedMessages[0];
-      replyOnMessageFromStore(currentMessage, currentUser, false, false, replyMessage); //'Бутафорный комментарий к reply message','Darya Serikova'
+    // if (messageState === 'reply') {
+    //   let replyMessage = currentlySelectedMessages[0];
+    //   replyOnMessageFromStore(currentMessage, currentUser, false, false, replyMessage); //'Бутафорный комментарий к reply message','Darya Serikova'
 
-      resetSelectedMessages();
-      messageStateIsEmpty();
-    }
+    //   resetSelectedMessages();
+    //   messageStateIsEmpty();
+    // }
   }
 
 
@@ -100,7 +101,7 @@ const Panel = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (currentMessage !== '')  submitMessage();
+    if (currentMessage !== '' || messageState === 'reply')  submitMessage();
   }
 
   const onChange =  (e) => {

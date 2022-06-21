@@ -231,7 +231,14 @@ const ChatWindow = ({
           <div className='message-info'>
             <div className='message-sender'>Darya Serikova</div>
           </div>
+          {/* {currentlySelectedMessages !== undefined && currentlySelectedMessages !== [] ? currentlySelectedMessages[0].message : 'failure'} */}
+          {console.log('currentlySelectedMessages', currentlySelectedMessages)}
+          {console.log('currentlySelectedMessages[0]', currentlySelectedMessages[0])}
+          {/* { currentlySelectedMessages[0].value !== undefined ? console.log('currentlySelectedMessages[0].value', currentlySelectedMessages[0].value) : ''} */}
+
+
           Пересылаемое сообщение 
+          {/* {currentlySelectedMessages !== undefined && currentlySelectedMessages !== [] ? currentlySelectedMessages[0].message : 'failure'} */}
           </div>
         </div>
       </div>
