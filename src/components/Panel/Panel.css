@@ -37,10 +37,13 @@
 .editing-message {
   padding: 0.9rem 1.5rem 0rem 2rem;
   font-weight: 600;
+  color: #34a8f9;
+  /* color: #34a8f9cf; */
 }
 
 .border-editing {
   border-color: #7e7e7e;
+  /* border-color: linear-gradient(to right, #44d8ff1a, 70%, #ed8afa2b); */
 }
 
 .edit-group {
@@ -51,7 +54,13 @@
 
 .cross {
   padding: 0.9rem 2rem 0 1rem;
-  font-size: 10pt;
-  font-weight: 600;
+  /* font-size: 10pt;
+  font-weight: 600; */
 }
 
+
+
+.edit-cross {
+  width: 14px;
+  height: 15px;
+}

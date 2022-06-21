@@ -6,8 +6,13 @@ import {
   addNewMessageToStore, 
   messageStateIsCreate, 
   messageStateIsEdit,
+  messageStateIsEmpty,
   updateSearchedMessages,
-  hideMessageSearching } from '../redux/actions';
+  hideMessageSearching,
+  // messageStateIsReply,
+  replyOnMessageFromStore,
+  resetSelectedMessages,
+ } from '../redux/actions';
 
 
   
@@ -18,6 +23,7 @@ const mapStateToProps = (state) => { //берет текущий state из stor
     currentUser: state.currentUser,
     messageState: state.messageState,
     currentMessageId: state.currentMessageId,
+    currentlySelectedMessages: state.currentlySelectedMessages,
   }
 }
 
@@ -26,9 +32,13 @@ const mapDispatchToProps = {
   addNewMessageToStore,
   messageStateIsCreate, 
   messageStateIsEdit,
+  // messageStateIsReply,
+  messageStateIsEmpty,
   editMessageInStore,
   updateSearchedMessages,
   hideMessageSearching,
+  replyOnMessageFromStore,
+  resetSelectedMessages,
 }
 
 const PanelWithStore = connect(mapStateToProps, mapDispatchToProps)(Panel);

@@ -10,6 +10,7 @@ import { SEARCHED_MESSAGES,
   RESET_SELECTED_MESSAGES,
 
   MESSAGE_STATE_IS_EMPTY,
+  MESSAGE_STATE_IS_REPLY,
   REMOVE_GROUP_OF_MESSAGES_FROM_STORE,
   REPLY_ON_MESSAGE_FROM_STORE,
  } from '../redux/actions';
@@ -67,6 +68,12 @@ const mapDispatchToProps = (dispatch) => {
     messageStateIsEmpty: () => {
       dispatch({
         type: MESSAGE_STATE_IS_EMPTY
+      })
+    },
+
+    messageStateIsReply: () => {
+      dispatch({
+        type: MESSAGE_STATE_IS_REPLY
       })
     },
 

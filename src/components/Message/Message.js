@@ -2,7 +2,7 @@ import './Message.css';
 
 
 
-const Message = ({id, value, onClick, time, edit, toggleSelectedState, isSelect}) => { //мб нужен selected?
+const Message = ({id, value, onClick, time, edit, toggleSelectedState, isSelect, messageState}) => { //мб нужен selected?
 
     const messEdited = edit ? '(edited)' : '';
 
@@ -10,7 +10,7 @@ const Message = ({id, value, onClick, time, edit, toggleSelectedState, isSelect}
     return (
         <div 
             id={id} 
-            className={`message ${(isSelect) ? toggleSelectedState : 'hide'}-message`}
+            className={`message ${(isSelect && messageState!=='reply') ? toggleSelectedState : 'hide'}-message`}
 
             value={value} 
             onClick={onClick}

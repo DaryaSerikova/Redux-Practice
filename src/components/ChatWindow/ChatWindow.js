@@ -5,9 +5,14 @@ import search from '../../assets/icon32.png';
 import right from '../../assets/right32.png';
 import left from '../../assets/left32.png';
 import bin from '../../assets/bin32.png';
-import cross from '../../assets/cross32.png';
+import cross from '../../assets/cross-mark32.png';
+// import cross from '../../assets/cross32.png';
+
 import IconButtonWithStore from '../../containers/IconButtonWithStore';
 import './ChatWindow.css';
+import { messageStateIsReply } from '../../redux/actions';
+
+import DanielHardman from '../../assets/Daniel_Hardman.jpg';
 
 
 
@@ -24,6 +29,7 @@ const ChatWindow = ({
   removeMessageFromStore,
   resetSelectedMessages,
   messageStateIsEmpty,
+  messageStateIsReply, 
   removeGroupOfMessagesFromStore,
   replyOnMessageFromStore,
   }) => {
@@ -73,21 +79,62 @@ const ChatWindow = ({
     messageStateIsEmpty();
   }
 
+  // const edit = (message) => {
+  //   return (e) => {
+  //     resetSelectedMessages();
+
+  //     updateToNewCurrentMessageId(message.id);
+  //     updateToNewCurrentMessage(message.value);
+  //     messageStateIsEdit();
+  //     hideSettings();
+
+  //     /// нужно ли сменить статус на EMPTY ?? 
+  //   }
+  // }
+
 
   const replyMessages = () => {
+   console.log('Reply on messages ..');
+   messageStateIsReply();
+
+    // План
+    // 1. по onClick на стрелочку скрыть все иконки в header'е ChatWindow
+    // 2. messageStateIsReply
+    // 3. Скрыть все признаки выбранного сообщения, но оставить в store
+    // 4. Мини-версия replyMessage над панелью
+    // 5.
+    // 6.
+    // messageStateIsReply();
+
+ 
+    // При нажатии на кнопку отправить:
+    // . Скрыть мини-версия replyMessage над панелью
+    // replyOnMessageFromStore('Бутафорный комментарий к reply message', currentUser, false, false, replyMessage); //'Darya Serikova'
+    // resetSelectedMessages();
+    // messageStateIsEmpty();
+    // . reset панели
+    // . reset выбранных сообщений
+    // . 
+
     
-    let replyMessage = currentlySelectedMessages[0];
-    console.log('Reply on messages ..')
+    // let replyMessage = currentlySelectedMessages[0]; // это от изначального варианта forward
+    
+    // // updateToNewCurrentMessageId(message.id);
+    // // updateToNewCurrentMessage(message.value);
+
+    // //прописать откуда берется value
+    // //посмотреть как он передается при добавлении сообщения
+    // // currentUser или бутафория? Сейчас все вместе! Будут ошибки от путаницы!
+    // console.log('messageState', messageState)
 
 
-    //прописать откуда берется value
-    //посмотреть как он передается при добавлении сообщения
-    // currentUser или бутафория? Сейчас все вместе! Будут ошибки от путаницы!
-    console.log('messageState', messageState)
-    replyOnMessageFromStore('Бутафорный комментарий к reply message', currentUser, false, false, replyMessage); //'Darya Serikova'
 
-    resetSelectedMessages();
-    messageStateIsEmpty();
+
+    // // Здесь начинается кусок для send при добавлении сообщения вместо бутафорного комментария
+ 
+    // replyOnMessageFromStore('Бутафорный комментарий к reply message', currentUser, false, false, replyMessage); //'Darya Serikova'
+    // resetSelectedMessages();
+    // messageStateIsEmpty();
   }
 
 
@@ -127,9 +174,21 @@ const ChatWindow = ({
         </div>
         
         {Boolean(toggleMessageSearching) && 
-        <div className={`current-user ${!(currentlySelectedMessages.length === 0) && 'hide'}`}>
-          {currentUser}
-        </div>}
+        <div className={`user-with-avatar`}>
+          {/* <div className='avatar'> */}
+            {/* <img 
+                className={`avatar`}
+                alt={`avatar-icon`}
+                src={DanielHardman}
+              /> */}
+            <div className={`no-avatar ${(!currentUser) ? 'hide' : ''} ${!(currentlySelectedMessages.length === 0) && 'hide'}`}></div>
+              
+          {/* </div> */}
+          <div className={`current-user ${!(currentlySelectedMessages.length === 0) && 'hide'}`}>
+            {currentUser}
+          </div>          
+        </div>
+        }
 
         <input 
           type='text' 
@@ -161,6 +220,24 @@ const ChatWindow = ({
 
         </div>
       </div>
+
+
+      {console.log('messageState', messageState)}
+      <div className={`mini-reply-message ${messageState === 'reply' ? '' : "hide"}`}>
+        <div className='message-with-vertical-line'>
+          <div className='vertical-line'></div>
+          <div className='reply-message'>
+
+          <div className='message-info'>
+            <div className='message-sender'>Darya Serikova</div>
+          </div>
+          Пересылаемое сообщение 
+          </div>
+        </div>
+      </div>
+
+
+      
     </>
   )
 }

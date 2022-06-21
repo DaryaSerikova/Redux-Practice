@@ -35,7 +35,7 @@
 
 
 
-const ForwardedMessages = () => {
+const ForwardedMessages = ({id, value, onClick, time, edit, toggleSelectedState, isSelect}) => {
 
 
   const OneForwardedMessage = () => {

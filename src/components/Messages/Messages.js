@@ -114,20 +114,21 @@ export const Messages = ({
 
       toggleSelectedState: toggleSelectedState,
       isSelect: isSelect,
-      onClick: onClick(message)
+      onClick: onClick(message),
+      messageState: messageState
     }
 
 
     return (
       <>
-        <div className={`wrapper-message ${(messageState === 'select') ? 'space-between' : ''} ${(isSelect) ? toggleSelectedState : 'hide'}-choised-message`} onClick={onChoose(message)}>
+        <div className={`wrapper-message ${(messageState === 'select') ? 'space-between' : ''} ${(!isSelect) ? 'hide' : messageState==='reply' ? 'hide' : toggleSelectedState }-choised-message`} onClick={onChoose(message)}>
           <img
-          className={`checkmark-icon ${(isSelect) ? toggleSelectedState : 'hide'}-checkmark-icon`}
+          className={`checkmark-icon ${(!isSelect) ? 'hide' : messageState==='reply' ? 'hide' : toggleSelectedState}-checkmark-icon`}
           alt="checkmark-icon"
           src={checkmark}
           />
 
-          <div className={`${(messageState === 'select') && 'space-between'} ${(!isSelect && (messageState === 'select'))? '' : 'hide'}`}>
+          <div className={`${(messageState === 'select') && 'space-between'} ${(!isSelect && (messageState === 'select')) ? '' : 'hide'}`}>
             <div className="circle-instead-checkmark"></div>
           </div>
           

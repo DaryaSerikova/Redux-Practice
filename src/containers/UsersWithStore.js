@@ -4,7 +4,9 @@ import {
   updateToNewCurrentUser, 
   addNewUserToStore,
   updateSearchedMessages,
-  hideMessageSearching } from "../redux/actions";
+  hideMessageSearching,
+  addLastSentMessage,
+ } from "../redux/actions";
 
 
 const mapStateToProps = (state) => {
@@ -12,6 +14,7 @@ const mapStateToProps = (state) => {
     currentUser: state.currentUser,
     allStore: state.allStore,
     users: state.users,
+    lastSentMessages: state.lastSentMessages,
   }
 }
 
@@ -29,6 +32,9 @@ const mapDispatchToProps = (dispatch) => {
     hideMessageSearching: () => {
       dispatch(hideMessageSearching())
     },
+    addLastSentMessage: (name, message) => {
+      dispatch(addLastSentMessage(name, message))
+    }
 
   }
 }

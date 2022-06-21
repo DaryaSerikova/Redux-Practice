@@ -54,6 +54,10 @@ export const REPLY_ON_MESSAGE_FROM_STORE = 'REPLY_ON_MESSAGE_FROM_STORE';
 
 
 
+export const ADD_LAST_SENT_MESSAGE = 'ADD_LAST_SENT_MESSAGE';
+
+
+
 //Action Creators
 
 export const updateToNewCurrentMessage = (value) => ({
@@ -216,6 +220,12 @@ export const removeGroupOfMessagesFromStore = (arrayForwardIds, name) => ({
   arrayForwardIds,
   name
 });
+
+export const addLastSentMessage = (name, message) => ({
+  type: ADD_LAST_SENT_MESSAGE,
+  name,
+  message,
+})
 
 
 // export const replyOnMessageFromStore = (value, name, edit, selected, message) => ({

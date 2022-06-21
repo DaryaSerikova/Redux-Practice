@@ -1,4 +1,6 @@
 import { useRef, useEffect } from 'react';
+import IconButtonWithStore from '../../containers/IconButtonWithStore';
+import editCross from '../../assets/cross-mark32.png';
 import './Panel.css';
 
 
@@ -13,7 +15,12 @@ const Panel = ({
   messageStateIsCreate, 
   editMessageInStore,
   updateSearchedMessages,
-  hideMessageSearching
+  hideMessageSearching,
+  // messageStateIsReply,
+  currentlySelectedMessages,
+  replyOnMessageFromStore,
+  messageStateIsEmpty,
+  resetSelectedMessages,
 }) => { 
 
   const formEl = useRef(null);
@@ -36,16 +43,43 @@ const Panel = ({
   }
 
   const changeMessageStore = () => {
+
+    // switch (messageState) {
+    //   case 'create':
+    //     addNewMessageToStore(currentMessage, currentUser, false, false); //edit, choised
+    //     //break
+    //   case 'edit':
+    //     editMessageInStore(currentMessageId, currentMessage, currentUser, true); //edit
+    //     //break
+    //   case 'reply':
+    //     let replyMessage = currentlySelectedMessages[0];
+    //     replyOnMessageFromStore('Бутафорный комментарий к reply message', currentUser, false, false, replyMessage); //'Darya Serikova'
+  
+    //     resetSelectedMessages();
+    //     messageStateIsEmpty();
+    //     //break
+    // }
     if (messageState === 'create') {
       addNewMessageToStore(currentMessage, currentUser, false, false); //edit, choised
+      // addLastSentMessage()
     }
     if (messageState === 'edit') {
       editMessageInStore(currentMessageId, currentMessage, currentUser, true); //edit
+    }
+
+    if (messageState === 'reply') {
+      let replyMessage = currentlySelectedMessages[0];
+      replyOnMessageFromStore(currentMessage, currentUser, false, false, replyMessage); //'Бутафорный комментарий к reply message','Darya Serikova'
+
+      resetSelectedMessages();
+      messageStateIsEmpty();
     }
   }
 
 
   const submitMessage = () => {
+
+
 
     changeMessageStore();
     updateSearchedMessages(allStore[`${currentUser}`])
@@ -56,7 +90,7 @@ const Panel = ({
 
   const onKeyPressEnter = (e) => {
     if (e.key === 'Enter'&&e.shiftKey === false) {
-      if (currentMessage !== '') {
+      if (currentMessage !== '' || messageState === 'reply') {
         e.preventDefault();
         submitMessage();
       }
@@ -82,7 +116,20 @@ const Panel = ({
 
       {<div className='edit-group'>
         <span className={`editing-message ${ (messageState !== 'edit') && 'hideOpacity' }`}>Editing a message</span>
-        <div className={`${(messageState !== 'edit')&&'hide'} cross`} onClick={cancelEdit}>&#9587;</div>
+        <div className={`${(messageState !== 'edit')&&'hide'} cross`} onClick={cancelEdit}>
+          <img 
+            className={`edit-cross`}
+            alt={``}
+            src={editCross}
+          />
+        </div>
+        {/* <img 
+        className={``}
+        alt={``}
+        src={editCross}
+      /> */}
+        {/* {<IconButtonWithStore src={editCross} className={``} name='cross' onClick={cancelEdit}/>} */}
+        {/* <div className={`${(messageState !== 'edit')&&'hide'} cross`} onClick={cancelEdit}>&#9587;</div> */}
       </div>}
 
       {(currentUser !== '') &&

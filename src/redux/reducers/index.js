@@ -15,6 +15,7 @@ import { toggleMessageSearching } from "./toggleMessageSearching";
 import { currentlySelectedMessages } from "./currentlySelectedMessages";
 
 import { toggleSelectedMessage } from "./toggleSelectedMessage";
+import { lastSentMessages } from "./lastSentMessages";
 
 
 export default combineReducers({
@@ -32,5 +33,6 @@ export default combineReducers({
   // currentForwardMessages,
   currentlySelectedMessages,
 
-  toggleSelectedMessage
+  toggleSelectedMessage,
+  lastSentMessages,
 });
