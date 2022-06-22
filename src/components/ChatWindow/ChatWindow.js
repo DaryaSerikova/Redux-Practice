@@ -33,6 +33,7 @@ const ChatWindow = ({
   removeGroupOfMessagesFromStore,
   replyOnMessageFromStore,
   messageStateIsForward,
+  // forwardGroupOfMessagesFromStore,
   }) => {
 
   let arrStoreMessage = allStore[`${currentUser}`];
@@ -76,6 +77,7 @@ const ChatWindow = ({
   const forwardMessages = () => {
     console.log('Forward messages to ..');
     messageStateIsForward();
+
     // resetSelectedMessages();
     // messageStateIsEmpty();
   }

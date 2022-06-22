@@ -21,6 +21,7 @@ const Panel = ({
   replyOnMessageFromStore,
   messageStateIsEmpty,
   resetSelectedMessages,
+  forwardGroupOfMessagesFromStore,
 }) => { 
 
   const formEl = useRef(null);
@@ -64,6 +65,7 @@ const Panel = ({
       case 'forward':
         let forwardedMessages = currentlySelectedMessages;
         // здесь нужно сделать forward в store
+        forwardGroupOfMessagesFromStore(currentMessage, currentUser, false, false, forwardedMessages);
 
         resetSelectedMessages();
         messageStateIsEmpty();
@@ -101,7 +103,7 @@ const Panel = ({
 
   const onKeyPressEnter = (e) => {
     if (e.key === 'Enter'&&e.shiftKey === false) {
-      if (currentMessage !== '' || messageState === 'reply') {
+      if (currentMessage !== '' || messageState === 'reply' || messageState === 'forward') {
         e.preventDefault();
         submitMessage();
       }
@@ -111,7 +113,7 @@ const Panel = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (currentMessage !== '' || messageState === 'reply')  submitMessage();
+    if (currentMessage !== '' || messageState === 'reply' || messageState === 'forward')  submitMessage();
   }
 
   const onChange =  (e) => {

@@ -51,6 +51,7 @@ export const SHOW_SELECTED_MESSAGE = 'SHOW_SELECTED_MESSAGE';
 
 export const REMOVE_GROUP_OF_MESSAGES_FROM_STORE = 'REMOVE_GROUP_OF_MESSAGES_FROM_STORE';
 export const REPLY_ON_MESSAGE_FROM_STORE = 'REPLY_ON_MESSAGE_FROM_STORE';
+export const FORWARD_GROUP_OF_MESSAGES_FROM_STORE = 'FORWARD_GROUP_OF_MESSAGES_FROM_STORE';
 
 
 
@@ -86,6 +87,18 @@ export const replyOnMessageFromStore = (value, name, edit, selected, message) =>
   selected: selected,
   message: message
 });
+
+export const forwardGroupOfMessagesFromStore = (value, name, edit, selected, messages) => ({
+  type: FORWARD_GROUP_OF_MESSAGES_FROM_STORE, 
+  value: value,
+  name: name,
+  date: getTime().date,
+  time: getTime().time,
+  edit: edit,
+  selected: selected,
+  messages: messages
+});
+
 
 export const editMessageInStore = (id, value, name, edit) => ({
   type: EDIT_MESSAGE_IN_STORE,

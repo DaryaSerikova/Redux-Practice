@@ -1,7 +1,7 @@
 export let getDateConverting = (numberDate) => { //переименовать getDateConverting
 
-  console.log('numberDate', numberDate)
-  console.log('numberDate !== "undefined"', numberDate !== "undefined");
+  // console.log('numberDate', numberDate)
+  // console.log('numberDate !== "undefined"', numberDate !== "undefined");
 
   if (numberDate !== undefined) {
 

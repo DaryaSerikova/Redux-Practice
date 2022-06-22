@@ -8,6 +8,7 @@ import {
   CHOOSE_MESSAGE_IN_STORE,
   REMOVE_GROUP_OF_MESSAGES_FROM_STORE,
   REPLY_ON_MESSAGE_FROM_STORE,
+  FORWARD_GROUP_OF_MESSAGES_FROM_STORE,
 } from "../actions";
 
 
@@ -57,6 +58,18 @@ const updateMessageStore = (state = [], action) => { // Изменение од�
         edit: action.edit,
         selected: action.selected, ///////
         message: action.message
+      }
+
+    case FORWARD_GROUP_OF_MESSAGES_FROM_STORE:
+      return { 
+        id: messageId++, 
+        value: action.value, 
+        date: action.date,
+        time: action.time,
+        name: action.name,
+        edit: action.edit,
+        selected: action.selected, ///////
+        messages: action.messages
       }
     
     default:
@@ -177,8 +190,21 @@ export const allStore = (state = {}, action) => { // Полное хранили
     }
 
 
-    // case FORWARD_GROUP_OF_MESSAGES_FROM_STORE:
-    // case REPLY_ON_MESSAGE_FROM_STORE:
+    case FORWARD_GROUP_OF_MESSAGES_FROM_STORE:
+      if (!state[action.name]) {
+        return {
+          ...state,
+          [action.name]: updateMessageStore([], action)
+        }
+      } else {
+        return {
+          ...state,
+          [action.name]: [
+            ...state[action.name],
+            updateMessageStore(state[action.name], action)
+          ]
+        }
+      }
 
 
     default:

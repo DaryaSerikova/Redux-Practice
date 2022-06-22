@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import SettingsWithStore from "../../containers/SettingsWithStore";
 import ReplyMessage from "../ReplyMessage.js/ReplyMessage";
 import Message from "../Message/Message";
+import ForwardedMessages from "../ForwardedMessages/ForwardedMessages";
 
 import checkmark from '../../assets/checkmark_blue32.png';
 import './Messages.css';
@@ -132,9 +133,11 @@ export const Messages = ({
             <div className="circle-instead-checkmark"></div>
           </div>
           
-          { (message.message === undefined) ?
+          { (message.message === undefined)&&(message.messages === undefined) ?
             <Message {...messageGeneralProps} />
-            : <ReplyMessage {...messageGeneralProps} replyMessage={message.message} />}
+            : (message.messages === undefined) ? 
+              <ReplyMessage {...messageGeneralProps} replyMessage={message.message} />
+              : <ForwardedMessages {...messageGeneralProps} forwardedMessages={message.messages}/>}
 
         </div>
   
