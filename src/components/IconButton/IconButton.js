@@ -2,17 +2,17 @@ import './IconButton.css';
 
 
 
-const IconButton = ({ src, name, onClick, currentlySelectedMessages, currentUser, toggleMessageSearching }) => {
+const IconButton = ({ src, name, onClick, currentlySelectedMessages, currentUser, toggleMessageSearching, messageState }) => {
 
   const getHide = (name) => {
     switch(name) {
       case `left`:
-        return `${currentlySelectedMessages.length !== 1 && 'hide'}`;
+        return `${currentlySelectedMessages.length !== 1 && 'hide'} ${messageState!=='select' ? 'hide' : ''}`;
 
       case `bin`:
       case `right`:
       case `cross`: 
-        return `${currentlySelectedMessages.length === 0 && 'hide'}`; 
+        return `${currentlySelectedMessages.length === 0 && 'hide'} ${messageState!=='select' ? 'hide' : ''}`; 
       
       default:
         return '';

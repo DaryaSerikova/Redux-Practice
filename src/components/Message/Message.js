@@ -9,11 +9,11 @@ const Message = ({id, value, onClick, time, edit, toggleSelectedState, isSelect,
     // НЕ УДАЛЯТЬ ОРИГИНАЛЬНОЕ СООБЩЕНИЕ
     return (
         <>
-            {console.log('------------------------------')}
+            {/* {console.log('------------------------------')}
             {console.log('isSelect', isSelect)}
             {console.log('messageState!=="reply"', messageState!=='reply')}
             {console.log('(isSelect && messageState!=="reply")', (isSelect && messageState!=='reply'))}
-            {console.log('toggleSelectedState', toggleSelectedState)}
+            {console.log('toggleSelectedState', toggleSelectedState)} */}
 
             <div 
                 id={id} 

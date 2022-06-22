@@ -154,7 +154,7 @@ const ChatWindow = ({
       
         <div className={`${currentlySelectedMessages.length === 0 ? 'hide' : 'cancel-group'}`}>
           {<IconButtonWithStore src={cross} name='cross' onClick={cancelSelectedMessages}/>}
-          <div className='selected-messages-amount'>{currentlySelectedMessages.length}</div>
+          <div className={`selected-messages-amount ${messageState !== 'select' ? 'hide' : ''}`}>{currentlySelectedMessages.length}</div>
         </div>
         
         {Boolean(toggleMessageSearching) && 
@@ -168,7 +168,10 @@ const ChatWindow = ({
             <div className={`no-avatar ${(!currentUser) ? 'hide' : ''} ${!(currentlySelectedMessages.length === 0) && 'hide'}`}></div>
               
           {/* </div> */}
-          <div className={`current-user ${!(currentlySelectedMessages.length === 0) && 'hide'}`}>
+
+
+          {/* <div className={`current-user ${!(currentlySelectedMessages.length === 0) && 'hide'}`}> */}
+          <div className={`current-user ${!(messageState !== 'select') ? 'hide' : ''}`}>
             {currentUser}
           </div>          
         </div>
