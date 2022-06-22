@@ -13,8 +13,6 @@ const ForwardedMessage = ({forwardedMessages, toggleSelectedState, isSelect}) =>
 
     return (
       <>
-        {console.log('+++++++++++++++++++++++++++')}
-
         {/* {console.log('isSelect', isSelect)}
         {console.log('toggleSelectedState', toggleSelectedState)} */}
 

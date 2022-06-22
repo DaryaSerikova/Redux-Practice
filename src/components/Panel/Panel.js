@@ -16,7 +16,6 @@ const Panel = ({
   editMessageInStore,
   updateSearchedMessages,
   hideMessageSearching,
-  // messageStateIsReply,
   currentlySelectedMessages,
   replyOnMessageFromStore,
   messageStateIsEmpty,
@@ -64,38 +63,19 @@ const Panel = ({
 
       case 'forward':
         let forwardedMessages = currentlySelectedMessages;
-        // здесь нужно сделать forward в store
         forwardGroupOfMessagesFromStore(currentMessage, currentUser, false, false, forwardedMessages);
 
         resetSelectedMessages();
         messageStateIsEmpty();
         break;
     }
-
-    // if (messageState === 'create') {
-    //   addNewMessageToStore(currentMessage, currentUser, false, false); //edit, choised
-    //   // addLastSentMessage()
-    // }
-    // if (messageState === 'edit') {
-    //   editMessageInStore(currentMessageId, currentMessage, currentUser, true); //edit
-    // }
-
-    // if (messageState === 'reply') {
-    //   let replyMessage = currentlySelectedMessages[0];
-    //   replyOnMessageFromStore(currentMessage, currentUser, false, false, replyMessage); //'Бутафорный комментарий к reply message','Darya Serikova'
-
-    //   resetSelectedMessages();
-    //   messageStateIsEmpty();
-    // }
   }
 
 
   const submitMessage = () => {
 
-
-
     changeMessageStore();
-    updateSearchedMessages(allStore[`${currentUser}`])
+    updateSearchedMessages(allStore[`${currentUser}`]);
 
     formEl.current.reset();
     cancelEdit();

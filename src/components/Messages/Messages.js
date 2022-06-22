@@ -1,7 +1,8 @@
 import React, {useEffect} from "react";
+
 import SettingsWithStore from "../../containers/SettingsWithStore";
-import ReplyMessage from "../ReplyMessage.js/ReplyMessage";
 import Message from "../Message/Message";
+import ReplyMessage from "../ReplyMessage.js/ReplyMessage";
 import ForwardedMessages from "../ForwardedMessages/ForwardedMessages";
 
 import checkmark from '../../assets/checkmark_blue32.png';
@@ -91,8 +92,6 @@ export const Messages = ({
   
   
   const Mess = arrStoreMessage.map((message) => {
-
-//// Здесь должно быть разделение на message это обычный или message в message.value = messageReply
 
     let arrId = currentlySelectedMessages.map((forwardMess) => {
       return forwardMess.id

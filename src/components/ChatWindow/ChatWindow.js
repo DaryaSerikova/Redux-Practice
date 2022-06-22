@@ -1,18 +1,16 @@
 import React, {useEffect}  from 'react';
 
 import MessagesWithStore from '../../containers/MessagesWithStore';
+import IconButtonWithStore from '../../containers/IconButtonWithStore';
+
 import search from '../../assets/icon32.png';
 import right from '../../assets/right32.png';
 import left from '../../assets/left32.png';
 import bin from '../../assets/bin32.png';
 import cross from '../../assets/cross-mark32.png';
 // import cross from '../../assets/cross32.png';
-
-import IconButtonWithStore from '../../containers/IconButtonWithStore';
-import './ChatWindow.css';
-// import { messageStateIsForward, messageStateIsReply } from '../../redux/actions';
-
 import DanielHardman from '../../assets/Daniel_Hardman.jpg';
+import './ChatWindow.css';
 
 
 
@@ -77,24 +75,7 @@ const ChatWindow = ({
   const forwardMessages = () => {
     console.log('Forward messages to ..');
     messageStateIsForward();
-
-    // resetSelectedMessages();
-    // messageStateIsEmpty();
   }
-
-  // const edit = (message) => {
-  //   return (e) => {
-  //     resetSelectedMessages();
-
-  //     updateToNewCurrentMessageId(message.id);
-  //     updateToNewCurrentMessage(message.value);
-  //     messageStateIsEdit();
-  //     hideSettings();
-
-  //     /// нужно ли сменить статус на EMPTY ?? 
-  //   }
-  // }
-
 
   const replyMessages = () => {
     console.log('Reply on messages ..');
