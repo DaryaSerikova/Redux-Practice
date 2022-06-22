@@ -6,6 +6,9 @@ import {
   updateSearchedMessages,
   hideMessageSearching,
   addLastSentMessage,
+  messageStateIsEmpty,
+  resetSelectedMessages,
+  currentlySelectedMessages,
  } from "../redux/actions";
 
 
@@ -15,6 +18,8 @@ const mapStateToProps = (state) => {
     allStore: state.allStore,
     users: state.users,
     lastSentMessages: state.lastSentMessages,
+    messageState: state.messageState,
+    currentlySelectedMessages: state.currentlySelectedMessages,
   }
 }
 
@@ -34,7 +39,13 @@ const mapDispatchToProps = (dispatch) => {
     },
     addLastSentMessage: (name, message) => {
       dispatch(addLastSentMessage(name, message))
-    }
+    },
+    messageStateIsEmpty: () => {
+      dispatch(messageStateIsEmpty())
+    },
+    resetSelectedMessages: () => {
+      dispatch(resetSelectedMessages())
+    },
 
   }
 }

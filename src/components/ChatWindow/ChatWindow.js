@@ -223,6 +223,7 @@ const ChatWindow = ({
 
 
       {console.log('messageState', messageState)}
+      {console.log('currentlySelectedMessages', currentlySelectedMessages)}
       <div className={`mini-reply-message ${messageState === 'reply' ? '' : "hide"}`}>
         <div className='message-with-vertical-line'>
           <div className='vertical-line'></div>
