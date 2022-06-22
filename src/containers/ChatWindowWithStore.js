@@ -13,6 +13,7 @@ import { SEARCHED_MESSAGES,
   MESSAGE_STATE_IS_REPLY,
   REMOVE_GROUP_OF_MESSAGES_FROM_STORE,
   REPLY_ON_MESSAGE_FROM_STORE,
+  MESSAGE_STATE_IS_FORWARD,
  } from '../redux/actions';
 
 
@@ -93,6 +94,11 @@ const mapDispatchToProps = (dispatch) => {
         edit,
         selected,
         message
+      })
+    },
+    messageStateIsForward: () => {
+      dispatch({
+        type: MESSAGE_STATE_IS_FORWARD
       })
     },
     

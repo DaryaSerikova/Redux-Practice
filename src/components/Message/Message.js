@@ -8,16 +8,24 @@ const Message = ({id, value, onClick, time, edit, toggleSelectedState, isSelect,
 
     // НЕ УДАЛЯТЬ ОРИГИНАЛЬНОЕ СООБЩЕНИЕ
     return (
-        <div 
-            id={id} 
-            className={`message ${(isSelect && messageState!=='reply') ? toggleSelectedState : 'hide'}-message`}
+        <>
+            {console.log('------------------------------')}
+            {console.log('isSelect', isSelect)}
+            {console.log('messageState!=="reply"', messageState!=='reply')}
+            {console.log('(isSelect && messageState!=="reply")', (isSelect && messageState!=='reply'))}
+            {console.log('toggleSelectedState', toggleSelectedState)}
 
-            value={value} 
-            onClick={onClick}
-            >
-            {value}
-            <div className='message-time'>{time}{messEdited}</div>
-        </div>
+            <div 
+                id={id} 
+                className={`message ${(isSelect && (messageState!=='reply'&&messageState!=='forward')) ? toggleSelectedState : 'hide'}-message`}
+
+                value={value} 
+                onClick={onClick}
+                >
+                {value}
+                <div className='message-time'>{time}{messEdited}</div>
+            </div>
+        </>
     )
 
     // const OneForwardedMessage = () => {

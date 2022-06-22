@@ -48,12 +48,22 @@ const Panel = ({
       case 'create':
         addNewMessageToStore(currentMessage, currentUser, false, false); //edit, choised
         break;
+
       case 'edit':
         editMessageInStore(currentMessageId, currentMessage, currentUser, true); //edit
         break;
+
       case 'reply':
         let replyMessage = currentlySelectedMessages[0];
         replyOnMessageFromStore(currentMessage, currentUser, false, false, replyMessage); //'Бутафорный комментарий к reply message','Darya Serikova'
+
+        resetSelectedMessages();
+        messageStateIsEmpty();
+        break;
+
+      case 'forward':
+        let forwardedMessages = currentlySelectedMessages;
+        // здесь нужно сделать forward в store
 
         resetSelectedMessages();
         messageStateIsEmpty();

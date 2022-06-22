@@ -148,7 +148,7 @@
   display: none;
 }
 
-.mini-reply-message {
+.mini-reply-or-forwarded-messages {
 
   background-color: #f1f1f1;
   padding: 0.4rem;
@@ -176,4 +176,23 @@
   border-radius: 25px;
   height: 33px;
   width: 44.8px;
+}
+
+.forwarded-messages-info {
+  height: 65px;
+  width: 85px;
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ececec;
+}
+
+.forwarded-messages-item-is-message {
+  font-size: 9pt;
+}
+
+.forwarded-messages-item-is-amount {
+  font-size: 13pt;
 }

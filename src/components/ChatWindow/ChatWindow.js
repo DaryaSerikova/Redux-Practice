@@ -10,7 +10,7 @@ import cross from '../../assets/cross-mark32.png';
 
 import IconButtonWithStore from '../../containers/IconButtonWithStore';
 import './ChatWindow.css';
-import { messageStateIsReply } from '../../redux/actions';
+// import { messageStateIsForward, messageStateIsReply } from '../../redux/actions';
 
 import DanielHardman from '../../assets/Daniel_Hardman.jpg';
 
@@ -32,6 +32,7 @@ const ChatWindow = ({
   messageStateIsReply, 
   removeGroupOfMessagesFromStore,
   replyOnMessageFromStore,
+  messageStateIsForward,
   }) => {
 
   let arrStoreMessage = allStore[`${currentUser}`];
@@ -74,9 +75,9 @@ const ChatWindow = ({
 
   const forwardMessages = () => {
     console.log('Forward messages to ..');
-
-    resetSelectedMessages();
-    messageStateIsEmpty();
+    messageStateIsForward();
+    // resetSelectedMessages();
+    // messageStateIsEmpty();
   }
 
   // const edit = (message) => {
@@ -94,19 +95,15 @@ const ChatWindow = ({
 
 
   const replyMessages = () => {
-   console.log('Reply on messages ..');
-   messageStateIsReply();
+    console.log('Reply on messages ..');
+    messageStateIsReply();
 
     // План
     // 1. по onClick на стрелочку скрыть все иконки в header'е ChatWindow
     // 2. messageStateIsReply
     // 3. Скрыть все признаки выбранного сообщения, но оставить в store
     // 4. Мини-версия replyMessage над панелью
-    // 5.
-    // 6.
-    // messageStateIsReply();
 
- 
     // При нажатии на кнопку отправить:
     // . Скрыть мини-версия replyMessage над панелью
     // replyOnMessageFromStore('Бутафорный комментарий к reply message', currentUser, false, false, replyMessage); //'Darya Serikova'
@@ -114,24 +111,11 @@ const ChatWindow = ({
     // messageStateIsEmpty();
     // . reset панели
     // . reset выбранных сообщений
-    // . 
 
     
-    // let replyMessage = currentlySelectedMessages[0]; // это от изначального варианта forward
-    
-    // // updateToNewCurrentMessageId(message.id);
-    // // updateToNewCurrentMessage(message.value);
-
-    // //прописать откуда берется value
-    // //посмотреть как он передается при добавлении сообщения
-    // // currentUser или бутафория? Сейчас все вместе! Будут ошибки от путаницы!
-    // console.log('messageState', messageState)
-
-
-
-
     // // Здесь начинается кусок для send при добавлении сообщения вместо бутафорного комментария
- 
+    // let replyMessage = currentlySelectedMessages[0]; // это от изначального варианта forward
+
     // replyOnMessageFromStore('Бутафорный комментарий к reply message', currentUser, false, false, replyMessage); //'Darya Serikova'
     // resetSelectedMessages();
     // messageStateIsEmpty();
@@ -222,9 +206,9 @@ const ChatWindow = ({
       </div>
 
 
-      {console.log('messageState', messageState)}
+      {console.log('MESSAGESTATE:', messageState)}
       {console.log('currentlySelectedMessages', currentlySelectedMessages)}
-      <div className={`mini-reply-message ${messageState === 'reply' ? '' : "hide"}`}>
+      <div className={`mini-reply-or-forwarded-messages ${messageState === 'reply' ? '' : "hide"}`}>
         <div className='message-with-vertical-line'>
           <div className='vertical-line'></div>
           <div className='reply-message'>
@@ -235,6 +219,16 @@ const ChatWindow = ({
 
           {(Boolean(currentlySelectedMessages[0])&&currentlySelectedMessages[0]!=={}) ? currentlySelectedMessages[0].value : ''}
 
+          </div>
+        </div>
+      </div>
+
+      <div className={`mini-reply-or-forwarded-messages ${messageState === 'forward' ? '' : "hide"}`}>
+        <div className='forwarded-messages-info'>
+          <div className='forwarded-messages-item-is-amount'>{currentlySelectedMessages.length}</div>
+          <div className='forwarded-messages-item-is-message'>
+          
+          сообщений
           </div>
         </div>
       </div>

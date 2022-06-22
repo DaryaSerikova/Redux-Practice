@@ -36,8 +36,8 @@ const ReplyMessage = ({ id, value, onClick, time, edit, toggleSelectedState, isS
 
         </div>
       </div>
-      {console.log('TIME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', time)}
-      {console.log('EDIT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', messEdited)}
+      {/* {console.log('TIME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', time)} */}
+      {/* {console.log('EDIT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', messEdited)} */}
       <div className='message-time'>{time}{messEdited}</div>
     </div>
   )

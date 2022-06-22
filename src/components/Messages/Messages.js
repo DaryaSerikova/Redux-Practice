@@ -121,9 +121,9 @@ export const Messages = ({
 
     return (
       <>
-        <div className={`wrapper-message ${(messageState === 'select') ? 'space-between' : ''} ${(!isSelect) ? 'hide' : messageState==='reply' ? 'hide' : toggleSelectedState }-choised-message`} onClick={onChoose(message)}>
+        <div className={`wrapper-message ${(messageState === 'select') ? 'space-between' : ''} ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') ? 'hide' : toggleSelectedState }-choised-message`} onClick={onChoose(message)}>
           <img
-          className={`checkmark-icon ${(!isSelect) ? 'hide' : messageState==='reply' ? 'hide' : toggleSelectedState}-checkmark-icon`}
+          className={`checkmark-icon ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') ? 'hide' : toggleSelectedState}-checkmark-icon`}
           alt="checkmark-icon"
           src={checkmark}
           />
