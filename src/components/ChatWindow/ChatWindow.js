@@ -2,6 +2,7 @@ import React, {useEffect}  from 'react';
 
 import MessagesWithStore from '../../containers/MessagesWithStore';
 import IconButtonWithStore from '../../containers/IconButtonWithStore';
+import MiniMessageWithStore from '../../containers/MiniMessageWithStore';
 
 import search from '../../assets/icon32.png';
 import right from '../../assets/right32.png';
@@ -11,10 +12,6 @@ import cross from '../../assets/cross-mark32.png';
 // import cross from '../../assets/cross32.png';
 import DanielHardman from '../../assets/Daniel_Hardman.jpg';
 import './ChatWindow.css';
-
-import { getTruncatedValue } from '../../utils/getTruncatedValue';
-import { getCorrectFormOfWord } from '../../utils/getCorrectFormOfWord';
-
 
 
 
@@ -135,16 +132,6 @@ const ChatWindow = ({
     <div className='personal-store-is-empty'> Write something to start a conversation... </div>
   </div>;
 
-  let truncatedValue = !(messageState === 'reply') 
-    ? '' 
-    : !(Boolean(currentlySelectedMessages[0])&&currentlySelectedMessages[0]!=={}) 
-      ? ''
-      : !(currentlySelectedMessages[0].value.length > 25)
-        ? currentlySelectedMessages[0].value
-        : getTruncatedValue(currentlySelectedMessages[0].value)
-
-
-  let correctFormOfWord = getCorrectFormOfWord(currentlySelectedMessages);
 
   return (
     <>
@@ -206,39 +193,10 @@ const ChatWindow = ({
         </div>
       </div>
 
-
       {console.log('MESSAGESTATE:', messageState)}
       {console.log('currentlySelectedMessages', currentlySelectedMessages)}
-      <div className={`mini-reply-or-forwarded-messages ${messageState === 'reply' ? '' : "hide"}`}>
-        <div className='message-with-vertical-line'>
-          <div className='vertical-line'></div>
-          <div className='reply-message'>
+      <MiniMessageWithStore />
 
-          <div className='message-info'>
-            <div className='message-sender'>Darya Serikova</div>
-          </div>
-            {truncatedValue}
-          {/* {!(Boolean(currentlySelectedMessages[0])&&currentlySelectedMessages[0]!=={}) 
-            ? ''
-            : (currentlySelectedMessages[0].value)  }  */}
-
-          </div>
-        </div>
-      </div>
-
-
-      <div className={`mini-reply-or-forwarded-messages ${messageState === 'forward' ? '' : "hide"}`}>
-        <div className='forwarded-messages-info'>
-          <div className='forwarded-messages-item-is-amount'>{currentlySelectedMessages.length}</div>
-          <div className='forwarded-messages-item-is-message'>
-          
-          {/* сообщений */}
-          {correctFormOfWord}
-          </div>
-        </div>
-      </div>
-
-      
     </>
   )
 }
