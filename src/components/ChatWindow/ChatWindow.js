@@ -13,6 +13,8 @@ import DanielHardman from '../../assets/Daniel_Hardman.jpg';
 import './ChatWindow.css';
 
 import { getTruncatedValue } from '../../utils/getTruncatedValue';
+import { getCorrectFormOfWord } from '../../utils/getCorrectFormOfWord';
+
 
 
 
@@ -141,6 +143,9 @@ const ChatWindow = ({
         ? currentlySelectedMessages[0].value
         : getTruncatedValue(currentlySelectedMessages[0].value)
 
+
+  let correctFormOfWord = getCorrectFormOfWord(currentlySelectedMessages);
+
   return (
     <>
       <div className='window-header'>
@@ -227,11 +232,11 @@ const ChatWindow = ({
           <div className='forwarded-messages-item-is-amount'>{currentlySelectedMessages.length}</div>
           <div className='forwarded-messages-item-is-message'>
           
-          сообщений
+          {/* сообщений */}
+          {correctFormOfWord}
           </div>
         </div>
       </div>
-
 
       
     </>
