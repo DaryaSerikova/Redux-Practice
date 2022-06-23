@@ -23,7 +23,9 @@
   border: none;
   /* background: linear-gradient(to right, #44d8ff1a, 70%, #ed8afa2b); */
   /* background: linear-gradient(to right, #51c8ff8c, 50%, #ed8afac4) */
-  background: linear-gradient(to right, #51c8ffe8, 50%, #b3d7ff);
+  /* background: linear-gradient(to right, #51c8ffe8, 50%, #b3d7ff);
+   */
+  background: linear-gradient(to right, #49daffdb, 50%, #74b6ff);
 }
 
 .hideOpacity {

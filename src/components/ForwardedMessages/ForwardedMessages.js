@@ -18,8 +18,8 @@ const ForwardedMessage = ({forwardedMessages, toggleSelectedState, isSelect}) =>
 
         <div 
           id={forwardedMessage.id} 
-          // className={`forward-message ${(isSelect) ? toggleSelectedState : 'hide'}-message`}
-          className={`forward-message`}
+          className={`forward-message ${(isSelect) ? toggleSelectedState : 'hide'}-message`}
+          // className={`forward-message`}
 
     
           value={forwardedMessage.value} 
@@ -56,8 +56,8 @@ const ForwardedMessages = ({id, value, onClick, time, edit, forwardedMessages,
   return (
       <div 
         onClick={onClick} 
-        // className={`wrapper-forward-messages ${(isSelect) ? toggleSelectedState : 'hide'}-message`}
-        className={`wrapper-forward-messages`}
+        className={`wrapper-forward-messages ${(isSelect) ? toggleSelectedState : 'hide'}-message`}
+        // className={`wrapper-forward-messages`}
 
         id={id} 
         value={value} 
