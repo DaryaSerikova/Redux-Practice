@@ -174,8 +174,10 @@
 .no-avatar {
   background-color: #a8dff8;
   border-radius: 25px;
-  height: 33px;
-  width: 44.8px;
+  /* height: 33px;
+  width: 44.8px; */
+  min-height: 33px;
+  min-width: 33px;
 }
 
 .forwarded-messages-info {

@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react';
 import IconButtonWithStore from '../../containers/IconButtonWithStore';
 import editCross from '../../assets/cross-mark32.png';
+import plane from '../../assets/paper-plane64.png';
 import './Panel.css';
 
 
@@ -139,8 +140,13 @@ const Panel = ({
       {(currentUser !== '') && <div className='wrapper-btn'>
         <button 
           type="submit" 
-          className='btn btn-success custom-btn'
-        > Send </button>
+          className='btn btn-primary custom-btn'
+        >
+        {/* <img
+          src={plane}
+        /> */}
+        Send
+        </button>
       </div>}
 
     </form>
