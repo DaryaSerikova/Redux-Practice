@@ -12,6 +12,8 @@ import cross from '../../assets/cross-mark32.png';
 import DanielHardman from '../../assets/Daniel_Hardman.jpg';
 import './ChatWindow.css';
 
+import { getTruncatedValue } from '../../utils/getTruncatedValue';
+
 
 
 const ChatWindow = ({ 
@@ -131,6 +133,14 @@ const ChatWindow = ({
     <div className='personal-store-is-empty'> Write something to start a conversation... </div>
   </div>;
 
+  let truncatedValue = !(messageState === 'reply') 
+    ? '' 
+    : !(Boolean(currentlySelectedMessages[0])&&currentlySelectedMessages[0]!=={}) 
+      ? ''
+      : !(currentlySelectedMessages[0].value.length > 25)
+        ? currentlySelectedMessages[0].value
+        : getTruncatedValue(currentlySelectedMessages[0].value)
+
   return (
     <>
       <div className='window-header'>
@@ -176,7 +186,7 @@ const ChatWindow = ({
         </div>
       </div>
       
-      <div className='scroll-window '>
+      <div className='scroll-window' style={(messageState === 'forward') ? {height: 235} : (messageState === 'reply') ? {height: 251} : {height: 313}}>
         <div className='not-exist'> 
 
           <div className={`chat-window`}>
@@ -202,12 +212,15 @@ const ChatWindow = ({
           <div className='message-info'>
             <div className='message-sender'>Darya Serikova</div>
           </div>
-
-          {(Boolean(currentlySelectedMessages[0])&&currentlySelectedMessages[0]!=={}) ? currentlySelectedMessages[0].value : ''}
+            {truncatedValue}
+          {/* {!(Boolean(currentlySelectedMessages[0])&&currentlySelectedMessages[0]!=={}) 
+            ? ''
+            : (currentlySelectedMessages[0].value)  }  */}
 
           </div>
         </div>
       </div>
+
 
       <div className={`mini-reply-or-forwarded-messages ${messageState === 'forward' ? '' : "hide"}`}>
         <div className='forwarded-messages-info'>

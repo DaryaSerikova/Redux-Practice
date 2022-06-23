@@ -11,6 +11,7 @@ const ReplyMessage = ({ id, value, onClick, time, edit, toggleSelectedState, isS
   console.log("replyMessage", replyMessage)
 
   let convertedDate = getDateConverting(replyMessage.date);
+  // let truncatedValue = getTruncatedValue(value);
 
   return (
     <div 
@@ -22,6 +23,8 @@ const ReplyMessage = ({ id, value, onClick, time, edit, toggleSelectedState, isS
       >
 
       {value}
+      {/* {truncatedValue} */}
+
 
       <div className='message-with-vertical-line'>
         <div className='vertical-line'></div>
