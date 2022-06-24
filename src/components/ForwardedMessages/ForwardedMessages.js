@@ -1,8 +1,11 @@
-import { getDateConverting } from "../../utils/getDateConverting"
+import { getDateConverting } from "../../utils/getDateConverting";
+import ReplyMessage from "../ReplyMessage.js/ReplyMessage";
 
 
 
-const ForwardedMessage = ({forwardedMessages, toggleSelectedState, isSelect}) => {
+const ForwardedMessage = ({forwardedMessages, toggleSelectedState, isSelect} ) => {//  //messageGeneralProps, forwardedMessages
+// const ForwardedMessage = (messageGeneralProps, forwardedMessages) => {//  //{forwardedMessages, toggleSelectedState, isSelect} 
+//   let {toggleSelectedState, isSelect} = messageGeneralProps;
 
   console.log('forwardedMessages', forwardedMessages);
 
@@ -13,14 +16,17 @@ const ForwardedMessage = ({forwardedMessages, toggleSelectedState, isSelect}) =>
 
     return (
       <>
-        {/* {console.log('isSelect', isSelect)}
-        {console.log('toggleSelectedState', toggleSelectedState)} */}
+        {console.log('isSelect', isSelect)}
+        {console.log('toggleSelectedState', toggleSelectedState)}
+
+        {/* <ReplyMessage 
+          messageGeneralProps={messageGeneralProps}
+          forwardedMessage={forwardedMessage} 
+        /> */}
 
         <div 
           id={forwardedMessage.id} 
           className={`forward-message ${(isSelect) ? toggleSelectedState : 'hide'}-message`}
-          // className={`forward-message`}
-
     
           value={forwardedMessage.value} 
         >
@@ -48,8 +54,12 @@ const ForwardedMessage = ({forwardedMessages, toggleSelectedState, isSelect}) =>
   return ForwardedMess;
 }
 
-const ForwardedMessages = ({id, value, onClick, time, edit, forwardedMessages,
-  toggleSelectedState, isSelect}) => {
+const ForwardedMessages = ({id, value, onClick, time, edit, toggleSelectedState, isSelect, forwardedMessages}) => { //messageGeneralProps, forwardedMessages
+// const ForwardedMessages = (messageGeneralProps, {forwardedMessages}) => { //{id, value, onClick, time, edit, toggleSelectedState, isSelect, forwardedMessages}
+
+  // let {id, value, onClick, time, edit, toggleSelectedState, isSelect} = messageGeneralProps;
+ 
+  // console.log("(ForwardedMessages) forwardedMessages", forwardedMessages)
 
   const messEdited = edit ? '(edited)' : '';
   console.log('value:', value, ', id:', id, ', time:', time)
@@ -63,6 +73,7 @@ const ForwardedMessages = ({id, value, onClick, time, edit, forwardedMessages,
         value={value} 
       >
         <div className='value-forward-messages'>{value}</div>
+        {/* <ForwardedMessage forwardedMessages={forwardedMessages} messageGeneralProps={messageGeneralProps}/> */}
         <ForwardedMessage forwardedMessages={forwardedMessages} toggleSelectedState={toggleSelectedState} isSelect={isSelect}/>
         <div className='message-time'>{time}{messEdited}</div>
     

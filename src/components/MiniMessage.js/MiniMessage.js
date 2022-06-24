@@ -3,9 +3,9 @@ import { getTruncatedValue } from "../../utils/getTruncatedValue";
 
 
 
-const MiniMessage = ({messageState, currentlySelectedMessages}) => {
+const MiniMessage = ({ messageState, currentlySelectedMessages }) => {
 
-  let truncatedValue = !(messageState === 'reply') 
+  let truncatedValue = !(messageState === 'reply') //Усеченное значение сообщения
   ? '' 
   : !(Boolean(currentlySelectedMessages[0])&&currentlySelectedMessages[0]!=={}) 
     ? ''
@@ -13,8 +13,9 @@ const MiniMessage = ({messageState, currentlySelectedMessages}) => {
       ? currentlySelectedMessages[0].value
       : getTruncatedValue(currentlySelectedMessages[0].value)
 
+
   // let correctFormOfWord = getCorrectFormOfWord(currentlySelectedMessages, 'ru');
-  let correctFormOfWord = getCorrectFormOfWord(currentlySelectedMessages, 'en');
+  let correctFormOfWord = getCorrectFormOfWord(currentlySelectedMessages, 'en'); //'сообщений'
 
 
   const MiniReplyMessage = () => {
@@ -27,10 +28,8 @@ const MiniMessage = ({messageState, currentlySelectedMessages}) => {
         <div className='message-info'>
           <div className='message-sender'>Darya Serikova</div>
         </div>
+
           {truncatedValue}
-        {/* {!(Boolean(currentlySelectedMessages[0])&&currentlySelectedMessages[0]!=={}) 
-          ? ''
-          : (currentlySelectedMessages[0].value)  }  */}
   
         </div>
       </div>
