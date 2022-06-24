@@ -54,6 +54,42 @@ const ReplyMessage = ({ id, value, onClick, time, edit, toggleSelectedState, isS
 
   let convertedDate = getDateConverting(replyMessage.date);
 
+  // replyMessage = replyMessage.replyMessage;
+  // console.log('(replyMessage) REPLY replyMessage:', replyMessage);
+
+
+  const MessageWithVerticalLine = ({replyMessage}) => {
+    console.log('(replyMessage) replyMessage:', replyMessage);
+    console.log('(replyMessage) replyMessage.time:', replyMessage.time);
+
+    
+    return (
+      <div className='message-with-vertical-line'>
+        <div className='vertical-line'></div>
+        <div className='reply-message'>
+
+          <div className='message-info'>
+            <div className='message-sender'>Darya Serikova</div>
+            <div className='date-and-time'>{convertedDate} at {replyMessage.time}</div>
+            {/* <div className='date-and-time'>{convertedDate} at {forwardOrReplyMess.time}</div> */}
+
+          </div>
+
+          {/* {forwardOrReplyMess.value} */}
+          {replyMessage.value}
+          {console.log('(replyMessage) replyMessage.message !== undefined', replyMessage.message !== undefined)}
+          {console.log('(replyMessage) replyMessage.message: ', replyMessage.message)}
+
+          {(replyMessage.message !== undefined) ? <MessageWithVerticalLine replyMessage={replyMessage.message}/> : ''}
+          {/* <MessageWithVerticalLine/> */}
+
+          {/* {(messageState === 'reply') ? replyMessage.value : (messageState === 'forward') ? forwardedMessage.value : ''} */}
+
+        </div>
+      </div>
+    )
+  }
+
 
   return (
     <div 
@@ -69,25 +105,25 @@ const ReplyMessage = ({ id, value, onClick, time, edit, toggleSelectedState, isS
       {value}
       {/* {(messageState === 'reply') ? value : ''} */}
 
-
-      <div className='message-with-vertical-line'>
+      <MessageWithVerticalLine replyMessage={replyMessage}/>
+      {/* <div className='message-with-vertical-line'>
         <div className='vertical-line'></div>
         <div className='reply-message'>
 
           <div className='message-info'>
             <div className='message-sender'>Darya Serikova</div>
-            <div className='date-and-time'>{convertedDate} at {replyMessage.time}</div>
+            <div className='date-and-time'>{convertedDate} at {replyMessage.time}</div> */}
             {/* <div className='date-and-time'>{convertedDate} at {forwardOrReplyMess.time}</div> */}
 
-          </div>
+          {/* </div> */}
 
           {/* {forwardOrReplyMess.value} */}
-          {replyMessage.value}
-          
+          {/* {replyMessage.value} */}
+
           {/* {(messageState === 'reply') ? replyMessage.value : (messageState === 'forward') ? forwardedMessage.value : ''} */}
 
-        </div>
-      </div>
+        {/* </div> */}
+      {/* // </div> */}
 
       {<div className='message-time'>{time}{messEdited}</div>}
       {/* {(messageState === 'reply') ? <div className='message-time'>{time}{messEdited}</div> : ''} */}

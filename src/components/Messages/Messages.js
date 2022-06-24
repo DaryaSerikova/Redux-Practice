@@ -118,6 +118,63 @@ export const Messages = ({
       messageState: messageState
     }
 
+    const getMessageType = (mess)  => {
+
+      let message = mess;
+      // console.log('(getMessageType) message', message)
+
+      switch(true) {
+        case ((message.message === undefined)&&(message.messages === undefined)):
+          return 'message';
+
+        case ((message.message !== undefined) && (message.message.message === undefined) && (message.message.messages === undefined)):
+          return 'reply';
+
+        case (message.messages !== undefined):
+          return 'forward';
+
+        case ((message.message.message === undefined) && (message.message.messages !== undefined)): 
+          return 'reply(forward)';
+
+        case ((message.message.message !== undefined) && (message.message.messages === undefined)):
+          return 'reply(reply)';
+
+
+        // case ((message.messages !== undefined) && message.messages[0])
+
+        // forward(reply)
+        // forward(forward)
+      }
+    }
+
+    let messageType = getMessageType(message);
+
+    const getCertainMessage = (messageType) => {
+
+      switch(messageType) {
+        case 'message':
+          return <Message {...messageGeneralProps} />
+
+        case 'reply':
+          return <ReplyMessage {...messageGeneralProps} replyMessage={message.message} />
+
+        case 'forward':
+          return <ForwardedMessages {...messageGeneralProps} forwardedMessages={message.messages}/>
+        
+        // нужен нормальный UI для других вариаций
+        case 'reply(reply)':
+        case 'reply(forward)':
+          return <ReplyMessage {...messageGeneralProps} replyMessage={message.message} />
+        
+        default:
+          return <Message {...messageGeneralProps}/>
+
+      }
+    }
+
+    let certainMessage = getCertainMessage(messageType);
+
+
 
     return (
       <>
@@ -132,11 +189,12 @@ export const Messages = ({
             <div className="circle-instead-checkmark"></div>
           </div>
           
-          { (message.message === undefined)&&(message.messages === undefined) ?
+          {certainMessage}
+          {/* { (message.message === undefined)&&(message.messages === undefined) ?
             <Message {...messageGeneralProps} />
             : (message.messages === undefined) ? 
               <ReplyMessage {...messageGeneralProps} replyMessage={message.message} />
-              : <ForwardedMessages {...messageGeneralProps} forwardedMessages={message.messages}/>}
+              : <ForwardedMessages {...messageGeneralProps} forwardedMessages={message.messages}/>} */}
 
         </div>
   
