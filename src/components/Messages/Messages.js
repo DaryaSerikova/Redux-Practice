@@ -44,7 +44,7 @@ export const Messages = ({
 
   const onChoose = (message) => {
     return (e) => {
-      // if (messageState === 'forward')
+
       if (messageState === 'select') { //Здесь рассматривать currentMessageId как предыдущее значение, message.id - текущее значение.
 
         updateToNewCurrentMessageId(message.id);

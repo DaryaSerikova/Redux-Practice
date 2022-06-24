@@ -138,14 +138,11 @@ const Panel = ({
       />}
 
       {(currentUser !== '') && <div className='wrapper-btn'>
-        <button 
-          type="submit" 
-          className='btn btn-primary custom-btn'
-        >
-        {/* <img
-          src={plane}
-        /> */}
-        Send
+        <button type="submit" className='btn btn-primary custom-btn' >
+          {/* <img
+            src={plane}
+          /> */}
+          Send
         </button>
       </div>}
 

@@ -35,15 +35,26 @@ const getSpecialNumber = (arrayOfNum, num) => {
 
 
 
-export const getCorrectFormOfWord = (currentlySelectedMessages) => {
+export const getCorrectFormOfWord = (currentlySelectedMessages, language) => {
+  // let language = 'ru';//'en'
   if (currentlySelectedMessages) {
-
     const num = `${currentlySelectedMessages.length}`;
     const arrayOfNum = num.split('');
 
-    let specialNumber = getSpecialNumber(arrayOfNum, num);
-    let wordEnd = getWordEnd(specialNumber);
-
-    return `сообщен${wordEnd}`;
+    switch(language) {
+      case 'ru':
+        let specialNumber = getSpecialNumber(arrayOfNum, num);
+        let wordEnd = getWordEnd(specialNumber);
+    
+        return `сообщен${wordEnd}`;
+      case 'en':
+        if (+num === 1) return 'message'
+        else return 'messages';
+      
+      default: 
+        return 'messages';
+    }
   }
+
+
 }
