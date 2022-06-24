@@ -1,16 +1,124 @@
+import React, { useEffect } from 'react';
+import IconButtonWithStore from '../../containers/IconButtonWithStore';
+
 import search from '../../assets/icon32.png';
 import right from '../../assets/right32.png';
 import left from '../../assets/left32.png';
 import bin from '../../assets/bin32.png';
 import cross from '../../assets/cross-mark32.png';
+import DanielHardman from '../../assets/Daniel_Hardman.jpg';
 
 
-//currentlySelectedMessages, cancelSelectedMessages, messageState, IconButtonWithStore, toggleMessageSearching, currentUser
-//onChangeSearchMessage, replyMessages, removeMessages, forwardMessages, toggleSearching
 
-//не надо:
 
-const ChatWindowHeader = () => {
+const ChatWindowHeader = ({
+  currentlySelectedMessages, 
+  messageState, 
+  toggleMessageSearching, 
+  currentUser, 
+  allStore,
+
+  updateSearchedMessages, 
+  removeGroupOfMessagesFromStore, 
+  resetSelectedMessages, 
+  messageStateIsEmpty,
+  messageStateIsReply,  
+  messageStateIsForward, 
+  showMessageSearching, 
+  hideMessageSearching,
+}) => {
+
+  let arrStoreMessage = allStore[`${currentUser}`];
+  if (arrStoreMessage === undefined) arrStoreMessage = [];
+  
+  useEffect(() => {
+    updateSearchedMessages(null); ///////////////////////////////////////////////////////
+  }, []);
+
+
+
+  const onChangeSearchMessage = (e) => {
+
+    if (e.target.value.trim()) {
+      const searchedMess = arrStoreMessage.filter((message) => 
+        message.value.toLowerCase().includes(e.target.value.toLowerCase())
+      )
+      updateSearchedMessages(searchedMess);
+
+    } else {
+      updateSearchedMessages(arrStoreMessage);
+    }
+  }
+
+  const toggleSearching = () => {
+    
+    if (allStore[`${currentUser}`].length !== 0) {
+
+      if (toggleMessageSearching === 'hide') {
+        if (currentUser !== '') showMessageSearching();
+      } else {
+        //reset input
+        //update search to message store
+        console.log('!!!!!!!!!!!!!!!!!!! arrStoreMessage (toggleSearching)', arrStoreMessage)
+        updateSearchedMessages(arrStoreMessage);
+        hideMessageSearching();
+      }
+    }
+
+  }
+
+
+  const replyMessages = () => {
+    console.log('Reply on messages ..');
+    messageStateIsReply();
+
+    // План
+    // 1. по onClick на стрелочку скрыть все иконки в header'е ChatWindow
+    // 2. messageStateIsReply
+    // 3. Скрыть все признаки выбранного сообщения, но оставить в store
+    // 4. Мини-версия replyMessage над панелью
+
+    // При нажатии на кнопку отправить:
+    // . Скрыть мини-версия replyMessage над панелью
+    // replyOnMessageFromStore('Бутафорный комментарий к reply message', currentUser, false, false, replyMessage); //'Darya Serikova'
+    // resetSelectedMessages();
+    // messageStateIsEmpty();
+    // . reset панели
+    // . reset выбранных сообщений
+
+    
+    // // Здесь начинается кусок для send при добавлении сообщения вместо бутафорного комментария
+    // let replyMessage = currentlySelectedMessages[0]; // это от изначального варианта forward
+
+    // replyOnMessageFromStore('Бутафорный комментарий к reply message', currentUser, false, false, replyMessage); //'Darya Serikova'
+    // resetSelectedMessages();
+    // messageStateIsEmpty();
+  }
+
+  const forwardMessages = () => {
+    console.log('Forward messages to ..');
+    messageStateIsForward();
+  }
+
+  const removeMessages = () => { //forwMessageId, name
+    
+    console.log('Remove messages ..');
+    
+    let name = currentUser;
+    let arrForwardIds = currentlySelectedMessages.map((selectedMessage) => selectedMessage.id);
+
+    removeGroupOfMessagesFromStore(arrForwardIds, name);
+    resetSelectedMessages();
+    messageStateIsEmpty();
+  }
+
+  const cancelSelectedMessages = () => {
+    console.log('Cancel selected messages ..')
+
+    resetSelectedMessages();
+    messageStateIsEmpty();
+  }
+
 
   return (
     <div className='window-header'>
@@ -57,3 +165,5 @@ const ChatWindowHeader = () => {
     </div>
   )
 }
+
+export default ChatWindowHeader;
