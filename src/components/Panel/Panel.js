@@ -22,6 +22,8 @@ const Panel = ({
   messageStateIsEmpty,
   resetSelectedMessages,
   forwardGroupOfMessagesFromStore,
+  hideSelectedMessage,
+
 }) => { 
 
   const formEl = useRef(null);
@@ -60,6 +62,7 @@ const Panel = ({
 
         resetSelectedMessages();
         console.log('(switch "reply") before messageStateIsEmpty');
+        hideSelectedMessage(replyMessage.id);////////// возможное решение поломки
         messageStateIsEmpty();
         break;
 
@@ -69,6 +72,10 @@ const Panel = ({
 
         resetSelectedMessages();
         console.log('(switch "forward") before messageStateIsEmpty');
+        forwardedMessages.forEach((forwardedMessage) => {
+          hideSelectedMessage(forwardedMessage.id);////////// возможное решение поломки
+        })
+
         messageStateIsEmpty();
         break;
     }

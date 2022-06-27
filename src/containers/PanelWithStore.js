@@ -13,6 +13,8 @@ import {
   replyOnMessageFromStore,
   resetSelectedMessages,
   forwardGroupOfMessagesFromStore,
+  hideSelectedMessage,
+
  } from '../redux/actions';
 
 
@@ -41,6 +43,7 @@ const mapDispatchToProps = {
   replyOnMessageFromStore,
   resetSelectedMessages,
   forwardGroupOfMessagesFromStore,
+  hideSelectedMessage,
 }
 
 const PanelWithStore = connect(mapStateToProps, mapDispatchToProps)(Panel);
