@@ -59,6 +59,7 @@ const Panel = ({
         replyOnMessageFromStore(currentMessage, currentUser, false, false, replyMessage); //'Бутафорный комментарий к reply message','Darya Serikova'
 
         resetSelectedMessages();
+        console.log('(switch "reply") before messageStateIsEmpty');
         messageStateIsEmpty();
         break;
 
@@ -67,6 +68,7 @@ const Panel = ({
         forwardGroupOfMessagesFromStore(currentMessage, currentUser, false, false, forwardedMessages);
 
         resetSelectedMessages();
+        console.log('(switch "forward") before messageStateIsEmpty');
         messageStateIsEmpty();
         break;
     }

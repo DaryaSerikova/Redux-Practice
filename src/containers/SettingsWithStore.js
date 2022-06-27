@@ -22,6 +22,7 @@ import {
   REMOVE_MESSAGE_FROM_SELECTED_MESSAGES,
   
   MESSAGE_STATE_IS_SELECT,
+  MESSAGE_STATE_IS_EMPTY
   } from "../redux/actions";
 import { Settings } from '../components/Settings/Settings';
 
@@ -145,6 +146,12 @@ const mapDispatchToProps = (dispatch) => {
       dispatch({
         type: REMOVE_MESSAGE_FROM_SELECTED_MESSAGES, // REMOVE_MESSAGE_FROM_FORWARD_MESSAGE,
         id
+      })
+    },
+
+    messageStateIsEmpty: () => {
+      dispatch({
+        type: MESSAGE_STATE_IS_EMPTY
       })
     },
 

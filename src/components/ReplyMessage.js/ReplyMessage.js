@@ -58,8 +58,8 @@ const ReplyMessage = ({ id, value, onClick, time, edit, toggleSelectedState, isS
 
 
   const MessageWithVerticalLine = ({replyMessage}) => {
-    console.log('(replyMessage) replyMessage:', replyMessage);
-    console.log('(replyMessage) replyMessage.time:', replyMessage.time);
+    // console.log('(replyMessage) replyMessage:', replyMessage);
+    // console.log('(replyMessage) replyMessage.time:', replyMessage.time);
 
     
     return (
@@ -76,8 +76,8 @@ const ReplyMessage = ({ id, value, onClick, time, edit, toggleSelectedState, isS
 
           {/* {forwardOrReplyMess.value} */}
           {replyMessage.value}
-          {console.log('(replyMessage) replyMessage.message !== undefined', replyMessage.message !== undefined)}
-          {console.log('(replyMessage) replyMessage.message: ', replyMessage.message)}
+          {/* {console.log('(replyMessage) replyMessage.message !== undefined', replyMessage.message !== undefined)}
+          {console.log('(replyMessage) replyMessage.message: ', replyMessage.message)} */}
 
           {(replyMessage.message !== undefined) ? <MessageWithVerticalLine replyMessage={replyMessage.message}/> : ''}
 

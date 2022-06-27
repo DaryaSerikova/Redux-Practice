@@ -109,6 +109,7 @@ const ChatWindowHeader = ({
 
     removeGroupOfMessagesFromStore(arrForwardIds, name);
     resetSelectedMessages();
+    console.log('(removeMessages) before messageStateIsEmpty');
     messageStateIsEmpty();
   }
 
@@ -116,6 +117,7 @@ const ChatWindowHeader = ({
     console.log('Cancel selected messages ..')
 
     resetSelectedMessages();
+    console.log('(cancelMessages) before messageStateIsEmpty');
     messageStateIsEmpty();
   }
 

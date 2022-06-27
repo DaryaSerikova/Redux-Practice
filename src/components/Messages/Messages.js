@@ -54,11 +54,15 @@ export const Messages = ({
 
         if (toggleSelectedState === 'show') { // to do HIDE
 
-          if (currentlySelectedMessages.length === 1) messageStateIsEmpty();
-
           hideSelectedMessage(message.id);
           chooseMessageInStore(message.id, false) //id, selected
           removeFromSelectedMessages(message.id);
+
+          if (currentlySelectedMessages.length === 1) {
+          // if ((currentlySelectedMessages.length === 1) && (currentMessageId === message.id)) {
+            console.log('(conditional for currentlySelectedMessages.length === 1) before messageStateIsEmpty');
+            messageStateIsEmpty(); //// ТУТ ПОЛОМКА с forward
+          }
 
         } else { // to do SHOW
 
@@ -124,7 +128,7 @@ export const Messages = ({
       // console.log('(getMessageType) message', message)
 
       switch(true) {
-        case ((message.message === undefined)&&(message.messages === undefined)):
+        case ((message.message === undefined) && (message.messages === undefined)):
           return 'message';
 
         case ((message.message !== undefined) && (message.message.message === undefined) && (message.message.messages === undefined)):
@@ -190,11 +194,6 @@ export const Messages = ({
           </div>
           
           {certainMessage}
-          {/* { (message.message === undefined)&&(message.messages === undefined) ?
-            <Message {...messageGeneralProps} />
-            : (message.messages === undefined) ? 
-              <ReplyMessage {...messageGeneralProps} replyMessage={message.message} />
-              : <ForwardedMessages {...messageGeneralProps} forwardedMessages={message.messages}/>} */}
 
         </div>
   

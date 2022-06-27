@@ -1,4 +1,3 @@
-import { messageStateIsEmpty } from "../../redux/actions"; // ????????????????????????????
 
 
 
@@ -8,6 +7,8 @@ export const Settings = ({
   messageStateIsCreate, 
   messageStateIsEdit,
   messageStateIsSelect,
+  messageStateIsForward,
+  messageStateIsEmpty,
   updateToNewCurrentMessage, 
   removeMessageFromStore,
   addToSelectedMessages,
@@ -16,7 +17,6 @@ export const Settings = ({
   chooseMessageInStore,
   hideSelectedMessage, 
   showSelectedMessage,
-  messageStateIsForward,
   resetSelectedMessages,
   message }) => {
 
@@ -58,6 +58,8 @@ export const Settings = ({
   const cancelEdit = () => {
     updateToNewCurrentMessage('');
     // messageStateIsCreate(); ////////////   почему create то?????
+    console.log('(cancelEdit) before messageStateIsEmpty');
+
     messageStateIsEmpty();
   }
 

@@ -29,6 +29,7 @@ export const Users = ({
   
       if (messageState === "reply" || (currentlySelectedMessages.length!==0 && messageState === "create")) {
         resetSelectedMessages()
+        console.log('(reset onClick another user) before messageStateIsEmpty');
         messageStateIsEmpty()
       }
   
