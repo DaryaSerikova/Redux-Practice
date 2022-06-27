@@ -46,30 +46,10 @@ const ForwardedMessage = ({forwardedMessages, toggleSelectedState, WhiteOrGrayBa
 
         <div 
           id={forwardedMessage.id} 
-          // className={`forward-message ${(!isSelect) ? 'hide' : (messageState!=='reply' || messageState!=='forward') ? toggleSelectedState : 'hide'}-message`}
-          // className={`forward-message ${(!isSelect) ? 'hide' : (messageState==='select') ? toggleSelectedState : 'hide'}-message`}
           className={`forward-message ${WhiteOrGrayBackground}-message`}
-
-
-          
-    
           value={forwardedMessage.value} 
         >
           <MessWithVeticalLine forwardedMessage={forwardedMessage} convertedDate={convertedDate}/>
-          {/* <div className='message-with-vertical-line'>
-              <div className='vertical-line'></div>
-              <div className='reply-message'>
-    
-              <div className='message-info'>
-                <div className='message-sender'>Darya Serikova</div>
-                <div className='date-and-time'>{convertedDate} at {forwardedMessage.time}</div>
-              </div>
-    
-              {forwardedMessage.value}
-    
-              </div>
-          </div> */}
-
         </div>
       </>
     )
@@ -81,7 +61,6 @@ const ForwardedMessage = ({forwardedMessages, toggleSelectedState, WhiteOrGrayBa
 
 const ForwardedMessages = ({id, value, onClick, time, edit, toggleSelectedState, isSelect, forwardedMessages, messageState}) => { //messageGeneralProps, forwardedMessages
 // const ForwardedMessages = (messageGeneralProps, {forwardedMessages}) => { //{id, value, onClick, time, edit, toggleSelectedState, isSelect, forwardedMessages}
-
   // let {id, value, onClick, time, edit, toggleSelectedState, isSelect} = messageGeneralProps;
 
 
@@ -94,11 +73,6 @@ const ForwardedMessages = ({id, value, onClick, time, edit, toggleSelectedState,
       <div 
         onClick={onClick} 
         className={`wrapper-forward-messages ${WhiteOrGrayBackground}-message`}
-
-        // className={`wrapper-forward-messages ${(!isSelect) ? 'hide' : !(messageState!=='reply' || messageState!=='forward') ? toggleSelectedState : 'hide'}-message`}
-        // className={`wrapper-forward-messages ${(isSelect) ? toggleSelectedState : 'hide'}-message`}
-        // className={`wrapper-forward-messages`}
-
         id={id} 
         value={value} 
       >
