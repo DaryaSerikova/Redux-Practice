@@ -5,7 +5,7 @@ import '../Message/Message.css';
 
 
 
-const ReplyMessage = ({ id, value, onClick, time, edit, toggleSelectedState, isSelect, replyMessage, 
+const ReplyMessage = ({ id, value, onClick, time, edit, toggleSelectedState, isSelect, replyMessage, messageState,
   // messageState, 
   // forwardedMessage 
 }) => { //messageGeneralProps, forwardedMessage
@@ -90,6 +90,8 @@ const ReplyMessage = ({ id, value, onClick, time, edit, toggleSelectedState, isS
     )
   }
 
+  let WhiteOrGrayBackgroundReply = (!isSelect) ? 'hide' : (messageState==='select') ? toggleSelectedState : 'hide';
+
 
   return (
     <div 
@@ -97,7 +99,10 @@ const ReplyMessage = ({ id, value, onClick, time, edit, toggleSelectedState, isS
       // className={`${(messageState === 'reply') ? `message`: (messageState === 'forward') ? 'forward-message' : ''} ${(isSelect) ? toggleSelectedState : 'hide'}-message`}
       // value={(messageState === 'reply') ? value: (messageState === 'forward') ? forwardedMessage.value : ''} //{}
       id={id}
-      className={`message ${(isSelect) ? toggleSelectedState : 'hide'}-message`}
+      // className={`message ${(isSelect) ? toggleSelectedState : 'hide'}-message`}
+      // className={`message ${(!isSelect) ? 'hide' : (messageState!=='reply' || messageState!=='forward') ? toggleSelectedState : 'hide'}-message`}
+      className={`message ${WhiteOrGrayBackgroundReply}-message`}
+
       value={value}
       onClick={onClick}
       >

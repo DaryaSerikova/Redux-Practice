@@ -25,3 +25,11 @@
   font-size: 10pt;
   color: #36a6dc;
 }
+
+.show-message {
+  background-color: white !important;
+}
+
+/* .hide-message {
+  background-color: whitesmoke !important;
+} */

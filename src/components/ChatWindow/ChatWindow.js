@@ -30,7 +30,7 @@ const ChatWindow = ({
 
           <div className={`chat-window`}>
             {console.log('allStore[`${currentUser}`]:', allStore[`${currentUser}`])}
-            {console.log('currentUser:', currentUser)}
+            {/* {console.log('currentUser:', currentUser)} */}
 
             {(currentUser !== '' || allStore[`${currentUser}`] !== undefined)
             ? (allStore[`${currentUser}`].length === 0) ? textIfStoreIsEmpty : <MessagesWithStore arrStoreMessage={searchedMessages}/> 
