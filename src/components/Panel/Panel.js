@@ -31,6 +31,7 @@ const Panel = ({
   useEffect(() => {
 
     if (currentUser !== '') { // ВАЖНОЕ УСЛОВИЕ
+      console.log('useEffect связанный с updateSearchedMessage(allStore[`${currentUser}`])')
       updateSearchedMessages(allStore[`${currentUser}`]); /// ВАЖНАЯ СТРОЧКА
     }
 
@@ -62,7 +63,7 @@ const Panel = ({
 
         resetSelectedMessages();
         console.log('(switch "reply") before messageStateIsEmpty');
-        hideSelectedMessage(replyMessage.id);////////// возможное решение поломки
+        hideSelectedMessage(replyMessage.id);////////// решение поломки с forward и reply
         messageStateIsEmpty();
         break;
 
@@ -73,7 +74,7 @@ const Panel = ({
         resetSelectedMessages();
         console.log('(switch "forward") before messageStateIsEmpty');
         forwardedMessages.forEach((forwardedMessage) => {
-          hideSelectedMessage(forwardedMessage.id);////////// возможное решение поломки
+          hideSelectedMessage(forwardedMessage.id);////////// решение поломки с forward и reply
         })
 
         messageStateIsEmpty();

@@ -36,13 +36,7 @@ const ForwardedMessage = ({forwardedMessages, toggleSelectedState, WhiteOrGrayBa
 
     return (
       <>
-        {/* {console.log('isSelect', isSelect)} */}
         {console.log('toggleSelectedState', toggleSelectedState)}
-
-        {/* <ReplyMessage 
-          messageGeneralProps={messageGeneralProps}
-          forwardedMessage={forwardedMessage} 
-        /> */}
 
         <div 
           id={forwardedMessage.id} 
@@ -65,7 +59,6 @@ const ForwardedMessages = ({id, value, onClick, time, edit, toggleSelectedState,
 
 
   const messEdited = edit ? '(edited)' : '';
-  // console.log('value:', value, ', id:', id, ', time:', time)
   let WhiteOrGrayBackground = (!isSelect) ? 'hide' : (messageState==='select') ? toggleSelectedState : 'hide';
 
 
@@ -77,8 +70,12 @@ const ForwardedMessages = ({id, value, onClick, time, edit, toggleSelectedState,
         value={value} 
       >
         <div className='value-forward-messages'>{value}</div>
-        {/* <ForwardedMessage forwardedMessages={forwardedMessages} messageGeneralProps={messageGeneralProps}/> */}
-        <ForwardedMessage forwardedMessages={forwardedMessages} toggleSelectedState={toggleSelectedState} isSelect={isSelect} WhiteOrGrayBackground={WhiteOrGrayBackground}/>
+
+        <ForwardedMessage 
+          forwardedMessages={forwardedMessages} 
+          toggleSelectedState={toggleSelectedState} 
+          isSelect={isSelect} 
+          WhiteOrGrayBackground={WhiteOrGrayBackground}/>
         <div className='message-time'>{time}{messEdited}</div>
     
       </div>

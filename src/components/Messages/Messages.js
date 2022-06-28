@@ -4,6 +4,8 @@ import SettingsWithStore from "../../containers/SettingsWithStore";
 import Message from "../Message/Message";
 import ReplyMessage from "../ReplyMessage.js/ReplyMessage";
 import ForwardedMessages from "../ForwardedMessages/ForwardedMessages";
+import { getIsSelect } from "../../utils/getIsSelect";
+import { getMessageType } from "../../utils/getMessageType";
 
 import checkmark from '../../assets/checkmark_blue32.png';
 import './Messages.css';
@@ -59,9 +61,8 @@ export const Messages = ({
           removeFromSelectedMessages(message.id);
 
           if (currentlySelectedMessages.length === 1) {
-          // if ((currentlySelectedMessages.length === 1) && (currentMessageId === message.id)) {
             console.log('(conditional for currentlySelectedMessages.length === 1) before messageStateIsEmpty');
-            messageStateIsEmpty(); //// ТУТ ПОЛОМКА с forward
+            messageStateIsEmpty(); //// ТУТ ПОЛОМКА с forward (решена)
           }
 
         } else { // to do SHOW
@@ -100,10 +101,7 @@ export const Messages = ({
     let arrId = currentlySelectedMessages.map((forwardMess) => {
       return forwardMess.id
     })
-
-    let selectedId = arrId.find(id => id === message.id);
-    if (selectedId === undefined) selectedId = false;
-    let isSelect = (selectedId !== false) ? true : false;
+    let isSelect = getIsSelect(arrId, message);
 
     let res = toggleSelectedMessage.filter((selectMess) => selectMess.id === message.id)[0];
     let toggleSelectedState = res !== undefined ? res.toggleState : 'hide';
@@ -120,35 +118,6 @@ export const Messages = ({
       isSelect: isSelect,
       onClick: onClick(message),
       messageState: messageState
-    }
-
-    const getMessageType = (mess)  => {
-
-      let message = mess;
-      // console.log('(getMessageType) message', message)
-
-      switch(true) {
-        case ((message.message === undefined) && (message.messages === undefined)):
-          return 'message';
-
-        case ((message.message !== undefined) && (message.message.message === undefined) && (message.message.messages === undefined)):
-          return 'reply';
-
-        case (message.messages !== undefined):
-          return 'forward';
-
-        case ((message.message.message === undefined) && (message.message.messages !== undefined)): 
-          return 'reply(forward)';
-
-        case ((message.message.message !== undefined) && (message.message.messages === undefined)):
-          return 'reply(reply)';
-
-
-        // case ((message.messages !== undefined) && message.messages[0])
-
-        // forward(reply)
-        // forward(forward)
-      }
     }
 
     let messageType = getMessageType(message);
@@ -180,16 +149,31 @@ export const Messages = ({
 
 
 
+    console.log('currentlySelectedMessages', currentlySelectedMessages)
+
+    let oneMessage = ((currentlySelectedMessages !== undefined) && (currentlySelectedMessages !== [])) ? currentlySelectedMessages[0] : '';
+    let currentUserWithSelectedMessages = (oneMessage !== undefined) ? oneMessage.name : '';
+
+    // console.log('oneMessage', oneMessage);
+    // console.log('currentUserWithSelectedMessages', currentUserWithSelectedMessages)
+    // if (currentlySelectedMessages !== undefined)
+
+
+
     return (
       <>
         <div className={`wrapper-message ${(messageState === 'select') ? 'space-between' : ''} ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') ? 'hide' : toggleSelectedState }-choised-message`} onClick={onChoose(message)}>
           <img
           className={`checkmark-icon ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') ? 'hide' : toggleSelectedState}-checkmark-icon`}
+          // className={`checkmark-icon ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') && (currentUserWithSelectedMessages !== currentUser) ? 'hide' : toggleSelectedState}-checkmark-icon`}
+
           alt="checkmark-icon"
           src={checkmark}
           />
 
           <div className={`${(messageState === 'select') && 'space-between'} ${(!isSelect && (messageState === 'select')) ? '' : 'hide'}`}>
+          {/* <div className={`${(messageState === 'select') && 'space-between'} ${(!isSelect && (messageState === 'select')) ? '' : 'hide'}`}> */}
+
             <div className="circle-instead-checkmark"></div>
           </div>
           
