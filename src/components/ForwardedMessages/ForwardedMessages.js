@@ -7,32 +7,104 @@ const ForwardedMessage = ({forwardedMessages, toggleSelectedState, WhiteOrGrayBa
 // const ForwardedMessage = (messageGeneralProps, forwardedMessages) => {//  //{forwardedMessages, toggleSelectedState, isSelect} 
 //   let {toggleSelectedState, isSelect} = messageGeneralProps;
 
-  console.log('forwardedMessages', forwardedMessages);
+  console.log('all forwarded messages', forwardedMessages);
 
 
-  const MessWithVeticalLine = ({ forwardedMessage, convertedDate }) => {
+  // const MessWithVeticalLine = ({ forwardedMessage, convertedDate }) => {
 
-    return (
-      <div className='message-with-vertical-line'>
-        <div className='vertical-line'></div>
-        <div className='reply-message'>
+  //   return (
+  //     <div className='message-with-vertical-line'>
+  //       <div className='vertical-line'></div>
+  //       <div className='reply-message'>
 
-        <div className='message-info'>
-          <div className='message-sender'>Darya Serikova</div>
-          <div className='date-and-time'>{convertedDate} at {forwardedMessage.time}</div>
-        </div>
+  //       <div className='message-info'>
+  //         <div className='message-sender'>Darya Serikova</div>
+  //         <div className='date-and-time'>{convertedDate} at {forwardedMessage.time}</div>
+  //       </div>
 
-        {forwardedMessage.value}
+  //       {forwardedMessage.value}
+  //       {(forwardedMessage.messages !== undefined) ? <MessWithVeticalLine forwardedMessage={forwardedMessage.messages}/>}
 
-        </div>
-      </div>
-    )
-  }
+  //       </div>
+  //     </div>
+  //   )
+  // }
 
-  const ForwardedMess = forwardedMessages.map((forwardedMessage)=> {
+  const ForwardedMess = forwardedMessages.map((forwardedMessage) => {
     // console.log("One forwardedMessage", forwardedMessage)
+
+    // if ()
     
     let convertedDate = getDateConverting(forwardedMessage.date);
+    console.log('(ForwardedMess) forwardedMessage', forwardedMessage);
+
+
+    const MessWithVeticalLine = ({ forwardedMessage, convertedDate }) => {
+      console.log('(MessWithVeticalLine) forwardedMessage', forwardedMessage)
+      console.log('(MessWithVeticalLine) forwardedMessage.length', forwardedMessage.length)
+      // if(forwardedMessage.length)
+      // if (forwardedMessage.messages !== undefined) {
+      //   console.log('(MessWithVeticalLine, if) forwardedMessage.messages:', forwardedMessage.messages)
+      //   console.log('(MessWithVeticalLine, if) forwardedMessage.messages.date:', forwardedMessage.messages.date)
+      //   let subForwardedMessages = forwardedMessage.messages;
+      //   let subForwardedMess = subForwardedMessages.map((subForwardedMessage) => {
+      //     let subConvertedDate = getDateConverting(subForwardedMessage.date);
+      //     console.log('subConvertedDate', subConvertedDate)
+      //     console.log('subForwardedMessage', subForwardedMessage)
+
+
+      //     return <MessWithVeticalLine forwardedMessage={subForwardedMessage} convertedDate={subConvertedDate}/>
+      //   })
+      //   return subForwardedMess;
+
+      // }
+      
+
+      let subForwardedMessages = (forwardedMessage.messages !== undefined) ? forwardedMessage.messages : '';
+
+      let getSubForwardedMess = (subForwardedMessages) => { 
+        if (subForwardedMessages !== '') {
+          let result = subForwardedMessages.map((subForwardedMessage) => {
+            let subConvertedDate = getDateConverting(subForwardedMessage.date);
+            console.log('subConvertedDate', subConvertedDate)
+            console.log('subForwardedMessage', subForwardedMessage)
+    
+    
+            return <MessWithVeticalLine forwardedMessage={subForwardedMessage} convertedDate={subConvertedDate}/>
+          })
+          return result;
+        } else {
+          return '';
+        }
+}
+      let subForwardedMess = (forwardedMessage.messages !== undefined) ? getSubForwardedMess(subForwardedMessages) : '';
+
+
+
+
+      // let subConvertedDate = (forwardedMessage.messages !== undefined) ? getDateConverting(forwardedMessage.messages.date) : '';
+
+      return (
+        <div className='message-with-vertical-line'>
+          <div className='vertical-line'></div>
+          <div className='reply-message'>
+  
+          <div className='message-info'>
+            <div className='message-sender'>Darya Serikova</div>
+            <div className='date-and-time'>{convertedDate} at {forwardedMessage.time}</div>
+          </div>
+  
+          {forwardedMessage.value}
+          {/* {(forwardedMessage.messages !== undefined) ? <MessWithVeticalLine forwardedMessage={forwardedMessage.messages} convertedDate={subConvertedDate}/> : ''} */}
+          {/* {(forwardedMessage.messages !== undefined) ? <MessWithVeticalLine forwardedMessage={forwardedMessage.messages} convertedDate={convertedDate}/> : ''} */}
+          {(forwardedMessage.messages !== undefined) ? subForwardedMess : ''}
+  
+          </div>
+        </div>
+      )
+    }
+
+
 
     return (
       <>

@@ -30,6 +30,7 @@ const ReplyMessage = ({ id, value, onClick, time, edit, toggleSelectedState, isS
           {replyMessage.value}
 
           {(replyMessage.message !== undefined) ? <MessageWithVerticalLine replyMessage={replyMessage.message}/> : ''}
+          
 
         </div>
       </div>
