@@ -1,11 +1,6 @@
 import { connect } from 'react-redux';
 import { 
-
-  // REMOVE_MESSAGE_FROM_STORE, 
-  // CHOOSE_MESSAGE_IN_STORE,
-
   UPDATE_TO_NEW_CURRENT_MESSAGE, 
-
 
   ADD_TO_SELECTED_MESSAGES,
   UPDATE_TO_NEW_CURRENT_MESSAGE_ID,
@@ -32,20 +27,6 @@ import {
 
 import { Settings } from '../components/Settings/Settings';
 
-
-
-//Messages.js and Settings.js
-
-// clickCoordinates,  
-// messageStateIsCreate, 
-// messageStateIsEdit,
-// updateToNewCurrentMessage, 
-// removeMessageFromStore,
-// addToForwardMessages,
-
-// updateToNewCurrentMessageId
-// toggleSettings
-// chooseMessageInStore
 
 
 

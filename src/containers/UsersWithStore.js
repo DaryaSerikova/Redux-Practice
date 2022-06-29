@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import { 
   updateToNewCurrentUser, 
 
-  // addNewUserToStore,
-
   updateSearchedMessages,
   hideMessageSearching,
   addLastSentMessage,

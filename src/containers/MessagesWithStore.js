@@ -1,11 +1,5 @@
 import { connect } from 'react-redux';
 import { //надо почистить
-
-
-  // ADD_NEW_MESSAGE_TO_STORE, 
-  // CHOOSE_MESSAGE_IN_STORE,//////
-
-
   UPDATE_TO_NEW_CURRENT_MESSAGE_ID, 
   HIDE_SETTINGS,
   SHOW_SETTINGS,

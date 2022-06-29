@@ -5,15 +5,18 @@ import {
   HIDE_MESSAGE_SEARCHING, 
   SHOW_MESSAGE_SEARCHING, 
   RESET_SELECTED_MESSAGES,
-  
-  REMOVE_GROUP_OF_MESSAGES_FROM_STORE,
+
+  // REMOVE_GROUP_OF_MESSAGES_FROM_STORE,
+
 } from '../redux/actions/actions';
 
 import {
   MESSAGE_STATE_IS_EMPTY,
   MESSAGE_STATE_IS_REPLY,
   MESSAGE_STATE_IS_FORWARD,
-} from '../redux/actions/messageState';
+  } from '../redux/actions/messageState';
+
+import { REMOVE_GROUP_OF_MESSAGES_FROM_STORE } from '../redux/actions/allStore';
 
 
 

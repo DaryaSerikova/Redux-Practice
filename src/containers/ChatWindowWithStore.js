@@ -8,11 +8,9 @@ import {
   RESET_SELECTED_MESSAGES,
 
 
-  // REMOVE_MESSAGE_FROM_STORE,
+  // REMOVE_GROUP_OF_MESSAGES_FROM_STORE,
+  // REPLY_ON_MESSAGE_FROM_STORE,
 
-
-  REMOVE_GROUP_OF_MESSAGES_FROM_STORE,
-  REPLY_ON_MESSAGE_FROM_STORE,
 
  } from '../redux/actions/actions';
 
@@ -22,7 +20,11 @@ import {
   MESSAGE_STATE_IS_FORWARD,
  } from '../redux/actions/messageState';
 
-import { REMOVE_MESSAGE_FROM_STORE } from '../redux/actions/allStore';
+import { 
+  REMOVE_MESSAGE_FROM_STORE,
+  REMOVE_GROUP_OF_MESSAGES_FROM_STORE,
+  REPLY_ON_MESSAGE_FROM_STORE,
+ } from '../redux/actions/allStore';
 
 
 const mapStateToProps = (state) => {

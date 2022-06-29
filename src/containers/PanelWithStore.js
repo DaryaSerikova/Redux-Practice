@@ -1,24 +1,17 @@
 import { connect } from 'react-redux';
 import Panel from '../components/Panel/Panel';
 import { 
-
-
-
-  // editMessageInStore,
-  // addNewMessageToStore, 
-
-
   updateToNewCurrentMessage, 
-
 
   updateSearchedMessages,
   hideMessageSearching,
   hideSelectedMessage,
-
-  replyOnMessageFromStore,
   resetSelectedMessages,
-  forwardGroupOfMessagesFromStore,
 
+
+  // replyOnMessageFromStore,
+  // forwardGroupOfMessagesFromStore,
+  
  } from '../redux/actions/actions';
 
 import {
@@ -30,6 +23,9 @@ import {
 import {
   editMessageInStore,
   addNewMessageToStore, 
+
+  replyOnMessageFromStore,
+  forwardGroupOfMessagesFromStore,
   } from '../redux/actions/allStore';
 
 
