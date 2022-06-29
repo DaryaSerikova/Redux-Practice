@@ -1,7 +1,7 @@
 import { 
   ADD_LAST_SENT_MESSAGE,
 
-} from "../actions/actions";
+} from "../../actions/actions";
 
 
 

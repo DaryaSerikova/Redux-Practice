@@ -1,6 +1,6 @@
 import { 
   UPDATE_TO_NEW_CURRENT_USER
-} from "../actions/actions";
+} from "../../actions/actions";
 
 
 export const currentUser = (state = '', action) => {

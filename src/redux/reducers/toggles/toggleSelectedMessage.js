@@ -1,8 +1,8 @@
-import { getIndex } from "../../utils/getIndex";
+import { getIndex } from "../../../utils/getIndex";
 import { 
   HIDE_SELECTED_MESSAGE, 
   SHOW_SELECTED_MESSAGE
-} from "../actions/actions";
+} from "../../actions/actions";
 
 
 // export const toggleSelectedMessage = (state = `hide`, action) => {

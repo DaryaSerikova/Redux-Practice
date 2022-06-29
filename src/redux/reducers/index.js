@@ -1,21 +1,20 @@
 import { combineReducers } from "redux";
 
-import { currentMessage } from "./currentMessage";
-import { allStore } from "./messageStore";
-import { currentUser } from "./currentUser";
-import { messageState } from "./messageState";
-import { currentMessageId } from "./currentMessageId";
-import { toggleSettings } from "./toggleSettings";
-import { clickCoordinates } from "./clickCoordinates";
-import { users } from "./users";
-import { messages } from "./messages";
-import { toggleMessageSearching } from "./toggleMessageSearching";
+import { allStore } from "./main/messageStore";
+import { messageState } from "./main/messageState";
+import { currentlySelectedMessages } from "./main/currentlySelectedMessages";
 
-// import { currentForwardMessages } from "./currentForwardMessages";
-import { currentlySelectedMessages } from "./currentlySelectedMessages";
+import { currentMessage } from "./currentSmth/currentMessage";
+import { currentUser } from "./currentSmth/currentUser";
+import { currentMessageId } from "./currentSmth/currentMessageId";
+import { toggleMessageSearching } from "./toggles/toggleMessageSearching";
+import { toggleSelectedMessage } from "./toggles/toggleSelectedMessage";
+import { toggleSettings } from "./toggles/toggleSettings";
+import { clickCoordinates } from "./others/clickCoordinates";
+import { users } from "./others/users";
+import { messages } from "./others/messages";
 
-import { toggleSelectedMessage } from "./toggleSelectedMessage";
-import { lastSentMessages } from "./lastSentMessages";
+import { lastSentMessages } from "./others/lastSentMessages";
 
 
 export default combineReducers({
@@ -29,10 +28,8 @@ export default combineReducers({
   users,
   messages,
   toggleMessageSearching,
-
-  // currentForwardMessages,
   currentlySelectedMessages,
-
   toggleSelectedMessage,
+
   lastSentMessages,
 });

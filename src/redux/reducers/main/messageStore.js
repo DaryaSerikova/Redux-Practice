@@ -1,5 +1,5 @@
-import { getCurrentMessageInfo } from "../../utils/getCurrentMessageInfo";
-import { getIndex } from "../../utils/getIndex"
+import { getCurrentMessageInfo } from "../../../utils/getCurrentMessageInfo";
+import { getIndex } from "../../../utils/getIndex"
 import { 
   ADD_NEW_MESSAGE_TO_STORE,
   EDIT_MESSAGE_IN_STORE, 
@@ -10,7 +10,7 @@ import {
   REMOVE_GROUP_OF_MESSAGES_FROM_STORE,
   REPLY_ON_MESSAGE_FROM_STORE,
   FORWARD_GROUP_OF_MESSAGES_FROM_STORE,
-} from "../actions/allStore";
+} from "../../actions/allStore";
 
 
 

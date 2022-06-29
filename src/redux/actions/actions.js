@@ -31,8 +31,6 @@ export const updateToNewCurrentMessage = (value) => ({
 
 
 
-
-
 export const updateToNewCurrentUser = (name) => ({
   type: UPDATE_TO_NEW_CURRENT_USER,
   name

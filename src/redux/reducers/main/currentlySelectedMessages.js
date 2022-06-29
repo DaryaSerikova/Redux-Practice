@@ -1,4 +1,4 @@
-import { getIndex } from "../../utils/getIndex";
+import { getIndex } from "../../../utils/getIndex";
 import { 
   // UPDATE_TO_NEW_CURRENT_FORWARD_MESSAGES,
 
@@ -6,7 +6,7 @@ import {
   RESET_SELECTED_MESSAGES,
   REMOVE_MESSAGE_FROM_SELECTED_MESSAGES,
 
-} from "../actions/currentlySelectedMessages";
+} from "../../actions/currentlySelectedMessages";
 
 const getUniqueArray = (arr) => {
   let s = new Set(arr);

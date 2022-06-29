@@ -1,7 +1,7 @@
 import { 
   SEARCHED_USERS
-} from "../actions/actions";
-import { arrUsers } from "../../components/Users/ArrUsers";
+} from "../../actions/actions";
+import { arrUsers } from "../../../components/Users/ArrUsers";
 
 
 export const users = (state = arrUsers, action) => { //state = []
