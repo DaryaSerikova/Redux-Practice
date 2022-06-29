@@ -1,5 +1,5 @@
-import { getTime } from "../utils/getTime";
-import { messages } from "./reducers/messages";
+import { getTime } from "../../utils/getTime";
+import { messages } from "../reducers/messages";
 
 //Actions
 export const UPDATE_TO_NEW_CURRENT_MESSAGE = 'UPDATE_TO_NEW_CURRENT_MESSAGE';
@@ -12,12 +12,16 @@ export const CHOOSE_MESSAGE_IN_STORE = 'CHOOSE_MESSAGE_IN_STORE'////////////////
 export const REMOVE_MESSAGE_FROM_STORE = 'REMOVE_MESSAGE_FROM_STORE';
 export const ADD_NEW_USER_TO_STORE = 'ADD_NEW_USER_TO_STORE';
 
-export const MESSAGE_STATE_IS_CREATE = 'MESSAGE_STATE_IS_CREATE';
-export const MESSAGE_STATE_IS_EDIT = 'MESSAGE_STATE_IS_EDIT';
-export const MESSAGE_STATE_IS_REPLY = 'MESSAGE_STATE_IS_REPLY';
-export const MESSAGE_STATE_IS_FORWARD = 'MESSAGE_STATE_IS_FORWARD'; ///////////////////////////
-export const MESSAGE_STATE_IS_SELECT = 'MESSAGE_STATE_IS_SELECT';
-export const MESSAGE_STATE_IS_EMPTY = 'MESSAGE_STATE_IS_EMPTY';
+
+
+// export const MESSAGE_STATE_IS_CREATE = 'MESSAGE_STATE_IS_CREATE';
+// export const MESSAGE_STATE_IS_EDIT = 'MESSAGE_STATE_IS_EDIT';
+// export const MESSAGE_STATE_IS_REPLY = 'MESSAGE_STATE_IS_REPLY';
+// export const MESSAGE_STATE_IS_FORWARD = 'MESSAGE_STATE_IS_FORWARD'; ///////////////////////////
+// export const MESSAGE_STATE_IS_SELECT = 'MESSAGE_STATE_IS_SELECT';
+// export const MESSAGE_STATE_IS_EMPTY = 'MESSAGE_STATE_IS_EMPTY';
+
+
 
 export const UPDATE_TO_NEW_CURRENT_MESSAGE_ID = 'UPDATE_TO_NEW_CURRENT_MESSAGE_ID';
 
@@ -137,30 +141,41 @@ export const updateToNewCurrentUser = (name) => ({
 });
 
 
+
+
+
+
+
 //for stateMessage
-export const messageStateIsCreate = () => ({
-  type: MESSAGE_STATE_IS_CREATE
-});
+// export const messageStateIsCreate = () => ({
+//   type: MESSAGE_STATE_IS_CREATE
+// });
 
-export const messageStateIsEdit = () => ({
-  type: MESSAGE_STATE_IS_EDIT
-});
+// export const messageStateIsEdit = () => ({
+//   type: MESSAGE_STATE_IS_EDIT
+// });
 
-export const messageStateIsReply = () => ({
-  type: MESSAGE_STATE_IS_REPLY
-});
+// export const messageStateIsReply = () => ({
+//   type: MESSAGE_STATE_IS_REPLY
+// });
 
-export const messageStateIsForward = () => ({
-  type: MESSAGE_STATE_IS_FORWARD
-});
+// export const messageStateIsForward = () => ({
+//   type: MESSAGE_STATE_IS_FORWARD
+// });
 
-export const messageStateIsSelect = () => ({
-  type: MESSAGE_STATE_IS_SELECT
-});
+// export const messageStateIsSelect = () => ({
+//   type: MESSAGE_STATE_IS_SELECT
+// });
 
-export const messageStateIsEmpty = () => ({
-  type: MESSAGE_STATE_IS_EMPTY
-});
+// export const messageStateIsEmpty = () => ({
+//   type: MESSAGE_STATE_IS_EMPTY
+// });
+
+
+
+
+
+
 
 
 export const updateToNewCurrentMessageId = (id) => ({

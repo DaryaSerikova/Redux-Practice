@@ -4,18 +4,25 @@ import {
   editMessageInStore,
   updateToNewCurrentMessage, 
   addNewMessageToStore, 
-  messageStateIsCreate, 
-  messageStateIsEdit,
-  messageStateIsEmpty,
+
+  // messageStateIsCreate, 
+  // messageStateIsEdit,
+  // messageStateIsEmpty,
+
   updateSearchedMessages,
   hideMessageSearching,
-  // messageStateIsReply,
   replyOnMessageFromStore,
   resetSelectedMessages,
   forwardGroupOfMessagesFromStore,
   hideSelectedMessage,
 
- } from '../redux/actions';
+ } from '../redux/actions/actions';
+
+import {
+  messageStateIsCreate, 
+  messageStateIsEdit,
+  messageStateIsEmpty,
+ } from '../redux/actions/messageState';
 
 
   

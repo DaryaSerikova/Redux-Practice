@@ -127,13 +127,6 @@ const Panel = ({
             src={editCross}
           />
         </div>
-        {/* <img 
-        className={``}
-        alt={``}
-        src={editCross}
-      /> */}
-        {/* {<IconButtonWithStore src={editCross} className={``} name='cross' onClick={cancelEdit}/>} */}
-        {/* <div className={`${(messageState !== 'edit')&&'hide'} cross`} onClick={cancelEdit}>&#9587;</div> */}
       </div>}
 
       {(currentUser !== '') &&
@@ -149,9 +142,6 @@ const Panel = ({
 
       {(currentUser !== '') && <div className='wrapper-btn'>
         <button type="submit" className='btn btn-primary custom-btn' >
-          {/* <img
-            src={plane}
-          /> */}
           Send
         </button>
       </div>}

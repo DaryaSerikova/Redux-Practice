@@ -1,6 +1,6 @@
 import { 
   UPDATE_COORDINATES
-} from "../actions";
+} from "../actions/actions";
 
 
 export const clickCoordinates = (state = { x:0, y:0 }, action) => {

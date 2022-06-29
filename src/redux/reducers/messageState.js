@@ -5,7 +5,7 @@ import {
   MESSAGE_STATE_IS_FORWARD,
   MESSAGE_STATE_IS_SELECT,
   MESSAGE_STATE_IS_EMPTY,
-} from "../actions";
+} from "../actions/messageState";
 
 
 export const messageState = (state = 'create', action) => {

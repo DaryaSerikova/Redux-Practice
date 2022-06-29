@@ -33,7 +33,6 @@ const ForwardedMessage = ({forwardedMessages, toggleSelectedState, WhiteOrGrayBa
   const ForwardedMess = forwardedMessages.map((forwardedMessage) => {
     // console.log("One forwardedMessage", forwardedMessage)
 
-    // if ()
     
     let convertedDate = getDateConverting(forwardedMessage.date);
     console.log('(ForwardedMess) forwardedMessage', forwardedMessage);
@@ -41,23 +40,7 @@ const ForwardedMessage = ({forwardedMessages, toggleSelectedState, WhiteOrGrayBa
 
     const MessWithVeticalLine = ({ forwardedMessage, convertedDate }) => {
       console.log('(MessWithVeticalLine) forwardedMessage', forwardedMessage)
-      console.log('(MessWithVeticalLine) forwardedMessage.length', forwardedMessage.length)
-      // if(forwardedMessage.length)
-      // if (forwardedMessage.messages !== undefined) {
-      //   console.log('(MessWithVeticalLine, if) forwardedMessage.messages:', forwardedMessage.messages)
-      //   console.log('(MessWithVeticalLine, if) forwardedMessage.messages.date:', forwardedMessage.messages.date)
-      //   let subForwardedMessages = forwardedMessage.messages;
-      //   let subForwardedMess = subForwardedMessages.map((subForwardedMessage) => {
-      //     let subConvertedDate = getDateConverting(subForwardedMessage.date);
-      //     console.log('subConvertedDate', subConvertedDate)
-      //     console.log('subForwardedMessage', subForwardedMessage)
-
-
-      //     return <MessWithVeticalLine forwardedMessage={subForwardedMessage} convertedDate={subConvertedDate}/>
-      //   })
-      //   return subForwardedMess;
-
-      // }
+      // console.log('(MessWithVeticalLine) forwardedMessage.length', forwardedMessage.length)
       
 
       let subForwardedMessages = (forwardedMessage.messages !== undefined) ? forwardedMessage.messages : '';
@@ -66,9 +49,8 @@ const ForwardedMessage = ({forwardedMessages, toggleSelectedState, WhiteOrGrayBa
         if (subForwardedMessages !== '') {
           let result = subForwardedMessages.map((subForwardedMessage) => {
             let subConvertedDate = getDateConverting(subForwardedMessage.date);
-            console.log('subConvertedDate', subConvertedDate)
-            console.log('subForwardedMessage', subForwardedMessage)
-    
+            // console.log('subConvertedDate', subConvertedDate)
+            // console.log('subForwardedMessage', subForwardedMessage)
     
             return <MessWithVeticalLine forwardedMessage={subForwardedMessage} convertedDate={subConvertedDate}/>
           })
@@ -80,9 +62,6 @@ const ForwardedMessage = ({forwardedMessages, toggleSelectedState, WhiteOrGrayBa
       let subForwardedMess = (forwardedMessage.messages !== undefined) ? getSubForwardedMess(subForwardedMessages) : '';
 
 
-
-
-      // let subConvertedDate = (forwardedMessage.messages !== undefined) ? getDateConverting(forwardedMessage.messages.date) : '';
 
       return (
         <div className='message-with-vertical-line'>

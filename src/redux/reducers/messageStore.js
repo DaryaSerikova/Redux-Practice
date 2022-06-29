@@ -9,7 +9,7 @@ import {
   REMOVE_GROUP_OF_MESSAGES_FROM_STORE,
   REPLY_ON_MESSAGE_FROM_STORE,
   FORWARD_GROUP_OF_MESSAGES_FROM_STORE,
-} from "../actions";
+} from "../actions/actions";
 
 
 

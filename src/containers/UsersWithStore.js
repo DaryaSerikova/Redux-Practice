@@ -6,10 +6,11 @@ import {
   updateSearchedMessages,
   hideMessageSearching,
   addLastSentMessage,
-  messageStateIsEmpty,
   resetSelectedMessages,
   currentlySelectedMessages,
- } from "../redux/actions";
+ } from "../redux/actions/actions";
+
+import { messageStateIsEmpty } from "../redux/actions/messageState";
 
 
 const mapStateToProps = (state) => {

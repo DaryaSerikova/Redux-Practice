@@ -1,28 +1,31 @@
 import { connect } from 'react-redux';
 import { //надо почистить
   ADD_NEW_MESSAGE_TO_STORE, 
-  // MESSAGE_STATE_IS_CREATE, 
-  // MESSAGE_STATE_IS_EDIT,
-  MESSAGE_STATE_IS_EMPTY, 
+
+  // MESSAGE_STATE_IS_EMPTY, 
+  // MESSAGE_STATE_IS_FORWARD,
+
   CHOOSE_MESSAGE_IN_STORE,//////
-  // REMOVE_MESSAGE_FROM_STORE, 
-  // UPDATE_TO_NEW_CURRENT_MESSAGE, 
   UPDATE_TO_NEW_CURRENT_MESSAGE_ID, 
   HIDE_SETTINGS,
   SHOW_SETTINGS,
   UPDATE_COORDINATES,
-
-  // ADD_TO_FORWARD_MESSAGES,
   ADD_TO_SELECTED_MESSAGES,
 
   SEARCHED_MESSAGES,
   HIDE_SELECTED_MESSAGE,
   SHOW_SELECTED_MESSAGE,
-  MESSAGE_STATE_IS_FORWARD,
 
   // REMOVE_MESSAGE_FROM_FORWARD_MESSAGE,
   REMOVE_MESSAGE_FROM_SELECTED_MESSAGES,
-  } from "../redux/actions";
+  } from "../redux/actions/actions";
+
+import {
+  MESSAGE_STATE_IS_EMPTY, 
+  MESSAGE_STATE_IS_FORWARD,
+  } from '../redux/actions/messageState';
+
+
 import { Messages } from '../components/Messages/Messages';
 
 // clickCoordinates,  

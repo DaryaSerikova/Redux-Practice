@@ -11,7 +11,7 @@ import {
 
   REMOVE_MESSAGE_FROM_SELECTED_MESSAGES,
   // REMOVE_MESSAGE_FROM_FORWARD_MESSAGE,
-} from "../actions";
+} from "../actions/actions";
 
 const getUniqueArray = (arr) => {
   let s = new Set(arr);

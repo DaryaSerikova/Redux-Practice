@@ -3,7 +3,7 @@ import App from '../components/App/App';
 
 import { 
   HIDE_SETTINGS,
-  } from "../redux/actions";
+  } from "../redux/actions/actions";
 
 
 const mapStateToProps = (state) => {

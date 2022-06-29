@@ -1,6 +1,6 @@
 import { 
   UPDATE_TO_NEW_CURRENT_MESSAGE,
-} from "../actions";
+} from "../actions/actions";
 
 
 export const currentMessage = (state = '', action) => {

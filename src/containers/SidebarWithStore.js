@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Sidebar from '../components/Sidebar/Sidebar';
-import { updateSearchedUsers } from '../redux/actions';
+import { updateSearchedUsers } from '../redux/actions/actions';
 
 
 const mapStateToProps = (state) => {

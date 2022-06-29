@@ -1,6 +1,6 @@
 import { 
   SEARCHED_USERS
-} from "../actions";
+} from "../actions/actions";
 import { arrUsers } from "../../components/Users/ArrUsers";
 
 

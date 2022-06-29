@@ -1,7 +1,7 @@
 import { 
   HIDE_MESSAGE_SEARCHING, 
   SHOW_MESSAGE_SEARCHING
-} from "../actions";
+} from "../actions/actions";
 
 
 export const toggleMessageSearching = (state = 'hide', action) => {

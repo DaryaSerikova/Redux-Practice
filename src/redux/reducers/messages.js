@@ -1,6 +1,6 @@
 import { 
   SEARCHED_MESSAGES
-} from "../actions";
+} from "../actions/actions";
 
 
 

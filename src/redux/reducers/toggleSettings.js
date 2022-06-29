@@ -1,7 +1,7 @@
 import { 
   HIDE_SETTINGS, 
   SHOW_SETTINGS
-} from "../actions";
+} from "../actions/actions";
 
 
 export const toggleSettings = (state = 'hide', action) => {
