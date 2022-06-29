@@ -1,9 +1,3 @@
-import { getTime } from "../../utils/getTime";
-
-
-
-import { messages } from "../reducers/messages";
-
 //Actions
 export const UPDATE_TO_NEW_CURRENT_MESSAGE = 'UPDATE_TO_NEW_CURRENT_MESSAGE';
 export const UPDATE_TO_NEW_CURRENT_USER = 'UPDATE_TO_NEW_CURRENT_USER';
@@ -11,15 +5,6 @@ export const UPDATE_TO_NEW_CURRENT_MESSAGE_ID = 'UPDATE_TO_NEW_CURRENT_MESSAGE_I
 export const UPDATE_COORDINATES = 'UPDATE_COORDINATES';
 export const SEARCHED_USERS = 'SEARCHED_USERS';
 export const SEARCHED_MESSAGES = 'SEARCHED_MESSAGES';
-
-
-
-
-
-// export const ADD_TO_SELECTED_MESSAGES = 'ADD_TO_SELECTED_MESSAGES'; // SELECT_MESSAGE
-// export const RESET_SELECTED_MESSAGES = 'RESET_SELECTED_MESSAGES'; // SELECT_MESSAGE
-// export const REMOVE_MESSAGE_FROM_SELECTED_MESSAGES = 'REMOVE_MESSAGE_FROM_SELECTED_MESSAGES'; // SELECT_MESSAGE
-
 
 
 export const HIDE_SETTINGS = 'HIDE_SETTINGS';
@@ -87,6 +72,7 @@ export const updateSearchedMessages = (messages) => ({
 });
 
 
+
 export const hideMessageSearching = () => ({
   type: HIDE_MESSAGE_SEARCHING
 });
@@ -94,28 +80,6 @@ export const hideMessageSearching = () => ({
 export const showMessageSearching = () => ({
   type: SHOW_MESSAGE_SEARCHING
 });
-
-
-
-
-
-// export const addToSelectedMessages = (message) => ({ //addToForwardMessages
-//   type: ADD_TO_SELECTED_MESSAGES //ADD_TO_FORWARD_MESSAGES
-// });
-
-// export const resetSelectedMessages = () => ({ //resetForwardMessage
-//   type: RESET_SELECTED_MESSAGES, //RESET_FORWARD_MESSAGE
-// });
-
-// export const removeFromSelectedMessages = (id) => ({ //removeFromForwardMessage
-//   type: REMOVE_MESSAGE_FROM_SELECTED_MESSAGES, //REMOVE_MESSAGE_FROM_FORWARD_MESSAGE,
-//   id
-// });
-
-
-
-
-
 
 
 
