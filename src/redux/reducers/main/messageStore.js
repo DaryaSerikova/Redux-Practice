@@ -78,6 +78,8 @@ const updateMessageStore = (state = [], action) => { // Изменение од�
   }
 }
 
+
+
 export const allStore = (state = {}, action) => { // Полное хранилище с сообщениями
   switch(action.type) {
     case ADD_NEW_USER_TO_STORE:

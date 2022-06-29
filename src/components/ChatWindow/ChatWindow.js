@@ -20,6 +20,13 @@ const ChatWindow = ({
     <div className='personal-store-is-empty'> Write something to start a conversation... </div>
   </div>;
 
+  //attemp to fix autoscroll
+  // const el = document.getElementById('chat-window');
+
+  // if (el) {
+  //   el.scrollTop = el.scrollHeight;
+  // }
+
 
   return (
     <>
@@ -30,7 +37,7 @@ const ChatWindow = ({
 
         <div className='not-exist'> 
 
-          <div className={`chat-window`}>
+          <div id='chat-window' className={`chat-window`}>
             {console.log('allStore[`${currentUser}`]:', allStore[`${currentUser}`])}
             {/* {console.log('currentUser:', currentUser)} */}
 
