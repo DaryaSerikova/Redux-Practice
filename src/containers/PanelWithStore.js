@@ -6,7 +6,9 @@ import {
   updateSearchedMessages,
   hideMessageSearching,
   hideSelectedMessage,
-  resetSelectedMessages,
+
+
+  // resetSelectedMessages,
  } from '../redux/actions/actions';
 
 import {
@@ -22,6 +24,10 @@ import {
   replyOnMessageFromStore,
   forwardGroupOfMessagesFromStore,
   } from '../redux/actions/allStore';
+
+  import { resetSelectedMessages } from '../redux/actions/currentlySelectedMessages';
+
+
 
 
 

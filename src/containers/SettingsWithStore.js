@@ -2,13 +2,15 @@ import { connect } from 'react-redux';
 import { 
   UPDATE_TO_NEW_CURRENT_MESSAGE, 
 
-  ADD_TO_SELECTED_MESSAGES,
   UPDATE_TO_NEW_CURRENT_MESSAGE_ID,
   HIDE_SETTINGS,
   HIDE_SELECTED_MESSAGE,
   SHOW_SELECTED_MESSAGE,
-  RESET_SELECTED_MESSAGES,
-  REMOVE_MESSAGE_FROM_SELECTED_MESSAGES,
+
+
+  // ADD_TO_SELECTED_MESSAGES,
+  // RESET_SELECTED_MESSAGES,
+  // REMOVE_MESSAGE_FROM_SELECTED_MESSAGES,
   } from "../redux/actions/actions";
 
 import {
@@ -25,6 +27,12 @@ import {
   } from '../redux/actions/allStore';
 
 import { Settings } from '../components/Settings/Settings';
+
+import { 
+  ADD_TO_SELECTED_MESSAGES,
+  RESET_SELECTED_MESSAGES,
+  REMOVE_MESSAGE_FROM_SELECTED_MESSAGES,
+ } from '../redux/actions/currentlySelectedMessages';
 
 
 

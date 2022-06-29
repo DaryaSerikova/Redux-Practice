@@ -4,13 +4,14 @@ import { //надо почистить
   HIDE_SETTINGS,
   SHOW_SETTINGS,
   UPDATE_COORDINATES,
-  ADD_TO_SELECTED_MESSAGES,
 
   SEARCHED_MESSAGES,
   HIDE_SELECTED_MESSAGE,
   SHOW_SELECTED_MESSAGE,
 
-  REMOVE_MESSAGE_FROM_SELECTED_MESSAGES,
+
+  // ADD_TO_SELECTED_MESSAGES,
+  // REMOVE_MESSAGE_FROM_SELECTED_MESSAGES,
   } from "../redux/actions/actions";
 
 import {
@@ -23,6 +24,10 @@ import {
   CHOOSE_MESSAGE_IN_STORE,
   } from '../redux/actions/allStore';
 
+import { 
+  ADD_TO_SELECTED_MESSAGES,
+  REMOVE_MESSAGE_FROM_SELECTED_MESSAGES,
+ } from '../redux/actions/currentlySelectedMessages';
 
 import { Messages } from '../components/Messages/Messages';
 

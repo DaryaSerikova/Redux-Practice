@@ -2,16 +2,11 @@ import { getIndex } from "../../utils/getIndex";
 import { 
   // UPDATE_TO_NEW_CURRENT_FORWARD_MESSAGES,
 
-
-  // ADD_TO_FORWARD_MESSAGES,
   ADD_TO_SELECTED_MESSAGES,
-
   RESET_SELECTED_MESSAGES,
-  // RESET_FORWARD_MESSAGE,
-
   REMOVE_MESSAGE_FROM_SELECTED_MESSAGES,
-  // REMOVE_MESSAGE_FROM_FORWARD_MESSAGE,
-} from "../actions/actions";
+
+} from "../actions/currentlySelectedMessages";
 
 const getUniqueArray = (arr) => {
   let s = new Set(arr);

@@ -4,7 +4,9 @@ import {
   SEARCHED_MESSAGES, 
   HIDE_MESSAGE_SEARCHING, 
   SHOW_MESSAGE_SEARCHING, 
-  RESET_SELECTED_MESSAGES,
+
+
+  // RESET_SELECTED_MESSAGES,
 } from '../redux/actions/actions';
 
 import {
@@ -14,6 +16,7 @@ import {
   } from '../redux/actions/messageState';
 
 import { REMOVE_GROUP_OF_MESSAGES_FROM_STORE } from '../redux/actions/allStore';
+import { RESET_SELECTED_MESSAGES } from '../redux/actions/currentlySelectedMessages';
 
 
 

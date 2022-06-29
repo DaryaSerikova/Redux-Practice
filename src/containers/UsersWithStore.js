@@ -6,12 +6,17 @@ import {
   updateSearchedMessages,
   hideMessageSearching,
   addLastSentMessage,
-  resetSelectedMessages,
-  // currentlySelectedMessages,
+
+
+  // resetSelectedMessages,
+
+
  } from "../redux/actions/actions";
 
 import { messageStateIsEmpty } from "../redux/actions/messageState";
 import { addNewUserToStore } from "../redux/actions/allStore";
+import { resetSelectedMessages } from '../redux/actions/currentlySelectedMessages';
+
 
 
 
