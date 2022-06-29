@@ -1,20 +1,23 @@
 import { connect } from 'react-redux';
 import Panel from '../components/Panel/Panel';
 import { 
-  editMessageInStore,
-  updateToNewCurrentMessage, 
-  addNewMessageToStore, 
 
-  // messageStateIsCreate, 
-  // messageStateIsEdit,
-  // messageStateIsEmpty,
+
+
+  // editMessageInStore,
+  // addNewMessageToStore, 
+
+
+  updateToNewCurrentMessage, 
+
 
   updateSearchedMessages,
   hideMessageSearching,
+  hideSelectedMessage,
+
   replyOnMessageFromStore,
   resetSelectedMessages,
   forwardGroupOfMessagesFromStore,
-  hideSelectedMessage,
 
  } from '../redux/actions/actions';
 
@@ -23,6 +26,12 @@ import {
   messageStateIsEdit,
   messageStateIsEmpty,
  } from '../redux/actions/messageState';
+
+import {
+  editMessageInStore,
+  addNewMessageToStore, 
+  } from '../redux/actions/allStore';
+
 
 
   

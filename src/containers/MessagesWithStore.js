@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import { //надо почистить
-  ADD_NEW_MESSAGE_TO_STORE, 
 
-  // MESSAGE_STATE_IS_EMPTY, 
-  // MESSAGE_STATE_IS_FORWARD,
 
-  CHOOSE_MESSAGE_IN_STORE,//////
+  // ADD_NEW_MESSAGE_TO_STORE, 
+  // CHOOSE_MESSAGE_IN_STORE,//////
+
+
   UPDATE_TO_NEW_CURRENT_MESSAGE_ID, 
   HIDE_SETTINGS,
   SHOW_SETTINGS,
@@ -16,7 +16,6 @@ import { //надо почистить
   HIDE_SELECTED_MESSAGE,
   SHOW_SELECTED_MESSAGE,
 
-  // REMOVE_MESSAGE_FROM_FORWARD_MESSAGE,
   REMOVE_MESSAGE_FROM_SELECTED_MESSAGES,
   } from "../redux/actions/actions";
 
@@ -24,6 +23,11 @@ import {
   MESSAGE_STATE_IS_EMPTY, 
   MESSAGE_STATE_IS_FORWARD,
   } from '../redux/actions/messageState';
+
+import {
+  ADD_NEW_MESSAGE_TO_STORE, 
+  CHOOSE_MESSAGE_IN_STORE,
+  } from '../redux/actions/allStore';
 
 
 import { Messages } from '../components/Messages/Messages';

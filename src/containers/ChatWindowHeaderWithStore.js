@@ -1,18 +1,11 @@
 import { connect } from 'react-redux';
 import ChatWindowHeader from '../components/ChatWindowHeader.js/ChatWindowHeader';
-import { SEARCHED_MESSAGES, 
+import { 
+  SEARCHED_MESSAGES, 
   HIDE_MESSAGE_SEARCHING, 
   SHOW_MESSAGE_SEARCHING, 
   RESET_SELECTED_MESSAGES,
-
-
-
-  // MESSAGE_STATE_IS_EMPTY,
-  // MESSAGE_STATE_IS_REPLY,
-  // MESSAGE_STATE_IS_FORWARD,
-
-
-
+  
   REMOVE_GROUP_OF_MESSAGES_FROM_STORE,
 } from '../redux/actions/actions';
 

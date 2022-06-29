@@ -1,27 +1,19 @@
 import { connect } from 'react-redux';
 import { 
 
-  REMOVE_MESSAGE_FROM_STORE, 
+  // REMOVE_MESSAGE_FROM_STORE, 
+  // CHOOSE_MESSAGE_IN_STORE,
+
   UPDATE_TO_NEW_CURRENT_MESSAGE, 
 
-  // ADD_TO_FORWARD_MESSAGES,
-  ADD_TO_SELECTED_MESSAGES,
 
+  ADD_TO_SELECTED_MESSAGES,
   UPDATE_TO_NEW_CURRENT_MESSAGE_ID,
   HIDE_SETTINGS,
-  CHOOSE_MESSAGE_IN_STORE,
   HIDE_SELECTED_MESSAGE,
   SHOW_SELECTED_MESSAGE,
-
   RESET_SELECTED_MESSAGES,
   REMOVE_MESSAGE_FROM_SELECTED_MESSAGES,
-  
-  // MESSAGE_STATE_IS_SELECT,
-  // MESSAGE_STATE_IS_EMPTY,
-  // MESSAGE_STATE_IS_FORWARD,
-  // MESSAGE_STATE_IS_CREATE, 
-  // MESSAGE_STATE_IS_EDIT, 
-
   } from "../redux/actions/actions";
 
 
@@ -32,6 +24,12 @@ import {
   MESSAGE_STATE_IS_CREATE, 
   MESSAGE_STATE_IS_EDIT, 
   } from '../redux/actions/messageState';
+
+import {
+  REMOVE_MESSAGE_FROM_STORE, 
+  CHOOSE_MESSAGE_IN_STORE,
+  } from '../redux/actions/allStore';
+
 import { Settings } from '../components/Settings/Settings';
 
 

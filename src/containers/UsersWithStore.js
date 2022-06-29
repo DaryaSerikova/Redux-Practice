@@ -2,7 +2,9 @@ import { Users } from "../components/Users/Users";
 import { connect } from "react-redux";
 import { 
   updateToNewCurrentUser, 
-  addNewUserToStore,
+
+  // addNewUserToStore,
+
   updateSearchedMessages,
   hideMessageSearching,
   addLastSentMessage,
@@ -11,6 +13,9 @@ import {
  } from "../redux/actions/actions";
 
 import { messageStateIsEmpty } from "../redux/actions/messageState";
+import { addNewUserToStore } from "../redux/actions/allStore";
+
+
 
 
 const mapStateToProps = (state) => {

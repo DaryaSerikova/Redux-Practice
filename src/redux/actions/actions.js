@@ -1,10 +1,15 @@
 import { getTime } from "../../utils/getTime";
+
+
+
 import { messages } from "../reducers/messages";
 
 //Actions
 export const UPDATE_TO_NEW_CURRENT_MESSAGE = 'UPDATE_TO_NEW_CURRENT_MESSAGE';
 
 export const UPDATE_TO_NEW_CURRENT_USER = 'UPDATE_TO_NEW_CURRENT_USER';
+
+
 
 export const ADD_NEW_MESSAGE_TO_STORE = 'ADD_NEW_MESSAGE_TO_STORE';
 export const EDIT_MESSAGE_IN_STORE = 'EDIT_MESSAGE_IN_STORE';
@@ -13,13 +18,6 @@ export const REMOVE_MESSAGE_FROM_STORE = 'REMOVE_MESSAGE_FROM_STORE';
 export const ADD_NEW_USER_TO_STORE = 'ADD_NEW_USER_TO_STORE';
 
 
-
-// export const MESSAGE_STATE_IS_CREATE = 'MESSAGE_STATE_IS_CREATE';
-// export const MESSAGE_STATE_IS_EDIT = 'MESSAGE_STATE_IS_EDIT';
-// export const MESSAGE_STATE_IS_REPLY = 'MESSAGE_STATE_IS_REPLY';
-// export const MESSAGE_STATE_IS_FORWARD = 'MESSAGE_STATE_IS_FORWARD'; ///////////////////////////
-// export const MESSAGE_STATE_IS_SELECT = 'MESSAGE_STATE_IS_SELECT';
-// export const MESSAGE_STATE_IS_EMPTY = 'MESSAGE_STATE_IS_EMPTY';
 
 
 
@@ -71,6 +69,10 @@ export const updateToNewCurrentMessage = (value) => ({
 });
 
 
+
+
+
+
 export const addNewMessageToStore = (value, name, edit, selected) => ({
   type: ADD_NEW_MESSAGE_TO_STORE, 
   value: value,
@@ -80,29 +82,6 @@ export const addNewMessageToStore = (value, name, edit, selected) => ({
   edit: edit,
   selected: selected
 });
-
-export const replyOnMessageFromStore = (value, name, edit, selected, message) => ({
-  type: REPLY_ON_MESSAGE_FROM_STORE, 
-  value: value,
-  name: name,
-  date: getTime().date,
-  time: getTime().time,
-  edit: edit,
-  selected: selected,
-  message: message
-});
-
-export const forwardGroupOfMessagesFromStore = (value, name, edit, selected, messages) => ({
-  type: FORWARD_GROUP_OF_MESSAGES_FROM_STORE, 
-  value: value,
-  name: name,
-  date: getTime().date,
-  time: getTime().time,
-  edit: edit,
-  selected: selected,
-  messages: messages
-});
-
 
 export const editMessageInStore = (id, value, name, edit) => ({
   type: EDIT_MESSAGE_IN_STORE,
@@ -127,17 +106,38 @@ export const removeMessageFromStore = (id, name) => ({
   type: REMOVE_MESSAGE_FROM_STORE,
   id,
   name
-})
-
+});
 
 export const addNewUserToStore = (name) => ({
   type: ADD_NEW_USER_TO_STORE,
   name
 });
 
-export const updateToNewCurrentUser = (name) => ({
-  type: UPDATE_TO_NEW_CURRENT_USER,
-  name
+
+
+
+
+
+export const replyOnMessageFromStore = (value, name, edit, selected, message) => ({
+  type: REPLY_ON_MESSAGE_FROM_STORE, 
+  value: value,
+  name: name,
+  date: getTime().date,
+  time: getTime().time,
+  edit: edit,
+  selected: selected,
+  message: message
+});
+
+export const forwardGroupOfMessagesFromStore = (value, name, edit, selected, messages) => ({
+  type: FORWARD_GROUP_OF_MESSAGES_FROM_STORE, 
+  value: value,
+  name: name,
+  date: getTime().date,
+  time: getTime().time,
+  edit: edit,
+  selected: selected,
+  messages: messages
 });
 
 
@@ -146,33 +146,14 @@ export const updateToNewCurrentUser = (name) => ({
 
 
 
-//for stateMessage
-// export const messageStateIsCreate = () => ({
-//   type: MESSAGE_STATE_IS_CREATE
-// });
-
-// export const messageStateIsEdit = () => ({
-//   type: MESSAGE_STATE_IS_EDIT
-// });
-
-// export const messageStateIsReply = () => ({
-//   type: MESSAGE_STATE_IS_REPLY
-// });
-
-// export const messageStateIsForward = () => ({
-//   type: MESSAGE_STATE_IS_FORWARD
-// });
-
-// export const messageStateIsSelect = () => ({
-//   type: MESSAGE_STATE_IS_SELECT
-// });
-
-// export const messageStateIsEmpty = () => ({
-//   type: MESSAGE_STATE_IS_EMPTY
-// });
 
 
 
+
+export const updateToNewCurrentUser = (name) => ({
+  type: UPDATE_TO_NEW_CURRENT_USER,
+  name
+});
 
 
 

@@ -1,16 +1,14 @@
 import { connect } from 'react-redux';
 //connect - это HOC
 import ChatWindow from '../components/ChatWindow/ChatWindow'
-import { SEARCHED_MESSAGES, 
+import { 
+  SEARCHED_MESSAGES, 
   HIDE_MESSAGE_SEARCHING, 
   SHOW_MESSAGE_SEARCHING, 
-  REMOVE_MESSAGE_FROM_STORE,
   RESET_SELECTED_MESSAGES,
 
 
-  // MESSAGE_STATE_IS_EMPTY,
-  // MESSAGE_STATE_IS_REPLY,
-  // MESSAGE_STATE_IS_FORWARD,
+  // REMOVE_MESSAGE_FROM_STORE,
 
 
   REMOVE_GROUP_OF_MESSAGES_FROM_STORE,
@@ -23,6 +21,8 @@ import {
   MESSAGE_STATE_IS_REPLY,
   MESSAGE_STATE_IS_FORWARD,
  } from '../redux/actions/messageState';
+
+import { REMOVE_MESSAGE_FROM_STORE } from '../redux/actions/allStore';
 
 
 const mapStateToProps = (state) => {
