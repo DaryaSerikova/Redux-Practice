@@ -6,12 +6,6 @@ import {
   HIDE_MESSAGE_SEARCHING, 
   SHOW_MESSAGE_SEARCHING, 
   RESET_SELECTED_MESSAGES,
-
-
-  // REMOVE_GROUP_OF_MESSAGES_FROM_STORE,
-  // REPLY_ON_MESSAGE_FROM_STORE,
-
-
  } from '../redux/actions/actions';
 
 import {

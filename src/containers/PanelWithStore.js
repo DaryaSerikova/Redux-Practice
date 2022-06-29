@@ -7,11 +7,6 @@ import {
   hideMessageSearching,
   hideSelectedMessage,
   resetSelectedMessages,
-
-
-  // replyOnMessageFromStore,
-  // forwardGroupOfMessagesFromStore,
-  
  } from '../redux/actions/actions';
 
 import {

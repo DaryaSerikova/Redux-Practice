@@ -11,7 +11,6 @@ import {
   REMOVE_MESSAGE_FROM_SELECTED_MESSAGES,
   } from "../redux/actions/actions";
 
-
 import {
   MESSAGE_STATE_IS_SELECT,
   MESSAGE_STATE_IS_EMPTY,

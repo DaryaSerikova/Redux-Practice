@@ -7,7 +7,7 @@ import {
   hideMessageSearching,
   addLastSentMessage,
   resetSelectedMessages,
-  currentlySelectedMessages,
+  // currentlySelectedMessages,
  } from "../redux/actions/actions";
 
 import { messageStateIsEmpty } from "../redux/actions/messageState";
