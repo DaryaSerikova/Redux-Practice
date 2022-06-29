@@ -74,12 +74,22 @@
   border-bottom: 1px solid #ebebeb;
 }
 
-.no-user {
+/* .no-user {
   display: flex;
   justify-content: center;
 
   width: 100%;
   margin: 9rem 1rem 1rem 1rem;
+  color: #7e7e7e;
+} */
+
+.no-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 475px;
+  /* margin: 9rem 1rem 1rem 1rem; */
   color: #7e7e7e;
 }
 
@@ -142,8 +152,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 305px;
-  min-width: 400px;
+  min-height: 440px;
+  /* min-height: 305px; */
+  /* min-width: 400px; */
+  width: 100%;
 }
 
 

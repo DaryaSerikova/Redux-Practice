@@ -1,7 +1,9 @@
 .message {
     background-color: whitesmoke;
     padding: 1rem;
-    margin: 0.5rem;
+    /* margin: 0.5rem; */
+    margin: 0.5rem 1rem 0.5rem 0.5rem;
+
     border-radius: 7px;
     height: fit-content;
     width: fit-content;
@@ -58,7 +60,8 @@
     display: flex;
     flex-direction: column;
     padding: 1rem 1rem 1rem 0.5rem;
-    margin: 0.5rem;
+    margin: 0.5rem 1rem 0.5rem 0.5rem;
+    /* margin: 0.5rem; */
     border-radius: 7px;
 
     background-color: whitesmoke;
