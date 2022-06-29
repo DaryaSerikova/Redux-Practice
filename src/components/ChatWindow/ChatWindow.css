@@ -17,8 +17,11 @@
   top: 0;
 
   overflow-y: scroll;
-  height: 313px;
-  width: 420px;
+  /* height: 313px; */
+  /* width: 420px; */
+
+  height: 480px;
+  width: 500px;
 }
 
 .setting-buttons {

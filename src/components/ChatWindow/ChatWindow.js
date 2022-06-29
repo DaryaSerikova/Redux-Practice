@@ -25,7 +25,9 @@ const ChatWindow = ({
     <>
       <ChatWindowHeaderWithStore />
       
-      <div className='scroll-window' style={(messageState === 'forward') ? {height: 235} : (messageState === 'reply') ? {height: 251} : {height: 313}}>
+      {/* <div className='scroll-window' style={(messageState === 'forward') ? {height: 235} : (messageState === 'reply') ? {height: 251} : {height: 313}}> */}
+      <div className='scroll-window' style={(messageState === 'forward') ? {height: 401} : (messageState === 'reply') ? {height: 418} : {height: 480}}>
+
         <div className='not-exist'> 
 
           <div className={`chat-window`}>
