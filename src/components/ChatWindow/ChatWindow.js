@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 
 import ChatWindowHeaderWithStore from '../../containers/ChatWindowHeaderWithStore';
 import MessagesWithStore from '../../containers/MessagesWithStore';
 import MiniMessageWithStore from '../../containers/MiniMessageWithStore';
 import './ChatWindow.css';
-
 
 
 const ChatWindow = ({ 
@@ -15,17 +14,29 @@ const ChatWindow = ({
   currentlySelectedMessages,
   }) => {
 
+  //attemp to fix autoscroll
+
+  function useChatScroll(dep) {
+    const ref = useRef();
+    useEffect(() => {
+      if (ref.current) {
+        ref.current.scrollTop = ref.current.scrollHeight;
+      }
+    }, [dep]);
+    return ref;
+  }
+
+  const [messages , setMessages] = useState([])
+  const ref = useChatScroll(messages); // не переданы сообщения. Нужно придумать, как их предать, может тогда заработает
+
+
+
   const textIfStoreIsEmpty = <div className='wrapper-personal-store-is-empty'>
     <div className='personal-store-is-empty'> Message history is empty. </div>
     <div className='personal-store-is-empty'> Write something to start a conversation... </div>
   </div>;
 
-  //attemp to fix autoscroll
-  // const el = document.getElementById('chat-window');
 
-  // if (el) {
-  //   el.scrollTop = el.scrollHeight;
-  // }
 
 
   return (
@@ -37,7 +48,7 @@ const ChatWindow = ({
 
         <div className='not-exist'> 
 
-          <div id='chat-window' className={`chat-window`}>
+          <div id='chat-window' ref={ref} className={`chat-window`}>
             {console.log('allStore[`${currentUser}`]:', allStore[`${currentUser}`])}
             {/* {console.log('currentUser:', currentUser)} */}
 
