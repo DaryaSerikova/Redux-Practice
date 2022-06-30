@@ -13,6 +13,7 @@ import { toggleSettings } from "./toggles/toggleSettings";
 import { clickCoordinates } from "./others/clickCoordinates";
 import { users } from "./others/users";
 import { messages } from "./others/messages";
+import { currentUnusualMessage } from "./currentSmth/currentUnusualMessage";
 
 import { lastSentMessages } from "./others/lastSentMessages";
 
@@ -30,6 +31,7 @@ export default combineReducers({
   toggleMessageSearching,
   currentlySelectedMessages,
   toggleSelectedMessage,
+  currentUnusualMessage,
 
   lastSentMessages,
 });

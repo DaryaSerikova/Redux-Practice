@@ -16,6 +16,8 @@ export const SHOW_MESSAGE_SEARCHING = 'SHOW_MESSAGE_SEARCHING';
 export const HIDE_SELECTED_MESSAGE = 'HIDE_SELECTED_MESSAGE';
 export const SHOW_SELECTED_MESSAGE = 'SHOW_SELECTED_MESSAGE';
 
+export const UPDATE_TO_NEW_CURRENT_UNUSUAL_MESSAGE = 'UPDATE_TO_NEW_CURRENT_UNUSUAL_MESSAGE';
+
 
 
 export const ADD_LAST_SENT_MESSAGE = 'ADD_LAST_SENT_MESSAGE';
@@ -91,6 +93,10 @@ export const showSelectedMessage = (id) => ({
   id
 });
 
+export const updateToNewCurrentUnusualMessage = (message) => ({
+  type: UPDATE_TO_NEW_CURRENT_UNUSUAL_MESSAGE,
+  message
+}); 
 
 
 
