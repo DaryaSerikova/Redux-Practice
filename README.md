@@ -21,6 +21,11 @@ You can click on message and you can see settings: edit, select or remove messag
     <li>- [x] Reply to a reply message (as many times as you like)</li>
     <li>- [ ] Forward a reply message</li>
     <li>- [ ] Reply to forwarded messages</li>
+    <li>- [ ] Autoscroll when adding a new message</li>
+    <li>- [ ] Down arrow if there are messages below?</li>
+    <li>- [ ] Redo the panel in a modern way (the height of the tetarea increases with the size of the message)</li>
+    <li>- [ ] Mobile version</li>
+
 </ul>
 
 
