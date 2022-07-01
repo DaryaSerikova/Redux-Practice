@@ -1,44 +1,128 @@
 import { getDateConverting } from "../../utils/getDateConverting";
 
 
-// const MessageWithVerticalLine = ({ replyOrForwardedMessage }) => {
-const MessageWithVerticalLine = ({ replyOrForwardedMessage, convertedDate, updateToNewCurrentUnusualMessage, currentUnusualMessage }) => {
+
+// const MessageWithVerticalLine = ({ replyOrForwardedMessage, convertedDate, updateToNewCurrentUnusualMessage, currentUnusualMessage }) => {
+
+//   console.log('replyOrForwardedMessage', replyOrForwardedMessage);
+//   if (replyOrForwardedMessage.message) console.log('replyOrForwardedMessage.message', replyOrForwardedMessage.message)
+
+//   let subConvertedDate = (replyOrForwardedMessage.message !== undefined) ? getDateConverting(replyOrForwardedMessage.message.date) : ''
+//   console.log('subConvertedDate', subConvertedDate)
+
+  
+//   return (
+//     <div className='message-with-vertical-line'>
+//       <div className='vertical-line'></div>
+//       <div className='reply-message'>
+
+//         <div className='message-info'>
+//           <div className='message-sender'>Darya Serikova</div>
+//           <div className='date-and-time'>{convertedDate} at {replyOrForwardedMessage.time}</div>
+
+//         </div>
+
+//         {replyOrForwardedMessage.value}
+
+//         {(replyOrForwardedMessage.message !== undefined) ? <MessageWithVerticalLine replyMessage={replyOrForwardedMessage.message} convertedDate={subConvertedDate}/> : ''}
+
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default MessageWithVerticalLine;
 
 
-  console.log('replyOrForwardedMessage', replyOrForwardedMessage);
-  if (replyOrForwardedMessage.message) console.log('replyOrForwardedMessage.message', replyOrForwardedMessage.message)
-  // updateToNewCurrentUnusualMessage(replyOrForwardedMessage);
-  // let convertedDate = getDateConverting(replyOrForwardedMessage.date);
-  let subConvertedDate = (replyOrForwardedMessage.message !== undefined) ? getDateConverting(replyOrForwardedMessage.message.date) : ''
-  console.log('subConvertedDate', subConvertedDate)
-  // replyOrForwardedMessage = replyOrForwardedMessage === undefined ? currentUnusualMessage : replyOrForwardedMessage;
+
+// const ForwardedMessage = ({forwardedMessages, toggleSelectedState, WhiteOrGrayBackground} ) => {//  //messageGeneralProps, forwardedMessages
+const ForwardedOrReplyMessages = ({forwardedOrReplyMessages, toggleSelectedState, WhiteOrGrayBackground} ) => {//  //messageGeneralProps, forwardedMessages
+
+  
+  console.log('all forwarded or reply messages', forwardedOrReplyMessages);
+  
+  const ForwardedMess = forwardedOrReplyMessages.map((forwardedOrReplyMessage) => {
+
+
     
-  return (
-    <div className='message-with-vertical-line'>
-      <div className='vertical-line'></div>
-      <div className='reply-message'>
+    let convertedDate = getDateConverting(forwardedOrReplyMessage.date);
+    console.log('(MessageWithVertical) forwardedOrReplyMessage', forwardedOrReplyMessage);
 
-        <div className='message-info'>
-          <div className='message-sender'>Darya Serikova</div>
-          <div className='date-and-time'>{convertedDate} at {replyOrForwardedMessage.time}</div>
-          {/* <div className='date-and-time'>{convertedDate} at {currentUnusualMessage.time}</div> */}
 
+    const MessWithVeticalLine = ({ forwardedOrReplyMessage, convertedDate }) => {
+      console.log('(MessWithVeticalLine) forwardedOrReplyMessage', forwardedOrReplyMessage)
+      // console.log('(MessWithVeticalLine) forwardedMessage.length', forwardedMessage.length)
+      
+
+      let subForwardedOrReplyMessages = (forwardedOrReplyMessage.messages !== undefined) ? forwardedOrReplyMessage.messages : '';
+
+      let getSubForwardedMess = (subForwardedOrReplyMessages) => { 
+        if (subForwardedOrReplyMessages !== '') {
+          let result = subForwardedOrReplyMessages.map((subForwardedOrReplyMessage) => {
+            let subConvertedDate = getDateConverting(subForwardedOrReplyMessage.date);
+            // console.log('subConvertedDate', subConvertedDate)
+            // console.log('subForwardedMessage', subForwardedMessage)
+    
+            return <MessWithVeticalLine forwardedMessage={subForwardedOrReplyMessage} convertedDate={subConvertedDate}/>
+          })
+          return result;
+        } else {
+          return '';
+        }
+      }
+      let subForwardedMess = (forwardedOrReplyMessage.messages !== undefined) ? getSubForwardedMess(subForwardedOrReplyMessages) : '';
+
+
+
+      return (
+        <div className='message-with-vertical-line'>
+          <div className='vertical-line'></div>
+          <div className='reply-message'>
+
+          <div className='message-info'>
+            <div className='message-sender'>Darya Serikova</div>
+            <div className='date-and-time'>{convertedDate} at {forwardedOrReplyMessage.time}</div>
+          </div>
+
+          {forwardedOrReplyMessage.value}
+
+          {(forwardedOrReplyMessage.messages !== undefined) ? subForwardedMess : ''}
+
+          </div>
         </div>
-
-        {replyOrForwardedMessage.value}
-        {/* {currentUnusualMessage.value} */}
-
-
-        {(replyOrForwardedMessage.message !== undefined) ? <MessageWithVerticalLine replyMessage={replyOrForwardedMessage.message} convertedDate={subConvertedDate}/> : ''}
-        {/* {(currentUnusualMessage.message !== undefined) ? <MessageWithVerticalLine replyMessage={currentUnusualMessage.message} convertedDate={subConvertedDate}/> : ''} */}
+      )
+    }
 
 
+
+  return (
+    <>
+      {console.log('toggleSelectedState', toggleSelectedState)}
+
+      <div 
+        id={forwardedOrReplyMessages.id} 
+        className={`forward-message ${WhiteOrGrayBackground}-message`}
+        value={forwardedOrReplyMessages.value} 
+      >
+        <MessWithVeticalLine forwardedOrReplyMessages={forwardedOrReplyMessages} convertedDate={convertedDate}/>
       </div>
-    </div>
+    </>
   )
-}
+  
+      
+  })
+    return ForwardedMess;
+  }
 
-export default MessageWithVerticalLine;
+  export default ForwardedOrReplyMessages;
+
+
+
+
+
+
+
+
 
 // из forward Рабочий пример
 // const MessWithVeticalLine = ({ forwardedMessage, convertedDate }) => {
