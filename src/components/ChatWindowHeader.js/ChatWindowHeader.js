@@ -6,7 +6,7 @@ import right from '../../assets/right32.png';
 import left from '../../assets/left32.png';
 import bin from '../../assets/bin32.png';
 import cross from '../../assets/cross-mark32.png';
-import DanielHardman from '../../assets/Daniel_Hardman.jpg';
+// import DanielHardman from '../../assets/Daniel_Hardman.jpg';
 
 
 
@@ -110,14 +110,7 @@ const ChatWindowHeader = ({
       
       {Boolean(toggleMessageSearching) && 
       <div className={`user-with-avatar`}>
-        {/* <div className='avatar'> */}
-          {/* <img 
-              className={`avatar`}
-              alt={`avatar-icon`}
-              src={DanielHardman}
-            /> */}
-          <div className={`no-avatar ${(!currentUser) ? 'hide' : ''} ${!(currentlySelectedMessages.length === 0) && 'hide'}`}></div>
-        {/* </div> */}
+        <div className={`no-avatar ${(!currentUser) ? 'hide' : ''} ${!(currentlySelectedMessages.length === 0) && 'hide'}`}></div>
 
         <div className={`current-user ${!(messageState !== 'select') ? 'hide' : ''}`}>
           {currentUser}

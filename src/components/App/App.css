@@ -1,7 +1,5 @@
 .App {
   background-color: rgb(255, 255, 255);
-
-  /* height: 800px; */
   height: 1000px;
 
   display: flex;
@@ -13,9 +11,7 @@
   border: 2px solid rgb(216, 215, 215);
   background-color: rgb(255, 255, 255);
 
-  /* height: 600px; */
   height: 821px;
-
 }
 
 @media (max-width: 650px) {

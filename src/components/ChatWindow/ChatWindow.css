@@ -69,19 +69,11 @@
   padding: 0.65rem;
   font-size: 13pt;
   min-height: 55px;
-  /* background-color: rgb(249 249 249); */
   background-color: rgb(255 255 255); 
   border-bottom: 1px solid #ebebeb;
 }
 
-/* .no-user {
-  display: flex;
-  justify-content: center;
 
-  width: 100%;
-  margin: 9rem 1rem 1rem 1rem;
-  color: #7e7e7e;
-} */
 
 .no-user {
   display: flex;
@@ -89,7 +81,6 @@
   align-items: center;
   width: 100%;
   min-height: 475px;
-  /* margin: 9rem 1rem 1rem 1rem; */
   color: #7e7e7e;
 }
 
@@ -97,15 +88,8 @@
   min-height: 313px;
 }
 
-/* .search-icon {
-  padding: 0 0.2rem 0 0.8rem;
-  width: 46px;
-  height: 31px;
-} */
 
 .search-message {
-  /* display: block;
-  position: absolute; */
   border: none;
   border: 1px solid #f0f0f0;
   padding: 0rem 1rem 0rem 1rem;
@@ -153,8 +137,6 @@
   justify-content: center;
   align-items: center;
   min-height: 440px;
-  /* min-height: 305px; */
-  /* min-width: 400px; */
   width: 100%;
 }
 
@@ -171,7 +153,7 @@
 }
 
 
-/*                             shwedwefkerfelrfler;,rtg*/
+/*            avatar                 shwedwefkerfelrfler;,rtg*/
 .user-with-avatar {
   display: flex;
   flex-direction: row;

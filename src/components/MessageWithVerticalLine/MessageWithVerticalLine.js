@@ -7,11 +7,11 @@ const MessageWithVerticalLine = ({ replyOrForwardedMessage, convertedDate, updat
 
   console.log('replyOrForwardedMessage', replyOrForwardedMessage);
   if (replyOrForwardedMessage.message) console.log('replyOrForwardedMessage.message', replyOrForwardedMessage.message)
-  updateToNewCurrentUnusualMessage(replyOrForwardedMessage);
+  // updateToNewCurrentUnusualMessage(replyOrForwardedMessage);
   // let convertedDate = getDateConverting(replyOrForwardedMessage.date);
   let subConvertedDate = (replyOrForwardedMessage.message !== undefined) ? getDateConverting(replyOrForwardedMessage.message.date) : ''
   console.log('subConvertedDate', subConvertedDate)
-  replyOrForwardedMessage = replyOrForwardedMessage === undefined ? currentUnusualMessage : replyOrForwardedMessage;
+  // replyOrForwardedMessage = replyOrForwardedMessage === undefined ? currentUnusualMessage : replyOrForwardedMessage;
     
   return (
     <div className='message-with-vertical-line'>
