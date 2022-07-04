@@ -1,6 +1,6 @@
 import { getDateConverting } from '../../utils/getDateConverting';
-import MessageWithVerticalLine from '../MessageWithVerticalLine/MessageWithVerticalLine';
-import MessageWithVerticalLineWithStore from '../../containers/MessageWithVerticalLineWithStore';
+// import MessageWithVerticalLine from '../MessageWithVerticalLine/MessageWithVerticalLine';
+// import MessageWithVerticalLineWithStore from '../../containers/MessageWithVerticalLineWithStore';
 
 import './ReplyMessage.css';
 import '../Message/Message.css';
@@ -15,28 +15,28 @@ const ReplyMessage = ({ id, value, onClick, time, edit, toggleSelectedState, isS
   let convertedDate = getDateConverting(replyMessage.date);
 
 
-  // const MessageWithVerticalLine = ({replyMessage}) => {
+  const MessageWithVerticalLine = ({replyMessage}) => {
 
     
-  //   return (
-  //     <div className='message-with-vertical-line'>
-  //       <div className='vertical-line'></div>
-  //       <div className='reply-message'>
+    return (
+      <div className='message-with-vertical-line'>
+        <div className='vertical-line'></div>
+        <div className='reply-message'>
 
-  //         <div className='message-info'>
-  //           <div className='message-sender'>Darya Serikova</div>
-  //           <div className='date-and-time'>{convertedDate} at {replyMessage.time}</div>
-  //         </div>
+          <div className='message-info'>
+            <div className='message-sender'>Darya Serikova</div>
+            <div className='date-and-time'>{convertedDate} at {replyMessage.time}</div>
+          </div>
 
-  //         {replyMessage.value}
+          {replyMessage.value}
 
-  //         {(replyMessage.message !== undefined) ? <MessageWithVerticalLine replyMessage={replyMessage.message}/> : ''}
+          {(replyMessage.message !== undefined) ? <MessageWithVerticalLine replyMessage={replyMessage.message}/> : ''}
           
 
-  //       </div>
-  //     </div>
-  //   )
-  // }
+        </div>
+      </div>
+    )
+  }
 
   let WhiteOrGrayBackgroundReply = (!isSelect) ? 'hide' : (messageState==='select') ? toggleSelectedState : 'hide';
 
@@ -51,11 +51,11 @@ const ReplyMessage = ({ id, value, onClick, time, edit, toggleSelectedState, isS
 
       {value}
 
-      {/* <MessageWithVerticalLine replyMessage={replyMessage}/> */}
+      <MessageWithVerticalLine replyMessage={replyMessage}/>
 
 
       {/* <MessageWithVerticalLine replyOrForwardedMessage={replyMessage} convertedDate={convertedDate} /> */}
-      <MessageWithVerticalLineWithStore replyOrForwardedMessage={replyMessage} convertedDate={convertedDate} />
+      {/* <MessageWithVerticalLineWithStore replyOrForwardedMessage={replyMessage} convertedDate={convertedDate} /> */}
 
 
 
