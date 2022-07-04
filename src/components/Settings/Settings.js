@@ -49,7 +49,7 @@ export const Settings = ({
       showSelectedMessage(message.id);
       chooseMessageInStore(message.id, true);
       updateToNewCurrentMessageId(message.id);
-      // Надо полностью переименовать все forward в select. Все проверки на равенство forward и reducer
+
       messageStateIsSelect();
       addToSelectedMessages(message);
     }

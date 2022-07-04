@@ -7,7 +7,7 @@ import {
   hideMessageSearching,
   hideSelectedMessage,
 
-
+  addLastSentMessage,
   // resetSelectedMessages,
  } from '../redux/actions/actions';
 
@@ -40,6 +40,7 @@ const mapStateToProps = (state) => { //берет текущий state из stor
     messageState: state.messageState,
     currentMessageId: state.currentMessageId,
     currentlySelectedMessages: state.currentlySelectedMessages,
+    lastSentMessages: state.lastSentMessages,
   }
 }
 
@@ -57,6 +58,7 @@ const mapDispatchToProps = {
   resetSelectedMessages,
   forwardGroupOfMessagesFromStore,
   hideSelectedMessage,
+  addLastSentMessage,
 }
 
 const PanelWithStore = connect(mapStateToProps, mapDispatchToProps)(Panel);

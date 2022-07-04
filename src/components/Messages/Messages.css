@@ -4,15 +4,70 @@
   /* justify-content: space-between; */
   justify-content: flex-end;
   align-items: center;
-  padding-left: 1.1rem;
+  /* padding-left: 1.1rem; */
   width: 100%;
 
 }
+
 
 .show-choised-message {
   background-color: #9caaff17;
   background: linear-gradient(to right, #44d8ff1a, 70%, #ed8afa2b);
 }
+
+.hide-checkmark-icon {
+  display: none;
+  transition-property: display;
+
+}
+
+.wrapper-checkmark-icon {
+  padding: 0 0 0 1.1rem;
+}
+
+.wrapper-circle {
+  padding: 0 0 0 1.1rem;
+}
+
+
+
+
+
+
+/* .show-choised-message  */
+.wrapper-circle {
+  animation-duration: 0.2s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    padding: 0%
+    /* margin-left: 100%; */
+    /* padding-right: 10%; */
+    /* padding-left: 10%; */
+    /* margin-left: 15%; */
+    /* margin-right: 15%; */
+
+
+
+    /* width: 300%; */
+    /* right: 20px; */
+  }
+
+  to {
+    /* margin-left: 0%; */
+    padding: 3%;
+  }
+
+  75% {
+    /* font-size: 300%; */
+    /* margin-left: 10%; */
+    /* width: 150%; */
+  }
+}
+
+
 
 
 .checkmark-icon {
@@ -24,11 +79,6 @@
 
 }
 
-.hide-checkmark-icon {
-  display: none;
-  transition-property: display;
-
-}
 
 
 .false-choised-message {

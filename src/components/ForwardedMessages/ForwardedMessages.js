@@ -5,8 +5,6 @@ import { getDateConverting } from "../../utils/getDateConverting";
 
 
 const ForwardedMessage = ({forwardedMessages, toggleSelectedState, WhiteOrGrayBackground} ) => {//  //messageGeneralProps, forwardedMessages
-// const ForwardedMessage = (messageGeneralProps, forwardedMessages) => {//  //{forwardedMessages, toggleSelectedState, isSelect} 
-//   let {toggleSelectedState, isSelect} = messageGeneralProps;
 
   console.log('all forwarded messages', forwardedMessages);
 
@@ -32,8 +30,6 @@ const ForwardedMessage = ({forwardedMessages, toggleSelectedState, WhiteOrGrayBa
   // }
 
   const ForwardedMess = forwardedMessages.map((forwardedMessage) => {
-    // console.log("One forwardedMessage", forwardedMessage)
-
     
     let convertedDate = getDateConverting(forwardedMessage.date);
     console.log('(ForwardedMess) forwardedMessage', forwardedMessage);
@@ -41,8 +37,6 @@ const ForwardedMessage = ({forwardedMessages, toggleSelectedState, WhiteOrGrayBa
 
     const MessWithVeticalLine = ({ forwardedMessage, convertedDate }) => {
       console.log('(MessWithVeticalLine) forwardedMessage', forwardedMessage)
-      // console.log('(MessWithVeticalLine) forwardedMessage.length', forwardedMessage.length)
-      
 
       let subForwardedMessages = (forwardedMessage.messages !== undefined) ? forwardedMessage.messages : '';
 
@@ -50,8 +44,6 @@ const ForwardedMessage = ({forwardedMessages, toggleSelectedState, WhiteOrGrayBa
         if (subForwardedMessages !== '') {
           let result = subForwardedMessages.map((subForwardedMessage) => {
             let subConvertedDate = getDateConverting(subForwardedMessage.date);
-            // console.log('subConvertedDate', subConvertedDate)
-            // console.log('subForwardedMessage', subForwardedMessage)
     
             return <MessWithVeticalLine forwardedMessage={subForwardedMessage} convertedDate={subConvertedDate}/>
           })
@@ -59,7 +51,7 @@ const ForwardedMessage = ({forwardedMessages, toggleSelectedState, WhiteOrGrayBa
         } else {
           return '';
         }
-}
+      }
       let subForwardedMess = (forwardedMessage.messages !== undefined) ? getSubForwardedMess(subForwardedMessages) : '';
 
 
@@ -107,10 +99,8 @@ const ForwardedMessage = ({forwardedMessages, toggleSelectedState, WhiteOrGrayBa
   return ForwardedMess;
 }
 
-const ForwardedMessages = ({id, value, onClick, time, edit, toggleSelectedState, isSelect, forwardedMessages, messageState}) => { //messageGeneralProps, forwardedMessages
-// const ForwardedMessages = (messageGeneralProps, {forwardedMessages}) => { //{id, value, onClick, time, edit, toggleSelectedState, isSelect, forwardedMessages}
-  // let {id, value, onClick, time, edit, toggleSelectedState, isSelect} = messageGeneralProps;
-
+const ForwardedMessages = ({ id, value, onClick, time, edit, toggleSelectedState, isSelect, forwardedMessages, messageState}) => { 
+  //messageGeneralProps, forwardedMessages
 
   const messEdited = edit ? '(edited)' : '';
   let WhiteOrGrayBackground = (!isSelect) ? 'hide' : (messageState==='select') ? toggleSelectedState : 'hide';

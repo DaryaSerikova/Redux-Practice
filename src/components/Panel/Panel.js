@@ -23,6 +23,8 @@ const Panel = ({
   resetSelectedMessages,
   forwardGroupOfMessagesFromStore,
   hideSelectedMessage,
+  addLastSentMessage,
+  lastSentMessages
 
 }) => { 
 
@@ -51,15 +53,22 @@ const Panel = ({
     switch (messageState) {
       case 'create':
         addNewMessageToStore(currentMessage, currentUser, false, false); //edit, choised
+        addLastSentMessage(currentUser, currentMessage);
         break;
 
       case 'edit':
         editMessageInStore(currentMessageId, currentMessage, currentUser, true); //edit
+        // addLastSentMessage(currentMessage, currentUser); // изменить если сообщение поледнее
+
         break;
 
       case 'reply':
         let replyMessage = currentlySelectedMessages[0];
         replyOnMessageFromStore(currentMessage, currentUser, false, false, replyMessage); //'Бутафорный комментарий к reply message','Darya Serikova'
+        // addLastSentMessage(currentMessage, currentUser);
+        addLastSentMessage(currentUser, currentMessage);
+
+
 
         resetSelectedMessages();
         console.log('(switch "reply") before messageStateIsEmpty');
@@ -70,6 +79,10 @@ const Panel = ({
       case 'forward':
         let forwardedMessages = currentlySelectedMessages;
         forwardGroupOfMessagesFromStore(currentMessage, currentUser, false, false, forwardedMessages);
+        // addLastSentMessage(currentMessage, currentUser);
+        addLastSentMessage(currentUser, currentMessage);
+
+
 
         resetSelectedMessages();
         console.log('(switch "forward") before messageStateIsEmpty');
@@ -90,6 +103,8 @@ const Panel = ({
 
     formEl.current.reset();
     cancelEdit();
+    console.log('typeof(lastSentMessages):', typeof(lastSentMessages))
+    console.log('lastSentMessages:', lastSentMessages)
   }
 
   const onKeyPressEnter = (e) => {
@@ -113,7 +128,7 @@ const Panel = ({
     }
     updateToNewCurrentMessage(e.target.value);
   }
-
+  // console.log('lastSentMessage:', lastSentMessages)
 
   return (
     <form ref={formEl} className='panel' onSubmit={onSubmit}>

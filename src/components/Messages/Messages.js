@@ -163,15 +163,18 @@ export const Messages = ({
     return (
       <>
         <div className={`wrapper-message ${(messageState === 'select') ? 'space-between' : ''} ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') ? 'hide' : toggleSelectedState }-choised-message`} onClick={onChoose(message)}>
-          <img
-          className={`checkmark-icon ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') ? 'hide' : toggleSelectedState}-checkmark-icon`}
-          // className={`checkmark-icon ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') && (currentUserWithSelectedMessages !== currentUser) ? 'hide' : toggleSelectedState}-checkmark-icon`}
+          <div className={`wrapper-checkmark-icon ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') ? 'hide' : toggleSelectedState}-checkmark-icon`}>
+            <img
+            className={`checkmark-icon ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') ? 'hide' : toggleSelectedState}-checkmark-icon`}
+            // className={`checkmark-icon ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') && (currentUserWithSelectedMessages !== currentUser) ? 'hide' : toggleSelectedState}-checkmark-icon`}
 
-          alt="checkmark-icon"
-          src={checkmark}
-          />
+            alt="checkmark-icon"
+            src={checkmark}
+            />
+          </div>
 
-          <div className={`${(messageState === 'select') && 'space-between'} ${(!isSelect && (messageState === 'select')) ? '' : 'hide'}`}>
+
+          <div className={`wrapper-circle ${(messageState === 'select') && 'space-between'} ${(!isSelect && (messageState === 'select')) ? '' : 'hide'}`}>
           {/* <div className={`${(messageState === 'select') && 'space-between'} ${(!isSelect && (messageState === 'select')) ? '' : 'hide'}`}> */}
 
             <div className="circle-instead-checkmark"></div>

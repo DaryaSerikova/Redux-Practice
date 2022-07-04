@@ -45,6 +45,10 @@ export const Users = ({
       return updateCurrentUser(user);
     }
 
+    let curLastSentMess = lastSentMessages !== undefined && lastSentMessages !== [] ? 
+      lastSentMessages.filter(lastMessage => lastMessage.name === [`${user}`])[0] : '';
+
+
     return (
       <div 
         key={userId}
@@ -53,6 +57,7 @@ export const Users = ({
         onClick={onClick}
       >
       { user }
+      {/* <div>{lastSentMessages !== undefined && lastSentMessages !== [] ? curLastSentMess.message : ''}</div> */}
       {/* <div>{lastSentMessages[`${user}`].value}</div> */}
       </div>
     )

@@ -56,10 +56,7 @@
   justify-content: start;
   align-items: center;
   margin-left: 1rem;
-  /* padding: 0.65rem; */
   font-size: 13pt;
-  /* min-height: 47.4px;
-  background-color: rgb(249 249 249); */
   width: 100%;
 }
 
@@ -153,7 +150,7 @@
 }
 
 
-/*            avatar                 shwedwefkerfelrfler;,rtg*/
+/*          avatar        */
 .user-with-avatar {
   display: flex;
   flex-direction: row;
@@ -163,16 +160,14 @@
   width: 27%; /* Ширина */
   float: left; /* Выстраиваем элементы по горизонтали */
   margin: 0 0 0 3.5%; /* Отступ слева */
-  /* background: #f0f0f0; Цвет фона */
-  border-radius: 25px; /* Радиус скругления */
-  /* padding: 2%; Поля */
+
+  border-radius: 25px;
 }
 
 .no-avatar {
   background-color: #a8dff8;
   border-radius: 25px;
-  /* height: 33px;
-  width: 44.8px; */
+
   min-height: 33px;
   min-width: 33px;
 }
@@ -195,3 +190,4 @@
 .forwarded-messages-item-is-amount {
   font-size: 13pt;
 }
+
