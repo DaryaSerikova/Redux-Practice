@@ -4,6 +4,8 @@ import editCross from '../../assets/cross-mark32.png';
 import plane from '../../assets/paper-plane64.png';
 import './Panel.css';
 
+import TextareaAutosize from 'react-textarea-autosize';
+
 
 const Panel = ({ 
   allStore,
@@ -144,22 +146,43 @@ const Panel = ({
         </div>
       </div>}
 
-      {(currentUser !== '') &&
-      <textarea 
-        className={`textarea ${(messageState === 'edit')&&'border-editing'}`}
-        placeholder='Write message..' 
-        value={currentMessage}
-        onChange={onChange}
-        onClick={(e) => hideMessageSearching()} //прописать reset у message search input
-        onKeyPress={onKeyPressEnter}
-        autoFocus
-      />}
 
-      {(currentUser !== '') && <div className='wrapper-btn'>
-        <button type="submit" className='btn btn-primary custom-btn' >
-          Send
-        </button>
-      </div>}
+      <div className='wrapper-textarea-with-btn'>
+        <div className='textarea-with-btn'>
+
+          {(currentUser !== '') &&
+          <TextareaAutosize 
+            className={`textarea ${(messageState === 'edit')&&'border-editing'}`}
+            placeholder='Write message..' 
+            value={currentMessage}
+            onChange={onChange}
+            onClick={(e) => hideMessageSearching()} //прописать reset у message search input
+            onKeyPress={onKeyPressEnter}
+            autoFocus
+            maxRows={4}
+          />}
+          {/* <textarea 
+            className={`textarea ${(messageState === 'edit')&&'border-editing'}`}
+            placeholder='Write message..' 
+            value={currentMessage}
+            onChange={onChange}
+            onClick={(e) => hideMessageSearching()} //прописать reset у message search input
+            onKeyPress={onKeyPressEnter}
+            autoFocus
+          />} */}
+
+
+          {(currentUser !== '') && <div className='wrapper-btn'>
+            <button type="submit" className='btn btn-primary custom-btn' >
+              Send
+            </button>
+          </div>}
+
+        </div>
+      </div>
+
+
+
 
     </form>
   )
