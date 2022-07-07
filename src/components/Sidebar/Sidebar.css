@@ -2,7 +2,9 @@
   background-color: rgb(241 241 241);
   border: 2px solid rgb(229 229 229);
 
-  height: 821px;
+  /* height: 821px; */
+  height: 710px;
+
   min-width: 175px;
 
   left: 0;

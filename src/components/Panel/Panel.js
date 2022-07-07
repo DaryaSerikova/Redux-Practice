@@ -1,6 +1,17 @@
 import { useRef, useEffect } from 'react';
 import IconButtonWithStore from '../../containers/IconButtonWithStore';
-import editCross from '../../assets/cross-mark32.png';
+// import editCross from '../../assets/cross-mark32.png';
+// import editCross from '../../assets/cross_blue32.png';
+import editCross from '../../assets/cross-in-circle_blue32.png';
+
+
+
+// import editCheckmark from '../../assets/check-mark-edit.png';
+// import editCheckmark from '../../assets/checkmark_blue32.png';
+import editCheckmark from '../../assets/checkmark-edit_blue32.png';
+
+
+
 import plane from '../../assets/paper-plane64.png';
 import './Panel.css';
 
@@ -159,7 +170,7 @@ const Panel = ({
             onClick={(e) => hideMessageSearching()} //прописать reset у message search input
             onKeyPress={onKeyPressEnter}
             autoFocus
-            maxRows={4}
+            maxRows={3}
           />}
           {/* <textarea 
             className={`textarea ${(messageState === 'edit')&&'border-editing'}`}
@@ -173,9 +184,16 @@ const Panel = ({
 
 
           {(currentUser !== '') && <div className='wrapper-btn'>
+            { messageState !== 'edit' ? 
             <button type="submit" className='btn btn-primary custom-btn' >
               Send
             </button>
+            : <button type="submit" className='custom-btn-edit' >
+              <img
+                src={editCheckmark}
+              />
+            </button> 
+            }
           </div>}
 
         </div>
