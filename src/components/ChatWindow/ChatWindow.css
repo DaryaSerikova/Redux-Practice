@@ -144,7 +144,8 @@
 
 .mini-reply-or-forwarded-messages {
 
-  background-color: #f1f1f1;
+  /* background-color: #f1f1f1; */
+  background-color: #f7f7f7;
   padding: 0.4rem;
   border-top: 1px solid #ececec;
 }
@@ -175,7 +176,8 @@
 .forwarded-messages-info {
   height: 65px;
   width: 85px;
-  background-color: #f7f7f7;
+  /* background-color: #f7f7f7; */
+  background-color: #fefefe;
   display: flex;
   flex-direction: column;
   justify-content: center;

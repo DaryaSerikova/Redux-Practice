@@ -154,6 +154,8 @@ export const Messages = ({
     let oneMessage = ((currentlySelectedMessages !== undefined) && (currentlySelectedMessages !== [])) ? currentlySelectedMessages[0] : '';
     let currentUserWithSelectedMessages = (oneMessage !== undefined) ? oneMessage.name : '';
 
+    // let curSelectedMess = ((currentlySelectedMessages !== undefined) && (currentlySelectedMessages !== [])) ? currentlySelectedMessages[0] : '';
+
     // console.log('oneMessage', oneMessage);
     // console.log('currentUserWithSelectedMessages', currentUserWithSelectedMessages)
     // if (currentlySelectedMessages !== undefined)
@@ -174,7 +176,7 @@ export const Messages = ({
           </div>
 
 
-          <div className={`wrapper-circle ${(messageState === 'select') && 'space-between'} ${(!isSelect && (messageState === 'select')) ? '' : 'hide'}`}>
+          <div className={`wrapper-circle circle-animation ${(messageState === 'select') && 'space-between'} ${(!isSelect && (messageState === 'select')) ? '' : 'hide'}`}>
           {/* <div className={`${(messageState === 'select') && 'space-between'} ${(!isSelect && (messageState === 'select')) ? '' : 'hide'}`}> */}
 
             <div className="circle-instead-checkmark"></div>
