@@ -9,6 +9,7 @@ import { getMessageType } from "../../utils/getMessageType";
 
 import checkmark from '../../assets/checkmark_blue32.png';
 import './Messages.css';
+// import { animationStateIsEnd } from "../../redux/actions/actions";
 
 
 
@@ -34,6 +35,10 @@ export const Messages = ({
   messageStateIsForward,
   removeFromSelectedMessages,
   messageStateIsEmpty,
+  animationStateIsEnd,
+  // animationStateIsEmpty,
+  animationStateIsStart,
+  animationState,
  }) => {
 
   const hideCheckmarkIcon = `hide-checkmark-icon`;
@@ -53,20 +58,28 @@ export const Messages = ({
         let res = toggleSelectedMessage.filter((selectMess) => selectMess.id === message.id)[0]; //message.id или currentMessageId?
         let toggleSelectedState = res !== undefined ? res.toggleState : 'hide';
 
-
         if (toggleSelectedState === 'show') { // to do HIDE
 
           hideSelectedMessage(message.id);
           chooseMessageInStore(message.id, false) //id, selected
           removeFromSelectedMessages(message.id);
 
+          // animationStateIsEmpty();
+
           if (currentlySelectedMessages.length === 1) {
+            console.log("XEQ")
             console.log('(conditional for currentlySelectedMessages.length === 1) before messageStateIsEmpty');
+            // animationStateIsEnd();
+
+            console.log("ANIMATION STATE", animationState)
+            // messageStateIsEmpty(); //// ТУТ ПОЛОМКА с forward (решена)
+            animationStateIsStart();
             messageStateIsEmpty(); //// ТУТ ПОЛОМКА с forward (решена)
+
           }
 
         } else { // to do SHOW
-
+          if (currentlySelectedMessages.length === 1) animationStateIsEnd();
           showSelectedMessage(message.id);
           chooseMessageInStore(message.id, true) //id, selected
           addToSelectedMessages(message);
@@ -117,7 +130,8 @@ export const Messages = ({
       toggleSelectedState: toggleSelectedState,
       isSelect: isSelect,
       onClick: onClick(message),
-      messageState: messageState
+      messageState: messageState,
+      // animationState: animationState
     }
 
     let messageType = getMessageType(message);
@@ -174,9 +188,10 @@ export const Messages = ({
             src={checkmark}
             />
           </div>
+          {/* {console.log('animationState:', animationState)} */}
+          {/* {console.log(currentlySelectedMessages.length < 2)}  */}
 
-
-          <div className={`wrapper-circle circle-animation ${(messageState === 'select') && 'space-between'} ${(!isSelect && (messageState === 'select')) ? '' : 'hide'}`}>
+          <div className={`wrapper-circle circle-animation-${(animationState === 'start') ? animationState : ''} ${(messageState === 'select') && 'space-between'} ${(!isSelect && (messageState === 'select')) ? '' : 'hide'}`}>
           {/* <div className={`${(messageState === 'select') && 'space-between'} ${(!isSelect && (messageState === 'select')) ? '' : 'hide'}`}> */}
 
             <div className="circle-instead-checkmark"></div>

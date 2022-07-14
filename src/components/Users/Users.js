@@ -19,15 +19,16 @@ export const Users = ({
 
   let userId = -1;
 
-  const users = currentUsers.map((user) => {
+  const users = currentUsers.map((elem) => {
+    let user = elem.name;
     userId++;
 
 
     const onClick = (e) => {
           
       addNewUserToStore(user);
-  
-      if (messageState === "reply" || (currentlySelectedMessages.length!==0 && messageState === "create")) {
+      updateCurrentUser(user);
+      if (messageState === "reply" || (currentlySelectedMessages.length!==0 && messageState === "create")) { // ПОЧЕМУ нет Forward
         resetSelectedMessages()
         console.log('(reset onClick another user) before messageStateIsEmpty');
         messageStateIsEmpty()
@@ -45,21 +46,37 @@ export const Users = ({
       return updateCurrentUser(user);
     }
 
-    let curLastSentMess = lastSentMessages !== undefined && lastSentMessages !== [] ? 
-      lastSentMessages.filter(lastMessage => lastMessage.name === [`${user}`])[0] : '';
+
+    // let activeLastSentMess = lastSentMessages[`${currentUser}`] === undefined ? '' : lastSentMessages[`${currentUser}`].message;
+    let curLastSentMessIsExist = lastSentMessages === undefined ? false : lastSentMessages.hasOwnProperty(`${user}`)
+    let curLastSentMess = curLastSentMessIsExist ? lastSentMessages[`${user}`].message : '';
+    
+    // let curUserForSentMess = currentUser === undefined ? '' : currentUser;
 
 
     return (
-      <div 
-        key={userId}
-        className={`user ${currentUser === user ? 'active-user' : ''}`} 
-        value={user} 
-        onClick={onClick}
-      >
-      { user }
-      {/* <div>{lastSentMessages !== undefined && lastSentMessages !== [] ? curLastSentMess.message : ''}</div> */}
-      {/* <div>{lastSentMessages[`${user}`].value}</div> */}
-      </div>
+      <>
+        <div 
+          className={`user-with-message-avatar ${currentUser === user ? 'active-user' : ''}`}
+          key={userId}
+          value={user} 
+          onClick={onClick}>
+          <div className='no-avatar avatar avatar-with-message'>
+            {/* <img src="https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/259599/sv5R3MPpVZrbX667ZwqahA.jpg" */}
+            {/* <img src="https://n1s1.elle.ru/34/20/76/342076c079aebca997ab97b749bd9c36/1024x683_0xac120002_6517619711548840543.jpg" */}
+            <img src={elem.src}
+            
+            />
+          </div>
+          <div className='user-with-message'>
+            <div className='user'>
+              { user }
+            </div>
+            {<div className='user-message'>{(curLastSentMessIsExist) ? curLastSentMess: ''}</div>}
+          </div>
+
+        </div>
+      </>
     )
   })
 

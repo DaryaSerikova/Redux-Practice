@@ -14,6 +14,7 @@ import { clickCoordinates } from "./others/clickCoordinates";
 import { users } from "./others/users";
 import { messages } from "./others/messages";
 import { currentUnusualMessage } from "./currentSmth/currentUnusualMessage";
+import { animationState } from "./main/animationState";
 
 import { lastSentMessages } from "./others/lastSentMessages";
 
@@ -32,6 +33,7 @@ export default combineReducers({
   currentlySelectedMessages,
   toggleSelectedMessage,
   currentUnusualMessage,
+  animationState,
 
   lastSentMessages,
 });

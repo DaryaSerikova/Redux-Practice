@@ -8,6 +8,7 @@ import {
   hideSelectedMessage,
 
   addLastSentMessage,
+  updateToNewCurrentUser,
   // resetSelectedMessages,
  } from '../redux/actions/actions';
 
@@ -59,7 +60,9 @@ const mapDispatchToProps = {
   forwardGroupOfMessagesFromStore,
   hideSelectedMessage,
   addLastSentMessage,
+  updateToNewCurrentUser,
 }
+
 
 const PanelWithStore = connect(mapStateToProps, mapDispatchToProps)(Panel);
 

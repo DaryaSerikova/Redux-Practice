@@ -1,22 +1,75 @@
-.user {
+/* .user-with-message {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+} */
+.user-message {
+  height: 1.5rem;
+  color: #9f9f9f;
+}
+
+.user-with-message-avatar {
   width: 100%;
   background-color: #f9f9f9;
   border-bottom: 1px solid #ededed;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  /* align-items: center; */
+  flex-direction: row;
+
   padding: 12px;
   color: #494949;
 }
 
-.user:hover {
+.user-with-message-avatar:hover {
   background-color: white;
 }
+
+.user-with-message {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* .user {
+  padding-left: 0.5rem;
+} */
 
 .active-user {
   background-color: white;
 }
 
-.user:active {
+.user-with-message:active {
   background-color: white;
+}
+
+.avatar-with-message {
+  width: 40px;
+  height: 40px;
+  margin-right: 1rem;
+}
+
+.avatar {
+  position: relative;
+  overflow:hidden;
+  /* width:300px;
+  height:300px; */
+  width: 45px;
+  height: 45px;
+}
+
+.avatar-header {
+  width:50px;
+}
+
+.avatar img {
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width: 45px;
+  height: 45px;
+  /* width:300px;
+  height:300px; */
+  object-fit:cover;
 }

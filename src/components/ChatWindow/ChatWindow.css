@@ -157,13 +157,13 @@
   flex-direction: row;
 }
 
-.avatar {
-  width: 27%; /* Ширина */
-  float: left; /* Выстраиваем элементы по горизонтали */
-  margin: 0 0 0 3.5%; /* Отступ слева */
+/* .avatar {
+  width: 27%; Ширина
+  float: left; Выстраиваем элементы по горизонтали
+  margin: 0 0 0 3.5%; Отступ слева
 
   border-radius: 25px;
-}
+} */
 
 .no-avatar {
   background-color: #a8dff8;
@@ -171,6 +171,12 @@
 
   min-height: 33px;
   min-width: 33px;
+
+  /* background-image:url(http://tpverstak.ru/wp-content/uploads/2017/05/kitty.jpg); */
+  /* background-image:url(https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/259599/sv5R3MPpVZrbX667ZwqahA.jpg);
+
+  background-position:center center;
+  background-size:cover; */
 }
 
 .forwarded-messages-info {

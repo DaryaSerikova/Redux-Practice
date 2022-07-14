@@ -5,8 +5,9 @@ import {
   HIDE_MESSAGE_SEARCHING, 
   SHOW_MESSAGE_SEARCHING, 
 
+  ANIMATION_STATE_IS_END,
+  ANIMATION_STATE_IS_START,
 
-  // RESET_SELECTED_MESSAGES,
 } from '../redux/actions/actions';
 
 import {
@@ -83,6 +84,17 @@ const mapDispatchToProps = (dispatch) => {
     showMessageSearching: () => {
       dispatch({
         type: SHOW_MESSAGE_SEARCHING
+      })
+    },
+
+    animationStateIsEnd: () => {
+      dispatch({
+        type: ANIMATION_STATE_IS_END,
+      })
+    },
+    animationStateIsStart: () => {
+      dispatch({
+        type: ANIMATION_STATE_IS_START,
       })
     },
 

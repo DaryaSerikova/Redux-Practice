@@ -45,29 +45,44 @@
   animation-name: slidein;
 }
 
+.circle-animation-start {
+  animation-duration: 0.2s;
+  animation-name: circle-translate-start;
+}
+
+.circle-animation-end {
+  animation-duration: 0.2s;
+  animation-name: circle-translate-end;
+}
+
+@keyframes circle-translate-start {
+  from {
+    transform: translate(-40px, 0);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes circle-translate-end {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-40px, 0);
+  }
+}
+
 @keyframes slidein {
   from {
     padding: 0%
-    /* margin-left: 100%; */
-    /* padding-right: 10%; */
-    /* padding-left: 10%; */
-    /* margin-left: 15%; */
-    /* margin-right: 15%; */
-
-
-
-    /* width: 300%; */
-    /* right: 20px; */
   }
 
   to {
-    /* margin-left: 0%; */
     padding: 3%;
   }
 
   75% {
-    /* font-size: 300%; */
-    /* margin-left: 10%; */
     /* width: 150%; */
   }
 }

@@ -24,7 +24,9 @@
   border-bottom: 1px solid #c2c2c2;
   padding: 0.7rem 1rem 0.7rem 1rem;
   font-size: 11.2pt;
-  max-width: 171px;
+  /* max-width: 171px; */
+  /* max-width: 194px; */
+  max-width: 202px;
 }
 
 .search:focus-visible {

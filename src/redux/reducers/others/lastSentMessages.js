@@ -5,16 +5,23 @@ import {
 
 
 
-export const lastSentMessages = (state = [], action) => { //state = {}
+export const lastSentMessages = (state = {}, action) => { //state = {}
   switch (action.type) {
     case ADD_LAST_SENT_MESSAGE:
-      return [
+      return {
         ...state,
-        {
-          message:action.message,
+        [`${action.name}`]:{
           name: action.name,
+          message: action.message,
         }
-      ]
+      }
+      // return [
+      //   ...state,
+      //   {
+      //     message:action.message,
+      //     name: action.name,
+      //   }
+      // ]
 
       
     // case EDIT_LAST_SENT_MESSAGE:

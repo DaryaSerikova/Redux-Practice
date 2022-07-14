@@ -18,7 +18,11 @@ export const Settings = ({
   hideSelectedMessage, 
   showSelectedMessage,
   resetSelectedMessages,
-  message }) => {
+  message,
+  animationStateIsStart, 
+  animationStateIsEnd, 
+
+}) => {
 
   const edit = (message) => {
     return (e) => {
@@ -52,6 +56,10 @@ export const Settings = ({
 
       messageStateIsSelect();
       addToSelectedMessages(message);
+
+      animationStateIsStart();
+      // animationStateIsEnd();
+
     }
   }
   

@@ -6,11 +6,12 @@ import {
   HIDE_SETTINGS,
   HIDE_SELECTED_MESSAGE,
   SHOW_SELECTED_MESSAGE,
+  
+  ANIMATION_STATE_IS_START,
+  // ANIMATION_STATE_IS_EMPTY,
+  ANIMATION_STATE_IS_END,
 
 
-  // ADD_TO_SELECTED_MESSAGES,
-  // RESET_SELECTED_MESSAGES,
-  // REMOVE_MESSAGE_FROM_SELECTED_MESSAGES,
   } from "../redux/actions/actions";
 
 import {
@@ -146,6 +147,18 @@ const mapDispatchToProps = (dispatch) => {
     messageStateIsEmpty: () => {
       dispatch({
         type: MESSAGE_STATE_IS_EMPTY
+      })
+    },
+
+    animationStateIsStart: () => {
+      dispatch({
+        type: ANIMATION_STATE_IS_START,
+      })
+    },
+
+    animationStateIsEnd: () => {
+      dispatch({
+        type: ANIMATION_STATE_IS_END,
       })
     },
 

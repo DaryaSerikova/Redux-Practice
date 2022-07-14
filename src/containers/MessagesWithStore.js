@@ -9,9 +9,9 @@ import { //надо почистить
   HIDE_SELECTED_MESSAGE,
   SHOW_SELECTED_MESSAGE,
 
-
-  // ADD_TO_SELECTED_MESSAGES,
-  // REMOVE_MESSAGE_FROM_SELECTED_MESSAGES,
+  ANIMATION_STATE_IS_END,
+  // ANIMATION_STATE_IS_EMPTY,
+  ANIMATION_STATE_IS_START,
   } from "../redux/actions/actions";
 
 import {
@@ -31,12 +31,7 @@ import {
 
 import { Messages } from '../components/Messages/Messages';
 
-// clickCoordinates,  
-// messageStateIsCreate, 
-// messageStateIsEdit,
-// updateToNewCurrentMessage, 
-// removeMessageFromStore,
-// addToForwardMessages,
+
 
 const mapStateToProps = (state) => {
   return { 
@@ -52,6 +47,7 @@ const mapStateToProps = (state) => {
     currentlySelectedMessages: state.currentlySelectedMessages,
 
     toggleSelectedMessage: state.toggleSelectedMessage,
+    animationState: state.animationState,
   }
 }
 
@@ -80,29 +76,7 @@ const mapDispatchToProps = (dispatch) => { //надо почистить
         selected
       })
     },
-    // removeMessageFromStore: (id, name) => {
-    //   dispatch({
-    //     type: REMOVE_MESSAGE_FROM_STORE,
-    //     id,
-    //     name
-    //   })
-    // },
-    // updateToNewCurrentMessage: (value) => {
-    //   dispatch({
-    //     type: UPDATE_TO_NEW_CURRENT_MESSAGE,
-    //     value
-    //   })
-    // },
-    // messageStateIsCreate: () => {//
-    //   dispatch({
-    //     type: MESSAGE_STATE_IS_CREATE
-    //   })
-    // }, 
-    // messageStateIsEdit: () => {//
-    //   dispatch({
-    //     type: MESSAGE_STATE_IS_EDIT
-    //   })
-    // },
+
     addToSelectedMessages: (message) => { //addToForwardMessages
       dispatch({
         type: ADD_TO_SELECTED_MESSAGES, //ADD_TO_FORWARD_MESSAGES,
@@ -176,6 +150,24 @@ const mapDispatchToProps = (dispatch) => { //надо почистить
         type: MESSAGE_STATE_IS_EMPTY
       })
     },
+
+    animationStateIsStart: () => {
+      dispatch({
+        type: ANIMATION_STATE_IS_START
+      })
+    },
+
+    animationStateIsEnd: () => {
+      dispatch({
+        type: ANIMATION_STATE_IS_END,
+      })
+    },
+
+    // animationStateIsEmpty: () => {
+    //   dispatch({
+    //     type: ANIMATION_STATE_IS_EMPTY,
+    //   })
+    // },
 
   }
 };

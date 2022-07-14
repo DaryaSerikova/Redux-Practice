@@ -7,6 +7,7 @@ import left from '../../assets/left32.png';
 import bin from '../../assets/bin32.png';
 import cross from '../../assets/cross-mark32.png';
 // import DanielHardman from '../../assets/Daniel_Hardman.jpg';
+import {arrUsers} from '../Users/ArrUsers.js';
 
 
 
@@ -25,6 +26,10 @@ const ChatWindowHeader = ({
   toggleMessageSearching, 
   showMessageSearching, 
   hideMessageSearching,
+
+  animationStateIsEnd,
+  animationStateIsStart,
+
 }) => {
 
   let arrStoreMessage = allStore[`${currentUser}`];
@@ -94,10 +99,18 @@ const ChatWindowHeader = ({
   const cancelSelectedMessages = () => {
     console.log('Cancel selected messages ..')
 
+    animationStateIsStart();
+    // animationStateIsEnd();
+
     resetSelectedMessages();
     console.log('(cancelMessages) before messageStateIsEmpty');
     messageStateIsEmpty();
   }
+  console.log('arrUsers', arrUsers)
+  let objUserWithMess = arrUsers.filter((elem) => elem.name === currentUser)[0];
+  console.log('objUserWithMess', objUserWithMess)
+  let avatarSrc = objUserWithMess !== undefined ? objUserWithMess.src : '';
+  console.log('avatarSrc', avatarSrc)
 
 
   return (
@@ -110,7 +123,11 @@ const ChatWindowHeader = ({
       
       {Boolean(toggleMessageSearching) && 
       <div className={`user-with-avatar`}>
-        <div className={`no-avatar ${(!currentUser) ? 'hide' : ''} ${!(currentlySelectedMessages.length === 0) && 'hide'}`}></div>
+        <div className={`no-avatar avatar avatar-header${(!currentUser) ? 'hide' : ''} ${!(currentlySelectedMessages.length === 0) && 'hide'}`}>
+          <img
+            src={`${avatarSrc}`}
+          />
+        </div>
 
         <div className={`current-user ${!(messageState !== 'select') ? 'hide' : ''}`}>
           {currentUser}

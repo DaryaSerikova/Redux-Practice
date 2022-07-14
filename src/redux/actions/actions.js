@@ -18,6 +18,10 @@ export const SHOW_SELECTED_MESSAGE = 'SHOW_SELECTED_MESSAGE';
 
 export const UPDATE_TO_NEW_CURRENT_UNUSUAL_MESSAGE = 'UPDATE_TO_NEW_CURRENT_UNUSUAL_MESSAGE';
 
+export const ANIMATION_STATE_IS_START = 'ANIMATION_STATE_IS_START';
+export const ANIMATION_STATE_IS_END = 'ANIMATION_STATE_IS_END';
+export const ANIMATION_STATE_IS_EMPTY = 'ANIMATION_STATE_IS_EMPTY';
+
 
 
 export const ADD_LAST_SENT_MESSAGE = 'ADD_LAST_SENT_MESSAGE';
@@ -97,6 +101,22 @@ export const updateToNewCurrentUnusualMessage = (message) => ({
   type: UPDATE_TO_NEW_CURRENT_UNUSUAL_MESSAGE,
   message
 }); 
+
+
+export const animationStateIsStart = () => ({
+  type: ANIMATION_STATE_IS_START,
+});
+
+export const animationStateIsEnd = () => ({
+  type: ANIMATION_STATE_IS_END,
+});
+
+export const animationStateIsEmpty = () => ({
+  type: ANIMATION_STATE_IS_EMPTY,
+});
+// ANIMATION_STATE_IS_START,
+// ANIMATION_STATE_IS_END,
+// ANIMATION_STATE_IS_EMPTY,
 
 
 

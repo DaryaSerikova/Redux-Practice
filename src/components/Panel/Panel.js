@@ -37,7 +37,8 @@ const Panel = ({
   forwardGroupOfMessagesFromStore,
   hideSelectedMessage,
   addLastSentMessage,
-  lastSentMessages
+  lastSentMessages,
+  updateToNewCurrentUser,
 
 }) => { 
 
@@ -62,11 +63,12 @@ const Panel = ({
   }
 
   const changeMessageStore = () => {
+    if (messageState !== 'edit') addLastSentMessage(currentUser, currentMessage);
 
     switch (messageState) {
       case 'create':
         addNewMessageToStore(currentMessage, currentUser, false, false); //edit, choised
-        addLastSentMessage(currentUser, currentMessage);
+        // addLastSentMessage(currentUser, currentMessage);
         break;
 
       case 'edit':
@@ -78,9 +80,7 @@ const Panel = ({
       case 'reply':
         let replyMessage = currentlySelectedMessages[0];
         replyOnMessageFromStore(currentMessage, currentUser, false, false, replyMessage); //'Бутафорный комментарий к reply message','Darya Serikova'
-        // addLastSentMessage(currentMessage, currentUser);
-        addLastSentMessage(currentUser, currentMessage);
-
+        // addLastSentMessage(currentUser, currentMessage);
 
 
         resetSelectedMessages();
@@ -92,10 +92,7 @@ const Panel = ({
       case 'forward':
         let forwardedMessages = currentlySelectedMessages;
         forwardGroupOfMessagesFromStore(currentMessage, currentUser, false, false, forwardedMessages);
-        // addLastSentMessage(currentMessage, currentUser);
-        addLastSentMessage(currentUser, currentMessage);
-
-
+        // addLastSentMessage(currentUser, currentMessage);
 
         resetSelectedMessages();
         console.log('(switch "forward") before messageStateIsEmpty');
