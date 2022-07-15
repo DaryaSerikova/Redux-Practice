@@ -151,24 +151,11 @@
 }
 
 .mini-reply-or-forwarded-messages {
-
-  /* background-color: #f1f1f1; */
-  /* background-color: #f7f7f7;
-  padding: 0.4rem;
-  border-top: 1px solid #ececec; */
-
-  /* background-color: #fbfeff; */
   background-color: #eaf9fd;
-  
-  /* background-color: #f6fdff;
-  padding: 0.4rem;
-  border-top: 1px solid #eff4f5; */
-
   background: linear-gradient(to top, #44d8ff1a, 50%, #178cff24);
   padding: 0.4rem;
   border-top: 1px solid #d7e5f3;
 
-  /* box-shadow: 1px -3px 12px -9px #00000070; */
 }
 
 
@@ -192,20 +179,12 @@
 
   min-height: 33px;
   min-width: 33px;
-
-  /* background-image:url(http://tpverstak.ru/wp-content/uploads/2017/05/kitty.jpg); */
-  /* background-image:url(https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/259599/sv5R3MPpVZrbX667ZwqahA.jpg);
-
-  background-position:center center;
-  background-size:cover; */
 }
 
 .forwarded-messages-info {
   height: 65px;
   width: 85px;
-  /* background-color: #f7f7f7; */
-  /* background-color: #fefefe; */
-  /* background-color: #e6f5f9; */
+
   background-color: #fbfeff;
   
   display: flex;
@@ -213,8 +192,6 @@
   justify-content: center;
   align-items: center;
   border: 1px solid #d6eaef;
-  /* box-shadow: -5px -3px 7px -6px #000000ab, 13px 13px 5px -14px #0000006e; */
-  /* box-shadow: -2px -1px 8px -6px #000000ab, 12px 12px 7px -14px #0000006e; */
   box-shadow: -2px -2px 5px -6px #194754, 8px 8px 8px -13px #082e54;
 }
 

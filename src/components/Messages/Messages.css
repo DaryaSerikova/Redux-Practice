@@ -1,10 +1,8 @@
 .wrapper-message {
   display: flex;
   flex-direction: row;
-  /* justify-content: space-between; */
   justify-content: flex-end;
   align-items: center;
-  /* padding-left: 1.1rem; */
   width: 100%;
 
 }
@@ -113,9 +111,6 @@
 
 /* from Message.css*/
 .message {
-  /* background-color: whitesmoke; */
-  /* background-color: #f9f9f9; */
-  /* background-color: #effbff; */
   /* background-color: #e6f6ff; */
   background-color: #f6fcff;
 
@@ -149,7 +144,6 @@
   margin: 0 0.7rem 0 0rem;
 
   transition: transform 3s;
-  /* transform: margin; */
   transition-property: margin;
 }
 
