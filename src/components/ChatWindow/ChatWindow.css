@@ -157,13 +157,18 @@
   padding: 0.4rem;
   border-top: 1px solid #ececec; */
 
-  background-color: #fbfeff;
-
+  /* background-color: #fbfeff; */
+  background-color: #eaf9fd;
   
-  background-color: #f6fdff;
+  /* background-color: #f6fdff;
   padding: 0.4rem;
-  border-top: 1px solid #eff4f5;
-  box-shadow: 1px -3px 12px -9px #00000070;
+  border-top: 1px solid #eff4f5; */
+
+  background: linear-gradient(to top, #44d8ff1a, 50%, #178cff24);
+  padding: 0.4rem;
+  border-top: 1px solid #d7e5f3;
+
+  /* box-shadow: 1px -3px 12px -9px #00000070; */
 }
 
 
@@ -200,7 +205,9 @@
   width: 85px;
   /* background-color: #f7f7f7; */
   /* background-color: #fefefe; */
-  background-color: #e6f5f9;
+  /* background-color: #e6f5f9; */
+  background-color: #fbfeff;
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
