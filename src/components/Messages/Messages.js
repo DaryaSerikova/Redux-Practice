@@ -163,7 +163,7 @@ export const Messages = ({
 
 
 
-    console.log('currentlySelectedMessages', currentlySelectedMessages)
+    // console.log('currentlySelectedMessages', currentlySelectedMessages)
 
     let oneMessage = ((currentlySelectedMessages !== undefined) && (currentlySelectedMessages !== [])) ? currentlySelectedMessages[0] : '';
     let currentUserWithSelectedMessages = (oneMessage !== undefined) ? oneMessage.name : '';

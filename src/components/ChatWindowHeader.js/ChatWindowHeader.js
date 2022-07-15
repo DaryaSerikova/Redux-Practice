@@ -106,11 +106,10 @@ const ChatWindowHeader = ({
     console.log('(cancelMessages) before messageStateIsEmpty');
     messageStateIsEmpty();
   }
-  console.log('arrUsers', arrUsers)
+
   let objUserWithMess = arrUsers.filter((elem) => elem.name === currentUser)[0];
-  console.log('objUserWithMess', objUserWithMess)
   let avatarSrc = objUserWithMess !== undefined ? objUserWithMess.src : '';
-  console.log('avatarSrc', avatarSrc)
+
 
 
   return (
