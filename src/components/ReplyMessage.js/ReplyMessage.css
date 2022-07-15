@@ -3,7 +3,8 @@
   flex-direction: row;
 }
 .vertical-line {
-  border-right: 2px solid #d1d1d1;
+  /* border-right: 2px solid #d1d1d1; */
+  border-right: 2px solid #cedfe5;
   margin-right: 0.4rem;
 }
 

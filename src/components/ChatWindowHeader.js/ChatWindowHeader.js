@@ -122,7 +122,7 @@ const ChatWindowHeader = ({
       </div>
       
       {Boolean(toggleMessageSearching) && 
-      <div className={`user-with-avatar`}>
+      <div className={`user-with-avatar ${(!currentUser) ? 'hide' : ''}`}>
         <div className={`no-avatar avatar avatar-header${(!currentUser) ? 'hide' : ''} ${!(currentlySelectedMessages.length === 0) && 'hide'}`}>
           <img
             src={`${avatarSrc}`}

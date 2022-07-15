@@ -10,8 +10,10 @@
 
 .user-with-message-avatar {
   width: 100%;
-  background-color: #f9f9f9;
-  border-bottom: 1px solid #ededed;
+  /* background-color: #f9f9f9; */
+  background-color: #f9f9f91f;
+  /* border-bottom: 1px solid #ededed; */
+  border-bottom: 1px solid #e2f0f3;
   display: flex;
   justify-content: start;
   /* align-items: center; */
@@ -59,7 +61,7 @@
 }
 
 .avatar-header {
-  width:50px;
+  height: 33px;
 }
 
 .avatar img {

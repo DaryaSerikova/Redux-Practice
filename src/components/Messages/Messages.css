@@ -12,7 +12,8 @@
 
 .show-choised-message {
   background-color: #9caaff17;
-  background: linear-gradient(to right, #44d8ff1a, 70%, #ed8afa2b);
+  /* background: linear-gradient(to right, #44d8ff1a, 70%, #ed8afa2b); */
+  background: linear-gradient(to right, #44d8ff1a, 70%, #017df724);
 }
 
 .hide-checkmark-icon {
@@ -112,7 +113,12 @@
 
 /* from Message.css*/
 .message {
-  background-color: whitesmoke;
+  /* background-color: whitesmoke; */
+  /* background-color: #f9f9f9; */
+  /* background-color: #effbff; */
+  /* background-color: #e6f6ff; */
+  background-color: #f6fcff;
+
   padding: 1rem;
   margin: 0.5rem 1rem 0.5rem 0.5rem;
 
@@ -125,7 +131,8 @@
 
 .message-time {
   font-size: 9pt;
-  color: #b9b9b9;
+  /* color: #b9b9b9; */
+  color: #b0c7cf;
   display: flex;
   justify-content: flex-end;
 }
