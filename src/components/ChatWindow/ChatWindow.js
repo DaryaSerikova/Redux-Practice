@@ -20,15 +20,9 @@ const ChatWindow = ({
     const ref = useRef();
     useEffect(() => {
       if (ref.current) {
-        console.log('ref.current', ref.current);
         console.log('ref.current.scrollTop', ref.current.scrollTop);
-        console.log('ref.current.scrollBottom', ref.current.scrollBottom);
-
         console.log('ref.current.scrollHeight', ref.current.scrollHeight);
         
-        // console.log('ref.current.scrollTop', ref.current.scrollTop)
-        // console.log('ref.current.scrollHeight', ref.current.scrollHeight)
-
         ref.current.scrollTop = ref.current.scrollHeight;
       }
     }, [dep]);

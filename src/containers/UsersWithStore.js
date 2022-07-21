@@ -5,7 +5,7 @@ import {
 
   updateSearchedMessages,
   hideMessageSearching,
-  addLastSentMessage,
+  // addLastSentMessage,
 
 
   // resetSelectedMessages,
@@ -46,9 +46,9 @@ const mapDispatchToProps = (dispatch) => {
     hideMessageSearching: () => {
       dispatch(hideMessageSearching())
     },
-    addLastSentMessage: (name, message) => {
-      dispatch(addLastSentMessage(name, message))
-    },
+    // addLastSentMessage: (name, message) => {
+    //   dispatch(addLastSentMessage(name, message))
+    // },
     messageStateIsEmpty: () => {
       dispatch(messageStateIsEmpty())
     },

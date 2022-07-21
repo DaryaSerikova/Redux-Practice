@@ -1,4 +1,5 @@
 .any-icon {
+  cursor: pointer;
   padding: 0 0.4rem 0 0.4rem;
   width: 42px;
   height: 29px;
@@ -9,6 +10,12 @@
 }
 
 .cross-icon {
-  width: 28px !important;
-  height: 16px !important;
+  /* width: 28px !important;
+  height: 16px !important; */
+
+  /* width: 33px !important;
+  height: 21px !important; */
+
+  width: 40px !important;
+  height: 28px !important;
 }

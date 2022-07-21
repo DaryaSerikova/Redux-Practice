@@ -91,8 +91,10 @@
 
 .checkmark-icon {
   opacity: 0.7;
-  width: 22px;
-  height: 22px;
+  /* width: 22px;
+  height: 22px; */
+  width: 27px;
+  height: 26px;
   margin: 0 0.7rem 0 0rem;
   transition-property: margin;
 
@@ -106,6 +108,7 @@
 
 .space-between {
   justify-content: space-between !important;
+  cursor: pointer;
 }
 
 

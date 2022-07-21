@@ -24,7 +24,16 @@ export const lastSentMessages = (state = {}, action) => { //state = {}
       // ]
 
       
-    // case EDIT_LAST_SENT_MESSAGE:
+    // case CHANGE_LAST_SENT_MESSAGE:
+
+    //   return {
+    //     ...state,
+    //     [`${action.name}`]:{
+    //       name: action.name,
+    //       message: action.message,
+    //     }
+    //   }
+
     // case REMOVE_LAST_SENT_MESSAGE:
 
     default:

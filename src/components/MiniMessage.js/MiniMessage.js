@@ -11,7 +11,7 @@ const MiniMessage = ({ messageState, currentlySelectedMessages }) => {
     ? ''
     : !(currentlySelectedMessages[0].value.length > 25)
       ? currentlySelectedMessages[0].value
-      : getTruncatedValue(currentlySelectedMessages[0].value)
+      : getTruncatedValue(currentlySelectedMessages[0].value, 42)
 
 
   // let correctFormOfWord = getCorrectFormOfWord(currentlySelectedMessages, 'ru');

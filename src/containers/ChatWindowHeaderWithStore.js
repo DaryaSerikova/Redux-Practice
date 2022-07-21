@@ -8,10 +8,14 @@ import {
   ANIMATION_STATE_IS_END,
   ANIMATION_STATE_IS_START,
 
+  UPDATE_TO_NEW_CURRENT_MESSAGE_ID,
+  UPDATE_TO_NEW_CURRENT_MESSAGE,
+
 } from '../redux/actions/actions';
 
 import {
   MESSAGE_STATE_IS_EMPTY,
+  MESSAGE_STATE_IS_EDIT,
   MESSAGE_STATE_IS_REPLY,
   MESSAGE_STATE_IS_FORWARD,
   } from '../redux/actions/messageState';
@@ -71,6 +75,26 @@ const mapDispatchToProps = (dispatch) => {
     messageStateIsForward: () => {
       dispatch({
         type: MESSAGE_STATE_IS_FORWARD
+      })
+    },
+
+    messageStateIsEdit: () => {
+      dispatch({
+        type: MESSAGE_STATE_IS_EDIT
+      })
+    },
+
+    updateToNewCurrentMessage: (value) => {
+      dispatch({
+        type: UPDATE_TO_NEW_CURRENT_MESSAGE,
+        value
+      })
+    },
+
+    updateToNewCurrentMessageId: (id) => {
+      dispatch({
+        type: UPDATE_TO_NEW_CURRENT_MESSAGE_ID,
+        id
       })
     },
 

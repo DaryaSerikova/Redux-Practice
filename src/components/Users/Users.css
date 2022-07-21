@@ -6,9 +6,15 @@
 .user-message {
   height: 1.5rem;
   color: #9f9f9f;
+
+  width: 10.5rem;
+  white-space: nowrap; /* Текст не переносится */
+  overflow: hidden; /* Обрезаем всё за пределами блока */
+  text-overflow: ellipsis; /* Добавляем многоточие */
 }
 
 .user-with-message-avatar {
+  cursor: pointer;
   width: 100%;
   /* background-color: #f9f9f9; */
   background-color: #f9f9f91f;

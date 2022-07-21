@@ -1,4 +1,5 @@
 import './Users.css';
+import { getTruncatedValue } from '../../utils/getTruncatedValue';
 
 
 export const Users = ({ 
@@ -9,7 +10,7 @@ export const Users = ({
   users: currentUsers, 
   updateSearchedMessages, 
   hideMessageSearching,
-  addLastSentMessage, 
+  // addLastSentMessage, 
   lastSentMessages,
   messageState,
   messageStateIsEmpty,
@@ -50,9 +51,13 @@ export const Users = ({
     // let activeLastSentMess = lastSentMessages[`${currentUser}`] === undefined ? '' : lastSentMessages[`${currentUser}`].message;
     let curLastSentMessIsExist = lastSentMessages === undefined ? false : lastSentMessages.hasOwnProperty(`${user}`)
     let curLastSentMess = curLastSentMessIsExist ? lastSentMessages[`${user}`].message : '';
-    
-    // let curUserForSentMess = currentUser === undefined ? '' : currentUser;
 
+    // let cutCurLastSentMess = curLastSentMess !== '' ? getTruncatedValue(lastSentMessages[`${user}`].message, 16) : '';
+    // if (currentUser === user) console.log(user, ': ', curLastSentMess, 'cutCurLastSentMess:', cutCurLastSentMess)
+
+
+    // let curUserForSentMess = currentUser === undefined ? '' : currentUser;
+// getTruncatedValue = (value, amountLetters)
 
     return (
       <>
@@ -72,7 +77,7 @@ export const Users = ({
             <div className='user'>
               { user }
             </div>
-            {<div className='user-message'>{(curLastSentMessIsExist) ? curLastSentMess: ''}</div>}
+            {<div className='user-message'>{(curLastSentMessIsExist) ? curLastSentMess : ''}</div>}
           </div>
 
         </div>

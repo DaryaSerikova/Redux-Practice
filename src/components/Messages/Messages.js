@@ -7,7 +7,9 @@ import ForwardedMessages from "../ForwardedMessages/ForwardedMessages";
 import { getIsSelect } from "../../utils/getIsSelect";
 import { getMessageType } from "../../utils/getMessageType";
 
-import checkmark from '../../assets/checkmark_blue32.png';
+// import checkmark from '../../assets/checkmark_blue32.png';
+import checkmark from '../../assets/checkmark-edit_blue32.png';
+
 import './Messages.css';
 // import { animationStateIsEnd } from "../../redux/actions/actions";
 

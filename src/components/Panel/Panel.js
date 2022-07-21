@@ -64,6 +64,11 @@ const Panel = ({
 
   const changeMessageStore = () => {
     if (messageState !== 'edit') addLastSentMessage(currentUser, currentMessage);
+    // if (messageState === 'edit') {
+    //   if (allStore[`${currentUser}`])
+    //   addLastSentMessage(currentUser, currentMessage)
+    // };
+
 
     switch (messageState) {
       case 'create':

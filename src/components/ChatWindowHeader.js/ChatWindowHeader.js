@@ -1,11 +1,33 @@
 import React, { useEffect } from 'react';
 import IconButtonWithStore from '../../containers/IconButtonWithStore';
 
-import search from '../../assets/icon32.png';
-import right from '../../assets/right32.png';
-import left from '../../assets/left32.png';
-import bin from '../../assets/bin32.png';
-import cross from '../../assets/cross-mark32.png';
+// import search from '../../assets/icon32.png';
+import search from '../../assets/search_blue32.png';
+
+// import right from '../../assets/right32.png';
+import right from '../../assets/right_blue32.png';
+
+// import left from '../../assets/left32.png';
+import left from '../../assets/left_blue32.png';
+
+// import bin from '../../assets/bin32.png';
+// import bin from '../../assets/bin_blue32.png';
+// import bin from '../../assets/delete_blue32.png';
+// import bin from '../../assets/bin-delete_blue32.png';
+import bin from '../../assets/bin_blue32.png';
+
+
+
+
+
+// import cross from '../../assets/cross-mark32.png';
+// import cross from '../../assets/cross_blue32.png';
+import cross from '../../assets/cross-in-circle_blue32.png';
+
+import edit from '../../assets/edit_blue32.png';
+
+
+
 // import DanielHardman from '../../assets/Daniel_Hardman.jpg';
 import {arrUsers} from '../Users/ArrUsers.js';
 
@@ -21,6 +43,7 @@ const ChatWindowHeader = ({
   currentlySelectedMessages, 
   messageState, 
   messageStateIsEmpty,
+  messageStateIsEdit,
   messageStateIsReply,  
   messageStateIsForward, 
   toggleMessageSearching, 
@@ -29,6 +52,8 @@ const ChatWindowHeader = ({
 
   animationStateIsEnd,
   animationStateIsStart,
+  updateToNewCurrentMessage,
+  updateToNewCurrentMessageId,
 
 }) => {
 
@@ -88,9 +113,9 @@ const ChatWindowHeader = ({
     console.log('Remove messages ..');
     
     let name = currentUser;
-    let arrForwardIds = currentlySelectedMessages.map((selectedMessage) => selectedMessage.id);
+    let arrSelectedIds = currentlySelectedMessages.map((selectedMessage) => selectedMessage.id);
 
-    removeGroupOfMessagesFromStore(arrForwardIds, name);
+    removeGroupOfMessagesFromStore(arrSelectedIds, name);
     resetSelectedMessages();
     console.log('(removeMessages) before messageStateIsEmpty');
     messageStateIsEmpty();
@@ -106,6 +131,30 @@ const ChatWindowHeader = ({
     console.log('(cancelMessages) before messageStateIsEmpty');
     messageStateIsEmpty();
   }
+
+  const editMessage = () => {
+
+    let messForEdit = currentlySelectedMessages[0]
+    console.log('EDIT MESSAGE IN HEADER!!! ID:' , messForEdit);
+    resetSelectedMessages();
+
+    updateToNewCurrentMessageId(messForEdit.id);
+    updateToNewCurrentMessage(messForEdit.value);
+    messageStateIsEdit();
+  }
+
+  // const edit = (message) => {
+  //   return (e) => {
+  //     resetSelectedMessages();
+
+  //     updateToNewCurrentMessageId(message.id);
+  //     updateToNewCurrentMessage(message.value);
+  //     messageStateIsEdit();
+  //     hideSettings();
+
+  //     /// нужно ли сменить статус на EMPTY ?? 
+  //   }
+  // }
 
   let objUserWithMess = arrUsers.filter((elem) => elem.name === currentUser)[0];
   let avatarSrc = objUserWithMess !== undefined ? objUserWithMess.src : '';
@@ -143,6 +192,7 @@ const ChatWindowHeader = ({
       />
 
       <div className={`group-buttons`}>
+        <IconButtonWithStore src={edit} name='edit' onClick={editMessage}/>
         <IconButtonWithStore src={left} name='left' onClick={replyMessages}/>
         <IconButtonWithStore src={bin} name='bin' onClick={removeMessages}/>
         <IconButtonWithStore src={right} name='right' onClick={forwardMessages}/>
