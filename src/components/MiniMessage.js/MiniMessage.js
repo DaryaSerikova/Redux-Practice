@@ -1,5 +1,8 @@
+// import IconButtonWithStore from '../../containers/IconButtonWithStore';
 import { getCorrectFormOfWord } from "../../utils/getCorrectFormOfWord";
 import { getTruncatedValue } from "../../utils/getTruncatedValue";
+// import cross from '../../assets/cross-in-circle_blue32.png';
+
 
 
 
@@ -17,6 +20,9 @@ const MiniMessage = ({ messageState, currentlySelectedMessages }) => {
   // let correctFormOfWord = getCorrectFormOfWord(currentlySelectedMessages, 'ru');
   let correctFormOfWord = getCorrectFormOfWord(currentlySelectedMessages, 'en'); //'сообщений'
 
+  // const cancelForward = () => {
+  //   console.log('ГАЛЯ, У НАС ОТМЕНА')
+  // }
 
   const MiniReplyMessage = () => {
     return (
@@ -41,6 +47,7 @@ const MiniMessage = ({ messageState, currentlySelectedMessages }) => {
   const MiniForwardedMessage = () => {
     return (
       <div className={`mini-reply-or-forwarded-messages ${messageState === 'forward' ? '' : "hide"}`}>
+      {/* <IconButtonWithStore src={cross} name='cross' onClick={cancelForward}/> */}
         <div className='forwarded-messages-info'>
           <div className='forwarded-messages-item-is-amount'>{currentlySelectedMessages.length}</div>
           <div className='forwarded-messages-item-is-message'>

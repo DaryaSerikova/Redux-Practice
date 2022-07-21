@@ -78,6 +78,7 @@ export const Users = ({
               { user }
             </div>
             {<div className='user-message'>{(curLastSentMessIsExist) ? curLastSentMess : ''}</div>}
+
           </div>
 
         </div>

@@ -1,21 +1,14 @@
 import { useRef, useEffect } from 'react';
 import IconButtonWithStore from '../../containers/IconButtonWithStore';
-// import editCross from '../../assets/cross-mark32.png';
-// import editCross from '../../assets/cross_blue32.png';
+import TextareaAutosize from 'react-textarea-autosize';
+
 import editCross from '../../assets/cross-in-circle_blue32.png';
-
-
-
-// import editCheckmark from '../../assets/check-mark-edit.png';
-// import editCheckmark from '../../assets/checkmark_blue32.png';
 import editCheckmark from '../../assets/checkmark-edit_blue32.png';
 
+import classnames from 'classnames';
 
-
-import plane from '../../assets/paper-plane64.png';
 import './Panel.css';
 
-import TextareaAutosize from 'react-textarea-autosize';
 
 
 const Panel = ({ 
@@ -149,7 +142,9 @@ const Panel = ({
     <form ref={formEl} className='panel' onSubmit={onSubmit}>
 
       {<div className='edit-group'>
-        <span className={`editing-message ${ (messageState !== 'edit') && 'hideOpacity' }`}>Editing a message</span>
+        {/* <span className={`editing-message ${ (messageState !== 'edit') && 'hideOpacity' }`}>Editing a message</span> */}
+        <span className={classnames('editing-message', {'hideOpacity': messageState !== 'edit'})}>Editing a message</span>
+        
         <div className={`${(messageState !== 'edit')&&'hide'} cross`} onClick={cancelEdit}>
           <img 
             className={`edit-cross`}

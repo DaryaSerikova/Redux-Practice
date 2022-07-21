@@ -1,35 +1,16 @@
 import React, { useEffect } from 'react';
 import IconButtonWithStore from '../../containers/IconButtonWithStore';
 
-// import search from '../../assets/icon32.png';
+
 import search from '../../assets/search_blue32.png';
-
-// import right from '../../assets/right32.png';
 import right from '../../assets/right_blue32.png';
-
-// import left from '../../assets/left32.png';
 import left from '../../assets/left_blue32.png';
-
-// import bin from '../../assets/bin32.png';
-// import bin from '../../assets/bin_blue32.png';
-// import bin from '../../assets/delete_blue32.png';
-// import bin from '../../assets/bin-delete_blue32.png';
 import bin from '../../assets/bin_blue32.png';
-
-
-
-
-
-// import cross from '../../assets/cross-mark32.png';
-// import cross from '../../assets/cross_blue32.png';
 import cross from '../../assets/cross-in-circle_blue32.png';
-
 import edit from '../../assets/edit_blue32.png';
 
-
-
-// import DanielHardman from '../../assets/Daniel_Hardman.jpg';
 import {arrUsers} from '../Users/ArrUsers.js';
+import classnames from 'classnames';
 
 
 
@@ -143,18 +124,7 @@ const ChatWindowHeader = ({
     messageStateIsEdit();
   }
 
-  // const edit = (message) => {
-  //   return (e) => {
-  //     resetSelectedMessages();
 
-  //     updateToNewCurrentMessageId(message.id);
-  //     updateToNewCurrentMessage(message.value);
-  //     messageStateIsEdit();
-  //     hideSettings();
-
-  //     /// нужно ли сменить статус на EMPTY ?? 
-  //   }
-  // }
 
   let objUserWithMess = arrUsers.filter((elem) => elem.name === currentUser)[0];
   let avatarSrc = objUserWithMess !== undefined ? objUserWithMess.src : '';
@@ -166,18 +136,28 @@ const ChatWindowHeader = ({
         
       <div className={`${currentlySelectedMessages.length === 0 ? 'hide' : 'cancel-group'}`}>
         {<IconButtonWithStore src={cross} name='cross' onClick={cancelSelectedMessages}/>}
-        <div className={`selected-messages-amount ${messageState !== 'select' ? 'hide' : ''}`}>{currentlySelectedMessages.length}</div>
+        
+        {/* <div className={`selected-messages-amount ${messageState !== 'select' ? 'hide' : ''}`}>{currentlySelectedMessages.length}</div> */}
+        <div className={classnames('selected-messages-amount', {'hide': messageState !== 'select'})}>{currentlySelectedMessages.length}</div>
       </div>
       
+      {/* {Boolean(toggleMessageSearching) && 
+      <div className={`user-with-avatar ${(!currentUser) ? 'hide' : ''}`}> */}
       {Boolean(toggleMessageSearching) && 
-      <div className={`user-with-avatar ${(!currentUser) ? 'hide' : ''}`}>
+      <div className={ classnames('user-with-avatar', { 'hide': !currentUser} )}>
+
         <div className={`no-avatar avatar avatar-header${(!currentUser) ? 'hide' : ''} ${!(currentlySelectedMessages.length === 0) && 'hide'}`}>
+        {/* <div className={classnames('no-avatar', 'avatar', 'avatar-header', {'hide': !currentUser} `${!(currentlySelectedMessages.length === 0) && 'hide'}`)}> */}
           <img
             src={`${avatarSrc}`}
           />
         </div>
 
-        <div className={`current-user ${!(messageState !== 'select') ? 'hide' : ''}`}>
+        {/* <div className={`current-user ${!(messageState !== 'select') ? 'hide' : ''}`}> */}
+        {/* <div className={classnames('current-user', {'hide': !(messageState !== 'select')})}> */}
+        <div className={classnames('current-user', {'hide': messageState === 'select'})}>
+
+
           {currentUser}
         </div>          
       </div>

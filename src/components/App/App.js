@@ -7,6 +7,13 @@ import './App.css';
 
 const App = ({ toggleSettings, hideSettings }) => {
   
+  let heightWindow = window.screen.height;
+  let availHeightWindow = window.screen.availHeight;
+  
+  console.log(' &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& heightWindow', heightWindow);
+  console.log(' %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% availHeightWindow', availHeightWindow);
+
+
   const onClick = (e) => {
     if (toggleSettings !== 'hide') {
       hideSettings();
