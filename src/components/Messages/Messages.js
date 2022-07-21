@@ -7,8 +7,11 @@ import ForwardedMessages from "../ForwardedMessages/ForwardedMessages";
 import { getIsSelect } from "../../utils/getIsSelect";
 import { getMessageType } from "../../utils/getMessageType";
 
-// import checkmark from '../../assets/checkmark_blue32.png';
+import classnames from 'classnames';
+// import { wrapperMessage } from "./MessagesClassnames";
+import { checkmarkIcon, wrapperCircle } from "./MessagesClassnames";
 import checkmark from '../../assets/checkmark-edit_blue32.png';
+
 
 import './Messages.css';
 // import { animationStateIsEnd } from "../../redux/actions/actions";
@@ -170,32 +173,29 @@ export const Messages = ({
     let oneMessage = ((currentlySelectedMessages !== undefined) && (currentlySelectedMessages !== [])) ? currentlySelectedMessages[0] : '';
     let currentUserWithSelectedMessages = (oneMessage !== undefined) ? oneMessage.name : '';
 
-    // let curSelectedMess = ((currentlySelectedMessages !== undefined) && (currentlySelectedMessages !== [])) ? currentlySelectedMessages[0] : '';
-
-    // console.log('oneMessage', oneMessage);
-    // console.log('currentUserWithSelectedMessages', currentUserWithSelectedMessages)
-    // if (currentlySelectedMessages !== undefined)
-
 
 
     return (
       <>
-        <div className={`wrapper-message ${(messageState === 'select') ? 'space-between' : ''} ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') ? 'hide' : toggleSelectedState }-choised-message`} onClick={onChoose(message)}>
-          <div className={`wrapper-checkmark-icon ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') ? 'hide' : toggleSelectedState}-checkmark-icon`}>
-            <img
-            className={`checkmark-icon ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') ? 'hide' : toggleSelectedState}-checkmark-icon`}
-            // className={`checkmark-icon ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') && (currentUserWithSelectedMessages !== currentUser) ? 'hide' : toggleSelectedState}-checkmark-icon`}
+        {/* <div className={`wrapper-message ${(messageState === 'select') ? 'space-between' : ''}
+         ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') ? 'hide' : toggleSelectedState }-choised-message`} onClick={onChoose(message)}> */}
+        <div 
+          className={`wrapper-message ${(messageState === 'select') ? 'space-between' : ''}  ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') ? 'hide' : toggleSelectedState }-choised-message`}
+          onClick={onChoose(message)}>
 
+          {/* <div className={`wrapper-checkmark-icon ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') ? 'hide' : toggleSelectedState}-checkmark-icon`}> */}
+          <div className={`wrapper-checkmark-icon ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') ? 'hide' : toggleSelectedState}-checkmark-icon`}>
+          
+            <img
+            // className={`checkmark-icon ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') ? 'hide' : toggleSelectedState}-checkmark-icon`}
+            className={checkmarkIcon(messageState, isSelect, toggleSelectedState)}
             alt="checkmark-icon"
             src={checkmark}
             />
+
           </div>
-          {/* {console.log('animationState:', animationState)} */}
-          {/* {console.log(currentlySelectedMessages.length < 2)}  */}
 
-          <div className={`wrapper-circle circle-animation-${(animationState === 'start') ? animationState : ''} ${(messageState === 'select') && 'space-between'} ${(!isSelect && (messageState === 'select')) ? '' : 'hide'}`}>
-          {/* <div className={`${(messageState === 'select') && 'space-between'} ${(!isSelect && (messageState === 'select')) ? '' : 'hide'}`}> */}
-
+          <div className={wrapperCircle(animationState, messageState, isSelect)}>
             <div className="circle-instead-checkmark"></div>
           </div>
           
