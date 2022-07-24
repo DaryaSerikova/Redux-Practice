@@ -9,7 +9,7 @@ import { getMessageType } from "../../utils/getMessageType";
 
 import classnames from 'classnames';
 // import { wrapperMessage } from "./MessagesClassnames";
-import { checkmarkIcon, wrapperCircle } from "./MessagesClassnames";
+import { wrapperMessage, checkmarkIcon, wrapperCircle } from "./MessagesClassnames";
 import checkmark from '../../assets/checkmark-edit_blue32.png';
 
 
@@ -177,13 +177,11 @@ export const Messages = ({
 
     return (
       <>
-        {/* <div className={`wrapper-message ${(messageState === 'select') ? 'space-between' : ''}
-         ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') ? 'hide' : toggleSelectedState }-choised-message`} onClick={onChoose(message)}> */}
         <div 
-          className={`wrapper-message ${(messageState === 'select') ? 'space-between' : ''}  ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') ? 'hide' : toggleSelectedState }-choised-message`}
+          // className={`wrapper-message ${(messageState === 'select') ? 'space-between' : ''} ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') ? 'hide' : toggleSelectedState }-choised-message`}
+          className={wrapperMessage(messageState, isSelect, toggleSelectedState)}
           onClick={onChoose(message)}>
 
-          {/* <div className={`wrapper-checkmark-icon ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') ? 'hide' : toggleSelectedState}-checkmark-icon`}> */}
           <div className={`wrapper-checkmark-icon ${(!isSelect) ? 'hide' : (messageState==='reply'||messageState==='forward') ? 'hide' : toggleSelectedState}-checkmark-icon`}>
           
             <img

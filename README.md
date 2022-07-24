@@ -1,14 +1,16 @@
 # Chat
-
-
-### `Stack:`
-React.js, Redux
-
-### `Possibilities`
 This chat can send a message, edit and remove a sent message.
-Also chat has a sidebar with list of users. You can select any user and send message him.
+Also chat has a sidebar with list of users with last sent messages. You can select any user and send message him.
 User and message searchs are exist.
 You can click on message and you can see settings: edit, select or remove message.
+Editing message you can cancel this action or confirm.
+
+### `Stack:`
+JavaScript + React.js + Redux
+Chat is done using the library "classnames"
+
+### `Possibilities list`
+
 <ul>
     <li>- [x] Edit one message</li>
     <li>- [x] Remove message</li>
@@ -22,7 +24,10 @@ You can click on message and you can see settings: edit, select or remove messag
     <li>- [ ] Forward a reply message</li>
     <li>- [ ] Reply to forwarded messages</li>
     <li>- [x] Autoscroll when adding a new message</li>
+    <li>- [x] To add classnames for styles</li>
+    <li>- [ ] To add Eslint</li>
     <li>- [ ] Down arrow if there are messages below?</li>
+    <li>- [ ] To add spinner when loading message and fake delay for the asynchronous action</li>
     <li>- [ ] Redo the panel in a modern way (the height of the textarea increases with the size of the message)</li>
     <li>- [ ] Mobile version</li>
 

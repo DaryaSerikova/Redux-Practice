@@ -29,11 +29,7 @@ const ChatWindow = ({
     return ref;
   }
 
-  // const [messages , setMessages] = useState([])
-  // const ref = useChatScroll(messages); // не переданы сообщения. Нужно придумать, как их предать, может тогда заработает
-
-  const ref = useChatScroll(searchedMessages); // не переданы сообщения. Нужно придумать, как их предать, может тогда заработает
-
+  const ref = useChatScroll(searchedMessages); // Решено:не переданы сообщения. Нужно придумать, как их предать, может тогда заработает
 
 
   const textIfStoreIsEmpty = <div className='wrapper-personal-store-is-empty'>
@@ -42,14 +38,15 @@ const ChatWindow = ({
   </div>;
 
 
-
-
   return (
     <>
       <ChatWindowHeaderWithStore />
       
       {/* <div className='scroll-window' style={(messageState === 'forward') ? {height: 235} : (messageState === 'reply') ? {height: 251} : {height: 313}}> */}
-      <div className='scroll-window' ref={ref} style={(messageState === 'forward') ? {height: 401} : (messageState === 'reply') ? {height: 418} : {height: 480}}>
+      <div 
+        className='scroll-window' 
+        ref={ref} 
+        style={(messageState === 'forward') ? {height: 401} : (messageState === 'reply') ? {height: 418} : {height: 480}}>
 
         <div className='not-exist'> 
 

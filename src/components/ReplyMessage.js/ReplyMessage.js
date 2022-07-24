@@ -1,6 +1,4 @@
 import { getDateConverting } from '../../utils/getDateConverting';
-// import MessageWithVerticalLine from '../MessageWithVerticalLine/MessageWithVerticalLine';
-// import MessageWithVerticalLineWithStore from '../../containers/MessageWithVerticalLineWithStore';
 
 import './ReplyMessage.css';
 import '../Message/Message.css';
@@ -8,7 +6,6 @@ import '../Message/Message.css';
 
 
 const ReplyMessage = ({ id, value, onClick, time, edit, toggleSelectedState, isSelect, replyMessage, messageState,
-  // forwardedMessage 
 }) => { //messageGeneralProps, forwardedMessage
 
   const messEdited = edit ? '(edited)' : '';
@@ -52,15 +49,6 @@ const ReplyMessage = ({ id, value, onClick, time, edit, toggleSelectedState, isS
       {value}
 
       <MessageWithVerticalLine replyMessage={replyMessage}/>
-
-
-      {/* <MessageWithVerticalLine replyOrForwardedMessage={replyMessage} convertedDate={convertedDate} /> */}
-      {/* <MessageWithVerticalLineWithStore replyOrForwardedMessage={replyMessage} convertedDate={convertedDate} /> */}
-
-
-
-      {/* <MessageWithVerticalLine replyOrForwardedMessage={replyMessage}/> */}
-
 
       {<div className='message-time'>{time}{messEdited}</div>}
     </div>

@@ -1,6 +1,4 @@
 import { getDateConverting } from "../../utils/getDateConverting";
-// import ReplyMessage from "../ReplyMessage.js/ReplyMessage";
-// import ForwardedOrReplyMessages from "../MessageWithVerticalLine/MessageWithVerticalLine";
 
 
 
@@ -68,9 +66,6 @@ const ForwardedMessage = ({forwardedMessages, toggleSelectedState, WhiteOrGrayBa
   
           {forwardedMessage.value}
           
-           {/* {(forwardedMessage.messages !== undefined) ? <MessWithVeticalLine forwardedMessage={forwardedMessage.messages} convertedDate={subConvertedDate}/> : ''} */}
-           {/* {(forwardedMessage.messages !== undefined) ? <MessWithVeticalLine forwardedMessage={forwardedMessage.messages} convertedDate={convertedDate}/> : ''} */}
-          
           {(forwardedMessage.messages !== undefined) ? subForwardedMess : ''}
   
           </div>
@@ -116,10 +111,7 @@ const ForwardedMessages = ({ id, value, onClick, time, edit, toggleSelectedState
         <div className='value-forward-messages'>{value}</div>
 
         <ForwardedMessage 
-        /* <ForwardedOrReplyMessages  */
-
           forwardedMessages={forwardedMessages} 
-          // forwardedOrReplyMessages={forwardedMessages}
           toggleSelectedState={toggleSelectedState} 
           isSelect={isSelect} 
           WhiteOrGrayBackground={WhiteOrGrayBackground}/>

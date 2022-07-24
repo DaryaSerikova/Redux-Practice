@@ -11,6 +11,7 @@ import edit from '../../assets/edit_blue32.png';
 
 import {arrUsers} from '../Users/ArrUsers.js';
 import classnames from 'classnames';
+import { cancelGroup, selectedMessagesAmount } from './cnChatWindowHeader';
 
 
 
@@ -134,15 +135,11 @@ const ChatWindowHeader = ({
   return (
     <div className='window-header'>
         
-      <div className={`${currentlySelectedMessages.length === 0 ? 'hide' : 'cancel-group'}`}>
+      <div className={cancelGroup(currentlySelectedMessages)}>
         {<IconButtonWithStore src={cross} name='cross' onClick={cancelSelectedMessages}/>}
-        
-        {/* <div className={`selected-messages-amount ${messageState !== 'select' ? 'hide' : ''}`}>{currentlySelectedMessages.length}</div> */}
-        <div className={classnames('selected-messages-amount', {'hide': messageState !== 'select'})}>{currentlySelectedMessages.length}</div>
+        <div className={selectedMessagesAmount(messageState)}>{currentlySelectedMessages.length}</div>
       </div>
       
-      {/* {Boolean(toggleMessageSearching) && 
-      <div className={`user-with-avatar ${(!currentUser) ? 'hide' : ''}`}> */}
       {Boolean(toggleMessageSearching) && 
       <div className={ classnames('user-with-avatar', { 'hide': !currentUser} )}>
 
@@ -153,11 +150,8 @@ const ChatWindowHeader = ({
           />
         </div>
 
-        {/* <div className={`current-user ${!(messageState !== 'select') ? 'hide' : ''}`}> */}
         {/* <div className={classnames('current-user', {'hide': !(messageState !== 'select')})}> */}
         <div className={classnames('current-user', {'hide': messageState === 'select'})}>
-
-
           {currentUser}
         </div>          
       </div>

@@ -1,4 +1,6 @@
 import './Message.css';
+import classnames from 'classnames';
+import { cnMessage } from './MessageClassname';
 
 
 
@@ -10,7 +12,14 @@ const Message = ({id, value, onClick, time, edit, toggleSelectedState, isSelect,
     return (
         <div 
             id={id} 
-            className={`message ${(isSelect && (messageState!=='reply'&&messageState!=='forward')) ? toggleSelectedState : 'hide'}-message`}
+            // className={`message ${(isSelect && (messageState!=='reply'&&messageState!=='forward')) ? toggleSelectedState : 'hide'}-message`}
+            // className={classnames(
+            //     'message', {
+            //         [`${toggleSelectedState}-message`]: (isSelect && (messageState!=='reply'&&messageState!=='forward')),
+            //         'hide-message': !(isSelect && (messageState!=='reply'&&messageState!=='forward'))
+            //     }
+            // )}
+            className={cnMessage(toggleSelectedState, isSelect, messageState)}
 
             value={value} 
             onClick={onClick}

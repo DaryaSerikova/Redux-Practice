@@ -1,7 +1,6 @@
-// import IconButtonWithStore from '../../containers/IconButtonWithStore';
 import { getCorrectFormOfWord } from "../../utils/getCorrectFormOfWord";
 import { getTruncatedValue } from "../../utils/getTruncatedValue";
-// import cross from '../../assets/cross-in-circle_blue32.png';
+import classnames from 'classnames';
 
 
 
@@ -46,7 +45,8 @@ const MiniMessage = ({ messageState, currentlySelectedMessages }) => {
 
   const MiniForwardedMessage = () => {
     return (
-      <div className={`mini-reply-or-forwarded-messages ${messageState === 'forward' ? '' : "hide"}`}>
+      <div className={classnames('mini-reply-or-forwarded-messages', {'hide': messageState !== 'forward'})}>
+
       {/* <IconButtonWithStore src={cross} name='cross' onClick={cancelForward}/> */}
         <div className='forwarded-messages-info'>
           <div className='forwarded-messages-item-is-amount'>{currentlySelectedMessages.length}</div>
