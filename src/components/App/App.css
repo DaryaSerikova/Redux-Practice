@@ -1,6 +1,7 @@
 .App {
   background-color: rgb(255, 255, 255);
-  height: 1000px;
+  /* height: 1000px; */
+  height: 100%;
 
   display: flex;
   justify-content: center;
@@ -16,9 +17,51 @@
 
 }
 
-@media (max-width: 650px) {
+/* @media (max-width: 650px) {
 
   .wrapper-chat-window {
     width: 70%;
+  }
+} */
+
+@media (min-width: 810px) and (max-width: 900px) {
+  .wrapper-chat-window {
+    width: 55%;
+  }
+}
+
+@media (min-width: 740px) and (max-width: 810px) {
+  .wrapper-chat-window {
+    width: 60%;
+  }
+}
+
+@media (min-width: 650px) and (max-width: 740px) {
+  .wrapper-chat-window {
+    width: 67%;
+  }
+}
+
+@media (min-width: 550px) and (max-width: 650px) {
+  .wrapper-chat-window {
+    width: 77%;
+  }
+}
+
+@media (min-width: 450px) and (max-width: 550px) {
+  .wrapper-chat-window {
+    width: 89%;
+  }
+}
+
+@media (max-width: 450px) {
+
+  .wrapper-chat-window {
+    width: 100%;
+    min-width: 255px;
+  }
+
+  .App {
+    align-items: flex-start;
   }
 }

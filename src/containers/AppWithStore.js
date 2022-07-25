@@ -9,6 +9,9 @@ import {
 const mapStateToProps = (state) => {
   return {
     toggleSettings: state.toggleSettings,
+    allStore: state.allStore,
+    currentUser: state.currentUser,
+    mobileState: state.mobileState,
   }
 }
 

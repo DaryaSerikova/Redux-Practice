@@ -6,6 +6,8 @@ const IconButton = ({ src, name, onClick, currentlySelectedMessages, currentUser
 
   const getHide = (name) => {
     switch(name) {
+      case `back`:
+        return `${messageState === 'select' ? 'hide' : ''}`
       case `left`:
       case `edit`:
         return `${currentlySelectedMessages.length !== 1 && 'hide'} ${messageState!=='select' ? 'hide' : ''}`;

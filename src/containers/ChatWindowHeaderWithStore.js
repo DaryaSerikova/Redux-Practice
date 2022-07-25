@@ -11,6 +11,9 @@ import {
   UPDATE_TO_NEW_CURRENT_MESSAGE_ID,
   UPDATE_TO_NEW_CURRENT_MESSAGE,
 
+  MOBILE_STATE_IS_USERS,
+  MOBILE_STATE_IS_MESSAGES,
+
 } from '../redux/actions/actions';
 
 import {
@@ -122,7 +125,17 @@ const mapDispatchToProps = (dispatch) => {
       })
     },
 
-
+    mobileStateIsUsers: () => {
+      dispatch({
+        type: MOBILE_STATE_IS_USERS,
+      })
+    },
+    
+    mobileStateIsMessages: () => {
+      dispatch({
+        type: MOBILE_STATE_IS_MESSAGES,
+      })
+    },
 
     // removeMessageFromStore: (id, name) => {
     //   dispatch({

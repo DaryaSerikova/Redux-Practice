@@ -8,6 +8,8 @@ import left from '../../assets/left_blue32.png';
 import bin from '../../assets/bin_blue32.png';
 import cross from '../../assets/cross-in-circle_blue32.png';
 import edit from '../../assets/edit_blue32.png';
+import back from '../../assets/back_blue32.png';
+
 
 import {arrUsers} from '../Users/ArrUsers.js';
 import classnames from 'classnames';
@@ -36,6 +38,8 @@ const ChatWindowHeader = ({
   animationStateIsStart,
   updateToNewCurrentMessage,
   updateToNewCurrentMessageId,
+  mobileStateIsUsers,
+  mobileStateIsMessages,
 
 }) => {
 
@@ -47,6 +51,7 @@ const ChatWindowHeader = ({
     updateSearchedMessages(null); ///////////////////////////////////////////////////////
   }, []);
 
+  let screenWidth = document.body.clientWidth;
 
 
   const onChangeSearchMessage = (e) => {
@@ -125,6 +130,11 @@ const ChatWindowHeader = ({
     messageStateIsEdit();
   }
 
+  const backToUsers = () => {
+    console.log('BACK TO USERS');
+    mobileStateIsUsers();
+  }
+
 
 
   let objUserWithMess = arrUsers.filter((elem) => elem.name === currentUser)[0];
@@ -142,6 +152,8 @@ const ChatWindowHeader = ({
       
       {Boolean(toggleMessageSearching) && 
       <div className={ classnames('user-with-avatar', { 'hide': !currentUser} )}>
+
+        {(screenWidth < 900)&&<IconButtonWithStore src={back} name='back' onClick={backToUsers}/>}
 
         <div className={`no-avatar avatar avatar-header${(!currentUser) ? 'hide' : ''} ${!(currentlySelectedMessages.length === 0) && 'hide'}`}>
         {/* <div className={classnames('no-avatar', 'avatar', 'avatar-header', {'hide': !currentUser} `${!(currentlySelectedMessages.length === 0) && 'hide'}`)}> */}

@@ -205,3 +205,12 @@
   /* padding-bottom: ; */
 }
 
+@media (max-width: 900px) {
+
+  .scroll-window {
+    /* height: 480px; */
+    width: 100%;
+  }
+}
+
+

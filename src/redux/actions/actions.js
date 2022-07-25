@@ -22,9 +22,10 @@ export const ANIMATION_STATE_IS_START = 'ANIMATION_STATE_IS_START';
 export const ANIMATION_STATE_IS_END = 'ANIMATION_STATE_IS_END';
 export const ANIMATION_STATE_IS_EMPTY = 'ANIMATION_STATE_IS_EMPTY';
 
-
-
 export const ADD_LAST_SENT_MESSAGE = 'ADD_LAST_SENT_MESSAGE';
+
+export const MOBILE_STATE_IS_USERS = 'MOBILE_STATE_IS_USERS';
+export const MOBILE_STATE_IS_MESSAGES = 'MOBILE_STATE_IS_MESSAGES';
 
 
 
@@ -119,11 +120,17 @@ export const animationStateIsEmpty = () => ({
 // ANIMATION_STATE_IS_EMPTY,
 
 
-
-
-
 export const addLastSentMessage = (name, message) => ({
   type: ADD_LAST_SENT_MESSAGE,
   name,
   message,
 })
+
+
+export const mobileStateIsUsers = () => ({
+  type: MOBILE_STATE_IS_USERS,
+});
+
+export const mobileStateIsMessages = () => ({
+  type: MOBILE_STATE_IS_MESSAGES,
+});

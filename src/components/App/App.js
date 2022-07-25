@@ -5,25 +5,33 @@ import './App.css';
 
 
 
-const App = ({ toggleSettings, hideSettings }) => {
+const App = ({ toggleSettings, hideSettings, allStore, currentUser, mobileState }) => {
   
-  let heightWindow = window.screen.height;
-  let availHeightWindow = window.screen.availHeight;
+  // let heightWindow = window.screen.height;
+  // let availHeightWindow = window.screen.availHeight;
   
-  console.log(' &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& heightWindow', heightWindow);
-  console.log(' %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% availHeightWindow', availHeightWindow);
+  // console.log(' &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& heightWindow', heightWindow);
+  // console.log(' %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% availHeightWindow', availHeightWindow);
+  console.log(' !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! document.body.clientHeight', document.body.clientHeight);
+  console.log(' !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! document.body.clientWidth', document.body.clientWidth);
+  
+  let screenWidth = document.body.clientWidth;
 
+  // (currentUser !== '' || allStore[`${currentUser}`] !== undefined)
 
   const onClick = (e) => {
     if (toggleSettings !== 'hide') {
       hideSettings();
     }
   }
+//allStore[`${currentUser}`].length === 0)
+  let personalStoreIsExist = (currentUser !== '' || allStore[`${currentUser}`] !== undefined)
+  // let personalStoreIsExist = allStore[`${currentUser}`]
 
   return (
     <div className="App" onClick={onClick}>
-      <SidebarWithStore/>
-      <div className='wrapper-chat-window'>
+      {(mobileState === 'users') && <SidebarWithStore/>}
+      <div className={`wrapper-chat-window ${screenWidth > 900 ? '': mobileState === 'messages' ? '' : 'hide'}`}>
         <ChatWindowWithStore/>
         <PanelWithStore/>
       </div>

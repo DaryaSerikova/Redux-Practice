@@ -6,10 +6,9 @@ import {
   updateSearchedMessages,
   hideMessageSearching,
   // addLastSentMessage,
-
-
   // resetSelectedMessages,
 
+  mobileStateIsMessages,
 
  } from "../redux/actions/actions";
 
@@ -54,6 +53,10 @@ const mapDispatchToProps = (dispatch) => {
     },
     resetSelectedMessages: () => {
       dispatch(resetSelectedMessages())
+    },
+
+    mobileStateIsMessages: () => {
+      dispatch(mobileStateIsMessages())
     },
 
   }

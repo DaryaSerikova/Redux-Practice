@@ -16,9 +16,11 @@ export const Users = ({
   messageStateIsEmpty,
   resetSelectedMessages,
   currentlySelectedMessages,
+  mobileStateIsMessages,
 }) => {
 
   let userId = -1;
+  let screenWidth = document.body.clientWidth;
 
   const users = currentUsers.map((elem) => {
     let user = elem.name;
@@ -26,7 +28,8 @@ export const Users = ({
 
 
     const onClick = (e) => {
-          
+
+      if (screenWidth <= 900) mobileStateIsMessages();
       addNewUserToStore(user);
       updateCurrentUser(user);
       if (messageState === "reply" || (currentlySelectedMessages.length!==0 && messageState === "create")) { // ПОЧЕМУ нет Forward

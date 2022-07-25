@@ -15,8 +15,9 @@ import { users } from "./others/users";
 import { messages } from "./others/messages";
 import { currentUnusualMessage } from "./currentSmth/currentUnusualMessage";
 import { animationState } from "./main/animationState";
-
 import { lastSentMessages } from "./others/lastSentMessages";
+import { mobileState } from "./main/mobileState";
+
 
 
 export default combineReducers({
@@ -34,6 +35,6 @@ export default combineReducers({
   toggleSelectedMessage,
   currentUnusualMessage,
   animationState,
-
   lastSentMessages,
+  mobileState,
 });
