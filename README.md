@@ -5,6 +5,8 @@ User and message searchs are exist.
 You can click on message and you can see settings: edit, select or remove message.
 Editing message you can cancel this action or confirm.
 
+![You can see how looks chat](/src/assets/chat_screenshot.png "It's chat")
+
 ### `Stack:`
 JavaScript + React.js + Redux
 Chat is done using the library "classnames"
@@ -29,7 +31,12 @@ Chat is done using the library "classnames"
     <li>- [ ] Down arrow if there are messages below?</li>
     <li>- [ ] To add spinner when loading message and fake delay for the asynchronous action</li>
     <li>- [ ] Redo the panel in a modern way (the height of the textarea increases with the size of the message)</li>
-    <li>- [ ] Mobile version</li>
+    <li>- [x] Mobile version</li>
+    <li>- [ ] To fix mobile version</li>
+    <li>- [ ] To do the right size of the chat</li>
+
+    
+
 
 </ul>
 
